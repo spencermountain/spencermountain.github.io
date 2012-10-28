@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  .block {
+    background-color:green;
+    width:2px;
+    height:90px;
+    margin:5px;
+    opacity:0.95;
+    position:absolute;
+    border-radius:5px;
+  }
+  #fun{
+    position:relative;
+    left:150px;
+    top:350px;
+    max-width:99%;
+    max-height:99%;
+    display:none;
+  }
+  #great{
+    position:absolute;
+    left:20%;
+    top:10%;
+    color:grey;
+    font-family: 'PT Sans', sans-serif;
+  }
+  </style>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="./transit.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div id="fun"></div>
+<div id="great">-does this water, like what's its story?<br/>
+
+</div>
+<div style="color:grey; font-size:22px;">there is usually a flaw..</div>
+
+  <script>
+  $(function() {
+
+    function moveit(el){
+       var t=Math.floor(Math.random()*3000)+2000+'ms'
+      var deg='15deg';
+
+      // if(Math.random()*2>1){
+      //   deg=reverseit(deg)
+      // }
+      // if(Math.random()*2>1){
+      //   x=reverseit(x)
+      // }
+      // if(Math.random()*2>1){
+      //   y=reverseit(y)
+      // }
+
+
+      $(el).transition({
+      //  x: x,
+        x:  45,
+        rotate: deg,
+        easing: 'in-out',
+        duration: t
+      }, function(){
+        $(this).transition({
+      //  x: reverseit(x),
+        x:  -45,//reverseit(y),
+        rotate: reverseit(deg),
+        easing: 'in-out',
+        duration: t
+      })
+        moveit(this)
+      });
+
+
+    }
+
+    var html='';
+    for(var i=0; i<=10; i++){
+      var l=Math.floor(Math.random()*100)
+      l=200;
+      var t=Math.floor(Math.random()*100)
+      html+='<div class="block" style="left:'+l+'px; top:'+t+'px;"></div>'
+    }
+    console.log(html)
+    $("#fun").html(html)
+
+    $('.block').each(function(){
+      moveit(this)
+    })
+
+    $("#fun").fadeIn('slow');
+
+function reverseit(p){
+  if(p[0]!="-"){return '-'+p}
+  else{
+    return p.substr(1,p.length)
+  }
+}
+  });
+
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33638558-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+
+</html>

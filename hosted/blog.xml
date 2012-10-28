@@ -1,0 +1,913 @@
+
+<title>Spencerhold</title>
+<link/>
+<title>http to unix shell</title>
+<link/>
+<title>responsive environment</title>
+<link/>
+<title>yes, yes, endfunction</title>
+<link/>
+<title>are we running out of pop songs?</title>
+<link/>
+<title>how does a tree work?</title>
+<link/>
+<title>bookmarklet to parse html tables</title>
+<link/>
+<title>categories</title>
+<link/>
+<title>everything is turing complete</title>
+<link/>
+<title>apollo quote</title>
+<link/>
+<title>html features I'd like</title>
+<link/>http://spencerwaterbed.com/blog water mountain Thu, 04 Aug 2011 18:00:56 +0000 en hourly 1 http://wordpress.org/?v=3.0.4  http://spencerwaterbed.com/blog/2011/08/http-to-unix-shell/ http://spencerwaterbed.com/blog/2011/08/http-to-unix-shell/#comments Thu, 04 Aug 2011 17:21:23 +0000 admin
+<!--[CDATA[-]]--> http://spencerwaterbed.com/blog/?p=325
+<!--[CDATA[the unix-developer philosophy is as follows: &#8220;Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.&#8221;[1] the web-developer philosophy is as follows: &#8220;Write programs with one api, restfully. Allow mashups. Write programs to handle http requests, because that [...]]]-->
+<!--[CDATA[<p-->the unix-developer philosophy is as follows:
+<blockquote>
+ <p>
+   “Write programs that do one thing and do it well.
+  <br/>
+   Write programs to work together.
+  <br/>
+   Write programs to handle text streams, because that is a universal interface.”
+  <a href="http://uzbl.org/">[1]</a>
+ </p>
+</blockquote>
+<p>the web-developer philosophy is as follows:</p>
+<blockquote>
+ <p>
+  “Write programs with one api, restfully.
+  <br/>
+   Allow mashups.
+  <br/>
+   Write programs to handle http requests, because that is a universal interface.”
+ </p>
+</blockquote>
+<p>
+ using
+ <a href="http://nodejs.org">nodejs</a>
+ , we can reach all the way from a http request, down to the unix shell, and back, essentially making thousands and thousands of programs compatible:
+</p>
+<blockquote>
+ <p>
+   var util = require(‘util’),
+  <br/>
+   spawn = require(‘child_process’).spawn;
+ </p>
+ <p>
+  function bash(command){
+  <br/>
+   spawn(command).stdout.on(‘data’, function (data) {
+  <br/>
+   console.log( data.toString());
+  <br/>
+   });
+  <br/>
+   }
+  <br/>
+   bash(‘whoami’);
+ </p>
+</blockquote>
+<p>
+ recieve an http request using
+ <a href="http://expressjs.com/">express</a>
+ , make one using the
+ <a href="https://github.com/mikeal/request">request module</a>
+</p> ]]> http://spencerwaterbed.com/blog/2011/08/http-to-unix-shell/feed/ 0   http://spencerwaterbed.com/blog/2011/01/story-telling-environment/ http://spencerwaterbed.com/blog/2011/01/story-telling-environment/#comments Sat, 29 Jan 2011 17:27:01 +0000 admin
+<!--[CDATA[-]]--> http://spencerwaterbed.com/blog/?p=319
+<!--[CDATA[if you&#8217;ve ever listened to truly randomly generated music, you know that arbitrary-random sucks. It&#8217;s worthless, patronising. what doesn&#8217;t suck though is a non-predictable system. here things are part of a story, though can&#8217;t be predicted. weather is nice because it is this sort of nice-random,  the variations we get from weather are meaningful, its [...]]]-->
+<!--[CDATA[<div class="wp-caption alignnone" style="width: 402px"-->
+<img width="392" alt="" src=" http://upload.wikimedia.org/wikipedia/commons/c/c0/Change_with_Ki.png" height="308" title="lkj"/>
+<p class="wp-caption-text">thermostats don't believe that weather is interesting</p>
+<p>
+ if you’ve ever listened to
+ <a href="http://music.princeton.edu/~dmitri/A1randomnotes.mp3">truly randomly generated music</a>
+ , you know that arbitrary-random sucks. It’s worthless, patronising.
+</p>
+<p>
+ what doesn’t suck though is a
+ <a href="http://www.youtube.com/watch?v=_eC14GonZnU">non-predictable system</a>
+ .
+ <br/>
+  here things are part of a story, though can’t be predicted.
+</p>
+<p>weather is nice because it is this sort of nice-random,  the variations we get from weather are meaningful, its part of our story from god.  it shouldn’t be ignored.</p>
+<p>so if it’s super-cold outside, it should be kind-of cold inside.</p>
+<p>if it’s dark, or low-pressure, or humid, you should feel it… just less.</p>
+<p>
+ a weather-responsive thermostat could be a
+ <a href="http://en.wikipedia.org/wiki/PID_controller">pid controller</a>
+  whose set-point is generated in proportion to input error.
+</p>
+<p>if i had self-confidence problems, i would patent it.</p> ]]> http://spencerwaterbed.com/blog/2011/01/story-telling-environment/feed/ 0    http://spencerwaterbed.com/blog/2010/12/resolution-of-sexual-arousal/ http://spencerwaterbed.com/blog/2010/12/resolution-of-sexual-arousal/#comments Sat, 11 Dec 2010 18:12:19 +0000 admin
+<!--[CDATA[-]]--> http://spencerwaterbed.com/blog/?p=297
+<!--[CDATA[Mariascript 2.01; persist text username = null; number randomseed = 0.43765; endpersist; # get user name before starting username = Text.get(&#8220;What is your first name?&#8221;); # seed the random number engine Number.seed(randomseed); # then create a new randomseed for the next session randomseed = (Number.random() + DateTime.minute()/60.0)/2.0; # Get the discrete levels of the sex [...]]]-->
+<!--[CDATA[<div class="wp-caption aligncenter" style="width: 269px"-->
+<a href="http://spencerwaterbed.com/blog/wp-content/uploads/2010/12/google_sunbather.jpg">
+ <img width="259" alt="" src="http://t3.gstatic.com/images?q=tbn:ANd9GcSeYxaIMjXkGOvIYpAJI0D510ZJzWZmw1QiBkzbsv4EP27y9nds" height="194" title="crack of cleavage"/>
+</a>
+<p class="wp-caption-text">(from crackorcleavage.com)</p>
+<p style="text-align: center;">
+ <div style="width: 247px" id="attachment_298" class="wp-caption aligncenter">
+  <a href="http://spencerwaterbed.com/blog/wp-content/uploads/2010/12/google_sunbather.jpg">
+   <img width="237" alt="" src="http://spencerwaterbed.com/blog/wp-content/uploads/2010/12/google_sunbather.jpg" height="232" title="google_sunbather" class="size-full wp-image-298"/>
+  </a>
+  <p class="wp-caption-text">from space</p>
+ </div>
+ <blockquote>
+  <p>
+   <a href="http://mariascript.tripod.com/index.html">Mariascript 2.01;</a>
+   <br/>
+   <span style="color: #808080;">
+    persist
+    <br/>
+     text username = null;
+    <br/>
+     number randomseed = 0.43765; endpersist;
+    <br/>
+     # get user name before starting
+    <br/>
+     username = Text.get(“What is your first name?”);
+    <br/>
+     # seed the random number engine
+    <br/>
+     Number.seed(randomseed);
+    <br/>
+     # then create a new randomseed for the next session
+    <br/>
+     randomseed = (Number.random() + DateTime.minute()/60.0)/2.0;
+    <br/>
+     # Get the discrete levels of the sex organs (set by the hardware)
+    <br/>
+     # Returns the number of levels. For a simple switch the level
+    <br/>
+     # is 2 (level can be either 0 or 1). For advanced models the number of sensation levels
+    <br/>
+     # can be much higher (depends upon hardware and to some extent software)
+    <br/>
+     # A level less than 2 means sensitivity data is NOT available. 1 is subtracted
+    <br/>
+     # from the number to provide a correct divisor
+    <br/>
+     number majo_sense = vulva.sensitivity(labiaMajora) – 1;
+    <br/>
+     number clit_sense = vulva.sensitivity(clitoris) – 1;
+    <br/>
+     number intr_sense = vagina.sensitivity(introitus) – 1;
+    <br/>
+     number spon_sense = vagina.sensitivity(urethralSponge) – 1;
+    <br/>
+     number deep_sense = vagina.sensitivity(deep) – 1;
+    <br/>
+     # when the instant stimulation reaches this level then
+    <br/>
+     # orgasm is triggered; orgasm triggering depends also upon
+    <br/>
+     # time and whether or not the vagina is penetrated to full
+    <br/>
+     # depth vagina.deep is used to sense penetration
+    <br/>
+     number orgasm_trip = 0.42;
+   </span>
+   <span style="color: #808080;">
+    # the instantaneous condition of the nervous system
+    <br/>
+     # an average over the last few stimulations weighed with
+    <br/>
+     # the most recent stimulation being the most important
+   </span>
+  </p>
+  <p>
+   <span style="color: #808080;">
+    number vulva_instant = 0.0;
+    <br/>
+     number vagina_instant = 0.0;
+   </span>
+  </p>
+  <p>
+   <span style="color: #808080;">
+    # count the number of platform or introitus changes
+    <br/>
+     # so waveforms are not being reset
+    <br/>
+     # every time an event occurs
+   </span>
+  </p>
+  <p>
+   <span style="color: #808080;">
+    number platform_changes = 0.0;
+    <br/>
+     number introitus_changes = 0.0;
+   </span>
+  </p>
+  <p>
+   <span style="color: #808080;">
+    # the variable below records when the session actually began (first action took place).
+    <br/>
+     # The program clock clock starts as soon as the program is started
+    <br/>
+     number session_begin = -2.0;
+   </span>
+  </p>
+  <p>
+   <span style="color: #808080;">
+    # on average the female orgasm occurs approximately 15 minutes after sexual
+    <br/>
+     # stimulation begins. The variable below is the minimum amount of time (set at random)
+    <br/>
+     # between 8 and 15 minutes that the orgasm can occur at after stimulation has begun
+    <br/>
+     # (orgasm may take longer, this is just the minimum time in seconds)
+    <br/>
+     number time_to_orgasm = 480.00 + 420.00 * Number.random();
+   </span>
+  </p>
+  <p>
+   <span style="color: #808080;">
+    function void orgasm()
+    <br/>
+     # during orgasm the body goes on “automatic” – sensations
+    <br/>
+     # are disregarded once orgasm begins, the orgasm lasts
+    <br/>
+     # between 20 and 40 seconds.
+    <br/>
+     # waves from 600 to 1000 milliseconds
+    <br/>
+     number wave = 600 + 400 * Number.random();
+    <br/>
+     # make orgasm a bit different each time, between 20 and 40 seconds
+    <br/>
+     # times are in milliseconds
+    <br/>
+     number dura = (20.0 + 20.0 * Number.random()) * 1000;
+   </span>
+  </p>
+  <p>
+   <span style="color: #808080;">
+    vagina.vasocongestion(finish); # empty the queue
+    <br/>
+     vagina.intoitus(finish); # empty the queue
+    <br/>
+     vagina.orgasmicPlatform(finish); # empty the queue
+    <br/>
+     # set vasocongestion at maximum during orgasm
+    <br/>
+     vagina.vasocongestion(-1, 50, 0, 100, dura, null);
+    <br/>
+     # load queue for post orgasm vasocongestion levels
+    <br/>
+     vagina.vasocongestion(23980, 50, 35, 50, -1, null); # set vasocongestion as long waves
+    <br/>
+     # use a 10% minimum pressure at the introitus
+    <br/>
+     vagina.intoitus(wave, 50, 10, 70, dura, null); # strength at 70%
+    <br/>
+     # use a 40% minimum pressure to mimic rapid waves
+    <br/>
+     vagina.orgasmicPlatform(wave/1.73, 50, 40, 100, dura – 1967, null); # shorten duration
+   </span>
+  </p>
+  <p>
+   <span style="color: #808080;">
+    pelvis.bounce(finish); # empty the queue
+    <br/>
+     pelvis.swivel(finish); # empty the queue
+    <br/>
+     # minimum amplitude is set to 0 – disregarded by swivel method
+    <br/>
+     pelvis.bounce(wave, 50, 50, 100, dura + 987, null);
+    <br/>
+     pelvis.swivel(wave * 2.73, 50, 0, 25, dura, null);
+   </span>
+  </p>
+  <p>
+   <span style="color: #808080;">
+    # all mechanical queues are loaded, add some audio
+    <br/>
+     sense.say(finish); # empty the queue
+    <br/>
+     sense.volume(25); # set volume to 25% of maximum volume
+    <br/>
+     sense.say(“ooooohhhhh”); # say something
+    <br/>
+     sense.sayDelay(wave); # delay the next speech segment by one wave period
+    <br/>
+     sense.volume(50); # volume to 50%
+    <br/>
+     sense.say(username);
+    <br/>
+     sense.volume(100); # volume to 100%
+    <br/>
+     sense.say(username); # scream out name
+    <br/>
+     sense.sayDelay(wave); # delay the next speech segment by one wave period
+    <br/>
+     sense.say(username); # scream out name again
+    <br/>
+     sense.sayDelay(wave); # delay the next speech segment by one wave period
+    <br/>
+     sense.say(username + ” yes yes”); # scream out name again with yes yes
+    <br/>
+     endfunction;
+   </span>
+  </p>
+  <p>
+   <span style="color: #808080;">main</span>
+  </p>
+  <p>
+   <span style="color: #808080;"># inside the main loop the script waits for something to happen (an event) the reacts to it</span>
+  </p>
+  <p>
+   <span style="color: #808080;">
+    event Body Sense
+    <br/>
+     # this gets the first interactions by using event Body OR Sense
+    <br/>
+     # which is ANY interaction the android can sense and sets the start
+    <br/>
+     # time of the session. Events allow fall-through so that whatever triggered
+    <br/>
+     # the beginning of the session can be recorded in the proper variable(s)
+    <br/>
+     if session_begin LT 0.0 then
+    <br/>
+     session_begin = DateTime.runningSeconds();
+    <br/>
+     # update time to orgasm to reflect when session started
+    <br/>
+     time_to_orgasm = time_to_orgasm + session_begin;
+    <br/>
+     # see if vaginal lubrication is available, if NOT
+    <br/>
+     # ask user to apply lubricant (delay of 5 seconds to
+    <br/>
+     # be sure that user is in range and listening)
+    <br/>
+     if NOT vagina.lubrication(test) then
+    <br/>
+     sense.sayDelay(5000);
+    <br/>
+     sense.say(“Im horny, lube up my pussy”);
+    <br/>
+     else
+    <br/>
+     # if lubrication is available then
+    <br/>
+     # provide a quick burst of wetness and
+    <br/>
+     # set standard lubrication 10% indefinite duration
+    <br/>
+     # talk to user (delay of 5 seconds)
+    <br/>
+     vagina.lubrication(500, 50, 0, 50, 1000, null);
+    <br/>
+     vagina.lubrication(2000, 50, 0, 10, -1, null);
+    <br/>
+     sense.sayDelay(5000);
+    <br/>
+     sense.say(“Im wet and horny”);
+    <br/>
+     endif;
+    <br/>
+     # no matter what begin with mild vaginal contractions at the introitus (vaginal opening),
+    <br/>
+     # 3 per minute (20 seconds each) at 20% power until otherwise instructed. The levator ani
+    <br/>
+     # muscle contracts at approximately 15 contractions per minute (4 seconds each). The number
+    <br/>
+     # of milliseconds is not a rounded off number so that contractions will not exactly overlay
+    <br/>
+     # one another (i.e. 20134 instead of 20000) The -1 means continue indefinitely.
+    <br/>
+     vagina.introitus(20134, 50, 0, 20, -1, null);
+    <br/>
+     vagina.orgasmicPlatform(3976, 50, 0, 20, -1, null);
+    <br/>
+     vagina.vasocongestion(23980, 50, 30, 40, -1, null); # set vasocongestion as long waves
+    <br/>
+     pelvis.bounce(11387, 50, 0, 20, -1, null); # small movements of pelvis, approx. 11 second period
+    <br/>
+     endif;
+    <br/>
+     endevent;
+   </span>
+  </p>
+  <p>
+   <span style="color: #808080;">
+    event Vulva
+    <br/>
+     # the vulva has been touched. Determine which part(s) touched and record the
+    <br/>
+     # instantaneous sensation
+   </span>
+  </p>
+  <p>
+   <span style="color: #808080;">
+    if vulva.labiaMajoraChanged AND majo_sense GE 1.0 then
+    <br/>
+     vulva_instant = (vulva_instant + vulva.labiaMajora/majo_sense * 0.7)/2.0;
+    <br/>
+     endif;
+   </span>
+  </p>
+  <p>
+   <span style="color: #808080;">
+    if vulva.clitorisChanged AND clit_sense GE 1.0 then
+    <br/>
+     vulva_instant = (vulva_instant + vulva.clitoris/clit_sense)/2.0;
+    <br/>
+     endif;
+   </span>
+  </p>
+  <p>
+   <span style="color: #808080;">endevent;</span>
+  </p>
+  <p>
+   <span style="color: #808080;">
+    event Vagina
+    <br/>
+     # if the nerves of the introitus have sensed any change add to instant variable and
+    <br/>
+     # reset the introitus period based on the vagina_instant – the less intense the stimulation
+    <br/>
+     # (lower vagina_instant) the longer the period
+    <br/>
+     if vagina.introitusChanged AND intr_sense GE 1.0 then
+    <br/>
+     vagina_instant = (vagina_instant + vagina.introitus/intr_sense * 0.7)/2.0;
+    <br/>
+     introitus_changes = introitus_changes + 1; # record change to introitus
+    <br/>
+     if introitus_changes GE 4 then
+    <br/>
+     vagina.introitus(finish);
+    <br/>
+     vagina.introitus(10134/vagina_instant, 50, 0, 48, -1, null);
+    <br/>
+     introitus_changes = 0.0;
+    <br/>
+     endif;
+    <br/>
+     endif;
+   </span>
+  </p>
+  <p>
+   <span style="color: #808080;">
+    # if the nerves of the urethralSponge have sensed any change add to instant variable and
+    <br/>
+     # reset the orgasmicPlatform period based on the vulva_instant and the orgasmicPlatform
+    <br/>
+     # amplitude based on vagina_instant (more stimulation the greater the amplitude)
+    <br/>
+     if vagina.urethralSpongeChanged AND spon_sense GE 1.0 then
+    <br/>
+     vagina_instant = (vagina_instant + vagina.urethralSponge/spon_sense)/2.0;
+    <br/>
+     platform_changes = platform_changes + 1; # record change to orgasmicPlaform
+    <br/>
+     if platform_changes GE 7 then
+    <br/>
+     vagina.orgasmicPlatform(finish);
+    <br/>
+     vagina.orgasmicPlatform(3176/vulva_instant), 50, 0, 60 * vaginal_instant, -1, null);
+    <br/>
+     platform_changes = 0.0;
+    <br/>
+     endif;
+    <br/>
+     endif;
+   </span>
+  </p>
+  <p>
+   <span style="color: #808080;">
+    # if vagina.deep is greater than zero then the penis is full depth in the
+    <br/>
+     # vagina. Check other variables and trigger orgasm if appropriate
+    <br/>
+     if DateTime.runningSeconds() GT time_to_orgasm AND vagina.deep GT 0
+    <br/>
+     AND (vulva_instant GT orgasm_trip OR vagina_instant GT orgasm_trip) then
+    <br/>
+     vagina.lubrication(finish); # empty lubrication queue
+    <br/>
+     vagina.lubrication(500, 50, 0, 50, 1000, null); # provide extra lubrication
+    <br/>
+     vagina.lubrication(2000, 50, 0, 10, -1, null); # reset lubrication to normal
+    <br/>
+     orgasm(); # trigger orgasm function
+    <br/>
+     endif;
+   </span>
+  </p>
+  <p>
+   <span style="color: #808080;">endevent;</span>
+  </p>
+  <p>
+   <span style="color: #808080;">endmain;</span>
+  </p>
+ </blockquote>
+</p>
+<p style="text-align: center;">
+ <img width="640" alt="" src="http://eol.jsc.nasa.gov/sseop/images/ISD/lowres/STS068/STS068-260-31.JPG" height="480" title="lkj" class="alignnone"/>
+</p> ]]> http://spencerwaterbed.com/blog/2010/12/resolution-of-sexual-arousal/feed/ 1   http://spencerwaterbed.com/blog/2010/11/pop-music-permutation/ http://spencerwaterbed.com/blog/2010/11/pop-music-permutation/#comments Wed, 24 Nov 2010 05:46:21 +0000 admin
+<!--[CDATA[-]]--> http://spencerhold.wordpress.com/?p=189
+<!--[CDATA[yes. its not just a joke about bad folk-singers running out of songs. We are nearing the end of possible valid pop songs. We have composed most of the genre. Description We pretend we break all the rules musically, but without a grammar, sound is noise. Music = sound + structure. Music is sound that [...]]]-->
+<!--[CDATA[<p-->
+<strong>yes.</strong>
+<br/> its not just
+<a href="http://www.break.com/usercontent/2007/10/Will-Ferrell-writes-a-song-for-garth-brooks-384390.html">a joke about bad folk-singers</a> running out of songs. We are nearing the end of possible valid pop songs. We have composed most of the genre.
+<p>
+ <strong>Description</strong>
+ <br/>
+  We pretend we break all the rules musically, but without a grammar, sound is noise. Music = sound + structure. Music is
+ <em>sound that means something</em>
+ . Without a genre (the rules), music doesn’t happen. So inside a genre, we can validly permute all possible combinations. Pop music I believe, is a very strict genre.
+</p>
+<p>
+ <strong>melody length</strong>
+ <br/>
+  There are 12 notes. But a song uses a specific key, which has 8 notes.
+ <br/>
+  Accidentals in pop music are sometimes allowed, in varying degrees.
+</p>
+<p>A pop melody is either 4 or 8 bars long, in 4/4 time. A pop-music melody is always either 16 or 32 beats.</p>
+<p>How many melody-relevant notes can squeeze into 32 beats? anything faster than a 16th note is definetly melody-irrelevant. 16ths are often used in pop… but a full 64 (4x4x4) note melody is ridiculous.</p>
+<p>
+ bad electronic music has 3 note melodies.
+ <br/>
+  Luckily, the lower-limit is irrelevant. There are only 256 possible 2-note melodies. and 1 1-note melody. Lets include them.
+</p>
+<p>
+ The number of notes in a melody is quite flexible.
+ <br/>
+  A melody really occupies a large amount of the surrounding melody-space.
+ <br/>
+  If I take ‘yellow submarine’ and add a 3-note trill, like people on american idol always do, its still yellow submarine.
+ <br/>
+  You can also skip notes and still recognize it.
+ <br/>
+  Even
+ <a href="http://www.youtube.com/watch?v=ieYQKS9-Is0">super-polysylabic songs from quebec</a>
+  can be reduced to 4 notes or so and still be recognizable.
+ <br/>
+  So this becomes tricky.
+</p>
+<p>
+ Experimenting in my head..
+ <br/>
+  can you feel the love tonight = 22 – 36
+ <br/>
+  freak by radiohead 15 – 25
+</p>
+<p>
+ <strong>Chorus and verse</strong>
+ <br/>
+  there is no original content in a pop-music verse. It is determined by the chorus.
+ <br/>
+  i’d love to make a program that created verses from choruses.
+</p>
+<p>
+ <strong>Musicality</strong>
+ <br/>
+  the number of possible songs increases at an exponential with the length of the melody,
+ <br/>
+  8^8 = 16 million
+ <br/>
+  16^8=4294 million
+ <br/>
+  but the musical requirements of the melody also increase exponentially with the length of the melody.
+</p>
+<p>
+ If you have a 32 note melody, the final 16 notes are pretty much completely determined by the first 16.
+ <br/>
+  so even if there is a trillion possible 32 note melodies, there are no new melodies offered by the 32nd note.
+ <br/>
+  You can’t take add a G flat to the end of ‘Moon River’.
+ <br/>
+  And given that new valid melodies take up such a large ‘melody-space’, I think you’ll find that the curve flattens out at 9 or 10 notes. I’ll say all 3 note-melodies are valid and new, half of 8 note melodies are valid and new, and no 10 note melodies are valid and new.
+ <br/>
+  This is, I think, generous.
+</p>
+<p>
+ <strong>
+  <br/>
+   I think there are about 20 million possible pop songs.
+ </strong>
+</p>
+<p>
+ <strong>Law and Existing songs</strong>
+ <br/>
+  the
+ <a href="http://freebase.com/view/authority/musicbrainz">musicbrainz</a>
+  database has 9 million songs
+</p>
+<p>
+ <a href="http://en.wikipedia.org/wiki/Brewster_Kahle">Brewster_Kahle</a>
+  believes there are
+ <a href="http://fora.tv/2009/12/06/Brewster_Kahle_Universal_Access_to_All_Knowledge">about 2 million different albums</a>
+ , so yes a bit less than 20 million recorded songs in existence. Subtract non-pop genres, and covers, and you will have somewhere between 9 and 15 million ‘legally different’ pop songs.
+</p>
+<p>so from that estimate, yes, we are more than half-way done. And have probably already gotten the good ones.</p> ]]> http://spencerwaterbed.com/blog/2010/11/pop-music-permutation/feed/ 1   http://spencerwaterbed.com/blog/2010/11/how-does-a-tree-work/ http://spencerwaterbed.com/blog/2010/11/how-does-a-tree-work/#comments Mon, 22 Nov 2010 00:37:25 +0000 admin
+<!--[CDATA[Abstraction]]--> http://spencerwaterbed.com/blog/?p=282
+<!--[CDATA[a tree is like an l-system, somehow. but how? we don&#8217;t really know. what&#8217;s the actual mechanism for this? In idealised l-system trees, the next branch is only determined by its parent branch- say, half its length. the parent branch decides all of the variables for the child. but is that how trees actually work? [...]]]-->
+<!--[CDATA[<p-->a tree is like an
+<a href="http://freebase.com/view/en/l-system">l-system</a>, somehow.
+<br/>
+<img alt="" src="http://upload.wikimedia.org/wikipedia/commons/4/44/Fractal-plant.svg"/>
+<p>but how? we don’t really know.</p>
+<p>
+ what’s the actual mechanism for this?
+ <br/>
+  In idealised l-system trees, the next branch is only determined by its parent branch- say, half its length.
+ <br/>
+  the parent branch decides all of the variables for the child.
+</p>
+<p>
+ but is that how trees actually work?
+ <br/>
+ <img alt="" src="http://i.imgur.com/1nT6a.jpg"/>
+ <br/>
+  not really.
+</p>
+<p>
+ is the decision mechanism through competition? Branches try their best to get sunlight. The branch that gets sunlight will grow bigger, investing its resources in child branches, trying to get more sunlight.
+ <br/>
+  Is that it?
+ <br/>
+  I don’t think so. One thing that never happens is trees falling over because unbalanced growth. There is, in some way, ‘global’ decision making in the tree. There has to be. The tree chooses responsibly. There is (somehow) central processing with targeted signalling. If there wasn’t, wouldn’t there be enough apples on a branch to snap it?
+</p>
+<p>each branch communicates with the trunk – and as well, co-operates to share resources with siblings, children. A branch, if it grows a centimetre, requires every preceding branch to become stronger, and also commit more resources. Like how does a tree distribute its sugar etc? Evenly? But some branches grow faster than others. These decisions have to be made somewhere.</p>
+<p>
+ some interesting things are known about
+ <a href="http://en.wikipedia.org/wiki/Plant_growth_substance">plant growth hormones</a>
+ . but not enough.
+</p>
+<p>
+ Buds
+ <a href="http://vimeo.com/10984172">that know they’re at the top</a>
+  inhibit new buds on parent branches.
+</p>
+<p>I don’t think we’ve found the decision process, the ‘l-system mechanism’ yet.</p>
+<p>
+ <object width="480" height="385">
+  <param value="http://www.youtube.com/v/Llg_pdBOW-M?fs=1&hl=en_US" name="movie"/>
+  <param value="true" name="allowFullScreen"/>
+  <param value="always" name="allowscriptaccess"/>
+  <embed width="480" allowscriptaccess="always" src="http://www.youtube.com/v/Llg_pdBOW-M?fs=1&hl=en_US" height="385" allowfullscreen="true" type="application/x-shockwave-flash"/>
+ </object>
+ <br/>
+ <object width="480" height="385">
+  <param value="http://www.youtube.com/v/RIV5n0wCXnI?fs=1&hl=en_US" name="movie"/>
+  <param value="true" name="allowFullScreen"/>
+  <param value="always" name="allowscriptaccess"/>
+  <embed width="480" allowscriptaccess="always" src="http://www.youtube.com/v/RIV5n0wCXnI?fs=1&hl=en_US" height="385" allowfullscreen="true" type="application/x-shockwave-flash"/>
+ </object>
+</p> ]]> http://spencerwaterbed.com/blog/2010/11/how-does-a-tree-work/feed/ 0   http://spencerwaterbed.com/blog/2010/10/bookmarklet-to-parse-html-tables/ http://spencerwaterbed.com/blog/2010/10/bookmarklet-to-parse-html-tables/#comments Sun, 24 Oct 2010 21:20:51 +0000 admin
+<!--[CDATA[-]]-->
+<!--[CDATA[Javascript]]--> http://spencerwaterbed.com/blog/?p=266
+<!--[CDATA[much of the internet&#8217;s structured data is in html tables, but they&#8217;re impossible to work with. using Karl Swedberg&#8216;s awesome always-working jquery bookmarklet, I&#8217;ve made a bookmarklet that lets you parse them into a more usable format: right click on this link, and save to bookmarks -&#62; table parser then when you click on it, [...]]]-->
+<!--[CDATA[<p-->much of the internet’s structured data is in html tables, but they’re impossible to work with.
+<p>
+ using
+ <a href="http://www.englishrules.com/">Karl Swedberg</a>
+ ‘s
+ <a href="http://www.learningjquery.com/2009/04/better-stronger-safer-jquerify-bookmarklet">awesome always-working jquery bookmarklet,</a>
+ I’ve made a bookmarklet that lets you parse them into a more usable format:
+</p>
+<p>
+ right click on this link, and save to bookmarks ->
+ <a href="javascript:(function(){var el=document.createElement('div'),b=document.getElementsByTagName('body')[0],otherlib=false,msg='';el.style.position='fixed';el.style.height='32px';el.style.width='220px';el.style.marginLeft='-110px';el.style.top='0';el.style.left='50%';el.style.padding='5px 10px';el.style.zIndex=1001;el.style.fontSize='12px';el.style.color='#222';el.style.backgroundColor='#f99';if(typeof jQuery!='undefined'){msg='This page already using jQuery v'+jQuery.fn.jquery;return showMsg();}else if(typeof $=='function'){otherlib=true;}function getScript(url,success){var script=document.createElement('script');script.src=url;var head=document.getElementsByTagName('head')[0],done=false;script.onload=script.onreadystatechange=function(){if(!done&&(!this.readyState||this.readyState=='loaded'||this.readyState=='complete')){done=true;success();script.onload=script.onreadystatechange=null;head.removeChild(script);}};head.appendChild(script);}getScript('http://code.jquery.com/jquery-latest.min.js',function(){if(typeof jQuery=='undefined'){msg='Sorry, but jQuery wasn\'t able to load';}else{msg='This page is now jQuerified with v'+jQuery.fn.jquery;if(otherlib){msg+=' and noConflict(). Use $jq(), not $().';}}return showMsg();});function showMsg(){msg=jQuery('table').length;if(msg==0){msg='no tables on this page';}else{msg='choose which table to parse. ('+msg+' found)';}el.innerHTML=msg;b.appendChild(el);window.setTimeout(function(){if(typeof jQuery=='undefined'){b.removeChild(el);}else{jQuery(el).fadeOut('slow',function(){jQuery(this).remove();});if(otherlib){$jq=jQuery.noConflict();}}},2500);jQuery('table').css('background','grey');jQuery('table').mouseover(function(){jQuery(this).css('outline',' 1px solid #c50');}).mouseout(function(){jQuery(this).css('outline',' 0px solid #c50');});jQuery('table').click(function(){var all='';jQuery('tr',this).each(function(){var row=jQuery(this);jQuery('td',row).each(function(){all+=jQuery(this).html()+'; ';});all+='
+';});document.body.innerHTML=all;});}})();">table parser</a>
+</p>
+<p>then when you click on it, it will let you click on a html table to parse it into semicolin-seperated values</p>
+<p>
+ if you wanna hack it,
+ <a href="http://spencerwaterbed.com/soft/bookmarklet/tableparser.js">check it out-out</a>
+</p>
+<p>um, thank you jquery</p>
+<p>
+ check out my
+ <a href="http://spencerwaterbed.com/soft/bookmarklet/">other cute bookmarklets</a>
+</p> ]]> http://spencerwaterbed.com/blog/2010/10/bookmarklet-to-parse-html-tables/feed/ 0   http://spencerwaterbed.com/blog/2010/10/the-phylogeny-is-incomplete/ http://spencerwaterbed.com/blog/2010/10/the-phylogeny-is-incomplete/#comments Sat, 23 Oct 2010 21:38:57 +0000 admin
+<!--[CDATA[-]]-->
+<!--[CDATA[Abstraction]]-->
+<!--[CDATA[freebase]]--> http://spencerwaterbed.com/blog/?p=251
+<!--[CDATA[a category is a way of organising information. It is the most popular way, but not the always the smart way. it looks like this or if you&#8217;re a computer : you may recognize it. it is found in the dewey decimal system, your computer file-system, wikipedia categories, wordnet, opencyc, SKOS,  DMOZ, book indexes, animal [...]]]-->
+<!--[CDATA[<p-->a category is a way of organising information. It is the most popular way, but not the always the smart way.
+<p>it looks like this</p>
+<p style="text-align: center;">
+ <a href="../wp-content/uploads/2010/10/phylogeny1.jpg"></a>
+ <a href="http://spencerwaterbed.com/blog/wp-content/uploads/2010/10/phylogeny11.jpg">
+  <img width="498" alt="" src="http://spencerwaterbed.com/blog/wp-content/uploads/2010/10/phylogeny11.jpg" height="372" title="phylogeny1" class="aligncenter size-full wp-image-276"/>
+ </a>
+</p>
+<p>or if you’re a computer :</p>
+<p>
+ <a href="http://spencerwaterbed.com/blog/wp-content/uploads/2010/10/phylogeny2.jpg">
+  <img width="666" alt="" src="http://spencerwaterbed.com/blog/wp-content/uploads/2010/10/phylogeny2.jpg" height="498" title="phylogeny2" class="aligncenter size-full wp-image-253"/>
+ </a>
+ you may recognize it.
+</p>
+<p>it is found in the dewey decimal system, your computer file-system, wikipedia categories, wordnet, opencyc, SKOS,  DMOZ, book indexes, animal classification, government committees…</p>
+<p>
+ it is called a taxonomy, phylogeny, hierarchy, ‘directed acrylic graph’, subclass system, tree diagram.
+ <br/>
+ <strong>
+  <br/>
+   The principle is this:
+ </strong>
+</p>
+<p>if you want to organise pictures of your cat – put information about individual pictures in a way that the information can be put in, and taken out, in a useful way-</p>
+<p>you could make a network of folders:</p>
+<blockquote>
+ <p>cat outside->cat in the sun->cat lying down->cat lying down in grass->cat lying down on the front lawn</p>
+</blockquote>
+<p>there’s a system that captures two things: what the cat is doing, and location.</p>
+<p>consider the alternate, parallel network:</p>
+<blockquote>
+ <p>‘cat awake’->’cat eating’->cat eating vegetables->cat eating strawberries</p>
+</blockquote>
+<p>these two networks are consistent with one another, and  if he’s in the front lawn eating strawberries, both can be used. In fact, every piece of information in the image can be classified by a phylogeny.</p>
+<ul>
+ <li>‘cat with 2 other brown cats’</li>
+ <li>‘cat at 12 years old’</li>
+ <li> ‘cat looking away from the camera’</li>
+ <li>‘cat under incandescent lighting’</li>
+ <li>‘cat on tuesday’</li>
+ <li>‘cat watching seinfeld’</li>
+</ul>
+<p>and these variables can be sorted properly: ‘cat during the week’,  ‘cat watching american television’, ‘cat under non-oxidative lighting implement’.</p>
+<p style="text-align: center;">
+ <img alt="wikipedia politics category, only 4 layers deep" src="http://www.chrisharrison.net/projects/wikiviz/small/politicsb15025010k3pS.jpg" class="aligncenter"/>
+</p>
+<p>
+ the point is, that ALL information can be put into this ontology.
+ <br/>
+ <strong>but taking it out is impossible.</strong>
+</p>
+<p>
+ go ahead and type
+ <a href="http://scholar.google.ca/scholar?q=%22wikipedia%20categories%22">wikipedia categories in scholar.</a>
+  you will see the tragedy as it has unfolded all over peoples unfortunate careers.
+</p>
+<p>When you go to take  the data out, its total fucking mess.</p>
+<p>
+ Wikipedia categories are so upset, they’re
+ <em>recursive</em>
+ . You follow one down the branch and end up where you began. It happens all over the place.
+</p>
+<p>
+ For example, when
+ <a href="http://dbpedia.org/About" title="DBpedia">dbpedia</a>
+  classified articles based on
+ <em>category intersection</em>
+ , it was extremely poor accuracy. ‘
+ <strong>Category:Eurovision contestants</strong>
+ ‘ includes a book about them, even though you can eventually reach up to ‘
+ <strong>category:person</strong>
+ ‘.
+</p>
+<p>
+ few things are more hilarious (and depressing) than wikipedia’s daily
+ <a href="http://en.wikipedia.org/wiki/Wikipedia:Categories_for_discussion">categories for discussion</a>
+ . everyone is such a philosopher. They (with great patience) pull each others hair over a system that seems to constantly demand it.  That’s what it means to chose the wrong ontology. If your information never seems to fit easily, it’s cause the ontology is wrong.
+</p>
+<p>
+ When the well-meaning wikipedia editor makes the category  “
+ <strong>Category: tennis players that have lost 5 games</strong>
+ “, or “
+ <strong>Category: Gothic people</strong>
+ ” they are the victim of bad ontology design.
+</p>
+<p>You see the exact same thing happening with websites encouraging people to ‘tag’ freely, in a folksy phylogeny. This information can never be pulled out of it at any depth.</p>
+<p>the reason is that the predicates remain completely unrepresented. Or rather, all of the information about the category is still unstructured, it’s simply still in the text, in the known assumptions regarding the subject, and in the context of the other categories. You never actually put your information in.</p>
+<p>when you have a category about cat actions, and a category about time of day, the thing that you’re actually representing with the phylogeny is a shallow agreement. a folksonomy. its not data. you’re not putting the actual data into a system. Unfortunately, you’re flattening all the data into one relation- ‘contains’, or ‘included in’.</p>
+<p>
+ <strong>The properties need to be explicitly stated.</strong>
+</p>
+<p>
+ <strong>Explicit properties look like this:</strong>
+ Subject – verb – object
+</p>
+<p>Mark Keil    -  /freebase/tennis/matches_lost    –    5</p>
+<p>or</p>
+<p>Marilyn Manson   -   /dbpedia/musician/genre   -  goth</p>
+<p>if you have disciplined predicates like this, you are actually putting your data in, and can take it back out.</p>
+<p>
+ <strong>This is why the semantic web is not hype.</strong>
+  We have finally figured out how to organize information.
+ <br/>
+  In 10,000 years, we will still be organizing our information as triples. It’s how information works, and we’ve figured it out.
+</p>
+<p>
+ <object width="100" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" style="display: none;" height="100" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0">
+  <param value="http://a.blip.tv/api.swf#hdlkgojLLQI" name="src"/>
+  <embed width="100" src="http://a.blip.tv/api.swf#hdlkgojLLQI" style="display: none;" type="application/x-shockwave-flash" height="100"/>
+ </object>
+</p> ]]> http://spencerwaterbed.com/blog/2010/10/the-phylogeny-is-incomplete/feed/ 2   http://spencerwaterbed.com/blog/2010/10/everything-is-turing-complete/ http://spencerwaterbed.com/blog/2010/10/everything-is-turing-complete/#comments Sat, 23 Oct 2010 19:39:43 +0000 admin
+<!--[CDATA[-]]--> http://spencerwaterbed.com/blog/?p=247
+<!--[CDATA[the regular narrative is that as computers get faster, we digitize more and more, technology becomes better.  and its completely wrong. consider voice-over-ip,which converts a simple audio signal into a hilarious 32bit integer every 44100th of a second, runs every one of these numbers desperately fast under hurried dsp algorithms, only to convert it back [...]]]-->
+<!--[CDATA[<p-->the regular narrative is that as computers get faster, we digitize more and more, technology becomes better.  and its completely wrong.
+<p>
+ consider voice-over-ip,which converts a simple audio signal into a hilarious
+ <a href="http://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem">
+  <em>32bit integer every 44100th of a second</em>
+ </a>
+ , runs
+ <em>every one</em>
+  of these numbers desperately fast under hurried dsp algorithms, only to convert it back into a one simple audio signal, with all of its redundancies, inherited patterns, physical interactions.
+</p>
+<p>its really the most inefficient process you could ever imagine. It’s not futuristic, it’s not low-tech because computers are slow, its just inefficient. Insane.</p>
+<p>
+ <a href="http://twit.tv/fib55/">Rahul Sarpeshkar gives a hilariously good description</a>
+  of the state of affairs of digital->analogue computing, and how we’ve collectively forgotten that information can exist physically. He’s building machines that do most of their processing before the processor. They don’t get faster every 18 months, because they don’t need to.
+</p>
+<div style="width: 472px" class="wp-caption alignnone">
+ <img width="462" alt="" src="http://www.tomorrowland.org/photos/uncategorized/testpattern.jpg" height="315" title="tv"/>
+ <p class="wp-caption-text">its easy to 'stream' analogue video.</p>
+</div>
+<p>
+ It’s also worth mentioning that our
+ <a rel="bookmark" href="http://agtb.wordpress.com/2010/12/23/progress-in-algorithms-beats-moore%e2%80%99s-law/" title="Permanent Link: Progress in Algorithms Beats Moore’s Law">progress in software algorithms has consistently beaten Moore’s Law.</a>
+</p>
+<p>So if Wired magazine got us hooked on [adc], what can we learn as we rebound?</p>
+<p>which digitizations should we ditch?</p>
+<p>consider the cell-as-computer analogy, which considers base-pairs as bits, and proteins as their expressions.</p>
+<p>it was decided a few decades ago that methylated cytosine, is ‘C’. Exactly one piece of information. abstracting away effects of</p>
+<p>ph gradients, topology, boyancy, plasticity, refraction of light, viscosity, availability of resources, electrical conductivity.</p>
+<p>Is that cool?</p>
+<p>If you reduce something too hard, what you will get is partial patterns, disconnected correlations. Hints of something going on.</p>
+<p>it’s becoming more and more clear that this sort of reduction in genetics is too aggressive. We still know jack shit about genetics.</p>
+<p>
+ Consider a mad cow disease, which is
+ <a href="http://en.wikipedia.org/wiki/Prion">
+  <em>just a shape</em>
+ </a>
+ , with no genetics at all.
+</p>
+<p>
+ a shape is a function with an obscene set of conditional statements, and recursion, and emergence,
+ <a href="http://twit.tv/fib57">adaptation and inheritence</a>
+ . It’s really not something that makes much sense to compute digitally.
+</p>
+<p>
+ - as Steve Talbot describes in his recent paper,
+ <a href="http://www.thenewatlantis.com/publications/getting-over-the-code-delusion">“everything does everything to everything”</a>
+</p>
+<p>given the success of the [analogue - digital - analogue] engineering strategy over my lifetime, its easy to push on this analogy. but its just not actually that useful.</p>
+<p>
+ <a href="http://twit.tv/fib55/">
+  <br/>
+ </a>
+</p> ]]> http://spencerwaterbed.com/blog/2010/10/everything-is-turing-complete/feed/ 0   http://spencerwaterbed.com/blog/2010/10/apallo-quote/ http://spencerwaterbed.com/blog/2010/10/apallo-quote/#comments Tue, 05 Oct 2010 20:24:37 +0000 admin
+<!--[CDATA[-]]--> http://spencerwaterbed.com/blog/?p=3
+<!--[CDATA[mike collins, from apollo 11- I&#8217;ve had it with certain questions, and maybe the way they&#8217;re asked. But I&#8217;ve gotten slyer. I&#8217;ve gotten more adept at just deflecting them. I mean, if someone says, you know, &#8220;What was it like up there?&#8221; You know, I&#8217;ve just written this fucking book telling em four hundred pages [...]]]-->
+<!--[CDATA[<p-->
+<a href="http://en.wikipedia.org/wiki/Michael_Collins_%28astronaut%29">mike collins</a>, from apollo 11-
+<blockquote>
+ <p>I’ve had it with certain questions, and maybe the way they’re asked. But I’ve gotten slyer. I’ve gotten more adept at just deflecting them. I mean, if someone says, you know, “What was it like up there?” You know, I’ve just written this fucking book telling em four hundred pages of what it was really like up there, and they say “oh i loved your book! Now tell me: What was it really like up there?” Well , I learned to deflect that. It depends on their age. I mean, if it’s a young kid, you just say, “Oh it was cool, man.” They say, “Was it?”    “Oh, shit, yeah. Oh, it was cool.” And they walk off; that’s great. It’s they want to hear the sound of their own voice, or they want to somehow interject with their own question or their own inquiry into the process. And that’s alright. So I go by the age; I usually give em a one- or two word answer, depending how old they are. And they usually – sometimes, though, they won’t be satisfied with that, and they’ll want to go on. But nine times out of ten, they’ll say, “Oh, oh, uh-huh.” And they’re very pleased.</p>
+</blockquote>
+<p>
+ <img width="621" alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Apollo_11_lunar_module.jpg/621px-Apollo_11_lunar_module.jpg" height="599" title="apollo11" class="alignleft"/>
+</p> ]]> http://spencerwaterbed.com/blog/2010/10/apallo-quote/feed/ 1   http://spencerwaterbed.com/blog/2010/09/html-features-id-like/ http://spencerwaterbed.com/blog/2010/09/html-features-id-like/#comments Tue, 28 Sep 2010 16:07:03 +0000 admin
+<!--[CDATA[-]]--> http://spencerhold.wordpress.com/?p=227
+<!--[CDATA[universal preferences do you like websites with black backrounds? or are you bothered by fancy or small fonts, or swearing?  you should be able to tell websites this, and they should listen. it would be nice if you could tell your browser these things once, using an informal ontology like robots.txt, and websites that want [...]]]-->
+<!--[CDATA[<p-->
+<strong>universal preferences</strong>
+<br/> do you like websites with black backrounds? or are you bothered by fancy or small fonts, or swearing?  you should be able to tell websites this, and they should listen.
+<br/> it would be nice if you could tell your browser these things once, using an informal ontology like robots.txt, and websites that want to be well-liked could grab these from your http header, or cookies or whatever. You could tell it anything, show the ‘medium’ sized video, remove public comments, don’t show inline html links, whatever.
+<br/> you shouldn’t have to
+<a href="http://en.wikipedia.com/wiki/Greasemonkey">render a canonical version then adhoc the changes yourself</a>
+<p>
+ <strong>
+  <br/>
+   html notifications
+ </strong>
+ <br/>
+  ever been victim of a alert() attack?
+ <br/>
+  run this:
+ <br/>
+  while(true){alert(“this disables your whole browser”);}
+ <br/>
+  alert() sucks, makes you click ‘ok’, and feels like windows2k. Websites are becoming backround processes, or deamons, that do something like play music, wait for news, or whatever. but it means you have to have the tab taking up space on your screen all day. Websites should alert users of changes gracefully, using one always-on-top ‘growl’ standard.
+ <br/>
+ <strong>
+  <br/>
+   opensearch result standard
+ </strong>
+ <br/>
+ <a href="http://freebase.com/view/en/opensearch">opensearch</a>
+  is, I think, the least-taken advantage of standard in webprogramming. It has HUge potential for making websites very well-integrated. It lets you query disparate websites using a single open-standard, but despite this initial cooperation, results of each page need to be scraped ad-hoc. If we call something using an open standard, it should respond in an open standard.
+</p>
+<p>
+ <strong>fullscreen api</strong>
+ <br/>
+  fullscreen is awesome, and its all the ‘features’ of web apps that make it difficult to concentrate on the internet. you should be able to fullscreen anything. use your computer screen how you want.
+ <br/>
+  Browsers render html according to screensize, but that bit’s hidden.
+ <br/>
+  fullscreen is always lame with the web, cause theres no easy way to do it.
+</p> ]]> http://spencerwaterbed.com/blog/2010/09/html-features-id-like/feed/ 0

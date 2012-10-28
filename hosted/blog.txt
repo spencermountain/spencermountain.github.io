@@ -1,0 +1,583 @@
+
+This is a cached page of http://spencerwaterbed.com/blog from Blekko's web crawl. Blekko last crawled this page on Tue, 15 Nov 2011 12:36:41 -0800.
+
+view source
+About
+API
+Skip to content Skip past content
+Spencerhold
+
+water mountain
+http to unix shell
+
+Thursday, August 4th, 2011
+the unix-developer philosophy is as follows:
+
+“Write programs that do one thing and do it well.
+Write programs to work together.
+Write programs to handle text streams, because that is a universal interface.”[1]
+
+the web-developer philosophy is as follows:
+
+“Write programs with one api, restfully.
+Allow mashups.
+Write programs to handle http requests, because that is a universal interface.”
+
+using nodejs, we can reach all the way from a http request, down to the unix shell, and back, essentially making thousands and thousands of programs compatible:
+
+var util = require(‘util’),
+spawn = require(‘child_process’).spawn;
+
+function bash(command){
+spawn(command).stdout.on(‘data’, function (data) {
+console.log( data.toString());
+});
+}
+bash(‘whoami’);
+
+recieve an http request usingexpress, make one using the request module
+
+Filed in - | | Permalink | Comments (0)
+responsive environment
+
+Saturday, January 29th, 2011
+
+thermostats don't believe that weather is interesting
+
+if you’ve ever listened to truly randomly generated music, you know that arbitrary-random sucks. It’s worthless, patronising.
+
+what doesn’t suck though is a non-predictable system.
+here things are part of a story, though can’t be predicted.
+
+weather is nice because it is this sort of nice-random,  the variations we get from weather are meaningful, its part of our story from god.  it shouldn’t be ignored.
+
+so if it’s super-cold outside, it should be kind-of cold inside.
+
+if it’s dark, or low-pressure, or humid, you should feel it… just less.
+
+a weather-responsive thermostat could be a pid controller whose set-point is generated in proportion to input error.
+
+if i had self-confidence problems, i would patent it.
+
+Filed in - | | Permalink | Comments (0)
+yes, yes, endfunction
+
+Saturday, December 11th, 2010
+
+(from crackorcleavage.com)
+
+
+from space
+
+Mariascript 2.01;
+persist
+text username = null;
+number randomseed = 0.43765; endpersist;
+# get user name before starting
+username = Text.get(“What is your first name?”);
+# seed the random number engine
+Number.seed(randomseed);
+# then create a new randomseed for the next session
+randomseed = (Number.random() + DateTime.minute()/60.0)/2.0;
+# Get the discrete levels of the sex organs (set by the hardware)
+# Returns the number of levels. For a simple switch the level
+# is 2 (level can be either 0 or 1). For advanced models the number of sensation levels
+# can be much higher (depends upon hardware and to some extent software)
+# A level less than 2 means sensitivity data is NOT available. 1 is subtracted
+# from the number to provide a correct divisor
+number majo_sense = vulva.sensitivity(labiaMajora) – 1;
+number clit_sense = vulva.sensitivity(clitoris) – 1;
+number intr_sense = vagina.sensitivity(introitus) – 1;
+number spon_sense = vagina.sensitivity(urethralSponge) – 1;
+number deep_sense = vagina.sensitivity(deep) – 1;
+# when the instant stimulation reaches this level then
+# orgasm is triggered; orgasm triggering depends also upon
+# time and whether or not the vagina is penetrated to full
+# depth vagina.deep is used to sense penetration
+number orgasm_trip = 0.42; # the instantaneous condition of the nervous system
+# an average over the last few stimulations weighed with
+# the most recent stimulation being the most important
+
+number vulva_instant = 0.0;
+number vagina_instant = 0.0;
+
+# count the number of platform or introitus changes
+# so waveforms are not being reset
+# every time an event occurs
+
+number platform_changes = 0.0;
+number introitus_changes = 0.0;
+
+# the variable below records when the session actually began (first action took place).
+# The program clock clock starts as soon as the program is started
+number session_begin = -2.0;
+
+# on average the female orgasm occurs approximately 15 minutes after sexual
+# stimulation begins. The variable below is the minimum amount of time (set at random)
+# between 8 and 15 minutes that the orgasm can occur at after stimulation has begun
+# (orgasm may take longer, this is just the minimum time in seconds)
+number time_to_orgasm = 480.00 + 420.00 * Number.random();
+
+function void orgasm()
+# during orgasm the body goes on “automatic” – sensations
+# are disregarded once orgasm begins, the orgasm lasts
+# between 20 and 40 seconds.
+# waves from 600 to 1000 milliseconds
+number wave = 600 + 400 * Number.random();
+# make orgasm a bit different each time, between 20 and 40 seconds
+# times are in milliseconds
+number dura = (20.0 + 20.0 * Number.random()) * 1000;
+
+vagina.vasocongestion(finish); # empty the queue
+vagina.intoitus(finish); # empty the queue
+vagina.orgasmicPlatform(finish); # empty the queue
+# set vasocongestion at maximum during orgasm
+vagina.vasocongestion(-1, 50, 0, 100, dura, null);
+# load queue for post orgasm vasocongestion levels
+vagina.vasocongestion(23980, 50, 35, 50, -1, null); # set vasocongestion as long waves
+# use a 10% minimum pressure at the introitus
+vagina.intoitus(wave, 50, 10, 70, dura, null); # strength at 70%
+# use a 40% minimum pressure to mimic rapid waves
+vagina.orgasmicPlatform(wave/1.73, 50, 40, 100, dura – 1967, null); # shorten duration
+
+pelvis.bounce(finish); # empty the queue
+pelvis.swivel(finish); # empty the queue
+# minimum amplitude is set to 0 – disregarded by swivel method
+pelvis.bounce(wave, 50, 50, 100, dura + 987, null);
+pelvis.swivel(wave * 2.73, 50, 0, 25, dura, null);
+
+# all mechanical queues are loaded, add some audio
+sense.say(finish); # empty the queue
+sense.volume(25); # set volume to 25% of maximum volume
+sense.say(“ooooohhhhh”); # say something
+sense.sayDelay(wave); # delay the next speech segment by one wave period
+sense.volume(50); # volume to 50%
+sense.say(username);
+sense.volume(100); # volume to 100%
+sense.say(username); # scream out name
+sense.sayDelay(wave); # delay the next speech segment by one wave period
+sense.say(username); # scream out name again
+sense.sayDelay(wave); # delay the next speech segment by one wave period
+sense.say(username + ” yes yes”); # scream out name again with yes yes
+endfunction;
+
+main
+
+# inside the main loop the script waits for something to happen (an event) the reacts to it
+
+event Body Sense
+# this gets the first interactions by using event Body OR Sense
+# which is ANY interaction the android can sense and sets the start
+# time of the session. Events allow fall-through so that whatever triggered
+# the beginning of the session can be recorded in the proper variable(s)
+if session_begin LT 0.0 then
+session_begin = DateTime.runningSeconds();
+# update time to orgasm to reflect when session started
+time_to_orgasm = time_to_orgasm + session_begin;
+# see if vaginal lubrication is available, if NOT
+# ask user to apply lubricant (delay of 5 seconds to
+# be sure that user is in range and listening)
+if NOT vagina.lubrication(test) then
+sense.sayDelay(5000);
+sense.say(“Im horny, lube up my pussy”);
+else
+# if lubrication is available then
+# provide a quick burst of wetness and
+# set standard lubrication 10% indefinite duration
+# talk to user (delay of 5 seconds)
+vagina.lubrication(500, 50, 0, 50, 1000, null);
+vagina.lubrication(2000, 50, 0, 10, -1, null);
+sense.sayDelay(5000);
+sense.say(“Im wet and horny”);
+endif;
+# no matter what begin with mild vaginal contractions at the introitus (vaginal opening),
+# 3 per minute (20 seconds each) at 20% power until otherwise instructed. The levator ani
+# muscle contracts at approximately 15 contractions per minute (4 seconds each). The number
+# of milliseconds is not a rounded off number so that contractions will not exactly overlay
+# one another (i.e. 20134 instead of 20000) The -1 means continue indefinitely.
+vagina.introitus(20134, 50, 0, 20, -1, null);
+vagina.orgasmicPlatform(3976, 50, 0, 20, -1, null);
+vagina.vasocongestion(23980, 50, 30, 40, -1, null); # set vasocongestion as long waves
+pelvis.bounce(11387, 50, 0, 20, -1, null); # small movements of pelvis, approx. 11 second period
+endif;
+endevent;
+
+event Vulva
+# the vulva has been touched. Determine which part(s) touched and record the
+# instantaneous sensation
+
+if vulva.labiaMajoraChanged AND majo_sense GE 1.0 then
+vulva_instant = (vulva_instant + vulva.labiaMajora/majo_sense * 0.7)/2.0;
+endif;
+
+if vulva.clitorisChanged AND clit_sense GE 1.0 then
+vulva_instant = (vulva_instant + vulva.clitoris/clit_sense)/2.0;
+endif;
+
+endevent;
+
+event Vagina
+# if the nerves of the introitus have sensed any change add to instant variable and
+# reset the introitus period based on the vagina_instant – the less intense the stimulation
+# (lower vagina_instant) the longer the period
+if vagina.introitusChanged AND intr_sense GE 1.0 then
+vagina_instant = (vagina_instant + vagina.introitus/intr_sense * 0.7)/2.0;
+introitus_changes = introitus_changes + 1; # record change to introitus
+if introitus_changes GE 4 then
+vagina.introitus(finish);
+vagina.introitus(10134/vagina_instant, 50, 0, 48, -1, null);
+introitus_changes = 0.0;
+endif;
+endif;
+
+# if the nerves of the urethralSponge have sensed any change add to instant variable and
+# reset the orgasmicPlatform period based on the vulva_instant and the orgasmicPlatform
+# amplitude based on vagina_instant (more stimulation the greater the amplitude)
+if vagina.urethralSpongeChanged AND spon_sense GE 1.0 then
+vagina_instant = (vagina_instant + vagina.urethralSponge/spon_sense)/2.0;
+platform_changes = platform_changes + 1; # record change to orgasmicPlaform
+if platform_changes GE 7 then
+vagina.orgasmicPlatform(finish);
+vagina.orgasmicPlatform(3176/vulva_instant), 50, 0, 60 * vaginal_instant, -1, null);
+platform_changes = 0.0;
+endif;
+endif;
+
+# if vagina.deep is greater than zero then the penis is full depth in the
+# vagina. Check other variables and trigger orgasm if appropriate
+if DateTime.runningSeconds() GT time_to_orgasm AND vagina.deep GT 0
+AND (vulva_instant GT orgasm_trip OR vagina_instant GT orgasm_trip) then
+vagina.lubrication(finish); # empty lubrication queue
+vagina.lubrication(500, 50, 0, 50, 1000, null); # provide extra lubrication
+vagina.lubrication(2000, 50, 0, 10, -1, null); # reset lubrication to normal
+orgasm(); # trigger orgasm function
+endif;
+
+endevent;
+
+endmain;
+
+
+
+Filed in - | | Permalink | Comments (1)
+are we running out of pop songs?
+
+Tuesday, November 23rd, 2010
+yes.
+its not just a joke about bad folk-singers running out of songs. We are nearing the end of possible valid pop songs. We have composed most of the genre.
+
+Description
+We pretend we break all the rules musically, but without a grammar, sound is noise. Music = sound + structure. Music is sound that means something. Without a genre (the rules), music doesn’t happen. So inside a genre, we can validly permute all possible combinations. Pop music I believe, is a very strict genre.
+
+melody length
+There are 12 notes. But a song uses a specific key, which has 8 notes.
+Accidentals in pop music are sometimes allowed, in varying degrees.
+
+A pop melody is either 4 or 8 bars long, in 4/4 time. A pop-music melody is always either 16 or 32 beats.
+
+How many melody-relevant notes can squeeze into 32 beats? anything faster than a 16th note is definetly melody-irrelevant. 16ths are often used in pop… but a full 64 (4x4x4) note melody is ridiculous.
+
+bad electronic music has 3 note melodies.
+Luckily, the lower-limit is irrelevant. There are only 256 possible 2-note melodies. and 1 1-note melody. Lets include them.
+
+The number of notes in a melody is quite flexible.
+A melody really occupies a large amount of the surrounding melody-space.
+If I take ‘yellow submarine’ and add a 3-note trill, like people on american idol always do, its still yellow submarine.
+You can also skip notes and still recognize it.
+Even super-polysylabic songs from quebec can be reduced to 4 notes or so and still be recognizable.
+So this becomes tricky.
+
+Experimenting in my head..
+can you feel the love tonight = 22 – 36
+freak by radiohead 15 – 25
+
+Chorus and verse
+there is no original content in a pop-music verse. It is determined by the chorus.
+i’d love to make a program that created verses from choruses.
+
+Musicality
+the number of possible songs increases at an exponential with the length of the melody,
+8^8 = 16 million
+16^8=4294 million
+but the musical requirements of the melody also increase exponentially with the length of the melody.
+
+If you have a 32 note melody, the final 16 notes are pretty much completely determined by the first 16.
+so even if there is a trillion possible 32 note melodies, there are no new melodies offered by the 32nd note.
+You can’t take add a G flat to the end of ‘Moon River’.
+And given that new valid melodies take up such a large ‘melody-space’, I think you’ll find that the curve flattens out at 9 or 10 notes. I’ll say all 3 note-melodies are valid and new, half of 8 note melodies are valid and new, and no 10 note melodies are valid and new.
+This is, I think, generous.
+
+
+I think there are about 20 million possible pop songs.
+
+Law and Existing songs
+the musicbrainz database has 9 million songs
+
+Brewster_Kahle believes there are about 2 million different albums, so yes a bit less than 20 million recorded songs in existence. Subtract non-pop genres, and covers, and you will have somewhere between 9 and 15 million ‘legally different’ pop songs.
+
+so from that estimate, yes, we are more than half-way done. And have probably already gotten the good ones.
+
+Filed in - | | Permalink | Comments (1)
+how does a tree work?
+
+Sunday, November 21st, 2010
+a tree is like an l-system, somehow.
+
+
+but how? we don’t really know.
+
+what’s the actual mechanism for this?
+In idealised l-system trees, the next branch is only determined by its parent branch- say, half its length.
+the parent branch decides all of the variables for the child.
+
+but is that how trees actually work?
+
+not really.
+
+is the decision mechanism through competition? Branches try their best to get sunlight. The branch that gets sunlight will grow bigger, investing its resources in child branches, trying to get more sunlight.
+Is that it?
+I don’t think so. One thing that never happens is trees falling over because unbalanced growth. There is, in some way, ‘global’ decision making in the tree. There has to be. The tree chooses responsibly. There is (somehow) central processing with targeted signalling. If there wasn’t, wouldn’t there be enough apples on a branch to snap it?
+
+each branch communicates with the trunk – and as well, co-operates to share resources with siblings, children. A branch, if it grows a centimetre, requires every preceding branch to become stronger, and also commit more resources. Like how does a tree distribute its sugar etc? Evenly? But some branches grow faster than others. These decisions have to be made somewhere.
+
+some interesting things are known about plant growth hormones. but not enough.
+
+Buds that know they’re at the top inhibit new buds on parent branches.
+
+I don’t think we’ve found the decision process, the ‘l-system mechanism’ yet.
+
+
+
+
+Filed in Abstraction | | Permalink | Comments (0)
+bookmarklet to parse html tables
+
+Sunday, October 24th, 2010
+much of the internet’s structured data is in html tables, but they’re impossible to work with.
+
+using Karl Swedberg‘s awesome always-working jquery bookmarklet, I’ve made a bookmarklet that lets you parse them into a more usable format:
+
+right click on this link, and save to bookmarks -> table parser
+
+then when you click on it, it will let you click on a html table to parse it into semicolin-seperated values
+
+if you wanna hack it, check it out-out
+
+um, thank you jquery
+
+check out my other cute bookmarklets
+
+Filed in -, Javascript | | Permalink | Comments (0)
+categories
+
+Saturday, October 23rd, 2010
+a category is a way of organising information. It is the most popular way, but not the always the smart way.
+
+it looks like this
+
+
+
+or if you’re a computer :
+
+you may recognize it.
+
+it is found in the dewey decimal system, your computer file-system, wikipedia categories, wordnet, opencyc, SKOS,  DMOZ, book indexes, animal classification, government committees…
+
+it is called a taxonomy, phylogeny, hierarchy, ‘directed acrylic graph’, subclass system, tree diagram.
+
+The principle is this:
+
+if you want to organise pictures of your cat – put information about individual pictures in a way that the information can be put in, and taken out, in a useful way-
+
+you could make a network of folders:
+
+cat outside->cat in the sun->cat lying down->cat lying down in grass->cat lying down on the front lawn
+
+there’s a system that captures two things: what the cat is doing, and location.
+
+consider the alternate, parallel network:
+
+‘cat awake’->’cat eating’->cat eating vegetables->cat eating strawberries
+
+these two networks are consistent with one another, and  if he’s in the front lawn eating strawberries, both can be used. In fact, every piece of information in the image can be classified by a phylogeny.
+
+‘cat with 2 other brown cats’
+‘cat at 12 years old’
+‘cat looking away from the camera’
+‘cat under incandescent lighting’
+‘cat on tuesday’
+‘cat watching seinfeld’
+and these variables can be sorted properly: ‘cat during the week’,  ‘cat watching american television’, ‘cat under non-oxidative lighting implement’.
+
+
+
+the point is, that ALL information can be put into this ontology.
+but taking it out is impossible.
+
+go ahead and type wikipedia categories in scholar. you will see the tragedy as it has unfolded all over peoples unfortunate careers.
+
+When you go to take  the data out, its total fucking mess.
+
+Wikipedia categories are so upset, they’re recursive. You follow one down the branch and end up where you began. It happens all over the place.
+
+For example, when dbpedia classified articles based on category intersection, it was extremely poor accuracy. ‘Category:Eurovision contestants‘ includes a book about them, even though you can eventually reach up to ‘category:person‘.
+
+few things are more hilarious (and depressing) than wikipedia’s daily categories for discussion. everyone is such a philosopher. They (with great patience) pull each others hair over a system that seems to constantly demand it.  That’s what it means to chose the wrong ontology. If your information never seems to fit easily, it’s cause the ontology is wrong.
+
+When the well-meaning wikipedia editor makes the category  “Category: tennis players that have lost 5 games“, or “Category: Gothic people” they are the victim of bad ontology design.
+
+You see the exact same thing happening with websites encouraging people to ‘tag’ freely, in a folksy phylogeny. This information can never be pulled out of it at any depth.
+
+the reason is that the predicates remain completely unrepresented. Or rather, all of the information about the category is still unstructured, it’s simply still in the text, in the known assumptions regarding the subject, and in the context of the other categories. You never actually put your information in.
+
+when you have a category about cat actions, and a category about time of day, the thing that you’re actually representing with the phylogeny is a shallow agreement. a folksonomy. its not data. you’re not putting the actual data into a system. Unfortunately, you’re flattening all the data into one relation- ‘contains’, or ‘included in’.
+
+The properties need to be explicitly stated.
+
+Explicit properties look like this: Subject – verb – object
+
+Mark Keil    -  /freebase/tennis/matches_lost    –    5
+
+or
+
+Marilyn Manson   -   /dbpedia/musician/genre   -  goth
+
+if you have disciplined predicates like this, you are actually putting your data in, and can take it back out.
+
+This is why the semantic web is not hype. We have finally figured out how to organize information.
+In 10,000 years, we will still be organizing our information as triples. It’s how information works, and we’ve figured it out.
+
+Filed in -, Abstraction, freebase | | Permalink | Comments (2)
+everything is turing complete
+
+Saturday, October 23rd, 2010
+the regular narrative is that as computers get faster, we digitize more and more, technology becomes better.  and its completely wrong.
+
+consider voice-over-ip,which converts a simple audio signal into a hilarious 32bit integer every 44100th of a second, runs every one of these numbers desperately fast under hurried dsp algorithms, only to convert it back into a one simple audio signal, with all of its redundancies, inherited patterns, physical interactions.
+
+its really the most inefficient process you could ever imagine. It’s not futuristic, it’s not low-tech because computers are slow, its just inefficient. Insane.
+
+Rahul Sarpeshkar gives a hilariously good description of the state of affairs of digital->analogue computing, and how we’ve collectively forgotten that information can exist physically. He’s building machines that do most of their processing before the processor. They don’t get faster every 18 months, because they don’t need to. Analogue computers don't have to get faster.
+
+
+its easy to 'stream' analogue video.
+
+It’s also worth mentioning that our progress in software algorithms has consistently beaten Moore’s Law.
+
+So if Wired magazine got us hooked on [adc], what can we learn as we rebound?
+
+which digitizations should we ditch?
+
+consider the cell-as-computer analogy, which considers base-pairs as bits, and proteins as their expressions.
+
+it was decided a few decades ago that methylated cytosine, is ‘C’. Exactly one piece of information. abstracting away effects of
+
+ph gradients, topology, boyancy, plasticity, refraction of light, viscosity, availability of resources, electrical conductivity.
+
+Is that cool?
+
+If you reduce something too hard, what you will get is partial patterns, disconnected correlations. Hints of something going on.
+
+it’s becoming more and more clear that this sort of reduction in genetics is too aggressive. We still know jack shit about genetics.
+
+Consider a mad cow disease, which is just a shape, with no genetics at all.
+
+a shape is a function with an obscene set of conditional statements, and recursion, and emergence, adaptation and inheritence. It’s really not something that makes much sense to compute digitally.
+
+- as Steve Talbot describes in his recent paper,   “everything does everything to everything”
+
+given the success of the [analogue - digital - analogue] engineering strategy over my lifetime, its easy to push on this analogy. but its just not actually that useful.
+
+
+
+Filed in - | | Permalink | Comments (0)
+apollo quote
+
+Tuesday, October 5th, 2010
+mike collins, from apollo 11-
+
+I’ve had it with certain questions, and maybe the way they’re asked. But I’ve gotten slyer. I’ve gotten more adept at just deflecting them. I mean, if someone says, you know, “What was it like up there?” You know, I’ve just written this fucking book telling em four hundred pages of what it was really like up there, and they say “oh i loved your book! Now tell me: What was it really like up there?” Well , I learned to deflect that. It depends on their age. I mean, if it’s a young kid, you just say, “Oh it was cool, man.” They say, “Was it?”    “Oh, shit, yeah. Oh, it was cool.” And they walk off; that’s great. It’s they want to hear the sound of their own voice, or they want to somehow interject with their own question or their own inquiry into the process. And that’s alright. So I go by the age; I usually give em a one- or two word answer, depending how old they are. And they usually – sometimes, though, they won’t be satisfied with that, and they’ll want to go on. But nine times out of ten, they’ll say, “Oh, oh, uh-huh.” And they’re very pleased.
+
+
+
+Filed in - | | Permalink | Comments (1)
+html features I'd like
+
+Tuesday, September 28th, 2010
+universal preferences
+do you like websites with black backrounds? or are you bothered by fancy or small fonts, or swearing?  you should be able to tell websites this, and they should listen.
+it would be nice if you could tell your browser these things once, using an informal ontology like robots.txt, and websites that want to be well-liked could grab these from your http header, or cookies or whatever. You could tell it anything, show the ‘medium’ sized video, remove public comments, don’t show inline html links, whatever.
+you shouldn’t have to render a canonical version then adhoc the changes yourself
+
+
+html notifications
+ever been victim of a alert() attack?
+run this:
+while(true){alert(“this disables your whole browser”);}
+alert() sucks, makes you click ‘ok’, and feels like windows2k. Websites are becoming backround processes, or deamons, that do something like play music, wait for news, or whatever. but it means you have to have the tab taking up space on your screen all day. Websites should alert users of changes gracefully, using one always-on-top ‘growl’ standard.
+
+opensearch result standard
+opensearch is, I think, the least-taken advantage of standard in webprogramming. It has HUge potential for making websites very well-integrated. It lets you query disparate websites using a single open-standard, but despite this initial cooperation, results of each page need to be scraped ad-hoc. If we call something using an open standard, it should respond in an open standard.
+
+fullscreen api
+fullscreen is awesome, and its all the ‘features’ of web apps that make it difficult to concentrate on the internet. you should be able to fullscreen anything. use your computer screen how you want.
+Browsers render html according to screensize, but that bit’s hidden.
+fullscreen is always lame with the web, cause theres no easy way to do it.
+
+Filed in - | | Permalink | Comments (0)
+< Older posts
+Recent Entries
+
+http to unix shell the unix-developer philosophy is as follows: "Write programs that do ... August 4th, 2011 No comments
+responsive environment [caption id="" align="alignnone" width="392" caption="thermostats don't believe that weather is ... January 29th, 2011 No comments
+yes, yes, endfunction [caption id="" align="aligncenter" width="259" caption="(from crackorcleavage.com)"][/caption] [caption id="attachment_298" align="aligncenter" width="237" caption="from ... December 11th, 2010 One comment
+are we running out of pop songs? yes. its not just a joke about bad folk-singers running out ... November 23rd, 2010 One comment
+how does a tree work? a tree is like an l-system, somehow. but how? we don't ... November 21st, 2010 No comments
+Recent Comments
+
+Cynthia Cayer wrote: I think your article didn't embarrassed me, but confused me. I tr ... On yes, yes, endfunction
+Cynthia Cayer wrote: Wow, I always wonder how much beat, we can possibly invent and yo ... On are we running out of pop songs?
+bet365 wrote: Good day!This was a really outstanding website! I come from itla ... On most things arent real.
+bet365 wrote: Good day!This was a really superb subject! I come from milan, I ... On categories
+nurse practitioner wrote: This is such a great resource that you are providing and you give ... On categories
+Search
+
+
+Categories
+
+-
+Abstraction
+freebase
+Javascript
+Tags
+
+adbusters blackspot facebook export fideism freebase hijab mars mars mission orgasm reduction scientific method sexuality space symbolism
+
+Archives
+
+August 2011
+January 2011
+December 2010
+November 2010
+October 2010
+September 2010
+July 2010
+June 2010
+May 2010
+April 2010
+February 2010
+January 2010
+December 2009
+November 2009
+October 2009
+September 2009
+September 2008
+RSS Feeds
+
+All posts
+All comments
+Meta
+
+Log in
+© 2011 A WordPress Blog Simplr theme by Scott Allan Wallick
+Valid XHTML & CSS RSS: Posts & Comments

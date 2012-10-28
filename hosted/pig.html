@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  #fun{
+    position:relative;
+    left:20%;
+    top:20%;
+    display:none;
+    border:1px solid grey;
+    width:80%;
+  }
+  #great{
+    position:relative;
+    color:grey;
+    left:20%;
+    font-family: 'PT Sans', sans-serif;
+  }
+#eye {
+  border-radius: 50%;
+  width: 4px;
+  height: 4px;
+  background:black;
+  left:586px;
+  top:140px;
+}
+
+  </style>
+  <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script src="./transit.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div id="fun">
+<img src="./cownotail.png"/>
+<span id="eye" style="position:absolute; "></span>
+<img id="tail" style="position:absolute; left:271px; top:180px;" src="./tail.png"/>
+</div>
+<br/>
+<div id="great">
+  words are also real
+</div>
+  <script>
+  $(function() {
+
+    $("#fun").fadeIn('slow');
+
+movetail()
+moveeye()
+
+function movetail(){
+      $("#tail").transition({
+        rotate: '-4deg',
+        y:"+2px",
+        easing: 'in',
+        duration: '700ms'
+      }, function(){
+          $(this).transition(  {
+          rotate: '5deg',
+          y:"-5px",
+          easing: 'in',
+          duration: '800ms'
+        }, function(){
+          var t=Math.floor(Math.random()*10) * 700
+          setTimeout(function(){movetail()}, t)
+        })
+      });
+    }
+
+    function moveeye(){
+      $('#eye').animate({
+        left: '-=2',
+      }, 10, function() {
+        setTimeout(function(){
+           $("#eye").animate({
+              left: '+=2',
+            }, 20, function() {
+            var t=Math.floor(Math.random()*10) * 1000
+            setTimeout(function(){moveeye()}, t)
+          })
+        }, 2000)
+
+      });
+    }
+
+
+
+
+
+  });
+
+
+
+</script>
+
+</body>
+</html>
