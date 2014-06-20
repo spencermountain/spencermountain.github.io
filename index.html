@@ -2,19 +2,27 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" />
+        <meta charset="utf-8">
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <title>spencermountain </title>
-        <meta name="description" content="words are real"/>
+        <title></title>
+        <meta name="description" content="what's your hobby, internet"/>
         <meta name="keywords" content="spencer kelly, spencermountain, spencerwaterbed"/>
 
-        <link rel="stylesheet" type="text/css" href="famous/core/famous.css" />
+        <!-- shims -->
+        <script type="text/javascript" src="./lib/shims.js"></script>
+        <!-- module loader -->
+        <script type="text/javascript" src="./lib/require.js"></script>
+        <!-- famous -->
+        <link rel="stylesheet" type="text/css" href="./lib/famous.css" />
+        <script type="text/javascript" src="./lib/myfamous.js"></script>
 
-        <script type="text/javascript" src="lib/functionPrototypeBind.js"></script>
-        <script type="text/javascript" src="lib/classList.js"></script>
-        <script type="text/javascript" src="lib/requestAnimationFrame.js"></script>
-        <script type="text/javascript" src="lib/require.js" data-main="main"></script>
+        <script type="text/javascript" src="./lib/dirty.js"></script>
+        <script type="text/javascript" src="./lib/zepto.js"></script>
 
+        <script type="text/javascript">
+            require(['./coffeejs/main']);
+        </script>
     </head>
     <body></body>
 </html>
