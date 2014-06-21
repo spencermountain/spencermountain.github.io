@@ -49,7 +49,10 @@ But nine times out of ten, they'll say, "Oh, oh, uh-huh" And they're very please
      origin:[0.5, 0.5],
      # translate: Transform.translate(0, 250)
     })
-    container.add(m).add(s)
+    setTimeout ->
+      container.add(m).add(s)
+    ,4000
+    return container
 
   make_song=->
     song = new Surface(
@@ -61,7 +64,7 @@ But nine times out of ten, they'll say, "Oh, oh, uh-huh" And they're very please
     )
     setTimeout (->
       mainContext.add song
-    ), 7000
+    ), 700
 
   container.add(pipe())
 

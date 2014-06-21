@@ -38,7 +38,9 @@ define(function(require, exports, module) {
     m = new Modifier({
       origin: [0.5, 0.5]
     });
-    return container.add(m).add(s);
+    return setTimeout(function() {
+      return container.add(m).add(s);
+    }, 4000);
   };
   make_song = function() {
     var song;
@@ -51,7 +53,7 @@ define(function(require, exports, module) {
     });
     return setTimeout((function() {
       return mainContext.add(song);
-    }), 7000);
+    }), 700);
   };
   container.add(pipe());
   wavepool = new ContainerSurface({
