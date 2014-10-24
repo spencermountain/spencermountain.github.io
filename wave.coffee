@@ -9,7 +9,7 @@ define (require, exports, module) ->
   RenderNode = require("famous/core/RenderNode")
   mainContext = Engine.createContext()
 
-  wave = ->
+  wave = (i=0)->
     r = parseInt(Math.random() * 28) - 14
     color = "rgb(" + (54 + r) + "," + (111 + r) + "," + (159 + r) + ")"
     surf = new Surface(
@@ -24,11 +24,12 @@ define (require, exports, module) ->
     make_radian = ->
       0.04 * Math.random()
 
-    x = (Math.random() * 1000) - 500
+    adjustment= (Math.random() * 100) - 200
+    x = i + adjustment
     y = (Math.random() * 55)
     move = new Modifier(transform: Transform.translate(x, y, 0))
     rotate = new Modifier(
-      origin: [0.5, 1.1]
+      origin: [0, 1.1]
       opacity: 0.75
       transform: Transform.rotateZ(make_radian() * ((Math.random() * 2) - .1))
     )

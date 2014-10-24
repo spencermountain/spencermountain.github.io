@@ -1,9 +1,6 @@
 arr= [
-  "./libs/jquery.js",
-  "./libs/sugar.js",
-  "./libs/oj.js",
-  "./libs/easings.js",
-  "./libs/dirty.js",
+  "https://s3.amazonaws.com/spencermounta.in/portfolio/libs/jquery.js",
+  "https://s3.amazonaws.com/spencermounta.in/portfolio/libs/oj.js",
 ]
 head.js.apply(this, arr);
 
@@ -15,10 +12,10 @@ head ->
       div {style:"display:block; color:grey; margin:2px; font-size:28px;", }, -> "Hackathon hustling"
       div {style:"background-color:steelblue; width:75%; height:2px; margin:5px 10px 5px 10px; left:20px; position:relative;"}
 
-      a {style:"position:absolute; text-decoration:none; opacity:0.8;", href:"./assets/argmap.png"}, ->
+      a {style:"position:absolute; text-decoration:none; opacity:0.8;", href:"https://s3.amazonaws.com/spencermounta.in/portfolio/assets/argmap.png"}, ->
         img {
           style:"width:400px; border:2px solid grey; border-radius:5px;"
-          src:"./assets/argmap_thumb.png"
+          src:"https://s3.amazonaws.com/spencermounta.in/portfolio/assets/argmap_thumb.png"
         }
         div {style:"position:absolute; top:65px; left:10px; color:steelblue; font-size:44px;"},->
           "Argument mapping"
@@ -29,7 +26,7 @@ head ->
       a {style:"position:absolute; left:450px; text-decoration:none; opacity:0.8;", href:"https://github.com/spencermountain/clooney"}, ->
         img {
           style:"width:300px; border:2px solid grey; border-radius:5px;"
-          src:"./assets/treemap.gif"
+          src:"https://s3.amazonaws.com/spencermounta.in/portfolio/assets/treemap.gif"
         }
         div {style:"position:relative; color:grey; font-size:14px;"},->
           "Famo.us alpha 2014"
@@ -37,7 +34,7 @@ head ->
       a {style:"position:absolute; left:450px; top:350px; text-decoration:none; opacity:0.8;", href:"https://chrome.google.com/webstore/detail/townhouse/lkkbklipfdbphchmibeecklgijliafid"}, ->
         img {
           style:"width:300px; border:2px solid grey; border-radius:5px;"
-          src:"./assets/townhouse.png"
+          src:"https://s3.amazonaws.com/spencermounta.in/portfolio/assets/townhouse.png"
         }
         div {style:"position:relative; color:grey; font-size:14px;"},->
           "chrome extension"
@@ -45,7 +42,7 @@ head ->
       a {style:"position:absolute; left:50px; top:400px; text-decoration:none; opacity:0.8;", href:"https://github.com/spencermountain/acre_backup/tree/master/unlockldn"}, ->
         img {
           style:"width:280px; border:2px solid grey; border-radius:5px;"
-          src:"./assets/unlockldn.png"
+          src:"https://s3.amazonaws.com/spencermounta.in/portfolio/assets/unlockldn.png"
         }
         div {style:"position:relative; color:grey; font-size:14px;"},->
           "UnlockLondon 2014 winner"
@@ -92,7 +89,7 @@ head ->
               span -> "     "
               a {
                 style:"color:steelblue;"
-                href:"http://github.com/spencermountain"
+                href:"https://github.com/spencermountain"
               }, ->
                   "github"
               span -> "     "
@@ -107,7 +104,7 @@ head ->
               },->
                 div -> "we gave the monkeys the bananas because they were hungry"
                 div -> "we gave the monkeys the bananas because they were ripe"
-            div {style:"color:grey; text-align:left;"},->"semantic web. visualisation."
+            div {style:"color:grey; text-align:left;"},->"semantic web. visualisation"
             div {style:"color:grey; text-align:left;"},-> "Toronto, Canada"
 
       div {
@@ -117,21 +114,21 @@ head ->
         video_project({
           title:"Earthbarely",
           official:"http://earthbarely.com"
-          link:"http://player.vimeo.com/video/103858377?byline=0&title=0&amp;portrait=0&amp;autoplay=0"
+          link:"https://player.vimeo.com/video/103858377?byline=0&title=0&amp;portrait=0&amp;autoplay=0"
           headline:"a single navigation for every person and place on Earth",
           about:"mongo, freebase, famo.us.   2014"
           })
         video_project({
           title:"State",
           official:"http://state.com"
-          link:"http://www.youtube.com/embed/phot9g9uuKs?rel=0&controls=0&showinfo=0"
+          link:"https://www.youtube.com/embed/phot9g9uuKs?rel=0&controls=0&showinfo=0"
           headline:"a self-organising language of semantic expression",
           about:"wordnet, mturk, rails.   2012"
           })
         video_project({
           title:"Nlp_compromise",
           official:"http://nlpcompromise.com"
-          link:"http://player.vimeo.com/video/109880250?byline=0&title=0&amp;portrait=0&amp;autoplay=0"
+          link:"https://player.vimeo.com/video/109880250?byline=0&title=0&amp;portrait=0&amp;autoplay=0"
           headline:"natural language processing library in the browser",
           about:"predictive modelling, node.   2014"
           })
@@ -140,7 +137,7 @@ head ->
         video_project({
           title:"Freebase.js",
           official:"https://github.com/spencermountain/Freebase.js"
-          link:"http://player.vimeo.com/video/13992710?byline=0&title=0&amp;portrait=0&amp;autoplay=0"
+          link:"https://player.vimeo.com/video/13992710?byline=0&title=0&amp;portrait=0&amp;autoplay=0"
           headline:"complex inference on the semantic web",
           about:"mozilla ubiquity.   2010"
           })

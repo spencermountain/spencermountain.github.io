@@ -19,11 +19,15 @@ define (require, exports, module) ->
       h= 600
   container= new ContainerSurface({
     size:[w, h]
-    })
+    properties:{
+      "min-height:500px;"
+      # overflow:"auto"
+    }
+  })
 
   collins=->
     html= """
-<pre style="word-wrap: break-word; white-space: pre-wrap; font-family: monospace;">
+<pre style="word-wrap: break-word; white-space: pre-wrap; font-family: monospace; z-index:1; min-width:200px;">
 mike collins, from apollo 11-
 
 I've had it with certain questions, and maybe the way they're asked.
@@ -68,16 +72,40 @@ But nine times out of ten, they'll say, "Oh, oh, uh-huh" And they're very please
 
   container.add(pipe())
 
+
+
   wavepool= new ContainerSurface({
     size:[undefined, 250]
   })
-  for i in [0..36]
-     wavepool.add(wave())
+  waves= parseInt(window.innerWidth/30)
+  if waves<12
+    waves= 12
+  console.log waves
+  for i in [0..waves]
+     x= (i * 30) - 50
+     wavepool.add(wave(x))
   wm= new Modifier({
-     origin:[0.5, 1.1],
-     # translate: Transform.translate(0, 250)
+     origin:[0, 1.1],
+     # translate: Transform.translate(-300, -300)
   })
   container.add(wm).add(wavepool)
+
+  #bio
+  html= """
+    <div style="text-align:right; padding:50px; font-family: 'Cardo', serif; z-index:9;">
+      <a href="http://blog.state.com/post/51231219164/the-man-who-dreams-of-organising-everything" style="color:steelblue; font-size:14px; padding:10px;">bio</a>
+      <a href="http://s3.amazonaws.com/spencermounta.in/portfolio/index.html" style="color:steelblue; font-size:14px; padding:10px;">portfolio</a>
+    </div>
+  """
+  bs= new Surface({
+    size:[true, true]
+    content:html
+    })
+  bm= new Modifier({
+     origin:[0.9, 0.9],
+     translate: Transform.translate(0, 0, 10)
+  })
+  container.add(bm).add(bs)
 
   collins()
   make_song()

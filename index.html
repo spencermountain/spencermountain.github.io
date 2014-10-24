@@ -2,13 +2,20 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=980px, user-scalable=yes" />
+        <meta name="viewport" content="width=980, user-scalable=yes" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <title>spencer mountain</title>
         <meta name="description" content="what's your hobby, internet"/>
         <meta name="keywords" content="spencer kelly, spencermountain, spencerwaterbed"/>
-
+        <style>
+        @font-face {
+          font-family: 'Cardo';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Cardo'), local('Cardo-Regular'), url(http://s3.amazonaws.com/spencermounta.in/lib/cardo.woff) format('woff');
+        }
+        </style>
         <!-- shims -->
         <script type="text/javascript" src="./lib/shims.js"></script>
         <!-- module loader -->
@@ -25,15 +32,14 @@
         </script>
     </head>
     <body></body>
-    <!-- analytics -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      <!-- analytics -->
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-33638558-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
+        ga('create', 'UA-33638558-1', 'auto');
+        ga('send', 'pageview');
+      </script>
 </html>
