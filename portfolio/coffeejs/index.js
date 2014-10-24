@@ -10,7 +10,7 @@ head(function() {
   oj.useGlobally();
   hacks = function() {
     return div({
-      style: "position:relative; display:block; height:900px;"
+      style: "position:relative; display:block; height:790px;"
     }, function() {
       div({
         style: "display:block; color:grey; margin:2px; font-size:28px;"
@@ -82,15 +82,8 @@ head(function() {
         });
       });
       return div({
-        style: "position:absolute; top:600px; height:100px;"
+        style: "position:absolute; top:600px; height:100px; left:150px;"
       }, function() {
-        div({
-          style: "position:relative; left:110px; padding:30px; width:800px; font-size:45px; color:grey;"
-        }, function() {
-          return span(function() {
-            return "3rd engineer at State";
-          });
-        });
         return div({
           style: "padding:40px; width:800px; font-size:45px; color:grey;"
         }, function() {
@@ -189,7 +182,7 @@ head(function() {
             });
           });
           a({
-            style: 'color:lightgrey; text-decoration:none; margin:50px 5px 5px 5px; text-align:left; font-size:15px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;',
+            style: 'color:lightgrey; text-decoration:none; margin:50px 5px 5px 5px; text-align:left; font-size:15px; ',
             href: "https://docs.google.com/presentation/d/1ytOp7Hp5m42pANx5NBeEs9NCaUuwFPIZEGlDr86vxyQ/edit?usp=sharing"
           }, function() {
             div(function() {
@@ -230,12 +223,19 @@ head(function() {
         headline: "a self-organising language of semantic expression",
         about: "wordnet, mturk, rails.   2012"
       });
-      return video_project({
+      video_project({
         title: "Nlp_compromise",
         official: "http://nlpcompromise.com",
         link: "http://player.vimeo.com/video/109880250?byline=0&title=0&amp;portrait=0&amp;autoplay=0",
         headline: "natural language processing library in the browser",
         about: "predictive modelling, node.   2014"
+      });
+      return video_project({
+        title: "Freebase.js",
+        official: "https://github.com/spencermountain/Freebase.js",
+        link: "http://player.vimeo.com/video/13992710?byline=0&title=0&amp;portrait=0&amp;autoplay=0",
+        headline: "complex inference on the semantic web",
+        about: "mozilla ubiquity.   2010"
       });
     });
   }));

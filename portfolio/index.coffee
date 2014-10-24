@@ -11,7 +11,7 @@ head ->
   oj.useGlobally();
 
   hacks=->
-    div {style:"position:relative; display:block; height:900px;"}, ->
+    div {style:"position:relative; display:block; height:790px;"}, ->
       div {style:"display:block; color:grey; margin:2px; font-size:28px;", }, -> "Hackathon hustling"
       div {style:"background-color:steelblue; width:75%; height:2px; margin:5px 10px 5px 10px; left:20px; position:relative;"}
 
@@ -50,11 +50,7 @@ head ->
         div {style:"position:relative; color:grey; font-size:14px;"},->
           "UnlockLondon 2014 winner"
 
-      div {style:"position:absolute; top:600px; height:100px;"},->
-        div {
-          style:"position:relative; left:110px; padding:30px; width:800px; font-size:45px; color:grey;"
-        }, ->
-          span -> "3rd engineer at State"
+      div {style:"position:absolute; top:600px; height:100px; left:150px;"},->
         div {
           style:"padding:40px; width:800px; font-size:45px; color:grey;"
         }, ->
@@ -106,7 +102,7 @@ head ->
               }, ->
                   "email"
             a {
-                style:'color:lightgrey; text-decoration:none; margin:50px 5px 5px 5px; text-align:left; font-size:15px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;'
+                style:'color:lightgrey; text-decoration:none; margin:50px 5px 5px 5px; text-align:left; font-size:15px; '
                 href:"https://docs.google.com/presentation/d/1ytOp7Hp5m42pANx5NBeEs9NCaUuwFPIZEGlDr86vxyQ/edit?usp=sharing"
               },->
                 div -> "we gave the monkeys the bananas because they were hungry"
@@ -138,6 +134,15 @@ head ->
           link:"http://player.vimeo.com/video/109880250?byline=0&title=0&amp;portrait=0&amp;autoplay=0"
           headline:"natural language processing library in the browser",
           about:"predictive modelling, node.   2014"
+          })
+
+
+        video_project({
+          title:"Freebase.js",
+          official:"https://github.com/spencermountain/Freebase.js"
+          link:"http://player.vimeo.com/video/13992710?byline=0&title=0&amp;portrait=0&amp;autoplay=0"
+          headline:"complex inference on the semantic web",
+          about:"mozilla ubiquity.   2010"
           })
 
 
