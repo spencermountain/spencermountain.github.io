@@ -1,7 +1,7 @@
 //the requestAnimationFrame logic for calling setState each frame
 'use strict';
-import _ from 'lodash';
-import { interpolateArray } from 'd3-interpolate';
+const _ = require('lodash')
+const interpolateArray = require('d3-interpolate').interpolateArray
 
 //support all prefixed rAF methods
 let requestAnimationFrame;
@@ -18,22 +18,21 @@ const tick = function() {
   if (alpha > 1) { //possible, on slow framerates
     alpha = 1;
   }
-  this.cmp.state.data = self.interp(alpha);
+  this.cmp.state.arr = this.interp(alpha);
   this.cmp.setState(this.cmp.state, () => {
     //are we done?
     if (alpha >= 1) {
-      this.cmp.state.loader_percent = 0;
       this.cmp._next_frame = undefined;
-      return this.callback(self);
+      return this.callback(this);
     }
     //nope, repeat
-    this.cmp._next_frame = requestAnimationFrame(tick.bind(self));
+    this.cmp._next_frame = requestAnimationFrame(tick.bind(this));
     return null
   });
 };
 
 //setup the animation and trigger first frame.
-const animateGauge = function(cmp, startArr, endArr, options, callback) {
+const animateArr = function(cmp, startArr, endArr, options, callback) {
   options = options || {}
   //cancel existing animations
   if (cmp._next_frame) {
@@ -53,4 +52,4 @@ const animateGauge = function(cmp, startArr, endArr, options, callback) {
   requestAnimationFrame(tick.bind(anim));
 }
 
-module.exports = animateGauge;
+module.exports = animateArr;
