@@ -7,7 +7,7 @@ import colors from './colors'
 import './index.css'
 import Github from 'react-icons/lib/io/social-github';
 import Twitter from 'react-icons/lib/io/social-twitter';
-import LinkedIn from 'react-icons/lib/io/social-linkedin-outline';
+import Wiki from 'react-icons/lib/io/android-globe';
 import Email from 'react-icons/lib/io/paper-airplane';
 
 const assets={
@@ -68,7 +68,7 @@ const style = styler`
       left:-50
       top:-55
       font-size:24
-      color:dimgrey
+      color:darkslategrey
       text-align:center
     name:
       font-size:35px
@@ -169,14 +169,15 @@ const style = styler`
     flex-direction: row;
     align-items: center;
     flex-wrap: nowrap;
+    text-align:center;
     justify-content: space-around;
     margin:100
     marginTop:40
     way:
+      text-decoration:none
+      color:darkslategrey
       title:
         display:block
-        text-decoration:none
-        color:darkslategrey
 
   stuff:
     display: flex;
@@ -345,24 +346,24 @@ class App extends Component {
         </div>
 
         <div style={css.talk}>
-          <div style={css.talk.way}>
+          <a style={css.talk.way} href="https://github.com/spencermountain">
             <Github size={40}/>
-            <a style={css.talk.way.title} href="https://github.com/spencermountain">
+            <div style={css.talk.way.title} >
               github
-            </a>
-          </div>
-          <div style={css.talk.way}>
+            </div>
+          </a>
+          <a style={css.talk.way} href="https://twitter.com/spencermountain">
             <Twitter size={40}/>
-            <a style={css.talk.way.title} href="https://twitter.com/spencermountain">
+            <div style={css.talk.way.title} >
               twitter
-            </a>
-          </div>
-          <div style={css.talk.way}>
-            <LinkedIn size={40}/>
-            <a style={css.talk.way.title} href="https://www.linkedin.com/in/spencermountain">
-              LinkedIn
-            </a>
-          </div>
+            </div>
+          </a>
+          <a style={css.talk.way} href="https://en.wikipedia.org/wiki/User:Spencerk">
+            <Wiki size={40}/>
+            <div style={css.talk.way.title} >
+              wiki
+            </div>
+          </a>
         </div>
 
         <div style={css.stuff}>
@@ -392,7 +393,7 @@ class App extends Component {
           <div style={css.stuff.thing}>
             <img src={assets.treemap} style={css.stuff.thing.img}/>
             <div style={css.stuff.thing.title}>
-              {'Famo.us alpha'}
+              <a href="http://cdn.rawgit.com/spencermountain/clooney/master/build/index.html">{'Famo.us alpha'}</a>
             </div>
           </div>
 
