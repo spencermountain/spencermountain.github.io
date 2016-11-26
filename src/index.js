@@ -28,6 +28,17 @@ const style = styler`
     height:275px
     left:
       flexGrow:3
+      color:lightgrey
+      opacity:0.2
+      font-size:55
+      text-align:center
+      margin-top:50
+      align-items: center;
+      justify-content: center;
+      table:
+        font-size:35
+        width:100%
+
     right:
       flexGrow:2
       img:
@@ -102,10 +113,26 @@ const style = styler`
           height:50%
           background-color:steelblue
       about:
+        position:relative
         flex-basis:400px
-        border:1px solid grey
+        title:
+          color:dimgrey
+          text-decoration:underline
+          margin:15
+          marginTop:40
+          marginBottom:5
+        description:
+          color:silver
+          marginLeft:25
+        place:
+          text-align:right
+          color:dimgrey
+          text-decoration:underline
+          position:absolute
+          bottom:30
+          margin:5
+          right:25
       img:
-        // border:1px solid grey
         flex-basis:150px
   water:
     position:fixed
@@ -129,7 +156,15 @@ class App extends Component {
         <div style={css.container}>
 
           <div style={css.top}>
-            <div style={css.top.left}></div>
+            <div style={css.top.left}>
+              <div>{'we gave the monkeys the bananas'}</div>
+              <table style={css.top.left.table}>
+                <tr>
+                  <td>{'because they were hungry'}</td>
+                  <td>{'because they were ripe'}</td>
+                </tr>
+              </table>
+            </div>
             <div style={css.top.right}>
               <Youtube src={assets.goto} title={'Language as an Interface:  GOTO\'16'} href="https://www.youtube.com/watch?v=WuPVS2tCg8s"/>
             </div>
@@ -137,15 +172,14 @@ class App extends Component {
 
           <div style={css.about}>
             <div style={css.about.greeting}>
-              <div style={{fontSize:14}}>{'oh,'}</div>
-              <div style={{fontSize:44, borderBottom:'1px solid lightsteelblue', margin:0}}>{'  hi'}</div>
+              <div style={{fontSize:44, margin:0}}>{'hi,'}</div>
             </div>
             <div style={css.about.name}>
               {'Sҏeƞceȓ Қellӯ'}
             </div>
             <div style={css.about.description}>
               <img alt='cn tower' src={assets.CNTower} style={css.about.description.cntower}/>
-              {'freelance developer, toronto'}
+              {'freelance developer, Toronto'}
             </div>
             <div style={css.about.color}>
               <Thing colors={colors[0]}/>
@@ -159,6 +193,15 @@ class App extends Component {
                 <div style={project.side.circleBottom}/>
               </div>
               <div style={project.about}>
+                <div style={project.about.title}>
+                  {'Natural Language Processing'}
+                </div>
+                <div style={project.about.description}>
+                  {'rule-based NLP on the client-side'}
+                </div>
+                <a href="http://nlpcompromise.com/" style={project.about.place}>
+                  {'open-source'}
+                </a>
               </div>
               <div style={project.img}>
                 <img alt={'nlp_compromise'} src={assets.rocking} style={{height:170}} />
@@ -172,6 +215,15 @@ class App extends Component {
                 <div style={project.side.circleBottom}/>
               </div>
               <div style={project.about}>
+                <div style={project.about.title}>
+                  {'Interpolating economic assumption'}
+                </div>
+                <div style={project.about.description}>
+                  {'Pension liability vizualization + interpretation'}
+                </div>
+                <a href="http://govinvest.com/" style={project.about.place}>
+                  {'Govinvest.com'}
+                </a>
               </div>
               <div style={project.img}>
                 <img alt={'d3graphs'} src={assets.govdna} style={{height:170}} />
@@ -184,6 +236,15 @@ class App extends Component {
                 <div style={project.side.circle}/>
               </div>
               <div style={project.about}>
+                <div style={project.about.title}>
+                  {'Word-sense folksonomy'}
+                </div>
+                <div style={project.about.description}>
+                  {'synonym understanding with statistical-ML and semantic web'}
+                </div>
+                <a href="http://state.com/" style={project.about.place}>
+                  {'State.com'}
+                </a>
               </div>
               <div style={project.img}>
                 <img alt={'synset'} src={assets.synset} style={{height:170}} />
