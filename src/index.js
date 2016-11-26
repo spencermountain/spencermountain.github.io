@@ -5,6 +5,10 @@ import Youtube from './youtube'
 import Thing from './thing'
 import colors from './colors'
 import './index.css'
+import Github from 'react-icons/lib/io/social-github';
+import Twitter from 'react-icons/lib/io/social-twitter';
+import LinkedIn from 'react-icons/lib/io/social-linkedin-outline';
+import Email from 'react-icons/lib/io/paper-airplane';
 
 const assets={
   CNTower:require("./cntower.svg"),
@@ -81,7 +85,7 @@ const style = styler`
 
   projects:
     margin:8%
-    marginTop:0px
+    marginTop:45px
     project:
       display: flex;
       flex-wrap: nowrap;
@@ -117,6 +121,7 @@ const style = styler`
         flex-basis:400px
         title:
           color:dimgrey
+          font-size:18
           text-decoration:underline
           margin:15
           marginTop:40
@@ -126,14 +131,46 @@ const style = styler`
           marginLeft:25
         place:
           text-align:right
+          font-size:15
           color:dimgrey
           text-decoration:underline
           position:absolute
-          bottom:30
+          bottom:40
           margin:5
           right:25
       img:
         flex-basis:150px
+  want:
+    marginLeft:20%
+    marginTop:25
+    font-size:35
+    color:darkslategrey
+    subject:
+      color:darkslategrey
+      text-decoration:none
+      border-bottom:3px dotted darkslategrey
+      margin:5
+      padding:0
+
+  talk:
+    height:100
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin:100
+    marginTop:40
+    way:
+      title:
+        display:block
+        text-decoration:none
+        color:darkslategrey
+
+
+
+  spacer:
+    height:150
   water:
     position:fixed
     bottom:0px
@@ -250,9 +287,43 @@ class App extends Component {
                 <img alt={'synset'} src={assets.synset} style={{height:170}} />
               </div>
             </div>
-
           </div>
         </div>
+
+        <div style={css.want}>
+          {'I am interested in '}
+          <a href="" style={css.want.subject}>{'video, '}</a>
+          <a href="" style={css.want.subject}>{'biology, '}</a>
+          {'and '}
+          <a href="" style={css.want.subject}>{'computer vision.'}</a>
+          <div style={{marginLeft:45, marginTop:20}}>
+            {'contact me '}
+            <a href="" style={css.want.subject}>{'anytime.'}</a>
+          </div>
+        </div>
+
+        <div style={css.talk}>
+          <div style={css.talk.way}>
+            <Github size={40}/>
+            <a style={css.talk.way.title} href="">
+              github
+            </a>
+          </div>
+          <div style={css.talk.way}>
+            <Twitter size={40}/>
+            <a style={css.talk.way.title} href="">
+              twitter
+            </a>
+          </div>
+          <div style={css.talk.way}>
+            <LinkedIn size={40}/>
+            <a style={css.talk.way.title} href="">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <div style={css.spacer}/>
         <div style={css.water}/>
       </div>
     );
