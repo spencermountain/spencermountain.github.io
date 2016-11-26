@@ -17,6 +17,14 @@ const assets={
   argmap:require("../assets/argmap.png"),
   synset:require("../assets/synset.png"),
   rocking:require("../assets/rocking.png"),
+  earthbarely:require("../assets/earthbarely.gif"),
+  ubiquity:require("../assets/ubiquity.png"),
+  webby:require("../assets/webby.png"),
+  unlockldn:require("../assets/unlockldn.png"),
+  argmap:require("../assets/argmap_thumb.png"),
+  treemap:require("../assets/treemap.gif"),
+  wtf_wikipedia:require("../assets/wtf_wikipedia.svg"),
+  kmstandards:require("../assets/kmstandards.png"),
 }
 const style = styler`
   container
@@ -33,12 +41,15 @@ const style = styler`
     left:
       flexGrow:3
       color:lightgrey
-      opacity:0.2
+      opacity:0.3
       font-size:55
       text-align:center
       margin-top:50
       align-items: center;
       justify-content: center;
+      font-weight:500
+      they:
+        color:darkgrey
       table:
         font-size:35
         width:100%
@@ -167,6 +178,29 @@ const style = styler`
         text-decoration:none
         color:darkslategrey
 
+  stuff:
+    display: flex;
+    padding:40
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    thing:
+      position:relative
+      text-align:center
+      width:200
+      height:250
+      overflow:hidden
+      margin:25
+      border:1px solid lightgrey
+      img:
+        // height:250
+      logo:
+        position:relative
+        height:75
+        x-index:1
+        top:50
+        border-radius:5
+      title:
 
 
   spacer:
@@ -197,19 +231,27 @@ class App extends Component {
               <div>{'we gave the monkeys the bananas'}</div>
               <table style={css.top.left.table}>
                 <tr>
-                  <td>{'because they were hungry'}</td>
-                  <td>{'because they were ripe'}</td>
+                  <td>
+                    {'because '}
+                    <span style={css.top.left.they}>{'they'}</span>
+                    {' were hungry'}
+                  </td>
+                  <td>
+                    {'because '}
+                    <span style={css.top.left.they}>{'they'}</span>
+                    {' were ripe'}
+                  </td>
                 </tr>
               </table>
             </div>
             <div style={css.top.right}>
-              <Youtube src={assets.goto} title={'Language as an Interface:  GOTO\'16'} href="https://www.youtube.com/watch?v=WuPVS2tCg8s"/>
+              <Youtube src={assets.goto} title={'Language as an Interface'} href="https://www.youtube.com/watch?v=WuPVS2tCg8s"/>
             </div>
           </div>
 
           <div style={css.about}>
             <div style={css.about.greeting}>
-              <div style={{fontSize:44, margin:0}}>{'hi,'}</div>
+              <div style={{fontSize:34, margin:0}}>{'hi,'}</div>
             </div>
             <div style={css.about.name}>
               {'Sҏeƞceȓ Қellӯ'}
@@ -231,7 +273,7 @@ class App extends Component {
               </div>
               <div style={project.about}>
                 <div style={project.about.title}>
-                  {'Natural Language Processing'}
+                  {'Natural Language Understanding'}
                 </div>
                 <div style={project.about.description}>
                   {'rule-based NLP on the client-side'}
@@ -253,10 +295,10 @@ class App extends Component {
               </div>
               <div style={project.about}>
                 <div style={project.about.title}>
-                  {'Interpolating economic assumption'}
+                  {'Interpolating economic assumptions'}
                 </div>
                 <div style={project.about.description}>
-                  {'Pension liability vizualization + interpretation'}
+                  {'Pension liability vizualization'}
                 </div>
                 <a href="http://govinvest.com/" style={project.about.place}>
                   {'Govinvest.com'}
@@ -277,7 +319,7 @@ class App extends Component {
                   {'Word-sense folksonomy'}
                 </div>
                 <div style={project.about.description}>
-                  {'synonym understanding with statistical-ML and semantic web'}
+                  {'homonym disambiguation from statistical-ML'}
                 </div>
                 <a href="http://state.com/" style={project.about.place}>
                   {'State.com'}
@@ -298,29 +340,90 @@ class App extends Component {
           <a href="" style={css.want.subject}>{'computer vision.'}</a>
           <div style={{marginLeft:45, marginTop:20}}>
             {'contact me '}
-            <a href="" style={css.want.subject}>{'anytime.'}</a>
+            <a href="mailto:spencermountain@gmail.com" style={css.want.subject}>{'anytime.'}</a>
           </div>
         </div>
 
         <div style={css.talk}>
           <div style={css.talk.way}>
             <Github size={40}/>
-            <a style={css.talk.way.title} href="">
+            <a style={css.talk.way.title} href="https://github.com/spencermountain">
               github
             </a>
           </div>
           <div style={css.talk.way}>
             <Twitter size={40}/>
-            <a style={css.talk.way.title} href="">
+            <a style={css.talk.way.title} href="https://twitter.com/spencermountain">
               twitter
             </a>
           </div>
           <div style={css.talk.way}>
             <LinkedIn size={40}/>
-            <a style={css.talk.way.title} href="">
+            <a style={css.talk.way.title} href="https://www.linkedin.com/in/spencermountain">
               LinkedIn
             </a>
           </div>
+        </div>
+
+        <div style={css.stuff}>
+
+          <div style={css.stuff.thing}>
+            <img src={assets.earthbarely} style={css.stuff.thing.img}/>
+            <div style={css.stuff.thing.title}>
+              {'earthbarely'}
+            </div>
+          </div>
+
+          <div style={css.stuff.thing}>
+            <img src={assets.ubiquity} style={css.stuff.thing.img}/>
+            <div style={css.stuff.thing.title}>
+              {'Mozilla Ubiquity'}
+            </div>
+          </div>
+
+          <div style={css.stuff.thing}>
+            <img src={assets.webby} style={css.stuff.thing.logo}/>
+            <div style={css.stuff.thing.title}>
+              {'2015 Webby nomination'}
+            </div>
+            <a href="http://webbyawards.com/winners/2015/websites/general-website/community/state/">{'for best community'}</a>
+          </div>
+
+          <div style={css.stuff.thing}>
+            <img src={assets.treemap} style={css.stuff.thing.img}/>
+            <div style={css.stuff.thing.title}>
+              {'Famo.us alpha'}
+            </div>
+          </div>
+
+          <div style={css.stuff.thing}>
+            <img src={assets.unlockldn} style={css.stuff.thing.img}/>
+            <div style={css.stuff.thing.title}>
+              {'Winner of UnlockLDN'}
+            </div>
+          </div>
+
+          <div style={css.stuff.thing}>
+            <img src={assets.kmstandards} style={css.stuff.thing.img}/>
+            <div style={css.stuff.thing.title}>
+              {'Legal contract analysis'}
+            </div>
+          </div>
+
+          <div style={css.stuff.thing}>
+            <img src={assets.wtf_wikipedia} style={css.stuff.thing.img}/>
+            <div style={css.stuff.thing.title}>
+              {'Wtf wikipedia'}
+            </div>
+          </div>
+
+          <div style={css.stuff.thing}>
+            <img src={assets.argmap} style={css.stuff.thing.img}/>
+            <div style={css.stuff.thing.title}>
+              {'Argument mapping'}
+            </div>
+          </div>
+
         </div>
 
         <div style={css.spacer}/>

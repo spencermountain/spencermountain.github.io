@@ -27,17 +27,12 @@ import Play from 'react-icons/lib/io/chevron-right';
           opacity:1
         },
         title:{
-          zIndex:4,
-          color:'linen',
-          opacity:0.8,
-          fontSize:25,
-        },
-        title2:{
           position:'absolute',
           bottom:4,
           right:14,
           zIndex:4,
           fontSize:15,
+          opacity:0.9,
           color:'linen',
         }
       }
@@ -50,7 +45,7 @@ import Play from 'react-icons/lib/io/chevron-right';
           <div style={css.play}>
             <Play style={{opacity:0.9}} size={75} color="grey" />
           </div>
-          <div style={css.title2}>
+          <div style={css.title}>
             {props.title}
           </div>
 
