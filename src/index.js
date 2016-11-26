@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import styler from 'react-styling'
+import Youtube from './youtube'
 import Thing from './thing'
 import colors from './colors'
 import './index.css'
@@ -8,7 +9,10 @@ import './index.css'
 const assets={
   CNTower:require("./cntower.svg"),
   goto:require("../assets/goto9.png"),
+  govdna:require("../assets/govdna.png"),
   argmap:require("../assets/argmap.png"),
+  synset:require("../assets/synset.png"),
+  rocking:require("../assets/rocking.png"),
 }
 const style = styler`
   container
@@ -72,15 +76,37 @@ const style = styler`
       flex-wrap: nowrap;
       min-height:200px
       side:
-        border:1px solid grey
+        position:relative
         flex-basis:75px
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        circle:
+          border-radius:50%
+          width:17
+          height:17
+          border:3px solid steelblue
+          background-color:linen
+          z-index:3
+        circleBottom:
+          position:absolute
+          width:3
+          top:50%
+          height:50%
+          background-color:steelblue
+        circleTop:
+          position:absolute
+          width:3
+          top:0
+          height:50%
+          background-color:steelblue
       about:
-        border:1px solid grey
         flex-basis:400px
+        border:1px solid grey
       img:
-        border:1px solid grey
-        flex-basis:400px
-
+        // border:1px solid grey
+        flex-basis:150px
   water:
     position:fixed
     bottom:0px
@@ -97,6 +123,7 @@ class App extends Component {
   }
   render() {
     let {css}=this
+    let project=css.projects.project
     return (
       <div>
         <div style={css.container}>
@@ -104,7 +131,7 @@ class App extends Component {
           <div style={css.top}>
             <div style={css.top.left}></div>
             <div style={css.top.right}>
-              <img style={css.top.right.img} src={assets.goto}/>
+              <Youtube src={assets.goto} title={'Language as an Interface:  GOTO\'16'} href="https://www.youtube.com/watch?v=WuPVS2tCg8s"/>
             </div>
           </div>
 
@@ -117,7 +144,7 @@ class App extends Component {
               {'Sҏeƞceȓ Қellӯ'}
             </div>
             <div style={css.about.description}>
-              <img src={assets.CNTower} style={css.about.description.cntower}/>
+              <img alt='cn tower' src={assets.CNTower} style={css.about.description.cntower}/>
               {'freelance developer, toronto'}
             </div>
             <div style={css.about.color}>
@@ -125,12 +152,41 @@ class App extends Component {
             </div>
           </div>
           <div style={css.projects}>
-            <div style={css.projects.project}>
-              <div style={css.projects.project.side}>
+
+            <div style={project}>
+              <div style={project.side}>
+                <div style={project.side.circle}/>
+                <div style={project.side.circleBottom}/>
               </div>
-              <div style={css.projects.project.about}>
+              <div style={project.about}>
               </div>
-              <div style={css.projects.project.img}>
+              <div style={project.img}>
+                <img alt={'nlp_compromise'} src={assets.rocking} style={{height:170}} />
+              </div>
+            </div>
+
+            <div style={project}>
+              <div style={project.side}>
+                <div style={project.side.circleTop}/>
+                <div style={project.side.circle}/>
+                <div style={project.side.circleBottom}/>
+              </div>
+              <div style={project.about}>
+              </div>
+              <div style={project.img}>
+                <img alt={'d3graphs'} src={assets.govdna} style={{height:170}} />
+              </div>
+            </div>
+
+            <div style={project}>
+              <div style={project.side}>
+              <div style={project.side.circleTop}/>
+                <div style={project.side.circle}/>
+              </div>
+              <div style={project.about}>
+              </div>
+              <div style={project.img}>
+                <img alt={'synset'} src={assets.synset} style={{height:170}} />
               </div>
             </div>
 

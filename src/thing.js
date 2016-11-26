@@ -15,7 +15,7 @@ class Thing extends Component {
     let colors=props.colors||[]
     return (
       <div style={css.container}>
-        {colors.map((c)=>{
+        {colors.map((c,i)=>{
           let w=Math.random()*7
           w+=3
           let style={
@@ -23,8 +23,7 @@ class Thing extends Component {
             backgroundColor:c,
             height:'100%'
           }
-          console.log(c)
-          return <div style={style}/>
+          return <div key={i} style={style}/>
         })}
       </div>
     )
