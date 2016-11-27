@@ -101,6 +101,7 @@ const style = styler`
       display: flex;
       flex-wrap: nowrap;
       min-height:200px
+      text-decoration:none;
       side:
         position:relative
         flex-basis:75px
@@ -151,6 +152,7 @@ const style = styler`
           right:25
       img:
         flex-basis:150px
+        height:150
   want:
     marginLeft:20%
     marginTop:25
@@ -225,25 +227,27 @@ class App extends Component {
     let project=css.projects.project
     return (
       <div>
-        <div style={css.container}>
+        <div style={css.container} className={'small_nomargin'}>
 
           <div style={css.top}>
-            <div style={css.top.left}>
-              <div>{'we gave the monkeys the bananas'}</div>
-              <table style={css.top.left.table}>
-                <tr>
-                  <td>
-                    {'because '}
-                    <span style={css.top.left.they}>{'they'}</span>
-                    {' were hungry'}
-                  </td>
-                  <td>
-                    {'because '}
-                    <span style={css.top.left.they}>{'they'}</span>
-                    {' were ripe'}
-                  </td>
-                </tr>
-              </table>
+            <div style={css.top.left} >
+              <div className={'hide_when_small'}>
+                <div>{'we gave the monkeys the bananas'}</div>
+                <table style={css.top.left.table}>
+                  <tr>
+                    <td>
+                      {'because '}
+                      <span style={css.top.left.they}>{'they'}</span>
+                      {' were hungry'}
+                    </td>
+                    <td>
+                      {'because '}
+                      <span style={css.top.left.they}>{'they'}</span>
+                      {' were ripe'}
+                    </td>
+                  </tr>
+                </table>
+              </div>
             </div>
             <div style={css.top.right}>
               <Youtube src={assets.goto} title={'Language as an Interface'} href="https://www.youtube.com/watch?v=WuPVS2tCg8s"/>
@@ -265,9 +269,9 @@ class App extends Component {
               <Thing colors={colors[0]}/>
             </div>
           </div>
-          <div style={css.projects}>
+          <div style={css.projects} className={'small_nomargin'}>
 
-            <div style={project}>
+            <a href="http://nlpcompromise.com/" style={project}>
               <div style={project.side}>
                 <div style={project.side.circle}/>
                 <div style={project.side.circleBottom}/>
@@ -283,12 +287,10 @@ class App extends Component {
                   {'open-source'}
                 </a>
               </div>
-              <div style={project.img}>
-                <img alt={'nlp_compromise'} src={assets.rocking} style={{height:150}} />
-              </div>
-            </div>
+              <img alt={'nlp_compromise'} src={assets.rocking} style={project.img} className={'shrink_when_small'} />
+            </a>
 
-            <div style={project}>
+            <a href="http://govinvest.com/" style={project}>
               <div style={project.side}>
                 <div style={project.side.circleTop}/>
                 <div style={project.side.circle}/>
@@ -305,12 +307,10 @@ class App extends Component {
                   {'Govinvest.com'}
                 </a>
               </div>
-              <div style={project.img}>
-                <img alt={'d3graphs'} src={assets.govdna} style={{height:150}} />
-              </div>
-            </div>
+              <img alt={'d3graphs'} src={assets.govdna} style={project.img} className={'shrink_when_small'}/>
+            </a>
 
-            <div style={project}>
+            <a href="http://state.com/" style={project}>
               <div style={project.side}>
               <div style={project.side.circleTop}/>
                 <div style={project.side.circle}/>
@@ -326,10 +326,8 @@ class App extends Component {
                   {'State.com'}
                 </a>
               </div>
-              <div style={project.img}>
-                <img alt={'synset'} src={assets.synset} style={{height:150}} />
-              </div>
-            </div>
+              <img alt={'synset'} src={assets.synset} style={project.img} className={'shrink_when_small'}/>
+            </a>
           </div>
         </div>
 
@@ -368,62 +366,61 @@ class App extends Component {
 
         <div style={css.stuff}>
 
-          <div style={css.stuff.thing}>
+          <a href="#" target="_new" style={css.stuff.thing}>
             <img src={assets.earthbarely} style={css.stuff.thing.img}/>
             <div style={css.stuff.thing.title}>
               {'earthbarely'}
             </div>
-          </div>
+          </a>
 
-          <div style={css.stuff.thing}>
+          <a href="https://vimeo.com/13992710" target="_new" style={css.stuff.thing}>
             <img src={assets.ubiquity} style={css.stuff.thing.img}/>
             <div style={css.stuff.thing.title}>
               {'Mozilla Ubiquity'}
             </div>
-          </div>
+          </a>
 
-          <div style={css.stuff.thing}>
+          <a href="http://webbyawards.com/winners/2015/websites/general-website/community/state/" target="_new" style={css.stuff.thing}>
             <img src={assets.webby} style={css.stuff.thing.img}/>
             <div style={css.stuff.thing.title}>
               {'2015 Webby nomination'}
             </div>
-            <a href="http://webbyawards.com/winners/2015/websites/general-website/community/state/">{'for best community'}</a>
-          </div>
+          </a>
 
-          <div style={css.stuff.thing}>
+          <a href="http://cdn.rawgit.com/spencermountain/clooney/master/build/index.html" target="_new" style={css.stuff.thing}>
             <img src={assets.treemap} style={css.stuff.thing.img}/>
             <div style={css.stuff.thing.title}>
-              <a href="http://cdn.rawgit.com/spencermountain/clooney/master/build/index.html">{'Famo.us alpha'}</a>
+            {'Famo.us alpha'}
             </div>
-          </div>
+          </a>
 
-          <div style={css.stuff.thing}>
+          <a href="#" target="_new" style={css.stuff.thing}>
             <img src={assets.unlockldn} style={css.stuff.thing.img}/>
             <div style={css.stuff.thing.title}>
               {'Winner of UnlockLDN'}
             </div>
-          </div>
+          </a>
 
-          <div style={css.stuff.thing}>
+          <a href="https://www.contractstandards.com/" target="_new" style={css.stuff.thing}>
             <img src={assets.kmstandards} style={css.stuff.thing.img}/>
             <div style={css.stuff.thing.title}>
               {'Legal contract analysis'}
             </div>
-          </div>
+          </a>
 
-          <div style={css.stuff.thing}>
+          <a href="https://github.com/spencermountain/wtf_wikipedia" target="_new" style={css.stuff.thing}>
             <img src={assets.wtf_wikipedia} style={css.stuff.thing.img}/>
             <div style={css.stuff.thing.title}>
               {'Wtf wikipedia'}
             </div>
-          </div>
+          </a>
 
-          <div style={css.stuff.thing}>
+          <a href="#" target="_new" style={css.stuff.thing}>
             <img src={assets.argmap} style={css.stuff.thing.img}/>
             <div style={css.stuff.thing.title}>
               {'Argument mapping'}
             </div>
-          </div>
+          </a>
 
         </div>
 

@@ -40,7 +40,7 @@ import Play from 'react-icons/lib/io/chevron-right';
     render() {
       let {css, props}=this
       return (
-        <a href={props.href} style={css.container}>
+        <a href={props.href} style={css.container} className={'youtube_small'}>
           <img alt={props.title} style={css.image} src={props.src}/>
           <div style={css.play}>
             <Play style={{opacity:0.9}} size={75} color="grey" />
