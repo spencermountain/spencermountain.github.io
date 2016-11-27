@@ -14,16 +14,16 @@ const assets={
   CNTower:require("./cntower.svg"),
   goto:require("../assets/goto9.png"),
   govdna:require("../assets/govdna.png"),
-  argmap:require("../assets/argmap.png"),
+  argmap:require("../assets/argmap_thumb.png"),
   synset:require("../assets/synset.png"),
   rocking:require("../assets/rocking.png"),
-  earthbarely:require("../assets/earthbarely.gif"),
+  earthbarely:require("../assets/earthbarely.png"),
   ubiquity:require("../assets/ubiquity.png"),
   webby:require("../assets/webby.png"),
   unlockldn:require("../assets/unlockldn.png"),
   argmap:require("../assets/argmap_thumb.png"),
-  treemap:require("../assets/treemap.gif"),
-  wtf_wikipedia:require("../assets/wtf_wikipedia.svg"),
+  treemap:require("../assets/treemap.jpeg"),
+  wtf_wikipedia:require("../assets/wtf_wikipedia.png"),
   kmstandards:require("../assets/kmstandards.png"),
 }
 const style = styler`
@@ -284,7 +284,7 @@ class App extends Component {
                 </a>
               </div>
               <div style={project.img}>
-                <img alt={'nlp_compromise'} src={assets.rocking} style={{height:170}} />
+                <img alt={'nlp_compromise'} src={assets.rocking} style={{height:150}} />
               </div>
             </div>
 
@@ -306,7 +306,7 @@ class App extends Component {
                 </a>
               </div>
               <div style={project.img}>
-                <img alt={'d3graphs'} src={assets.govdna} style={{height:170}} />
+                <img alt={'d3graphs'} src={assets.govdna} style={{height:150}} />
               </div>
             </div>
 
@@ -327,7 +327,7 @@ class App extends Component {
                 </a>
               </div>
               <div style={project.img}>
-                <img alt={'synset'} src={assets.synset} style={{height:170}} />
+                <img alt={'synset'} src={assets.synset} style={{height:150}} />
               </div>
             </div>
           </div>
@@ -383,7 +383,7 @@ class App extends Component {
           </div>
 
           <div style={css.stuff.thing}>
-            <img src={assets.webby} style={css.stuff.thing.logo}/>
+            <img src={assets.webby} style={css.stuff.thing.img}/>
             <div style={css.stuff.thing.title}>
               {'2015 Webby nomination'}
             </div>
