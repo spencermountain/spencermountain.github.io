@@ -13,15 +13,16 @@
   <div id="main">
     {{msg}}
      <button @click="sayNo">No</button>
-     <div>
+     <div style="display:flex; position:fixed; bottom:0px;">
        <Flower word="one"/>
        <Flower word="two!"/>
+       <Flower word="three!"/>
      </div>
   </div>
 </template>
 
 <script>
-import Flower from './Flower.vue';
+var Flower =require('./Flower.vue')
 export default {
   name: 'main',
   components: {
