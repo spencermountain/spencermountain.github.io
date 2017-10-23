@@ -8,18 +8,18 @@
 // }
 
 
-window.data = {
-  name: "Heather, Spencer",
+module.exports = {
+  name: "Me",
   place: "Barrie",
   birthday: 1986,
   siblings: 1,
   mom: {
-    name: "Kathi Lawrence",
+    name: "Mom",
     place: "Montreal",
     birth: 1950,
     siblings: 0,
     mom: {
-      name: "Beth Cameron",
+      name: "Grandma",
       place: "Orillia",
       birth: null,
       siblings: 0,
@@ -125,7 +125,7 @@ window.data = {
       }
     },
     dad: {
-      name: "Ken Lawrence",
+      name: "Grandpa",
       place: "Orillia",
       birth: 1952,
       siblings: 2,
@@ -232,12 +232,12 @@ window.data = {
     },
   },
   dad: {
-    name: "Richard Kelly",
+    name: "Dad",
     place: "Kingston",
     birth: 1952,
     siblings: 4,
     mom: {
-      name: "Helen Robinson",
+      name: "Grandma",
       place: "Athens",
       birth: 1916,
       siblings: 1,
@@ -343,7 +343,7 @@ window.data = {
       },
     },
     dad: {
-      name: "Arnold Kelly",
+      name: "Grandpa",
       place: "Delta",
       birth: 1913,
       siblings: 2,

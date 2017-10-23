@@ -13,20 +13,23 @@
   <div id="main">
     {{msg}}
      <button @click="sayNo">No</button>
-     <div style="display:flex; position:fixed; bottom:0px;">
+     <FamilyTree/>
+     <!-- <div style="display:flex; position:fixed; bottom:0px;">
        <Flower word="one"/>
        <Flower word="two!"/>
        <Flower word="three!"/>
-     </div>
+     </div> -->
   </div>
 </template>
 
 <script>
 var Flower =require('./Flower.vue')
+var FamilyTree =require('./family-tree/index.vue')
 export default {
   name: 'main',
   components: {
-    Flower
+    Flower,
+    FamilyTree
   },
   data() {
     return {

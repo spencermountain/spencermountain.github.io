@@ -1,43 +1,53 @@
 <style scoped>
-#flower {
-	margin:100px;
+#cols{
+	display:flex;
+	text-align:center;
+	flex-direction: row;
+	width:80%;
+	height:600px;
+}
+#col{
+	flex:1;
+	display:flex;
+	flex-direction: column;
+}
+.person{
+	display:flex;
+	position:relative;
+	align-items: center;
+	justify-content: center;
+	flex-grow:1;
+	color:steelblue;
+	border:1px solid lightgrey;
+}
+.female{
+	color:#f9a4ad;
 }
 </style>
 
 <template>
-  <div id="flower">
-    {{word}}
-		<svg>
-		  <path v-bind:d="path" fill="green" stroke="steelblue"></path>
-	  </svg>
-  </div>
+  <div id="cols">
+		<div id="col" v-for="arr in data" style="flex-grow:1;">
+		  <div class="person" v-for="name,i in arr" v-bind:class="{ female: i%2===0 }">
+	      {{ name }}
+				<svg width="100%" height="100%" style="position:absolute;">
+			    <line x1="50%" y1="50%" x2="100%" y2="75%" stroke-width="2" stroke="lightgrey"/>
+			    <line x1="50%" y1="50%" x2="100%" y2="25%" stroke-width="2" stroke="lightgrey"/>
+			  </svg>
+	    </div>
+	  </div>
+	</div>
 </template>
 
 <script>
-import flubber from '../lib/flubber.min.js';
-import { line, curveBasisClosed } from '../lib/d3.v4.min.js';
+import treeData from './tree.js';
 
 export default {
-  name: 'Flower',
-  props: ['word'],
+  name: 'tree',
   data() {
-    //random-walk
-    let data = [{ x: 0, y: 0 }];
-    for (let i = 0; i < 15; i++) {
-      let x = Math.random() * 50;
-      x = parseInt(x - 25);
-      if (x < 0) {
-        x = 0;
-      }
-      data.push({ x: data[i].x + x, y: data[i].y + 50 });
-    }
-    let path = line()
-      .x(d => d.x)
-      .y(d => d.y)
-      .curve(curveBasisClosed)(data);
     return {
-      msg: 'flower',
-      path: path
+      data: treeData,
+			widths:[15,45,60,75,100]
     };
   }
 };
