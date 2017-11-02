@@ -1,14 +1,105 @@
 module.exports = [
-  //me
-  ['Me'],
   //parents
-  ['Mom', 'Dad'],
+  [{
+    names: ['Mom', 'Dad'],
+    desc: ''
+  }],
   //grand-parents
-  ['Grandma', 'Grandpa', 'Grandma', 'Papa'],
+  [{
+    names: ['Grandma', 'Grandpa'],
+    desc: ''
+  }, {
+    names: ['Grandma', 'Papa'],
+    desc: ''
+  }],
   //8-people
-  ['Mabel', 'John', 'Orphea', 'James', 'Ethel', 'Oran', 'Clara', 'Joseph'],
+  [{
+    names: ['Mabel', 'John'],
+    desc: ''
+  }, {
+    names: ['Orphea', 'James'],
+    desc: ''
+  }, {
+    names: ['Ethel', 'Oran'],
+    desc: ''
+  }, {
+    names: ['Clara', 'Joseph'],
+    desc: ''
+  }],
   //16-people
-  ['Isabella', 'Edward', 'Agnes', 'Donald', 'Elizabeth', 'Adam', 'Christina', 'James', 'Rosa', 'Abel', 'Keziah', 'George', 'Lucy', 'Omer', 'Mary Ann', 'Richard'],
-//32-people
-// ['Mary Jane', 'Alexander', 'Lavina', 'James', 'Ann', 'Jeremiah', 'Margaret', 'Malcom', 'Sicela', 'Andrew', 'Almeda', 'Zachariah', 'Mary', 'Colin', 'Ann', 'James', 'Hanora', 'James', 'Abigail', 'William', 'Cynthia', 'Gerhom', 'Clarinda', 'Abraham', 'Hulda', 'Charles', 'Caroline', 'Richard', 'Ellen', 'George', 'Eliza', 'Richard']
+  [{
+    names: ['Isabella', 'Edward'],
+    desc: ''
+  }, {
+    names: ['Agnes', 'Donald'],
+    desc: ''
+  }, {
+    names: ['Elizabeth', 'Adam'],
+    desc: ''
+  }, {
+    names: ['Christina', 'James'],
+    desc: ''
+  }, {
+    names: ['Rosa', 'Abel'],
+    desc: ''
+  }, {
+    names: ['Keziah', 'George'],
+    desc: ''
+  }, {
+    names: ['Lucy', 'Omer'],
+    desc: ''
+  }, {
+    names: ['Mary Ann', 'Richard'],
+    desc: ''
+  }],
+  //32-people
+  [{
+    names: ['Mary Jane', 'Alexander'],
+    desc: ''
+  }, {
+    names: ['Lavina', 'James'],
+    desc: ''
+  }, {
+    names: ['Ann', 'Jeremiah'],
+    desc: ''
+  }, {
+    names: ['Margaret', 'Malcom'],
+    desc: ''
+  }, {
+    names: ['Sicela', 'Andrew'],
+    desc: ''
+  }, {
+    names: ['Almeda', 'Zachariah'],
+    desc: ''
+  }, {
+    names: ['Mary', 'Colin'],
+    desc: ''
+  }, {
+    names: ['Ann', 'James'],
+    desc: ''
+  }, {
+    names: ['Hanora', 'James'],
+    desc: ''
+  }, {
+    names: ['Abigail', 'William'],
+    desc: ''
+  }, {
+    names: ['Cynthia', 'Gerhom'],
+    desc: ''
+  }, {
+    names: ['Clarinda', 'Abraham'],
+    desc: ''
+  }, {
+    names: ['Hulda', 'Charles'],
+    desc: ''
+  }, {
+    names: ['Caroline', 'Richard'],
+    desc: ''
+  }, {
+    names: ['Ellen', 'George'],
+    desc: ''
+  }, {
+    names: ['Eliza', 'Richard'],
+    desc: ''
+  }]
 ]
