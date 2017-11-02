@@ -11,8 +11,6 @@
 
 <template>
   <div id="main">
-    {{msg}}
-     <button @click="sayNo">No</button>
      <FamilyTree/>
      <!-- <div style="display:flex; position:fixed; bottom:0px;">
        <Flower word="one"/>

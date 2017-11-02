@@ -1,13 +1,3 @@
-// {
-//   name: "",
-//   place: null,
-//   birth: null,
-//   siblings:null,
-//   mom: {},
-//   dad: {},
-// }
-
-
 module.exports = {
   name: "Me",
   place: "Barrie",
@@ -18,7 +8,7 @@ module.exports = {
     name: "Mom",
     place: "Montreal",
     birth: 1950,
-    death: null,
+    death: 2017, //for the graph!!
     siblings: 0,
     mom: {
       name: "Nana",
@@ -30,11 +20,13 @@ module.exports = {
         name: "Mabel Eaton",
         place: "Orillia",
         birth: 1897,
+        death: 1988,
         siblings: 6,
         mom: {
           name: "Isabella Rawlston",
           place: "Orillia",
           birth: 1854,
+          death: 1935,
           siblings: null,
           mom: {
             name: "Mary Jane Wesvig",
@@ -57,11 +49,13 @@ module.exports = {
           name: "Edward Eaton",
           place: "Orillia",
           birth: 1856,
+          death: 1944,
           siblings: null,
           mom: {
             name: "Lavina Ball",
             place: "Orillia",
             birth: 1828,
+            death: 1915,
             siblings: null,
             mom: {},
             dad: {},
@@ -70,6 +64,7 @@ module.exports = {
             name: "James Eaton",
             place: "Ireland",
             birth: 1831,
+            death: 1915,
             siblings: null,
             mom: {},
             dad: {},
@@ -80,10 +75,12 @@ module.exports = {
         name: "John Cameron",
         place: "Orillia",
         birth: 1893,
+        death: 1976,
         siblings: 4,
         mom: {
           name: "Agnes Cotton",
           place: "Oro",
+          death: 1930,
           birth: 1861,
           siblings: null,
           mom: {
@@ -107,11 +104,13 @@ module.exports = {
           name: "Donald Cameron",
           place: "Scotland",
           birth: 1855,
+          death: 1922,
           siblings: null,
           mom: {
             name: "Margaret Littler",
             place: "England",
             birth: 1828,
+            death: 1876,
             siblings: null,
             mom: {},
             dad: {},
@@ -120,6 +119,7 @@ module.exports = {
             name: "Malcom Cameron",
             place: "Scotland",
             birth: 1825,
+            death: 1886,
             siblings: null,
             mom: {},
             dad: {},
@@ -131,22 +131,26 @@ module.exports = {
       name: "Skipper",
       place: "Orillia",
       birth: 1921,
-      death: null,
+      death: 2003,
       siblings: 2,
       mom: {
         name: "Orphea Snider",
         place: "Belleville",
         birth: 1886,
+        death: 1944,
+        estimate: true,
         siblings: 6,
         mom: {
           name: "Elizabeth Gibbs",
           place: "Belleville",
           birth: 1862,
+          death: 1940,
           siblings: null,
           mom: {
             name: "Sicela Gibbs",
             place: null,
-            birth: null,
+            birth: 1842,
+            estimate: true,
             siblings: null,
             mom: {},
             dad: {},
@@ -154,7 +158,8 @@ module.exports = {
           dad: {
             name: "Andrew Gibbs",
             place: null,
-            birth: null,
+            birth: 1839,
+            estimate: true,
             siblings: null,
             mom: {},
             dad: {},
@@ -164,6 +169,7 @@ module.exports = {
           name: "Adam Snider",
           place: "St. Catherines",
           birth: 1852,
+          death: 1921,
           siblings: null,
           mom: {
             name: "Almeda Milligan",
@@ -187,11 +193,13 @@ module.exports = {
         name: "James Lawrence",
         place: "Bracebridge",
         birth: 1882,
+        death: 1944,
         siblings: 6,
         mom: {
           name: "Christina McLean",
           place: "Scotland/Perry Sound",
           birth: 1841,
+          death: 1923,
           siblings: null,
           mom: {
             name: "Mary Muir",
@@ -214,6 +222,7 @@ module.exports = {
           name: "James Lawrence",
           place: "Ireland/Perry Sound",
           birth: 1833,
+          death: 1921,
           siblings: null,
           mom: {
             name: "Ann Lawrence",
@@ -239,26 +248,31 @@ module.exports = {
     name: "Dad",
     place: "Kingston",
     birth: 1952,
+    death: 2017, //for the graph!!
     siblings: 4,
     mom: {
       name: "Grandma",
       place: "Athens",
       birth: 1916,
+      death: 2002,
       siblings: 1,
       mom: {
         name: "Ethel Berney",
         place: "Athens",
         birth: 1889,
+        death: 1919,
         siblings: 7,
         mom: {
           name: "Rosa Ann Moran",
           place: "Athens",
           birth: 1855,
+          death: 1919,
           siblings: null,
           mom: {
             name: "Hanora Moran",
             place: null,
-            birth: null,
+            birth: 1828,
+            estimate: true,
             siblings: null,
             mom: {},
             dad: {},
@@ -276,6 +290,7 @@ module.exports = {
           name: "Abel Barny",
           place: "Athens",
           birth: 1852,
+          death: 1937,
           siblings: null,
           mom: {
             name: "Abigail Wright",
@@ -299,11 +314,13 @@ module.exports = {
         name: "Oran Robinson",
         place: "Brockville",
         birth: 1889,
+        death: 1919,
         siblings: 4,
         mom: {
           name: "Keziah Yates",
           place: "Lyndhurst",
           birth: 1862,
+          death: 1954,
           siblings: null,
           mom: {
             name: "Cynthia Ann Booth",
@@ -326,6 +343,7 @@ module.exports = {
           name: "George Robinson",
           place: "Athens",
           birth: 1859,
+          death: 1939,
           siblings: null,
           mom: {
             name: "Clarinda Wing",
@@ -350,21 +368,25 @@ module.exports = {
       name: "Papa",
       place: "Delta",
       birth: 1913,
+      death: 1981,
       siblings: 2,
       mom: {
         name: "Clara Arnold",
         place: "Brockville",
         birth: 1880,
+        death: 1949,
         siblings: 0,
         mom: {
           name: "Lucy Blancher",
           place: "Brockville",
           birth: 1852,
+          death: 1932,
           siblings: null,
           mom: {
             name: "Hulda Blanchard",
             place: null,
-            birth: null,
+            birth: 1811,
+            estimate: true,
             siblings: null,
             mom: {},
             dad: {},
@@ -372,7 +394,7 @@ module.exports = {
           dad: {
             name: "Charles Blanchard",
             place: null,
-            birth: null,
+            birth: 1811,
             siblings: null,
             mom: {},
             dad: {},
@@ -381,12 +403,14 @@ module.exports = {
         dad: {
           name: "Omer Arnold",
           place: "Athens",
+          death: 1943,
           birth: 1856,
           siblings: null,
           mom: {
             name: "Caroline Webster",
             place: null,
-            birth: null,
+            birth: 1827,
+            death: 1907,
             siblings: null,
             mom: {},
             dad: {},
@@ -394,7 +418,8 @@ module.exports = {
           dad: {
             name: "Richard Arnold",
             place: null,
-            birth: null,
+            birth: 1821,
+            death: 1906,
             siblings: null,
             mom: {},
             dad: {},
@@ -405,11 +430,13 @@ module.exports = {
         name: "Joseph Kelly",
         place: "Athens",
         birth: 1879,
+        death: 1946,
         siblings: 3,
         mom: {
           name: "Mary Ann Topping",
           place: "Athens",
           birth: 1850,
+          death: 1927,
           siblings: null,
           mom: {
             name: "Ellen Cavanaugh",
@@ -432,6 +459,7 @@ module.exports = {
           name: "Richard Kelly",
           place: "Athens",
           birth: 1852,
+          death: 1928,
           siblings: null,
           mom: {
             name: "Eliza Ennis",
