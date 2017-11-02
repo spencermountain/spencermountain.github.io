@@ -1,73 +1,73 @@
 <style scoped>
-#cols{
-	display:flex;
-	text-align:center;
-	flex-direction: row;
-	width:100%;
+#tree {
 	flex:1;
-	height:600px;
-}
-#col{
-	flex:1;
-	display:flex;
-	flex-direction: column;
+	min-height:200px;
+	border:1px solid grey;
+	position:relative;
 }
 .person{
-	display:flex;
-	position:relative;
-	flex-direction: column;
-	/*border:1px solid lightgrey;*/
-	justify-content: center;
-	flex-grow:1;
-	color:steelblue;
-	justify-content: center;
+	position:absolute;
+	font-size:11px;
+	color:grey;
+	left:0px;
+	top:0px;
+	border-bottom:2px solid lightsteelblue;
+	min-width:50px;
 	text-align:left;
-	font-size:12px;
-}
-.name{
-	max-width:100px;
-	white-space:nowrap;
+	padding-left:10px;
 }
 .female{
-	color:#f9a4ad;
-}
-@media (max-width: 700px) {
-	.person{
-		font-size:10px;
-	}
-	.lines{
-		opacity:0.5;
-	}
+	border-bottom:2px solid #f9a4ad;
 }
 </style>
 
 <template>
-  <div id="cols">
-		<div id="col" v-for="arr,g in data" style="flex-grow:1;">
-		  <div class="person" v-for="o,i in arr" >
-	      <div class="name">
-					<span class="">{{ o.names[1] }}</span> +
-					<span class="female">{{ o.names[0] }}</span>
-					</div>
-				<svg class="lines" width="100%" height="100%" v-if="g<4" style="position:absolute; top:0px; left:0px;">
-			    <line x1="60%" y1="50%" x2="90%" y2="25%" stroke-width="2" stroke="#e6eeef"/>
-			    <line x1="60%" y1="50%" x2="90%" y2="75%" stroke-width="2" stroke="#e6eeef"/>
-			  </svg>
-	    </div>
-	  </div>
-	</div>
+  <div id="tree">
+		<div v-for="p in people">
+			<div class="person" v-bind:class="{ female: p.sex==='f' }" v-bind:style="{ left: p.x+'px', top: p.y+'px', 'min-width':p.width+'px'}">
+				{{ p.name }}
+			</div>
+		</div>
+  </div>
 </template>
 
 <script>
-import treeData from './tree.js';
+import { scaleLinear } from 'd3-scale';
+import treeData  from './tree-data';
+let height=70
+let xScale=scaleLinear().range([0,900]).domain([1985, 1790])
+let yScale=scaleLinear().range([0,height]).domain([-5, 5])
+
+let people=[]
+let obj=treeData
+const doPerson=function(obj, gen, y, sex){
+	obj.birth=obj.birth||1800
+	let birth=xScale(obj.birth)
+	let death=xScale(obj.birth+75)
+	people.push({name:obj.name, x:birth, y:yScale(y), sex:sex, width:birth-death})
+	if(gen>=3){
+		return
+	}
+	if(obj.mom && obj.mom.name){
+		gen+=1
+		let space=height/(gen+1)
+		console.log(space)
+		let half=space/2
+		doPerson(obj.mom,gen, y-half, 'f')
+		doPerson(obj.dad,gen, y+half,'m')
+	}
+}
+doPerson(treeData,0,50,'m')
+console.log(people)
+
 
 export default {
-  name: 'tree',
+  name: 'Flower',
+  props: ['word'],
   data() {
-    return {
-      data: treeData,
-			widths:[15,45,60,75,100]
-    };
+  return {
+		people:people
+	}
   }
 };
 </script>

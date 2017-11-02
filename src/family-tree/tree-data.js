@@ -11,17 +11,20 @@
 module.exports = {
   name: "Me",
   place: "Barrie",
-  birthday: 1986,
+  birth: 1986,
+  death: null,
   siblings: 1,
   mom: {
     name: "Mom",
     place: "Montreal",
     birth: 1950,
+    death: null,
     siblings: 0,
     mom: {
-      name: "Grandma",
+      name: "Nana",
       place: "Orillia",
-      birth: null,
+      birth: 1923,
+      death: 2017,
       siblings: 0,
       mom: {
         name: "Mabel Eaton",
@@ -125,9 +128,10 @@ module.exports = {
       }
     },
     dad: {
-      name: "Grandpa",
+      name: "Skipper",
       place: "Orillia",
-      birth: 1952,
+      birth: 1921,
+      death: null,
       siblings: 2,
       mom: {
         name: "Orphea Snider",
@@ -343,7 +347,7 @@ module.exports = {
       },
     },
     dad: {
-      name: "Grandpa",
+      name: "Papa",
       place: "Delta",
       birth: 1913,
       siblings: 2,
@@ -449,4 +453,4 @@ module.exports = {
       },
     },
   },
-}
+};
