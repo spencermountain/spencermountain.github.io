@@ -14,12 +14,13 @@
     "build": "node ./scripts/build.js"
   },
   "dependencies": {
+  },
+  "devDependencies": {
     "browserify": "^14.5.0",
     "budo": "^10.0.4",
     "redom": "^3.8.5",
     "uglifyjs": "^2.4.11",
     "watchify": "^3.9.0"
   },
-  "devDependencies": {},
   "license": "MIT"
 }
