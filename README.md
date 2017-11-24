@@ -1,18 +1,11 @@
-# spencermountain
 
-> spencer kelly's portfolio
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
+## dev server
+```
+watchify ./src -> ./builds
+budo ./builds
 ```
 
-For more information see the [docs for vueify](https://github.com/vuejs/vueify).
+## build
+```
+browserify ./src -> uglify -> ./builds
+```
