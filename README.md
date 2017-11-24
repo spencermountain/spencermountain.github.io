@@ -7,5 +7,5 @@ budo ./builds
 
 ## build
 ```
-browserify ./src -> uglify -> ./builds
+browserify -t uglifyify ./src  -> ./builds
 ```
