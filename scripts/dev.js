@@ -1,10 +1,9 @@
-
 var budo = require('budo')
-
 var exec = require('child_process').exec;
 
 //watch /src and re-build
 exec('watchify src/index.js -o builds/bundle.js')
+// exec(`watchify src/index.js -o 'uglifyjs -cm > static/bundle.min.js'`)
 
 //live-reload from ./builds
 budo('./builds/bundle.js', {

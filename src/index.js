@@ -1,14 +1,18 @@
 const el = require('redom').el;
 const mount = require('redom').mount;
-const styler = require('react-styling');
 require('web-animations-js/web-animations.min'); //polyfill
-const Baby = require('./01-baby');
 
-const css = styler`
-container:
-	display: flex
-	flex-direction:column
-`;
+const Born = require('./born');
+const Internet = require('./internet');
+const Mistakes = require('./mistakes');
+const Today = require('./today');
+
+const css = {
+  container: {
+    display: 'flex',
+    'flex-direction': 'column'
+  }
+};
 class App {
   constructor() {
     this.el = el(
@@ -16,7 +20,12 @@ class App {
       {
         style: css.container
       },
-      [new Baby(), new Baby()]
+      [
+        new Born(),
+        new Internet(),
+        new Mistakes(),
+        new Today(),
+      ]
     );
   }
 }
