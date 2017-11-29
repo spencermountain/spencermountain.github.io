@@ -51,5 +51,5 @@ const doCouple = function(girl, guy, gen, y) {
     doCouple(guy.mom, guy.dad, gen + 1, y - half)
   }
 }
-doCouple(treeData.mom, treeData.dad, 1, 250)
+doCouple(treeData.mom, treeData.dad, 1, 150)
 module.exports = couples

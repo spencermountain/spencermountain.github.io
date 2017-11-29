@@ -33,9 +33,26 @@ orgs:
 	display: flex
 	flex-direction: row
 	justify-content: center;
+friends:
+	margin-top: 20px
+	text-align: center
+	margin-left: 20px
+	font-size:17
+friendList:
+	font-size:17px;
+	min-height:130px
+	width:80%;
+	align-self:center;
+	display: flex
+	flex-direction: row
+	justify-content: space-around;
+friend:
+	color:steelblue
+	margin:10
 org:
 	color:steelblue
 num:
+	font-size:30px
 	font-size:30px
 	color:#3aa83c;
 `
@@ -58,6 +75,12 @@ class Main {
         div('including: '),
         div(css.org, 'Microsoft, CitiBank, the Guardian, and the UN'),
         div('[1]'),
+      ]),
+      div(css.friends, 'I\'ve gotten a chance to work with people like:'),
+      div(css.friendList, [
+        div(css.friend, 'Phil Gribbon'),
+        div(css.friend, 'David Mason'),
+        div(css.friend, 'Brian LeRoux'),
       ])
     ])
   }

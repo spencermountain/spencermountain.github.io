@@ -7,38 +7,31 @@ let css = style`
 container
 	flex: 1
 	display: flex
-	font-size:20px;
-	padding:100
+	flex-direction:column;
+	padding:50
 	position:relative;
 	min-height:400px;
+tree:
+	flex: 1
+	height:200
+	position:relative;
+	display:block
+above:
+	color:#c1bbbb;
+	font-size:17
 `
-
-{
-  /* <template>
-    <div id="tree">
-  		<div v-for="obj in couples">
-  			<div class="line female" v-bind:style="{ opacity:obj.opacity, left: obj.girl.start+'px', width:obj.girl.width+'px',top: (obj.y+10)+'px'}"/>
-  			<div class="line male" v-bind:style="{ opacity:obj.opacity, left: obj.guy.start+'px', width:obj.guy.width+'px',top: (obj.y+13)+'px'}"/>
-  			<!-- <div class="person" v-bind:class="{ female: p.sex==='f' }" v-bind:style="{ left: p.x+'px', top: p.y+'px', 'min-width':p.width+'px'}"> -->
-  			<div class="couple" v-bind:style="{ left: obj.x+'px', top: obj.y+'px'}">
-  				{{ `${obj.names[1]}+${obj.names[0]}` }}
-  			</div>
-  		</div>
-    </div>
-  </template> */
+let couple = {
+  position: 'absolute',
+  'font-size': 9,
+  color: 'grey',
+  left: 0,
+  top: 0,
+  'text-align': 'left',
+  'padding-left': 10
 }
-console.log(couples)
+
 class Main {
   constructor() {
-    let couple = {
-      position: 'absolute',
-      'font-size': 9,
-      color: 'grey',
-      left: 0,
-      top: 0,
-      'text-align': 'left',
-      'padding-left': 10
-    }
     let lines = couples.map((obj) => {
       let f = {
         opacity: obj.opacity,
@@ -56,8 +49,6 @@ class Main {
         width: obj.guy.width + 'px',
         top: (obj.y + 13) + 'px'
       }
-      // f = Object.assign(f, couple)
-      // m = Object.assign(m, couple)
       let names = {
         position: 'absolute',
         fontSize: '11px',
@@ -79,7 +70,12 @@ class Main {
         }, `${obj.names[1]}+${obj.names[0]}`),
       ])
     })
-    this.el = div(css.container, lines)
+    this.el = div(css.container, [
+      div('but before that, there were many farmers and doctors-'),
+      div('their lives were probably hard.'),
+      div('or maybe they weren\'t. I don\'t know.'),
+      div(css.tree, lines),
+    ])
   }
 }
 module.exports = Main

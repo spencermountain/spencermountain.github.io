@@ -10511,9 +10511,26 @@ orgs:
 	display: flex
 	flex-direction: row
 	justify-content: center;
+friends:
+	margin-top: 20px
+	text-align: center
+	margin-left: 20px
+	font-size:17
+friendList:
+	font-size:17px;
+	min-height:130px
+	width:80%;
+	align-self:center;
+	display: flex
+	flex-direction: row
+	justify-content: space-around;
+friend:
+	color:steelblue
+	margin:10
 org:
 	color:steelblue
 num:
+	font-size:30px
 	font-size:30px
 	color:#3aa83c;
 `
@@ -10536,6 +10553,12 @@ class Main {
         div('including: '),
         div(css.org, 'Microsoft, CitiBank, the Guardian, and the UN'),
         div('[1]'),
+      ]),
+      div(css.friends, 'I\'ve gotten a chance to work with people like:'),
+      div(css.friendList, [
+        div(css.friend, 'Phil Gribbon'),
+        div(css.friend, 'David Mason'),
+        div(css.friend, 'Brian LeRoux'),
       ])
     ])
   }
@@ -10846,7 +10869,7 @@ const doCouple = function(girl, guy, gen, y) {
     doCouple(guy.mom, guy.dad, gen + 1, y - half)
   }
 }
-doCouple(treeData.mom, treeData.dad, 1, 250)
+doCouple(treeData.mom, treeData.dad, 1, 150)
 module.exports = couples
 
 },{"./tree-data":147,"d3-scale":92}],146:[function(require,module,exports){
@@ -10859,38 +10882,31 @@ let css = style`
 container
 	flex: 1
 	display: flex
-	font-size:20px;
-	padding:100
+	flex-direction:column;
+	padding:50
 	position:relative;
 	min-height:400px;
+tree:
+	flex: 1
+	height:200
+	position:relative;
+	display:block
+above:
+	color:#c1bbbb;
+	font-size:17
 `
-
-{
-  /* <template>
-    <div id="tree">
-  		<div v-for="obj in couples">
-  			<div class="line female" v-bind:style="{ opacity:obj.opacity, left: obj.girl.start+'px', width:obj.girl.width+'px',top: (obj.y+10)+'px'}"/>
-  			<div class="line male" v-bind:style="{ opacity:obj.opacity, left: obj.guy.start+'px', width:obj.guy.width+'px',top: (obj.y+13)+'px'}"/>
-  			<!-- <div class="person" v-bind:class="{ female: p.sex==='f' }" v-bind:style="{ left: p.x+'px', top: p.y+'px', 'min-width':p.width+'px'}"> -->
-  			<div class="couple" v-bind:style="{ left: obj.x+'px', top: obj.y+'px'}">
-  				{{ `${obj.names[1]}+${obj.names[0]}` }}
-  			</div>
-  		</div>
-    </div>
-  </template> */
+let couple = {
+  position: 'absolute',
+  'font-size': 9,
+  color: 'grey',
+  left: 0,
+  top: 0,
+  'text-align': 'left',
+  'padding-left': 10
 }
-console.log(couples)
+
 class Main {
   constructor() {
-    let couple = {
-      position: 'absolute',
-      'font-size': 9,
-      color: 'grey',
-      left: 0,
-      top: 0,
-      'text-align': 'left',
-      'padding-left': 10
-    }
     let lines = couples.map((obj) => {
       let f = {
         opacity: obj.opacity,
@@ -10908,8 +10924,6 @@ class Main {
         width: obj.guy.width + 'px',
         top: (obj.y + 13) + 'px'
       }
-      // f = Object.assign(f, couple)
-      // m = Object.assign(m, couple)
       let names = {
         position: 'absolute',
         fontSize: '11px',
@@ -10931,7 +10945,12 @@ class Main {
         }, `${obj.names[1]}+${obj.names[0]}`),
       ])
     })
-    this.el = div(css.container, lines)
+    this.el = div(css.container, [
+      div('but before that, there were many farmers and doctors-'),
+      div('their lives were probably hard.'),
+      div('or maybe they weren\'t. I don\'t know.'),
+      div(css.tree, lines),
+    ])
   }
 }
 module.exports = Main
