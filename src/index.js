@@ -7,6 +7,7 @@ const Internet = require('./internet');
 const Mistakes = require('./mistakes');
 const Github = require('./github');
 const Today = require('./today');
+const Tree = require('./tree');
 
 const css = {
   container: {
@@ -23,6 +24,7 @@ class App {
       },
       [
         new Born(),
+        new Tree(),
         new Internet(),
         new Mistakes(),
         new Github(),
