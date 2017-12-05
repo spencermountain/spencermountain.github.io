@@ -17,6 +17,7 @@
     "d3-scale": "^1.0.7",
     "glamor": "^2.20.40",
     "macy": "^2.3.0",
+    "pug": "^2.0.0-rc.4",
     "react-styling": "^1.6.4",
     "web-animations-js": "^2.3.1"
   },
@@ -24,6 +25,7 @@
     "browserify": "^14.5.0",
     "budo": "^10.0.4",
     "redom": "^3.8.5",
+    "tachyons": "^4.9.0",
     "uglifyify": "^4.0.5",
     "watchify": "^3.9.0"
   },

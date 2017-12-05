@@ -1,33 +1,28 @@
 const div = require('../../lib/div')
 const img = require('../../lib/img')
+const video = require('../../lib/video')
 const style = require('../../lib/style')
 let css = style`
-container
-	flex: 1
-	display: flex
-	border: 1px solid grey
-	font-size:20px;
-	padding:100
-box:
-	padding:10
-	text-align:center;
 `
 
 class Main {
   constructor() {
-    this.el = div(css.container, [
-      this.box('Did a philosophy degree', './src/mistakes/img/carpet.jpg'),
-      this.box('Went to grad-school', './src/mistakes/img/table.png'),
-      this.box('Died my own hair', './src/mistakes/img/blonde.jpg'),
-    ])
-  }
-  box(str, src) {
-    return div(css.box, [
-      div(str),
-      div('(that was a huge mistake)'),
-      img(src, {
-        width: 300
-      }),
+    this.el = div('flex justify-around tc', [
+      div('', [
+        div('f3 light-purple', 'Did a philosophy degree'),
+        div('mb2', '(that was a huge mistake)'),
+        img('./src/mistakes/img/carpet.jpg', 'w5 br3 shadow-1'),
+      ]),
+      div('', [
+        div('f3 green', 'Went to grad-school'),
+        div('mb2', '(that was a huge mistake)'),
+        img('./src/mistakes/img/table.png', 'w5 br3 shadow-1'),
+      ]),
+      div('', [
+        div('f3 orange', 'Died my own hair'),
+        div('mb2', '(that was a huge mistake)'),
+        video('./src/mistakes/img/hairblue.mp4', 'w5 br3 shadow-1'),
+      ])
     ])
   }
 }

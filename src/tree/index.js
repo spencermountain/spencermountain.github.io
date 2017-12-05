@@ -9,16 +9,24 @@ container
 	display: flex
 	flex-direction:column;
 	padding:50
+	margin-bottom:50
 	position:relative;
 	min-height:400px;
 tree:
 	flex: 1
-	height:200
+	height:300
 	position:relative;
+	top:-50
 	display:block
 above:
 	color:#c1bbbb;
 	font-size:17
+axis:
+	display:flex
+	flex:1
+	justify-content: space-around;
+	color:lightgrey
+	border-bottom:1px solid lightgrey
 `
 let couple = {
   position: 'absolute',
@@ -53,7 +61,7 @@ class Main {
         position: 'absolute',
         fontSize: '11px',
         color: '#c1bbbb',
-        left: obj.x + 'px',
+        left: (obj.x + 50) + 'px',
         top: obj.y + 'px'
       }
       return div({
@@ -71,10 +79,17 @@ class Main {
       ])
     })
     this.el = div(css.container, [
-      div('but before that, there were many farmers and doctors-'),
-      div('their lives were probably hard.'),
-      div('or maybe they weren\'t. I don\'t know.'),
+      div('f1', 'before that though,'),
+      div('there were farmers, in small Ontario towns.'),
+      div('their lives were probably hard'),
+      div(' or maybe they weren\'t.'),
+      div(' I don\'t know.'),
       div(css.tree, lines),
+      div(css.axis, [
+        div('2017'),
+        div('1950'),
+        div('1901'),
+      ]),
     ])
   }
 }

@@ -1,4 +1,6 @@
 const div = require('../../lib/div')
+const span = require('../../lib/span')
+const el = require('redom').el;
 const img = require('../../lib/img')
 const style = require('../../lib/style')
 let css = style`
@@ -6,10 +8,10 @@ container
 	flex: 1
 	display: flex
 	flex-direction: column;
-	border: 1px solid grey
 	justify-content: center;
 	font-size:20px;
 	padding:100
+	margin-top:50
 	text-align:center;
 title:
 	flex:1
@@ -19,7 +21,7 @@ title:
 	flex-direction: row
 	text-align:center;
 	justify-content: center;
-	max-width:400
+	max-width:500
 projects:
 	display: flex
 	flex-direction: row
@@ -27,6 +29,7 @@ projects:
 	align-items: flex-end;
 	flex:1
 	height:120
+	max-width:80%
 img:
 	width:80
 orgs:
@@ -34,11 +37,12 @@ orgs:
 	flex-direction: row
 	justify-content: center;
 friends:
-	margin-top: 20px
+	margin-top: 30px
 	text-align: center
 	margin-left: 20px
 	font-size:17
 friendList:
+	margin-top: 10px
 	font-size:17px;
 	min-height:130px
 	width:80%;
@@ -52,43 +56,61 @@ friend:
 org:
 	color:steelblue
 num:
-	font-size:30px
-	font-size:30px
+	font-size:50px
+	padding-left:15px;
+	padding-right:15px;
 	color:#3aa83c;
+desc
+	border-top:1px solid lightgrey
 `
 
 class Main {
   constructor() {
     this.el = div(css.container, [
       div(css.title, [
-        div('I built and maintain'),
+        div('f3', 'I built and maintain'),
         div(css.num, '3'),
-        div('very-challenging open source projects:'),
+        div('f3', 'challenging open-source projects:'),
       ]),
-      div(css.projects, [
-        this.project('nlp-compromise', './src/github/img/nlp-compromise.png'),
-        this.project('wtf_wikipedia', './src/github/img/wtf-wikipedia.png'),
-        this.project('spacetime', './src/github/img/spacetime.png'),
+      div('flex justify-around mw-80 items-end', [
+        this.project('nlp-compromise', './src/github/img/nlp-compromise.png', 'http://compromise.cool'),
+        this.project('wtf_wikipedia', './src/github/img/wtf-wikipedia.png', 'https://spencermountain.github.io/wtf_wikipedia/'),
+        this.project('spacetime', './src/github/img/spacetime.png', 'https://smallwins.github.io/spacetime/'),
       ]),
-      div('hilariously, they\'re running at thousands of organizations'),
-      div(css.orgs, [
-        div('including: '),
-        div(css.org, 'Microsoft, CitiBank, the Guardian, and the UN'),
-        div('[1]'),
+      div('mt4 mb1', 'hilariously, they\'re running at thousands of organizations'),
+      div('f4', [
+        span('including: '),
+        span(css.org, 'Microsoft, CitiBank, the Guardian, and the United Nations'),
+        el('a', {
+          href: 'https://www.microsoft.com/reallifecode/2017/06/06/geocoding-social-conversations-nlp-javascript/',
+          class: 'link dim f5'
+        }, [el('sup', ' [1]')]),
       ]),
       div(css.friends, 'I\'ve gotten a chance to work with people like:'),
       div(css.friendList, [
-        div(css.friend, 'Phil Gribbon'),
-        div(css.friend, 'David Mason'),
-        div(css.friend, 'Brian LeRoux'),
+        el('a', {
+          href: 'http://philgribbon.com/',
+          class: 'link dim'
+        }, 'Phil Gribbon'),
+        el('a', {
+          href: 'https://zooid.org/~vid/',
+          class: 'link dim'
+        }, 'David Mason'),
+        el('a', {
+          href: 'https://github.com/brianleroux',
+          class: 'link dim'
+        }, 'Brian LeRoux'),
       ])
     ])
   }
-  project(title, src, desc) {
-    return div({}, [
+  project(title, src, href) {
+    return el('a', {
+      class: 'link grow mt2 blue',
+      href: href
+    }, [
       img(src, css.img),
       div(css.title, title),
-      div(css.desc, desc),
+    // div(css.desc, desc),
     ])
   }
 }

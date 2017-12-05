@@ -11,7 +11,7 @@ function randomize(arr) {
 }
 //
 const unicode = function() {
-  let chars = `؍ͺ､꓾،„‚٭⸟׆∗יִײַ‎∘⌌∙∻⌍⋄⋅⋆∼∽⸰·∾∿⋰፣҃҄҅΅'^῁῀᾽῍῎`‘’‛꙾︒”‟⌎⌏⸇⸆⸁⸀΄ ҇῏῭΅`
+  let chars = `؍ͺ､꓾،„؈‚٭⸟׆∗יִײַ؞‎؛؀∘⌌∙∻⌍⋄⋅٭⋆ﻩ‎∼ͻ∽ر‎⸰·∾∿⋰፣҃҄҅΅'^῁῀ﺓ‎᾽῍῎`‘ه‎’‛꙾؎︒”‟⌎⌏⸇⸆⸁⸀΄ ҇῏῭΅ͺᵨᵩ؇`
   let arr = chars.split('')
   arr = arr.filter(c => c)
   arr = randomize(arr)

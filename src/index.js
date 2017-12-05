@@ -8,6 +8,8 @@ const Mistakes = require('./mistakes');
 const Github = require('./github');
 const Today = require('./today');
 const Tree = require('./tree');
+const Hello = require('./hello');
+const Show = require('./show/first');
 
 const css = {
   container: {
@@ -23,9 +25,11 @@ class App {
         style: css.container
       },
       [
+        new Hello(),
+        new Show(),
         new Born(),
         new Tree(),
-        new Internet(),
+        // new Internet(),
         new Mistakes(),
         new Github(),
         new Today(),
