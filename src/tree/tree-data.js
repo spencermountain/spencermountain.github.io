@@ -8,7 +8,7 @@ module.exports = {
     name: "Mom",
     place: "Montreal",
     birth: 1950,
-    death: 2017, //for the graph!!
+    death: new Date().getFullYear(), //for the graph!!
     siblings: 0,
     mom: {
       name: "Nana",
@@ -248,7 +248,7 @@ module.exports = {
     name: "Dad",
     place: "Kingston",
     birth: 1952,
-    death: 2017, //for the graph!!
+    death: new Date().getFullYear(), //for the graph!!
     siblings: 4,
     mom: {
       name: "Grandma",

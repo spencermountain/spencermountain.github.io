@@ -1,5 +1,6 @@
 const pug = require('pug')
 const div = require('../../lib/div')
+const img = require('../../lib/img')
 const el = require('redom').el;
 const video = require('../../lib/video')
 
@@ -19,7 +20,7 @@ const wave = function() {
 
 class Main {
   constructor() {
-    this.el = div('flex outline items-center justify-center pv5', [
+    this.el = div('flex items-center justify-center pt7 pb5', [
       div('relative', [
         video('./src/show/things/swimfast.mp4', {
           class: 'w5 br3 shadow-1 relative '
@@ -31,20 +32,57 @@ class Main {
           }
         }, []),
       ]),
-      div('w5 ml3', [
+      div('w5 ma3', [
         div('underline pb2 f4', 'the web is a silly place.'),
-        el('svg', {
-          'xml:space': "preserve",
-          width: '100px',
-          height: '100px'
-        }, [
-          el('path', {
-            stroke: '#1b76ff',
-            d: 'M 32 54 L 77.0126953125'
-          })
-        ]),
-        div('center', 'our tools and software'),
-        div('center', 'are certainly quite ridiculous')
+        img('./src/show/wave2.svg', 'w4'),
+        // el('svg', {
+        //   'xml:space': "preserve",
+        //   width: '100px',
+        //   height: '100px'
+        // }, [
+        //   el('path', {
+        //     stroke: '#1b76ff',
+        //     d: 'M 32 54 L 77.0126953125'
+        //   })
+        // ]),
+        // div('center', 'the technologies'),
+        // div('center', 'are certainly quite ridiculous'),
+        div('blue ml2', [
+          "⸟",
+          "׆",
+          "∗",
+          "יִ",
+          "ײַ",
+          "؞",
+          "‎",
+          "؛",
+          "؀",
+          "∘",
+          "⌌",
+          "∙",
+          "∻",
+          "⌍",
+          "⋄",
+          "⋅",
+          "٭",
+          "⋆",
+          "ﻩ",
+          "‎",
+          "∼",
+          "ͻ",
+          "∽",
+          "ر",
+          "‎",
+          "⸰",
+          "·",
+          "∾",
+          "∿",
+          "⋰",
+          "፣",
+          "҃",
+          "῁῀ﺓ‎᾽῍῎`‘",
+          "∼ͻ∽ر‎⸰·∾∿⋰",
+        ])
       ])
     ])
 

@@ -19,4 +19,3 @@ const unicode = function() {
   return arr.join('')
 }
 module.exports = unicode
-console.log(unicode())

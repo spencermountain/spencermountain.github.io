@@ -11,6 +11,7 @@ const Tree = require('./tree');
 const Hello = require('./hello');
 const Show = require('./show/first');
 const Swim = require('./show/swim');
+const End = require('./end');
 
 const css = {
   container: {
@@ -30,11 +31,11 @@ class App {
         new Show(),
         new Born(),
         new Tree(),
-        new Swim(),
-        // new Internet(),
         new Mistakes(),
+        new Swim(),
         new Github(),
         new Today(),
+        new End(),
       ]
     );
   }

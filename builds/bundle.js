@@ -58742,6 +58742,7 @@ function extend() {
 
 },{}],330:[function(require,module,exports){
 const div = require('../../lib/div')
+const span = require('../../lib/span')
 const img = require('../../lib/img')
 const video = require('../../lib/video')
 const style = require('../../lib/style')
@@ -58749,13 +58750,16 @@ let css = style``
 
 class Main {
   constructor() {
-    this.el = div('', [
-      div({
-        class: 'f1 ma2'
-      }, '1980s'),
+    this.el = div('mt5', [
+      div('f3 mh2 navy', 'the'),
+      div('f1 mh2 navy', '1980s.'),
       div({
         class: 'f4 ml4'
-      }, 'I was born in the suburbs of canada.'),
+      }, [
+        'I was born in the soft-rock suburbs of ',
+        span('light-red', 'canada'),
+        span('', '.')
+      ]),
       div('flex justify-between flex-wrap', [
         div('w4 w-25 pa4', {
           style: {
@@ -58766,20 +58770,20 @@ class Main {
             width: 100
           }),
           div({
-            class: 'f6'
-          }, 'Brian Mulroney'),
+            class: 'f5 mid-gray'
+          }, 'Brian Mulroney was'),
           div({
-            class: 'f6'
-          }, 'was prime-minister'),
+            class: 'f5 mid-gray'
+          }, 'prime-minister'),
         ]),
         div('w1 w-75 flex items-center center justify-center pl2', {
           style: {
             'min-width': '400px'
           }
         }, [
-          div('mw4 f5 tr lh-copy mr2', 'communism was still basically a really harsh thing but I didn\'t understand it because I'),
+          div('mw4 f5 tr lh-copy mr2 mid-gray', 'communism was still basically a really huge thing but I didn\'t understand it because I'),
           video('./src/born/img/stairsTwo.mp4', 'w4 w5-ns'),
-          div('f1 ml2 mw4', 'was little')
+          div('f1 ml2 mw4 lh-copy mid-gray', 'was little')
         ])
       ])
     ])
@@ -58788,7 +58792,25 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"../../lib/video":6}],331:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/span":4,"../../lib/style":5,"../../lib/video":6}],331:[function(require,module,exports){
+const pug = require('pug')
+const div = require('../../lib/div')
+const img = require('../../lib/img')
+const link = require('../../lib/link')
+
+class Main {
+  constructor() {
+    this.el = div('relative pv6 mh4 tr', [
+      link('mailto:spencermountain@gmail.com', 'f3 link dim underline lh-title blue', 'I\'m available for work'),
+      div('', 'I only do one thing at a time')
+    ])
+
+  }
+
+}
+module.exports = Main
+
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"pug":270}],332:[function(require,module,exports){
 const div = require('../../lib/div')
 const span = require('../../lib/span')
 const el = require('redom').el;
@@ -58802,28 +58824,26 @@ container
 	flex-direction: column;
 	justify-content: center;
 	font-size:20px;
-	padding:100
-	margin-top:50
+	margin-top:20
 	text-align:center;
 title:
 	flex:1
-	font-size:17px;
+	font-size:21px;
 	margin:20
 	display: flex
 	flex-direction: row
 	text-align:center;
 	justify-content: center;
-	max-width:500
+	max-width:400
 projects:
 	display: flex
 	flex-direction: row
+	text-align:left
 	justify-content: space-between;
 	align-items: flex-end;
 	flex:1
 	height:120
 	max-width:80%
-img:
-	width:80
 orgs:
 	display: flex
 	flex-direction: row
@@ -58838,6 +58858,7 @@ friendList:
 	font-size:17px;
 	min-height:80px
 	width:80%;
+	max-width:500px;
 	align-self:center;
 	display: flex
 	flex-direction: row
@@ -58847,6 +58868,7 @@ friend:
 	margin:10
 org:
 	color:steelblue
+	margin:5px;
 num:
 	font-size:50px
 	padding-left:15px;
@@ -58858,58 +58880,67 @@ desc
 
 class Main {
   constructor() {
-    this.el = div(css.container, [
-      div(css.title, [
-        div('f3', 'I built and maintain'),
-        div(css.num, '3'),
-        div('f3', 'challenging open-source projects:'),
-      ]),
-      div('flex justify-around mw-80 items-end', [
-        this.project('nlp-compromise', './src/github/img/nlp-compromise.png', 'http://compromise.cool'),
-        this.project('wtf_wikipedia', './src/github/img/wtf-wikipedia.png', 'https://spencermountain.github.io/wtf_wikipedia/'),
-        this.project('spacetime', './src/github/img/spacetime.png', 'https://smallwins.github.io/spacetime/'),
-      ]),
-      div('mt4 mb1', 'hilariously, they\'re running at thousands of organizations'),
-      div('f4', [
-        span('including: '),
-        span(css.org, 'Microsoft, CitiBank, the Guardian, and the United Nations'),
-        el('a', {
-          href: 'https://www.microsoft.com/reallifecode/2017/06/06/geocoding-social-conversations-nlp-javascript/',
-          class: 'link dim f5'
-        }, [el('sup', ' [1]')]),
-      ]),
-      div(css.friends, 'I\'ve gotten a chance to work with people like:'),
-      div(css.friendList, [
-        el('a', {
-          href: 'http://philgribbon.com/',
-          class: 'link dim'
-        }, 'Phil Gribbon'),
-        el('a', {
-          href: 'https://zooid.org/~vid/',
-          class: 'link dim'
-        }, 'David Mason'),
-        el('a', {
-          href: 'https://github.com/brianleroux',
-          class: 'link dim'
-        }, 'Brian LeRoux'),
-      ]),
-      div('f6', [
-        span('I\'ve worked at '),
-        link('http://state.com', 'link dim pa1', 'state.com,'),
-        link('http://govinvest.com', 'link dim pa1', 'govinvest,'),
-        link('http://topix.io', 'link dim pa1', 'topix.io,'),
-        link('http://kmstandards.com', 'link dim pa1', 'KMStandards,'),
-        span('and'),
-        link('http://begin.com', 'link dim pa1', 'small-wins.'),
+    this.el = div('mt6 ma3 lh-hero', [
+      div('f2 blue', 'But now,'),
+      div(css.container, [
+        div(css.title, [
+          div('f3', 'I built and maintain'),
+          div(css.num, '3'),
+          div('f3', 'very-challenging open-source projects:'),
+        ]),
+        div('flex justify-around flex-wrap mw-80 items-end', [
+          this.project('nlp-compromise', './src/github/img/nlp-compromise.png', 'http://compromise.cool'),
+          this.project('wtf_wikipedia', './src/github/img/wtf-wikipedia.png', 'https://spencermountain.github.io/wtf_wikipedia/'),
+          this.project('spacetime', './src/github/img/spacetime.png', 'https://smallwins.github.io/spacetime/'),
+        ]),
+        div('mt4 mb2 f5', 'hilariously, they\'re running at thousands of organizations.'),
+        div('f4', [
+          span('f5 mr2', 'including: '),
+          span(css.org, [
+            'Microsoft, CitiBank, the Guardian,',
+            span('gray ph1', 'and the'),
+            'United Nations',
+            el('a', {
+              href: 'https://www.microsoft.com/reallifecode/2017/06/06/geocoding-social-conversations-nlp-javascript/',
+              class: 'link dim f5'
+            }, [el('sup', ' [1]')]),
+          ]),
+        ]),
+        div('f5 mt3', [
+          span('dim-gray', 'I\'ve worked for:'),
+          div('flex justify-center flex-wrap f6', [
+            link('http://state.com', 'link dim pa1 light-green', 'State.com,'),
+            link('http://govinvest.com', 'link dim pa1 orange', 'Govinvest,'),
+            link('http://topix.io', 'link dim pa1 light-blue', 'Topix.io,'),
+            link('http://kmstandards.com', 'link dim pa1 pink', 'KMStandards,'),
+            // span('pa1 light-red', 'and'),
+            link('http://begin.com', 'link dim pa1 light-red', 'and SmallWins.'),
+          ])
+        ]),
+        div('dim-gray f5 mt4', 'I\'ve gotten to learn from people like:'),
+        div(css.friendList, [
+          el('a', {
+            href: 'http://philgribbon.com/',
+            class: 'link dim blue f4'
+          }, 'Phil Gribbon'),
+          el('a', {
+            href: 'https://zooid.org/~vid/',
+            class: 'link dim blue f4'
+          }, 'David Mason'),
+          el('a', {
+            href: 'https://github.com/brianleroux',
+            class: 'link dim blue f4'
+          }, 'Brian LeRoux'),
+        ]),
       ])
     ])
   }
   project(title, src, href) {
     return el('a', {
-      class: 'link grow mt2 blue',
+      class: 'link dim bb bw2 blue mt3',
       href: href
     }, [
-      img(src, css.img),
+      img(src, 'w-100 mw3'),
       div(css.title, title),
     // div(css.desc, desc),
     ])
@@ -58917,7 +58948,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"../../lib/span":4,"../../lib/style":5,"redom":290}],332:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"../../lib/span":4,"../../lib/style":5,"redom":290}],333:[function(require,module,exports){
 const pug = require('pug')
 const div = require('../../lib/div')
 const img = require('../../lib/img')
@@ -58956,7 +58987,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"pug":270}],333:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"pug":270}],334:[function(require,module,exports){
 const el = require('redom').el;
 const mount = require('redom').mount;
 require('web-animations-js/web-animations.min'); //polyfill
@@ -58970,6 +59001,7 @@ const Tree = require('./tree');
 const Hello = require('./hello');
 const Show = require('./show/first');
 const Swim = require('./show/swim');
+const End = require('./end');
 
 const css = {
   container: {
@@ -58989,11 +59021,11 @@ class App {
         new Show(),
         new Born(),
         new Tree(),
-        new Swim(),
-        // new Internet(),
         new Mistakes(),
+        new Swim(),
         new Github(),
         new Today(),
+        new End(),
       ]
     );
   }
@@ -59002,7 +59034,7 @@ class App {
 const app = new App();
 mount(document.body, app);
 
-},{"./born":330,"./github":331,"./hello":332,"./internet":334,"./mistakes":335,"./show/first":336,"./show/swim":337,"./today":338,"./tree":341,"redom":290,"web-animations-js/web-animations.min":325}],334:[function(require,module,exports){
+},{"./born":330,"./end":331,"./github":332,"./hello":333,"./internet":335,"./mistakes":336,"./show/first":337,"./show/swim":338,"./today":339,"./tree":342,"redom":290,"web-animations-js/web-animations.min":325}],335:[function(require,module,exports){
 const div = require('../../lib/div')
 const style = require('../../lib/style')
 const img = require('../../lib/img')
@@ -59031,7 +59063,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5}],335:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5}],336:[function(require,module,exports){
 const div = require('../../lib/div')
 const img = require('../../lib/img')
 const video = require('../../lib/video')
@@ -59043,17 +59075,17 @@ class Main {
   constructor() {
     this.el = div('flex justify-around tc flex-wrap', [
       div('mt2 mb2', [
-        div('f3 green', 'Did a philosophy degree'),
+        div('f3 blue helvetica', 'did a philosophy degree'),
         div('mb2', '(that was a huge mistake)'),
         img('./src/mistakes/img/carpet.jpg', 'w5 mw5 w-90 br3 shadow-1'),
       ]),
       div('mt2  mb2', [
-        div('f3 green', 'Went to grad-school'),
+        div('f3 black helvetica', 'went to grad-school'),
         div('mb2', '(that was a huge mistake)'),
         img('./src/mistakes/img/table.png', 'w5 mw5 w-90 br3 shadow-1'),
       ]),
       div('mt2 mb2', [
-        div('f3 orange', 'Died my own hair'),
+        div('f3 orange helvetica', 'died my own hair'),
         div('mb2', '(that was a huge mistake)'),
         video('./src/mistakes/img/hairblue.mp4', 'w5 mw5 w-90 br3 shadow-1'),
       ])
@@ -59062,7 +59094,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"../../lib/video":6}],336:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"../../lib/video":6}],337:[function(require,module,exports){
 const pug = require('pug')
 const div = require('../../lib/div')
 const img = require('../../lib/img')
@@ -59088,9 +59120,10 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"pug":270}],337:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"pug":270}],338:[function(require,module,exports){
 const pug = require('pug')
 const div = require('../../lib/div')
+const img = require('../../lib/img')
 const el = require('redom').el;
 const video = require('../../lib/video')
 
@@ -59110,7 +59143,7 @@ const wave = function() {
 
 class Main {
   constructor() {
-    this.el = div('flex outline items-center justify-center pv5', [
+    this.el = div('flex items-center justify-center pt7 pb5', [
       div('relative', [
         video('./src/show/things/swimfast.mp4', {
           class: 'w5 br3 shadow-1 relative '
@@ -59122,20 +59155,57 @@ class Main {
           }
         }, []),
       ]),
-      div('w5 ml3', [
+      div('w5 ma3', [
         div('underline pb2 f4', 'the web is a silly place.'),
-        el('svg', {
-          'xml:space': "preserve",
-          width: '100px',
-          height: '100px'
-        }, [
-          el('path', {
-            stroke: '#1b76ff',
-            d: 'M 32 54 L 77.0126953125'
-          })
-        ]),
-        div('center', 'our tools and software'),
-        div('center', 'are certainly quite ridiculous')
+        img('./src/show/wave2.svg', 'w4'),
+        // el('svg', {
+        //   'xml:space': "preserve",
+        //   width: '100px',
+        //   height: '100px'
+        // }, [
+        //   el('path', {
+        //     stroke: '#1b76ff',
+        //     d: 'M 32 54 L 77.0126953125'
+        //   })
+        // ]),
+        // div('center', 'the technologies'),
+        // div('center', 'are certainly quite ridiculous'),
+        div('blue ml2', [
+          "⸟",
+          "׆",
+          "∗",
+          "יִ",
+          "ײַ",
+          "؞",
+          "‎",
+          "؛",
+          "؀",
+          "∘",
+          "⌌",
+          "∙",
+          "∻",
+          "⌍",
+          "⋄",
+          "⋅",
+          "٭",
+          "⋆",
+          "ﻩ",
+          "‎",
+          "∼",
+          "ͻ",
+          "∽",
+          "ر",
+          "‎",
+          "⸰",
+          "·",
+          "∾",
+          "∿",
+          "⋰",
+          "፣",
+          "҃",
+          "῁῀ﺓ‎᾽῍῎`‘",
+          "∼ͻ∽ر‎⸰·∾∿⋰",
+        ])
       ])
     ])
 
@@ -59144,7 +59214,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/video":6,"pug":270,"redom":290}],338:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/video":6,"pug":270,"redom":290}],339:[function(require,module,exports){
 const div = require('../../lib/div')
 const img = require('../../lib/img')
 const el = require('redom').el;
@@ -59180,41 +59250,27 @@ bio:
 
 class Main {
   constructor() {
-    this.el = div(css.container, [
-      this.thing('I really like rural Ontario', this.niceOntario()),
-      this.thing('I like clumsy web technology', this.streams()),
-      this.thing('I hate the gap between biology and computers', this.bio()),
-    ])
-  }
-  streams() {
-    return div(css.streams, [
-      div(unicode()),
-      div(unicode()),
-      div(unicode()),
-    ])
-  }
-  bio() {
-    return div(css.bio, [
-      img('./src/today/img/cell.png', 'h6')
-    ])
-  }
-  niceOntario() {
-    return div('flex', [
-      img('./src/today/ontario/huron2.png', 'h5'),
-      img('./src/today/ontario/farms.png', 'h5'),
-      img('./src/today/ontario/toronto2.png', 'h5'),
-    ])
-  }
-  thing(str, inside) {
-    return div(css.thing, [
-      div(css.underline, str),
-      inside
+    this.el = div('center relative', [
+      div('relative flex items-center mt4', [
+        div('f1 f-title-m f-headline-ns absolute w-100 center washed-green pa3-ns top-0', 'I really'),
+        div('f1 f-title-m f-headline-ns absolute w-100 center washed-green pa3-ns bottom-4 ', 'like rural'),
+        div('f1 f-title-m f-headline-ns absolute w-100 center washed-green pa3-ns bottom-0 ', 'Ontario'),
+        img('./src/today/img/ontario.png', 'mw-100'),
+      ]),
+      div('', 'for some reason'),
+      div('relative flex items-center justify-center mt4', [
+        div('f1 f-title-m f-headline-ns absolute w-100 center near-white pa3 top-0', 'I don\'t'),
+        div('f1 f-title-m f-headline-ns absolute w-100 center light-blue pa3 bottom-4 ', 'understand'),
+        div('f1 f-title-m f-headline-ns absolute w-100 center near-white pa3 bottom-0 ', 'biology'),
+        img('./src/today/img/cell2.png', 'mw-100'),
+      ]),
+      div('absolute pr3 right-0', 'but wish I did'),
     ])
   }
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"./unicode":339,"macy":234,"redom":290}],339:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"./unicode":340,"macy":234,"redom":290}],340:[function(require,module,exports){
 
 
 function randomize(arr) {
@@ -59236,13 +59292,12 @@ const unicode = function() {
   return arr.join('')
 }
 module.exports = unicode
-console.log(unicode())
 
-},{}],340:[function(require,module,exports){
+},{}],341:[function(require,module,exports){
 const scaleLinear = require('d3-scale').scaleLinear
 const treeData = require('./tree-data')
 let height = 200
-let xScale = scaleLinear().range([0, 900]).domain([1985, 1790])
+let xScale = scaleLinear().range([0, 700]).domain([1985, 1790])
 let yScale = scaleLinear().range([0, height]).domain([-5, 5])
 
 let couples = []
@@ -59295,7 +59350,7 @@ const doCouple = function(girl, guy, gen, y) {
 doCouple(treeData.mom, treeData.dad, 1, 150)
 module.exports = couples
 
-},{"./tree-data":342,"d3-scale":184}],341:[function(require,module,exports){
+},{"./tree-data":343,"d3-scale":184}],342:[function(require,module,exports){
 const div = require('../../lib/div')
 const style = require('../../lib/style')
 const img = require('../../lib/img')
@@ -59377,23 +59432,23 @@ class Main {
       ])
     })
     this.el = div(css.container, [
-      div('f1', 'before that though,'),
-      div('there were farmers, in small Ontario towns.'),
-      div('their lives were probably hard'),
+      div('f1 mid-gray', 'before that though,'),
+      div('there were farmers in even smaller towns.'),
+      div('their lives were probably hard.'),
       div(' or maybe they weren\'t.'),
       div(' I don\'t know.'),
       div(css.tree, lines),
-      div(css.axis, [
-        div('2017'),
-        div('1950'),
-        div('1901'),
-      ]),
+    // div(css.axis, [
+    //   div('2017'),
+    //   div('1950'),
+    //   div('1901'),
+    // ]),
     ])
   }
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"./calculate":340,"glamor":203}],342:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"./calculate":341,"glamor":203}],343:[function(require,module,exports){
 module.exports = {
   name: "Me",
   place: "Barrie",
@@ -59404,7 +59459,7 @@ module.exports = {
     name: "Mom",
     place: "Montreal",
     birth: 1950,
-    death: 2017, //for the graph!!
+    death: new Date().getFullYear(), //for the graph!!
     siblings: 0,
     mom: {
       name: "Nana",
@@ -59644,7 +59699,7 @@ module.exports = {
     name: "Dad",
     place: "Kingston",
     birth: 1952,
-    death: 2017, //for the graph!!
+    death: new Date().getFullYear(), //for the graph!!
     siblings: 4,
     mom: {
       name: "Grandma",
@@ -59879,4 +59934,4 @@ module.exports = {
   },
 };
 
-},{}]},{},[333]);
+},{}]},{},[334]);

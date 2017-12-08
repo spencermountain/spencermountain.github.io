@@ -1,7 +1,7 @@
 const scaleLinear = require('d3-scale').scaleLinear
 const treeData = require('./tree-data')
 let height = 200
-let xScale = scaleLinear().range([0, 900]).domain([1985, 1790])
+let xScale = scaleLinear().range([0, 700]).domain([1985, 1790])
 let yScale = scaleLinear().range([0, height]).domain([-5, 5])
 
 let couples = []

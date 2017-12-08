@@ -33,35 +33,21 @@ bio:
 
 class Main {
   constructor() {
-    this.el = div(css.container, [
-      this.thing('I really like rural Ontario', this.niceOntario()),
-      this.thing('I like clumsy web technology', this.streams()),
-      this.thing('I hate the gap between biology and computers', this.bio()),
-    ])
-  }
-  streams() {
-    return div(css.streams, [
-      div(unicode()),
-      div(unicode()),
-      div(unicode()),
-    ])
-  }
-  bio() {
-    return div(css.bio, [
-      img('./src/today/img/cell.png', 'h6')
-    ])
-  }
-  niceOntario() {
-    return div('flex', [
-      img('./src/today/ontario/huron2.png', 'h5'),
-      img('./src/today/ontario/farms.png', 'h5'),
-      img('./src/today/ontario/toronto2.png', 'h5'),
-    ])
-  }
-  thing(str, inside) {
-    return div(css.thing, [
-      div(css.underline, str),
-      inside
+    this.el = div('center relative', [
+      div('relative flex items-center mt4', [
+        div('f1 f-title-m f-headline-ns absolute w-100 center washed-green pa3-ns top-0', 'I really'),
+        div('f1 f-title-m f-headline-ns absolute w-100 center washed-green pa3-ns bottom-4 ', 'like rural'),
+        div('f1 f-title-m f-headline-ns absolute w-100 center washed-green pa3-ns bottom-0 ', 'Ontario'),
+        img('./src/today/img/ontario.png', 'mw-100'),
+      ]),
+      div('', 'for some reason'),
+      div('relative flex items-center justify-center mt4', [
+        div('f1 f-title-m f-headline-ns absolute w-100 center near-white pa3 top-0', 'I don\'t'),
+        div('f1 f-title-m f-headline-ns absolute w-100 center light-blue pa3 bottom-4 ', 'understand'),
+        div('f1 f-title-m f-headline-ns absolute w-100 center near-white pa3 bottom-0 ', 'biology'),
+        img('./src/today/img/cell2.png', 'mw-100'),
+      ]),
+      div('absolute pr3 right-0', 'but wish I did'),
     ])
   }
 }

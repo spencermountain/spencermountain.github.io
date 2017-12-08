@@ -11,28 +11,26 @@ container
 	flex-direction: column;
 	justify-content: center;
 	font-size:20px;
-	padding:100
-	margin-top:50
+	margin-top:20
 	text-align:center;
 title:
 	flex:1
-	font-size:17px;
+	font-size:21px;
 	margin:20
 	display: flex
 	flex-direction: row
 	text-align:center;
 	justify-content: center;
-	max-width:500
+	max-width:400
 projects:
 	display: flex
 	flex-direction: row
+	text-align:left
 	justify-content: space-between;
 	align-items: flex-end;
 	flex:1
 	height:120
 	max-width:80%
-img:
-	width:80
 orgs:
 	display: flex
 	flex-direction: row
@@ -47,6 +45,7 @@ friendList:
 	font-size:17px;
 	min-height:80px
 	width:80%;
+	max-width:500px;
 	align-self:center;
 	display: flex
 	flex-direction: row
@@ -56,6 +55,7 @@ friend:
 	margin:10
 org:
 	color:steelblue
+	margin:5px;
 num:
 	font-size:50px
 	padding-left:15px;
@@ -67,58 +67,67 @@ desc
 
 class Main {
   constructor() {
-    this.el = div(css.container, [
-      div(css.title, [
-        div('f3', 'I built and maintain'),
-        div(css.num, '3'),
-        div('f3', 'challenging open-source projects:'),
-      ]),
-      div('flex justify-around mw-80 items-end', [
-        this.project('nlp-compromise', './src/github/img/nlp-compromise.png', 'http://compromise.cool'),
-        this.project('wtf_wikipedia', './src/github/img/wtf-wikipedia.png', 'https://spencermountain.github.io/wtf_wikipedia/'),
-        this.project('spacetime', './src/github/img/spacetime.png', 'https://smallwins.github.io/spacetime/'),
-      ]),
-      div('mt4 mb1', 'hilariously, they\'re running at thousands of organizations'),
-      div('f4', [
-        span('including: '),
-        span(css.org, 'Microsoft, CitiBank, the Guardian, and the United Nations'),
-        el('a', {
-          href: 'https://www.microsoft.com/reallifecode/2017/06/06/geocoding-social-conversations-nlp-javascript/',
-          class: 'link dim f5'
-        }, [el('sup', ' [1]')]),
-      ]),
-      div(css.friends, 'I\'ve gotten a chance to work with people like:'),
-      div(css.friendList, [
-        el('a', {
-          href: 'http://philgribbon.com/',
-          class: 'link dim'
-        }, 'Phil Gribbon'),
-        el('a', {
-          href: 'https://zooid.org/~vid/',
-          class: 'link dim'
-        }, 'David Mason'),
-        el('a', {
-          href: 'https://github.com/brianleroux',
-          class: 'link dim'
-        }, 'Brian LeRoux'),
-      ]),
-      div('f6', [
-        span('I\'ve worked at '),
-        link('http://state.com', 'link dim pa1', 'state.com,'),
-        link('http://govinvest.com', 'link dim pa1', 'govinvest,'),
-        link('http://topix.io', 'link dim pa1', 'topix.io,'),
-        link('http://kmstandards.com', 'link dim pa1', 'KMStandards,'),
-        span('and'),
-        link('http://begin.com', 'link dim pa1', 'small-wins.'),
+    this.el = div('mt6 ma3 lh-hero', [
+      div('f2 blue', 'But now,'),
+      div(css.container, [
+        div(css.title, [
+          div('f3', 'I built and maintain'),
+          div(css.num, '3'),
+          div('f3', 'very-challenging open-source projects:'),
+        ]),
+        div('flex justify-around flex-wrap mw-80 items-end', [
+          this.project('nlp-compromise', './src/github/img/nlp-compromise.png', 'http://compromise.cool'),
+          this.project('wtf_wikipedia', './src/github/img/wtf-wikipedia.png', 'https://spencermountain.github.io/wtf_wikipedia/'),
+          this.project('spacetime', './src/github/img/spacetime.png', 'https://smallwins.github.io/spacetime/'),
+        ]),
+        div('mt4 mb2 f5', 'hilariously, they\'re running at thousands of organizations.'),
+        div('f4', [
+          span('f5 mr2', 'including: '),
+          span(css.org, [
+            'Microsoft, CitiBank, the Guardian,',
+            span('gray ph1', 'and the'),
+            'United Nations',
+            el('a', {
+              href: 'https://www.microsoft.com/reallifecode/2017/06/06/geocoding-social-conversations-nlp-javascript/',
+              class: 'link dim f5'
+            }, [el('sup', ' [1]')]),
+          ]),
+        ]),
+        div('f5 mt3', [
+          span('dim-gray', 'I\'ve worked for:'),
+          div('flex justify-center flex-wrap f6', [
+            link('http://state.com', 'link dim pa1 light-green', 'State.com,'),
+            link('http://govinvest.com', 'link dim pa1 orange', 'Govinvest,'),
+            link('http://topix.io', 'link dim pa1 light-blue', 'Topix.io,'),
+            link('http://kmstandards.com', 'link dim pa1 pink', 'KMStandards,'),
+            // span('pa1 light-red', 'and'),
+            link('http://begin.com', 'link dim pa1 light-red', 'and SmallWins.'),
+          ])
+        ]),
+        div('dim-gray f5 mt4', 'I\'ve gotten to learn from people like:'),
+        div(css.friendList, [
+          el('a', {
+            href: 'http://philgribbon.com/',
+            class: 'link dim blue f4'
+          }, 'Phil Gribbon'),
+          el('a', {
+            href: 'https://zooid.org/~vid/',
+            class: 'link dim blue f4'
+          }, 'David Mason'),
+          el('a', {
+            href: 'https://github.com/brianleroux',
+            class: 'link dim blue f4'
+          }, 'Brian LeRoux'),
+        ]),
       ])
     ])
   }
   project(title, src, href) {
     return el('a', {
-      class: 'link grow mt2 blue',
+      class: 'link dim bb bw2 blue mt3',
       href: href
     }, [
-      img(src, css.img),
+      img(src, 'w-100 mw3'),
       div(css.title, title),
     // div(css.desc, desc),
     ])

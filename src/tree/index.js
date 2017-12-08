@@ -79,17 +79,17 @@ class Main {
       ])
     })
     this.el = div(css.container, [
-      div('f1', 'before that though,'),
-      div('there were farmers, in small Ontario towns.'),
-      div('their lives were probably hard'),
+      div('f1 mid-gray', 'before that though,'),
+      div('there were farmers in even smaller towns.'),
+      div('their lives were probably hard.'),
       div(' or maybe they weren\'t.'),
       div(' I don\'t know.'),
       div(css.tree, lines),
-      div(css.axis, [
-        div('2017'),
-        div('1950'),
-        div('1901'),
-      ]),
+    // div(css.axis, [
+    //   div('2017'),
+    //   div('1950'),
+    //   div('1901'),
+    // ]),
     ])
   }
 }
