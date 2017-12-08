@@ -11,10 +11,10 @@ class Main {
       class: 'flex items-center justify-around'
     }, [
       img('./src/show/things/rowers.gif', {
-        class: 'w5 br3 shadow-1'
+        class: 'w4 w5-ns br3 shadow-1'
       }),
       img('./src/show/things/compost.png', {
-        class: 'w5 br3 shadow-1 mt5'
+        class: 'w4 w5-ns br3 shadow-1 mt5'
       })
     ])
 

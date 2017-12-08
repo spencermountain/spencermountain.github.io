@@ -2,6 +2,7 @@ const div = require('../../lib/div')
 const span = require('../../lib/span')
 const el = require('redom').el;
 const img = require('../../lib/img')
+const link = require('../../lib/link')
 const style = require('../../lib/style')
 let css = style`
 container
@@ -44,7 +45,7 @@ friends:
 friendList:
 	margin-top: 10px
 	font-size:17px;
-	min-height:130px
+	min-height:80px
 	width:80%;
 	align-self:center;
 	display: flex
@@ -100,6 +101,15 @@ class Main {
           href: 'https://github.com/brianleroux',
           class: 'link dim'
         }, 'Brian LeRoux'),
+      ]),
+      div('f6', [
+        span('I\'ve worked at '),
+        link('http://state.com', 'link dim pa1', 'state.com,'),
+        link('http://govinvest.com', 'link dim pa1', 'govinvest,'),
+        link('http://topix.io', 'link dim pa1', 'topix.io,'),
+        link('http://kmstandards.com', 'link dim pa1', 'KMStandards,'),
+        span('and'),
+        link('http://begin.com', 'link dim pa1', 'small-wins.'),
       ])
     ])
   }

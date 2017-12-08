@@ -21,10 +21,10 @@ class Main {
         class: 'pa4'
       }, [
         div("Spencer Kelly"),
-        div("not a confident software developer"),
-        div({
-          class: 'w-100 tr'
-        }, "at all."),
+        div('pt2', "not a confident software developer"),
+      // div({
+      //   class: 'w-100 tr'
+      // }, "at all."),
       ]),
       img('./src/hello/starter.png', {
         class: 'mw-100 br3 shadow-1'
