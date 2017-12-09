@@ -41,13 +41,31 @@ class Main {
         img('./src/today/img/ontario.png', 'mw-100'),
       ]),
       div('', 'for some reason'),
+
       div('relative flex items-center justify-center mt4', [
         div('f1 f-title-m f-headline-ns absolute w-100 center near-white pa3 top-0', 'I don\'t'),
         div('f1 f-title-m f-headline-ns absolute w-100 center light-blue pa3 bottom-4 ', 'understand'),
         div('f1 f-title-m f-headline-ns absolute w-100 center near-white pa3 bottom-0 ', 'biology'),
         img('./src/today/img/cell2.png', 'mw-100'),
       ]),
-      div('absolute pr3 right-0', 'but wish I did'),
+      div('absolute pr3 right-0', 'but I sure wish I did'),
+
+      div('relative flex items-center justify-center mt4 bb b--blue bw3', {
+        style: {
+          height: '300px'
+        }
+      }, [
+        div('blue absolute mw-100 w-100 mh-100 h-100 top-0 tc', {
+          style: {
+            'font-size': '23rem'
+          }
+        }, '*'),
+        div('f-subheadline f-headline-ns absolute w-100 center light-gray pa3 top-0', 'Software'),
+        div('f1 f-headline-m f-headline-ns absolute w-100 center light-blue pa3 bottom-4 ', 'is not'),
+        div('f2 f1-m f-subheadline-ns absolute w-100 center dim-gray pa3 bottom-2 ', 'clever enough'),
+        div('f2 f2-m f1-ns absolute w-100 center light-blue pa3 bottom-0 ', 'yet.'),
+      ]),
+      div('absolute pr3 left-0', 'i don\'t know why.'),
     ])
   }
 }

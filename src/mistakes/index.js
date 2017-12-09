@@ -8,9 +8,16 @@ let css = style`
 class Main {
   constructor() {
     this.el = div('ml3', [
-      div('dim-gray', '2000 — 2010'),
+      div('dim-gray', '1990 — '),
       div('flex flex-wrap', [
         div('flex tc flex-wrap flex-column', [
+          div('mt2  mb2 flex items-center', [
+            div('w5', [
+              div('f3 blue', 'installed linux'),
+              div('mb2', '(many mistakes)'),
+            ]),
+            img('./src/mistakes/img/linux.png', 'w4 mw4 w-90 br3 shadow-1'),
+          ]),
           div('mt2 mb2 flex items-center', [
             img('./src/mistakes/img/carpet.jpg', 'w4 ma2 mw4 w-90 br3 shadow-1'),
             div('w5', [
@@ -21,7 +28,7 @@ class Main {
           div('mt2  mb2 flex items-center', [
             div('w5', [
               div('f3 green', 'went to grad-school'),
-              div('mb2', '(huge mistake)'),
+              div('mb2', '(obvious mistake)'),
             ]),
             img('./src/mistakes/img/table.png', 'w4 mw4 w-90 br3 shadow-1'),
           ]),
@@ -33,7 +40,7 @@ class Main {
             div('mb2 tc', '(huge mistake)'),
           ]),
           video('./src/mistakes/img/hairblue.mp4', 'w6-ns mw6 mw-100 br3 shadow-1'),
-        ])
+        ]),
       ])
     ])
   }
