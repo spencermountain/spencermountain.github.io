@@ -12,12 +12,6 @@ container
 	margin-bottom:50
 	position:relative;
 	min-height:400px;
-tree:
-	flex: 1
-	height:300
-	position:relative;
-	top:-50
-	display:block
 above:
 	color:#c1bbbb;
 	font-size:17
@@ -80,11 +74,16 @@ class Main {
     })
     this.el = div(css.container, [
       div('f1 mid-gray', 'before that though,'),
-      div('there were farmers in even smaller towns.'),
-      div('their lives were probably hard.'),
-      div(' or maybe they weren\'t.'),
+      div('gray', 'there were these farmers in even smaller towns.'),
+      div('gray', 'their lives were probably hard.'),
+      div('mt3', ' or maybe they weren\'t.'),
       div(' I don\'t know.'),
-      div(css.tree, lines),
+      div('relative block ml6-ns ml4-m', {
+        style: {
+          height: '300px',
+          top: '-50px'
+        }
+      }, lines),
     // div(css.axis, [
     //   div('2017'),
     //   div('1950'),

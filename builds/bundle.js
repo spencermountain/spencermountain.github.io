@@ -58756,12 +58756,12 @@ class Main {
       div({
         class: 'f4 ml4'
       }, [
-        'I was born in the soft-rock suburbs of ',
+        'was born in the soft-rock suburbs of ',
         span('light-red', 'canada'),
         span('', '.')
       ]),
       div('flex justify-between flex-wrap', [
-        div('w4 w-25 pa4', {
+        div('w4 w-25 pa4 center', {
           style: {
             'min-width': '150px'
           }
@@ -58770,20 +58770,23 @@ class Main {
             width: 100
           }),
           div({
-            class: 'f5 mid-gray'
-          }, 'Brian Mulroney was'),
+            class: 'f4 blue'
+          }, 'Brian Mulroney'),
           div({
-            class: 'f5 mid-gray'
-          }, 'prime-minister'),
+            class: 'f5 ml2 near-black'
+          }, 'was'),
+          div({
+            class: 'f4 ml2 near-black'
+          }, 'prime-minister.'),
         ]),
         div('w1 w-75 flex items-center center justify-center pl2', {
           style: {
             'min-width': '400px'
           }
         }, [
-          div('mw4 f5 tr lh-copy mr2 mid-gray', 'communism was still basically a really huge thing but I didn\'t understand it because I'),
+          div('mw4 f5 tr lh-copy mr2 mid-gray', 'communism was still basically a really huge thing but I didn\'t understand because I'),
           video('./src/born/img/stairsTwo.mp4', 'w4 w5-ns'),
-          div('f1 ml2 mw4 lh-copy mid-gray', 'was little')
+          div('f2 ml2 mw4 lh-copy mid-gray', 'was really little')
         ])
       ])
     ])
@@ -58825,6 +58828,7 @@ container
 	justify-content: center;
 	font-size:20px;
 	margin-top:20
+	margin-bottom:40
 	text-align:center;
 title:
 	flex:1
@@ -58881,7 +58885,6 @@ desc
 class Main {
   constructor() {
     this.el = div('mt6 ma3 lh-hero', [
-      div('f2 blue', 'But now,'),
       div(css.container, [
         div(css.title, [
           div('f3', 'I built and maintain'),
@@ -58906,14 +58909,13 @@ class Main {
             }, [el('sup', ' [1]')]),
           ]),
         ]),
-        div('f5 mt3', [
+        div('f5 mt5', [
           span('dim-gray', 'I\'ve worked for:'),
           div('flex justify-center flex-wrap f6', [
             link('http://state.com', 'link dim pa1 light-green', 'State.com,'),
             link('http://govinvest.com', 'link dim pa1 orange', 'Govinvest,'),
             link('http://topix.io', 'link dim pa1 light-blue', 'Topix.io,'),
             link('http://kmstandards.com', 'link dim pa1 pink', 'KMStandards,'),
-            // span('pa1 light-red', 'and'),
             link('http://begin.com', 'link dim pa1 light-red', 'and SmallWins.'),
           ])
         ]),
@@ -58927,6 +58929,7 @@ class Main {
             href: 'https://zooid.org/~vid/',
             class: 'link dim blue f4'
           }, 'David Mason'),
+          span('pa1 pink', '&'),
           el('a', {
             href: 'https://github.com/brianleroux',
             class: 'link dim blue f4'
@@ -59073,21 +59076,33 @@ let css = style`
 
 class Main {
   constructor() {
-    this.el = div('flex justify-around tc flex-wrap', [
-      div('mt2 mb2', [
-        div('f3 blue helvetica', 'did a philosophy degree'),
-        div('mb2', '(that was a huge mistake)'),
-        img('./src/mistakes/img/carpet.jpg', 'w5 mw5 w-90 br3 shadow-1'),
-      ]),
-      div('mt2  mb2', [
-        div('f3 black helvetica', 'went to grad-school'),
-        div('mb2', '(that was a huge mistake)'),
-        img('./src/mistakes/img/table.png', 'w5 mw5 w-90 br3 shadow-1'),
-      ]),
-      div('mt2 mb2', [
-        div('f3 orange helvetica', 'died my own hair'),
-        div('mb2', '(that was a huge mistake)'),
-        video('./src/mistakes/img/hairblue.mp4', 'w5 mw5 w-90 br3 shadow-1'),
+    this.el = div('ml3', [
+      div('dim-gray', '2000 — 2010'),
+      div('flex flex-wrap', [
+        div('flex tc flex-wrap flex-column', [
+          div('mt2 mb2 flex items-center', [
+            img('./src/mistakes/img/carpet.jpg', 'w4 ma2 mw4 w-90 br3 shadow-1'),
+            div('w5', [
+              div('f3 red', 'got a philosophy degree'),
+              div('mb2', '(huge mistake)'),
+            ]),
+          ]),
+          div('mt2  mb2 flex items-center', [
+            div('w5', [
+              div('f3 green', 'went to grad-school'),
+              div('mb2', '(huge mistake)'),
+            ]),
+            img('./src/mistakes/img/table.png', 'w4 mw4 w-90 br3 shadow-1'),
+          ]),
+        ]),
+        div('ml5 tc mw5 mb2 flex flex-column items-center justify-center', [
+          div('w5', [
+            div('f3 blue', 'died my hair blue'),
+            div('mb2 tr', 'for some reason.'),
+            div('mb2 tc', '(huge mistake)'),
+          ]),
+          video('./src/mistakes/img/hairblue.mp4', 'w6-ns mw6 mw-100 br3 shadow-1'),
+        ])
       ])
     ])
   }
@@ -59143,68 +59158,71 @@ const wave = function() {
 
 class Main {
   constructor() {
-    this.el = div('flex items-center justify-center pt7 pb5', [
-      div('relative', [
-        video('./src/show/things/swimfast.mp4', {
-          class: 'w5 br3 shadow-1 relative '
-        }),
-        div('h1 w5 absolute bg-blue bottom-0 o-80', {
-          style: {
-            'border-bottom-left-radius': '.5rem',
-            'border-bottom-right-radius': '.5rem',
-          }
-        }, []),
-      ]),
-      div('w5 ma3', [
-        div('underline pb2 f4', 'the web is a silly place.'),
-        img('./src/show/wave2.svg', 'w4'),
-        // el('svg', {
-        //   'xml:space': "preserve",
-        //   width: '100px',
-        //   height: '100px'
-        // }, [
-        //   el('path', {
-        //     stroke: '#1b76ff',
-        //     d: 'M 32 54 L 77.0126953125'
-        //   })
-        // ]),
-        // div('center', 'the technologies'),
-        // div('center', 'are certainly quite ridiculous'),
-        div('blue ml2', [
-          "⸟",
-          "׆",
-          "∗",
-          "יִ",
-          "ײַ",
-          "؞",
-          "‎",
-          "؛",
-          "؀",
-          "∘",
-          "⌌",
-          "∙",
-          "∻",
-          "⌍",
-          "⋄",
-          "⋅",
-          "٭",
-          "⋆",
-          "ﻩ",
-          "‎",
-          "∼",
-          "ͻ",
-          "∽",
-          "ر",
-          "‎",
-          "⸰",
-          "·",
-          "∾",
-          "∿",
-          "⋰",
-          "፣",
-          "҃",
-          "῁῀ﺓ‎᾽῍῎`‘",
-          "∼ͻ∽ر‎⸰·∾∿⋰",
+    this.el = div('pt7', [
+      div('f2 blue ml3 mb3', 'But you know,'),
+      div('flex items-center justify-center pt2 pb5', [
+        div('relative', [
+          video('./src/show/things/swimfast.mp4', {
+            class: 'w5 br3 shadow-1 relative '
+          }),
+          div('h1 w5 absolute bg-blue bottom-0 o-80', {
+            style: {
+              'border-bottom-left-radius': '.5rem',
+              'border-bottom-right-radius': '.5rem',
+            }
+          }, []),
+        ]),
+        div('w5 ma3', [
+          div('underline pb2 f4', 'the web is a silly place.'),
+          img('./src/show/wave2.svg', 'w4'),
+          // el('svg', {
+          //   'xml:space': "preserve",
+          //   width: '100px',
+          //   height: '100px'
+          // }, [
+          //   el('path', {
+          //     stroke: '#1b76ff',
+          //     d: 'M 32 54 L 77.0126953125'
+          //   })
+          // ]),
+          // div('center', 'the technologies'),
+          // div('center', 'are certainly quite ridiculous'),
+          div('blue ml2', [
+            "⸟",
+            "׆",
+            "∗",
+            "יִ",
+            "ײַ",
+            "؞",
+            "‎",
+            "؛",
+            "؀",
+            "∘",
+            "⌌",
+            "∙",
+            "∻",
+            "⌍",
+            "⋄",
+            "⋅",
+            "٭",
+            "⋆",
+            "ﻩ",
+            "‎",
+            "∼",
+            "ͻ",
+            "∽",
+            "ر",
+            "‎",
+            "⸰",
+            "·",
+            "∾",
+            "∿",
+            "⋰",
+            "፣",
+            "҃",
+            "῁῀ﺓ‎᾽῍῎`‘",
+            "∼ͻ∽ر‎⸰·∾∿⋰",
+          ])
         ])
       ])
     ])
@@ -59297,7 +59315,7 @@ module.exports = unicode
 const scaleLinear = require('d3-scale').scaleLinear
 const treeData = require('./tree-data')
 let height = 200
-let xScale = scaleLinear().range([0, 700]).domain([1985, 1790])
+let xScale = scaleLinear().range([0, 700]).domain([1950, 1790])
 let yScale = scaleLinear().range([0, height]).domain([-5, 5])
 
 let couples = []
@@ -59365,12 +59383,6 @@ container
 	margin-bottom:50
 	position:relative;
 	min-height:400px;
-tree:
-	flex: 1
-	height:300
-	position:relative;
-	top:-50
-	display:block
 above:
 	color:#c1bbbb;
 	font-size:17
@@ -59433,11 +59445,16 @@ class Main {
     })
     this.el = div(css.container, [
       div('f1 mid-gray', 'before that though,'),
-      div('there were farmers in even smaller towns.'),
-      div('their lives were probably hard.'),
-      div(' or maybe they weren\'t.'),
+      div('gray', 'there were these farmers in even smaller towns.'),
+      div('gray', 'their lives were probably hard.'),
+      div('mt3', ' or maybe they weren\'t.'),
       div(' I don\'t know.'),
-      div(css.tree, lines),
+      div('relative block ml6-ns ml4-m', {
+        style: {
+          height: '300px',
+          top: '-50px'
+        }
+      }, lines),
     // div(css.axis, [
     //   div('2017'),
     //   div('1950'),

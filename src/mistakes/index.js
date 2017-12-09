@@ -7,21 +7,33 @@ let css = style`
 
 class Main {
   constructor() {
-    this.el = div('flex justify-around tc flex-wrap', [
-      div('mt2 mb2', [
-        div('f3 blue helvetica', 'did a philosophy degree'),
-        div('mb2', '(that was a huge mistake)'),
-        img('./src/mistakes/img/carpet.jpg', 'w5 mw5 w-90 br3 shadow-1'),
-      ]),
-      div('mt2  mb2', [
-        div('f3 black helvetica', 'went to grad-school'),
-        div('mb2', '(that was a huge mistake)'),
-        img('./src/mistakes/img/table.png', 'w5 mw5 w-90 br3 shadow-1'),
-      ]),
-      div('mt2 mb2', [
-        div('f3 orange helvetica', 'died my own hair'),
-        div('mb2', '(that was a huge mistake)'),
-        video('./src/mistakes/img/hairblue.mp4', 'w5 mw5 w-90 br3 shadow-1'),
+    this.el = div('ml3', [
+      div('dim-gray', '2000 — 2010'),
+      div('flex flex-wrap', [
+        div('flex tc flex-wrap flex-column', [
+          div('mt2 mb2 flex items-center', [
+            img('./src/mistakes/img/carpet.jpg', 'w4 ma2 mw4 w-90 br3 shadow-1'),
+            div('w5', [
+              div('f3 red', 'got a philosophy degree'),
+              div('mb2', '(huge mistake)'),
+            ]),
+          ]),
+          div('mt2  mb2 flex items-center', [
+            div('w5', [
+              div('f3 green', 'went to grad-school'),
+              div('mb2', '(huge mistake)'),
+            ]),
+            img('./src/mistakes/img/table.png', 'w4 mw4 w-90 br3 shadow-1'),
+          ]),
+        ]),
+        div('ml5 tc mw5 mb2 flex flex-column items-center justify-center', [
+          div('w5', [
+            div('f3 blue', 'died my hair blue'),
+            div('mb2 tr', 'for some reason.'),
+            div('mb2 tc', '(huge mistake)'),
+          ]),
+          video('./src/mistakes/img/hairblue.mp4', 'w6-ns mw6 mw-100 br3 shadow-1'),
+        ])
       ])
     ])
   }

@@ -12,6 +12,7 @@ container
 	justify-content: center;
 	font-size:20px;
 	margin-top:20
+	margin-bottom:40
 	text-align:center;
 title:
 	flex:1
@@ -68,7 +69,6 @@ desc
 class Main {
   constructor() {
     this.el = div('mt6 ma3 lh-hero', [
-      div('f2 blue', 'But now,'),
       div(css.container, [
         div(css.title, [
           div('f3', 'I built and maintain'),
@@ -93,14 +93,13 @@ class Main {
             }, [el('sup', ' [1]')]),
           ]),
         ]),
-        div('f5 mt3', [
+        div('f5 mt5', [
           span('dim-gray', 'I\'ve worked for:'),
           div('flex justify-center flex-wrap f6', [
             link('http://state.com', 'link dim pa1 light-green', 'State.com,'),
             link('http://govinvest.com', 'link dim pa1 orange', 'Govinvest,'),
             link('http://topix.io', 'link dim pa1 light-blue', 'Topix.io,'),
             link('http://kmstandards.com', 'link dim pa1 pink', 'KMStandards,'),
-            // span('pa1 light-red', 'and'),
             link('http://begin.com', 'link dim pa1 light-red', 'and SmallWins.'),
           ])
         ]),
@@ -114,6 +113,7 @@ class Main {
             href: 'https://zooid.org/~vid/',
             class: 'link dim blue f4'
           }, 'David Mason'),
+          span('pa1 pink', '&'),
           el('a', {
             href: 'https://github.com/brianleroux',
             class: 'link dim blue f4'
