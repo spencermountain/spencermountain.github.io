@@ -24,7 +24,7 @@ class Main {
       div('f2 blue ml3 mb3', 'But you know,'),
       div('flex items-center justify-center pt2 pb5', [
         div('relative', [
-          video('./src/show/things/swimfast.mp4', {
+          video('./src/show/things/swim.mp4', {
             class: 'w5 br3 shadow-1 relative '
           }),
           div('h1 w5 absolute bg-blue bottom-0 o-80', {

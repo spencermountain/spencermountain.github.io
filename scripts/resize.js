@@ -1,7 +1,7 @@
 var exec = require('child_process').exec;
 
 //down-sample an image by a %
-// exec('convert ./assets/img/carpet.jpg  -resize 50%  ./carpet-smaller.jpg')
+// exec('convert ./src/show/things/compost.png  -resize 30%  ./src/show/things/compost-small.png')
 
 //down-sample a video by a %
 // var file = '~/priv/portfolio/src/born/img/stairsTwo.mp4'
