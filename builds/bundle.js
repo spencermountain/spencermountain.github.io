@@ -59020,7 +59020,6 @@ const mount = require('redom').mount;
 require('web-animations-js/web-animations.min'); //polyfill
 
 const Born = require('./born');
-const Internet = require('./internet');
 const Mistakes = require('./mistakes');
 const Github = require('./github');
 const Today = require('./today');
@@ -59061,36 +59060,7 @@ class App {
 const app = new App();
 mount(document.body, app);
 
-},{"./born":330,"./end":331,"./github":332,"./hello":333,"./internet":335,"./mistakes":336,"./show/first":337,"./show/swim":338,"./today":339,"./tree":342,"redom":290,"web-animations-js/web-animations.min":325}],335:[function(require,module,exports){
-const div = require('../../lib/div')
-const style = require('../../lib/style')
-const img = require('../../lib/img')
-let css = style`
-container
-	flex: 1
-	display: flex
-	font-size:20px;
-	padding:100
-box:
-	padding:50
-	text-align:center
-`
-
-class Main {
-  constructor() {
-    this.el = div(css.container, [
-      // div(css.box, 'made collegehumor'),
-      div('flex flex-column w5 tc', [
-        div('2001'),
-        img('./src/internet/img/linux.png', 'mw-100 w5 br3 shadow-1'),
-        div('Installed linux')
-      ]),
-    ])
-  }
-}
-module.exports = Main
-
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5}],336:[function(require,module,exports){
+},{"./born":330,"./end":331,"./github":332,"./hello":333,"./mistakes":335,"./show/first":336,"./show/swim":337,"./today":338,"./tree":341,"redom":290,"web-animations-js/web-animations.min":325}],335:[function(require,module,exports){
 const div = require('../../lib/div')
 const img = require('../../lib/img')
 const video = require('../../lib/video')
@@ -59140,7 +59110,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"../../lib/video":6}],337:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"../../lib/video":6}],336:[function(require,module,exports){
 const pug = require('pug')
 const div = require('../../lib/div')
 const img = require('../../lib/img')
@@ -59166,7 +59136,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"pug":270}],338:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"pug":270}],337:[function(require,module,exports){
 const pug = require('pug')
 const div = require('../../lib/div')
 const img = require('../../lib/img')
@@ -59263,7 +59233,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/video":6,"pug":270,"redom":290}],339:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/video":6,"pug":270,"redom":290}],338:[function(require,module,exports){
 const div = require('../../lib/div')
 const img = require('../../lib/img')
 const el = require('redom').el;
@@ -59337,7 +59307,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"./unicode":340,"macy":234,"redom":290}],340:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"./unicode":339,"macy":234,"redom":290}],339:[function(require,module,exports){
 
 
 function randomize(arr) {
@@ -59360,7 +59330,7 @@ const unicode = function() {
 }
 module.exports = unicode
 
-},{}],341:[function(require,module,exports){
+},{}],340:[function(require,module,exports){
 const scaleLinear = require('d3-scale').scaleLinear
 const treeData = require('./tree-data')
 let height = 200
@@ -59417,7 +59387,7 @@ const doCouple = function(girl, guy, gen, y) {
 doCouple(treeData.mom, treeData.dad, 1, 150)
 module.exports = couples
 
-},{"./tree-data":343,"d3-scale":184}],342:[function(require,module,exports){
+},{"./tree-data":342,"d3-scale":184}],341:[function(require,module,exports){
 const div = require('../../lib/div')
 const style = require('../../lib/style')
 const img = require('../../lib/img')
@@ -59514,7 +59484,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"./calculate":341,"glamor":203}],343:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"./calculate":340,"glamor":203}],342:[function(require,module,exports){
 module.exports = {
   name: "Me",
   place: "Barrie",

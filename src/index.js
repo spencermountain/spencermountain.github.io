@@ -3,7 +3,6 @@ const mount = require('redom').mount;
 require('web-animations-js/web-animations.min'); //polyfill
 
 const Born = require('./born');
-const Internet = require('./internet');
 const Mistakes = require('./mistakes');
 const Github = require('./github');
 const Today = require('./today');
