@@ -1,0 +1,33 @@
+{
+  "name": "spencermountain.github.io",
+  "description": "",
+  "version": "0.0.1",
+  "author": "Spencer Kelly <spencermountain@gmail.com> (http://spencermounta.in)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/spencermountain/spencermountain.github.io.git"
+  },
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "node ./scripts/dev.js",
+    "dev": "node ./scripts/dev.js",
+    "build": "node ./scripts/build.js"
+  },
+  "dependencies": {
+    "d3-scale": "^1.0.7",
+    "glamor": "^2.20.40",
+    "macy": "^2.3.0",
+    "pug": "^2.0.0-rc.4",
+    "react-styling": "^1.6.4",
+    "web-animations-js": "^2.3.1"
+  },
+  "devDependencies": {
+    "browserify": "^14.5.0",
+    "budo": "^10.0.4",
+    "redom": "^3.8.5",
+    "tachyons": "^4.9.0",
+    "uglifyify": "^4.0.5",
+    "watchify": "^3.9.0"
+  },
+  "license": "MIT"
+}
