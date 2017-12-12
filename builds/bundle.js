@@ -58781,12 +58781,12 @@ class Main {
         ]),
         div('w1 w-75 flex items-center center justify-center pl2', {
           style: {
-            'min-width': '400px'
+            'min-width': '300px'
           }
         }, [
           div('mw4 f5 tr lh-copy mr2 mid-gray', 'communism was still basically a really huge thing but I didn\'t understand because I'),
           video('./src/born/img/stairsTwo.mp4', 'w4 w5-ns'),
-          div('f2 ml2 mw4 lh-copy mid-gray', 'was really little')
+          div('f3 f2-ns ml2 mw4 lh-copy mid-gray', 'was really little')
         ])
       ])
     ])
@@ -58858,6 +58858,7 @@ title:
 	flex:1
 	font-size:21px;
 	margin:20
+	flex-wrap:wrap;
 	display: flex
 	flex-direction: row
 	text-align:center;
@@ -58964,7 +58965,7 @@ class Main {
   }
   project(title, src, href) {
     return el('a', {
-      class: 'link dim bb bw2 blue mt3',
+      class: 'link dim bb bw2 blue mh2 mt3',
       href: href
     }, [
       img(src, 'w-100 mw3'),
@@ -59079,30 +59080,30 @@ class Main {
               div('f3 blue', 'installed linux'),
               div('mb2', '(many mistakes)'),
             ]),
-            img('./src/mistakes/img/linux.png', 'w4 mw4 w-90 br3 shadow-1'),
+            img('./src/mistakes/img/linux.png', 'w4 mh2 mw4 w-90 br3 shadow-1'),
           ]),
-          div('mt2 mb2 flex items-center', [
+          div('mt3 mb2 flex items-center', [
             img('./src/mistakes/img/carpet.jpg', 'w4 ma2 mw4 w-90 br3 shadow-1'),
             div('w5', [
               div('f3 red', 'got a philosophy degree'),
               div('mb2', '(huge mistake)'),
             ]),
           ]),
-          div('mt2  mb2 flex items-center', [
+          div('mt3  mb2 flex items-center', [
             div('w5', [
               div('f3 green', 'went to grad-school'),
               div('mb2', '(obvious mistake)'),
             ]),
-            img('./src/mistakes/img/table.png', 'w4 mw4 w-90 br3 shadow-1'),
+            img('./src/mistakes/img/table.png', 'w4 mh2 mw4 w-90 br3 shadow-1'),
           ]),
         ]),
-        div('ml5 tc mw5 mb2 flex flex-column items-center justify-center', [
+        div('ml5 tc mw5 mb2 flex flex-column mt4 items-center justify-center', [
           div('w5', [
             div('f3 blue', 'died my hair blue'),
             div('mb2 tr', 'for some reason.'),
             div('mb2 tc', '(huge mistake)'),
           ]),
-          video('./src/mistakes/img/hairblue.mp4', 'w6-ns mw6 mw-100 br3 shadow-1'),
+          video('./src/mistakes/img/hairblue.mp4', 'w5 w6-ns mw6 mw-100 br3 shadow-1'),
         ]),
       ])
     ])
@@ -59161,7 +59162,7 @@ class Main {
   constructor() {
     this.el = div('pt7', [
       div('f2 blue ml3 mb3', 'But you know,'),
-      div('flex items-center justify-center pt2 pb5', [
+      div('flex items-center justify-center pt2 pb5 flex-wrap', [
         div('relative', [
           video('./src/show/things/swim.mp4', {
             class: 'w5 br3 shadow-1 relative '

@@ -18,6 +18,7 @@ title:
 	flex:1
 	font-size:21px;
 	margin:20
+	flex-wrap:wrap;
 	display: flex
 	flex-direction: row
 	text-align:center;
@@ -124,7 +125,7 @@ class Main {
   }
   project(title, src, href) {
     return el('a', {
-      class: 'link dim bb bw2 blue mt3',
+      class: 'link dim bb bw2 blue mh2 mt3',
       href: href
     }, [
       img(src, 'w-100 mw3'),
