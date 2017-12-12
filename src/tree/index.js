@@ -37,7 +37,7 @@ class Main {
     var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     let data = calculate(width)
     this.lines = this.drawLines(data)
-    this.axis = this.drawAxis(width)
+    // this.axis = this.drawAxis(width)
     this.el = div(css.container, [
       div('f1 mid-gray', 'before that though,'),
       div('gray', 'there were these farmers in even smaller towns.'),
@@ -47,7 +47,7 @@ class Main {
       div('relative block ml6-ns ml4-m', {
         style: {
           height: '370px',
-          top: '-50px'
+          top: '0px'
         }
       }, [
         this.lines,
@@ -152,13 +152,13 @@ class Main {
     this.lines.forEach((el, i) => {
       this.updateEl(el, data[i])
     })
-    let axis = makeAxis(width)
-    let labels = this.axis.children[0].children || []
-    Object.keys(axis).forEach((k, i) => {
-      setStyle(labels[i], {
-        left: axis[k] + 'px'
-      })
-    })
+  // let axis = makeAxis(width)
+  // let labels = this.axis.children[0].children || []
+  // Object.keys(axis).forEach((k, i) => {
+  //   setStyle(labels[i], {
+  //     left: axis[k] + 'px'
+  //   })
+  // })
   }
   onmount() {
     this.timeout;

@@ -1,5 +1,7 @@
 const div = require('../../lib/div')
 const img = require('../../lib/img')
+const svg = require('redom').svg;
+const link = require('../../lib/link')
 const el = require('redom').el;
 const Macy = require('macy')
 const unicode = require('./unicode')
@@ -48,24 +50,42 @@ class Main {
         div('f1 f-title-m f-headline-ns absolute w-100 center near-white pa3 bottom-0 ', 'biology'),
         img('./src/today/img/cell2.png', 'mw-100'),
       ]),
-      div('absolute pr3 right-0', 'but I sure wish I did'),
+      div('absolute pr3 left-0', 'but I sure wish I did'),
 
-      div('relative flex items-center justify-center mt4 bb b--blue bw3', {
+      div('relative items-center justify-center mt6 mh2 pl4 bb b--blue bw3', {
         style: {
-          height: '300px'
+          'max-width': '550px',
+          'width': '75%',
         }
       }, [
-        div('blue absolute mw-100 w-100 mh-100 h-100 top-0 tc', {
+        div('relative f2 f1-m f1-ns w-100 center dim-gray shrink', 'because'),
+        div('relative ml3 f1 f-subheadline-m f-headline-ns w-100 center light-gray shrink', 'Software'),
+        div('relative f1 f-headline-m f-headline-ns w-100 center light-blue shrink', 'is not'),
+        div('relative ml3 f2 f1-m f1-ns w-100 center dim-gray shrink', 'clever enough'),
+        div('relative f2 f2-m f1-ns w-100 center light-blue mb2', 'yet.'),
+        svg('svg', {
           style: {
-            'font-size': '23rem'
+            position: 'absolute',
+            right: '-80px',
+            bottom: '-50px',
+            width: '80px',
+            height: '50px',
+            overflow: 'visible'
           }
-        }, '*'),
-        div('f-subheadline f-headline-ns absolute w-100 center light-gray pa3 top-0', 'Software'),
-        div('f1 f-headline-m f-headline-ns absolute w-100 center light-blue pa3 bottom-4 ', 'is not'),
-        div('f2 f1-m f-subheadline-ns absolute w-100 center dim-gray pa3 bottom-2 ', 'clever enough'),
-        div('f2 f2-m f1-ns absolute w-100 center light-blue pa3 bottom-0 ', 'yet.'),
+        }, [
+          svg('path', {
+            d: "M-5 4 C 30 5, 40 10, 80 40",
+            stroke: "#357edd",
+            'stroke-linecap': "round",
+            'stroke-width': ".5rem",
+            fill: "none"
+          })
+        ])
       ]),
-      div('absolute pr3 left-0', 'i don\'t know why.'),
+      div('pb6 pt2 mh2 pl4 tl', [
+        link('mailto:spencermountain@gmail.com', 'f3 link dim underline lh-title mh2 light-blue', 'I\'m available for work'),
+        div('ml4', 'I only do one job at a time')
+      ]),
     ])
   }
 }

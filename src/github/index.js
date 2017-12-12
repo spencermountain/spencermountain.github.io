@@ -18,12 +18,11 @@ title:
 	flex:1
 	font-size:21px;
 	margin:20
-	flex-wrap:wrap;
 	display: flex
 	flex-direction: row
 	text-align:center;
 	justify-content: center;
-	max-width:400
+	max-width:500
 projects:
 	display: flex
 	flex-direction: row
@@ -72,9 +71,11 @@ class Main {
     this.el = div('mt6 ma3 lh-hero', [
       div(css.container, [
         div(css.title, [
-          div('f3', 'I built and maintain'),
+          div('f4', [div('I built'), div('and'), div('maintain')]),
           div(css.num, '3'),
-          div('f3', 'very-challenging open-source projects:'),
+          div('f3', [div('very-challenging'),
+            div('open-source projects:'),
+          ]),
         ]),
         div('flex justify-around flex-wrap mw-80 items-end', [
           this.project('nlp-compromise', './src/github/img/nlp-compromise.png', 'http://compromise.cool'),
@@ -95,7 +96,7 @@ class Main {
           ]),
         ]),
         div('f5 mt5', [
-          span('dim-gray', 'I\'ve worked for:'),
+          span('dim-gray', 'I\'ve worked places like:'),
           div('flex justify-center flex-wrap f6', [
             link('http://state.com', 'link dim pa1 light-green', 'State.com,'),
             link('http://govinvest.com', 'link dim pa1 orange', 'Govinvest,'),
@@ -109,11 +110,11 @@ class Main {
           el('a', {
             href: 'http://philgribbon.com/',
             class: 'link dim blue f4'
-          }, 'Phil Gribbon'),
+          }, 'Phil Gribbon,'),
           el('a', {
             href: 'https://zooid.org/~vid/',
             class: 'link dim blue f4'
-          }, 'David Mason'),
+          }, 'David Mason,'),
           span('pa1 pink', '&'),
           el('a', {
             href: 'https://github.com/brianleroux',

@@ -58804,10 +58804,6 @@ const link = require('../../lib/link')
 class Main {
   constructor() {
     this.el = div('tc', [
-      div('pv6 mh4 tr', [
-        link('mailto:spencermountain@gmail.com', 'f3 link dim underline lh-title blue', 'I\'m available for work'),
-        div('', 'I only do one thing at a time')
-      ]),
       div('flex justify-around h5 mw7', [
         link('https://twitter.com/spencermountain', 'link grey dim flex flex-column tc', [
           img('./src/end/icons/twitter.svg', 'w3'),
@@ -58823,7 +58819,7 @@ class Main {
         ]),
       ]),
       div('w-100 block f3 tr pr6 pl2 pb3', [
-        link('mailto:spencermountain@gmail.com', 'link dim gray b', 'spencermountain@gmail.com')
+        link('mailto:spencermountain@gmail.com', 'link dim  b avenir bb bw1 b--dim-gray f3 mh2 light-green', 'spencermountain@gmail.com')
       ]),
       div('w-100 bg-light-blue h2', {
         style: {
@@ -58858,12 +58854,11 @@ title:
 	flex:1
 	font-size:21px;
 	margin:20
-	flex-wrap:wrap;
 	display: flex
 	flex-direction: row
 	text-align:center;
 	justify-content: center;
-	max-width:400
+	max-width:500
 projects:
 	display: flex
 	flex-direction: row
@@ -58912,9 +58907,11 @@ class Main {
     this.el = div('mt6 ma3 lh-hero', [
       div(css.container, [
         div(css.title, [
-          div('f3', 'I built and maintain'),
+          div('f4', [div('I built'), div('and'), div('maintain')]),
           div(css.num, '3'),
-          div('f3', 'very-challenging open-source projects:'),
+          div('f3', [div('very-challenging'),
+            div('open-source projects:'),
+          ]),
         ]),
         div('flex justify-around flex-wrap mw-80 items-end', [
           this.project('nlp-compromise', './src/github/img/nlp-compromise.png', 'http://compromise.cool'),
@@ -58935,7 +58932,7 @@ class Main {
           ]),
         ]),
         div('f5 mt5', [
-          span('dim-gray', 'I\'ve worked for:'),
+          span('dim-gray', 'I\'ve worked places like:'),
           div('flex justify-center flex-wrap f6', [
             link('http://state.com', 'link dim pa1 light-green', 'State.com,'),
             link('http://govinvest.com', 'link dim pa1 orange', 'Govinvest,'),
@@ -58949,11 +58946,11 @@ class Main {
           el('a', {
             href: 'http://philgribbon.com/',
             class: 'link dim blue f4'
-          }, 'Phil Gribbon'),
+          }, 'Phil Gribbon,'),
           el('a', {
             href: 'https://zooid.org/~vid/',
             class: 'link dim blue f4'
-          }, 'David Mason'),
+          }, 'David Mason,'),
           span('pa1 pink', '&'),
           el('a', {
             href: 'https://github.com/brianleroux',
@@ -59071,13 +59068,13 @@ let css = style`
 
 class Main {
   constructor() {
-    this.el = div('ml3', [
-      div('dim-gray', '1990 — '),
+    this.el = div('ml3 ', [
+      div('dark-gray f3', '1990-2000,'),
       div('flex flex-wrap', [
         div('flex tc flex-wrap flex-column', [
           div('mt2  mb2 flex items-center', [
             div('w5', [
-              div('f3 blue', 'installed linux'),
+              div('f3 blue avenir', 'compiled linux'),
               div('mb2', '(many mistakes)'),
             ]),
             img('./src/mistakes/img/linux.png', 'w4 mh2 mw4 w-90 br3 shadow-1'),
@@ -59085,13 +59082,13 @@ class Main {
           div('mt3 mb2 flex items-center', [
             img('./src/mistakes/img/carpet.jpg', 'w4 ma2 mw4 w-90 br3 shadow-1'),
             div('w5', [
-              div('f3 red', 'got a philosophy degree'),
+              div('f3 red avenir', 'got a philosophy degree'),
               div('mb2', '(huge mistake)'),
             ]),
           ]),
           div('mt3  mb2 flex items-center', [
             div('w5', [
-              div('f3 green', 'went to grad-school'),
+              div('f3 green avenir', 'went to grad-school'),
               div('mb2', '(obvious mistake)'),
             ]),
             img('./src/mistakes/img/table.png', 'w4 mh2 mw4 w-90 br3 shadow-1'),
@@ -59099,11 +59096,11 @@ class Main {
         ]),
         div('ml5 tc mw5 mb2 flex flex-column mt4 items-center justify-center', [
           div('w5', [
-            div('f3 blue', 'died my hair blue'),
-            div('mb2 tr', 'for some reason.'),
-            div('mb2 tc', '(huge mistake)'),
+            div('f3 orange avenir', 'died my hair blue'),
+            div('mb2 tc', '(clear mistake)'),
           ]),
           video('./src/mistakes/img/hairblue.mp4', 'w5 w6-ns mw6 mw-100 br3 shadow-1'),
+          div('mb2 tr', 'for some reason.'),
         ]),
       ])
     ])
@@ -59237,6 +59234,8 @@ module.exports = Main
 },{"../../lib/div":1,"../../lib/img":2,"../../lib/video":6,"pug":270,"redom":290}],338:[function(require,module,exports){
 const div = require('../../lib/div')
 const img = require('../../lib/img')
+const svg = require('redom').svg;
+const link = require('../../lib/link')
 const el = require('redom').el;
 const Macy = require('macy')
 const unicode = require('./unicode')
@@ -59285,30 +59284,48 @@ class Main {
         div('f1 f-title-m f-headline-ns absolute w-100 center near-white pa3 bottom-0 ', 'biology'),
         img('./src/today/img/cell2.png', 'mw-100'),
       ]),
-      div('absolute pr3 right-0', 'but I sure wish I did'),
+      div('absolute pr3 left-0', 'but I sure wish I did'),
 
-      div('relative flex items-center justify-center mt4 bb b--blue bw3', {
+      div('relative items-center justify-center mt6 mh2 pl4 bb b--blue bw3', {
         style: {
-          height: '300px'
+          'max-width': '550px',
+          'width': '75%',
         }
       }, [
-        div('blue absolute mw-100 w-100 mh-100 h-100 top-0 tc', {
+        div('relative f2 f1-m f1-ns w-100 center dim-gray shrink', 'because'),
+        div('relative ml3 f1 f-subheadline-m f-headline-ns w-100 center light-gray shrink', 'Software'),
+        div('relative f1 f-headline-m f-headline-ns w-100 center light-blue shrink', 'is not'),
+        div('relative ml3 f2 f1-m f1-ns w-100 center dim-gray shrink', 'clever enough'),
+        div('relative f2 f2-m f1-ns w-100 center light-blue mb2', 'yet.'),
+        svg('svg', {
           style: {
-            'font-size': '23rem'
+            position: 'absolute',
+            right: '-80px',
+            bottom: '-50px',
+            width: '80px',
+            height: '50px',
+            overflow: 'visible'
           }
-        }, '*'),
-        div('f-subheadline f-headline-ns absolute w-100 center light-gray pa3 top-0', 'Software'),
-        div('f1 f-headline-m f-headline-ns absolute w-100 center light-blue pa3 bottom-4 ', 'is not'),
-        div('f2 f1-m f-subheadline-ns absolute w-100 center dim-gray pa3 bottom-2 ', 'clever enough'),
-        div('f2 f2-m f1-ns absolute w-100 center light-blue pa3 bottom-0 ', 'yet.'),
+        }, [
+          svg('path', {
+            d: "M-5 4 C 30 5, 40 10, 80 40",
+            stroke: "#357edd",
+            'stroke-linecap': "round",
+            'stroke-width': ".5rem",
+            fill: "none"
+          })
+        ])
       ]),
-      div('absolute pr3 left-0', 'i don\'t know why.'),
+      div('pb6 pt2 mh2 pl4 tl', [
+        link('mailto:spencermountain@gmail.com', 'f3 link dim underline lh-title mh2 light-blue', 'I\'m available for work'),
+        div('ml4', 'I only do one job at a time')
+      ]),
     ])
   }
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"./unicode":339,"macy":234,"redom":290}],339:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"../../lib/style":5,"./unicode":339,"macy":234,"redom":290}],339:[function(require,module,exports){
 
 
 function randomize(arr) {
@@ -59448,7 +59465,7 @@ class Main {
     var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     let data = calculate(width)
     this.lines = this.drawLines(data)
-    this.axis = this.drawAxis(width)
+    // this.axis = this.drawAxis(width)
     this.el = div(css.container, [
       div('f1 mid-gray', 'before that though,'),
       div('gray', 'there were these farmers in even smaller towns.'),
@@ -59458,7 +59475,7 @@ class Main {
       div('relative block ml6-ns ml4-m', {
         style: {
           height: '370px',
-          top: '-50px'
+          top: '0px'
         }
       }, [
         this.lines,
@@ -59563,13 +59580,13 @@ class Main {
     this.lines.forEach((el, i) => {
       this.updateEl(el, data[i])
     })
-    let axis = makeAxis(width)
-    let labels = this.axis.children[0].children || []
-    Object.keys(axis).forEach((k, i) => {
-      setStyle(labels[i], {
-        left: axis[k] + 'px'
-      })
-    })
+  // let axis = makeAxis(width)
+  // let labels = this.axis.children[0].children || []
+  // Object.keys(axis).forEach((k, i) => {
+  //   setStyle(labels[i], {
+  //     left: axis[k] + 'px'
+  //   })
+  // })
   }
   onmount() {
     this.timeout;

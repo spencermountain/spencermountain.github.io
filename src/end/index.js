@@ -6,10 +6,6 @@ const link = require('../../lib/link')
 class Main {
   constructor() {
     this.el = div('tc', [
-      div('pv6 mh4 tr', [
-        link('mailto:spencermountain@gmail.com', 'f3 link dim underline lh-title blue', 'I\'m available for work'),
-        div('', 'I only do one thing at a time')
-      ]),
       div('flex justify-around h5 mw7', [
         link('https://twitter.com/spencermountain', 'link grey dim flex flex-column tc', [
           img('./src/end/icons/twitter.svg', 'w3'),
@@ -25,7 +21,7 @@ class Main {
         ]),
       ]),
       div('w-100 block f3 tr pr6 pl2 pb3', [
-        link('mailto:spencermountain@gmail.com', 'link dim gray b', 'spencermountain@gmail.com')
+        link('mailto:spencermountain@gmail.com', 'link dim  b avenir bb bw1 b--dim-gray f3 mh2 light-green', 'spencermountain@gmail.com')
       ]),
       div('w-100 bg-light-blue h2', {
         style: {
