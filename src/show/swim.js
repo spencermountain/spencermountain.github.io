@@ -20,7 +20,7 @@ const wave = function() {
 
 class Main {
   constructor() {
-    this.el = div('pt7', [
+    this.el = div('pt5', [
       div('f2 blue ml3 mb3', 'But you know,'),
       div('flex items-center justify-center pt2 pb5 flex-wrap', [
         div('relative', [

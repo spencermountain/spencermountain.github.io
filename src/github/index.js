@@ -56,7 +56,8 @@ friend:
 	margin:10
 org:
 	color:steelblue
-	margin:5px;
+	margin:7px;
+	line-height:1.3;
 num:
 	font-size:50px
 	padding-left:15px;
@@ -68,7 +69,7 @@ desc
 
 class Main {
   constructor() {
-    this.el = div('mt6 ma3 lh-hero', [
+    this.el = div('mt4 ma3 lh-hero', [
       div(css.container, [
         div(css.title, [
           div('f4', [div('I built'), div('and'), div('maintain')]),

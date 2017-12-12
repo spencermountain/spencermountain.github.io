@@ -58796,36 +58796,69 @@ class Main {
 module.exports = Main
 
 },{"../../lib/div":1,"../../lib/img":2,"../../lib/span":4,"../../lib/style":5,"../../lib/video":6}],331:[function(require,module,exports){
-const pug = require('pug')
+const svg = require('redom').svg
 const div = require('../../lib/div')
 const img = require('../../lib/img')
 const link = require('../../lib/link')
+const Plant = require('../plant')
 
 class Main {
   constructor() {
     this.el = div('tc', [
-      div('flex justify-around h5 mw7', [
+      div('flex justify-around h4 mw7 ', [
         link('https://twitter.com/spencermountain', 'link grey dim flex flex-column tc', [
           img('./src/end/icons/twitter.svg', 'w3'),
-          div('light-blue', 'twitter')
+          div('light-blue fw1 ', 'twitter')
         ]),
         link('https://www.goodreads.com/user/show/51017977-spencer', 'link grey dim flex flex-column tc', [
           img('./src/end/icons/goodreads.svg', 'w3'),
-          div({
+          div('fw2 ', {
             style: {
               color: '#7D5024'
             }
           }, 'goodreads')
         ]),
       ]),
-      div('w-100 block f3 tr pr6 pl2 pb3', [
-        link('mailto:spencermountain@gmail.com', 'link dim  b avenir bb bw1 b--dim-gray f3 mh2 light-green', 'spencermountain@gmail.com')
+      div('m3 tl', {
+        style: {
+          position: 'relative',
+          bottom: '-55px',
+          'z-index': '-1',
+        }
+      }, [
+        new Plant(),
+      ]),
+      div('w-100 block tl pb3', {
+        style: {
+          'padding-left': '100px'
+        }
+      }, [
+        link('mailto:spencermountain@gmail.com', 'link dim  b avenir bb bw1 b--dim-gray f6 f3-ns ph2 fw2 light-green', 'spencermountain@gmail.com'),
+        svg('svg', {
+          viewBox: "0 0 300 300",
+          style: {
+            position: 'relative',
+            height: '30px',
+            width: '30px',
+            left: '-5px',
+            top: '10px'
+          }
+        }, [
+          //stem
+          svg('path', {
+            d: "M 110 44 L 110 44 L 107.546875 30.546875 L 95.73828125 22.623046875 L 76.7275390625 20 L 47.38671875 22.548828125 L 34.90234375 29.09765625 L 24 43.376953125 L 20.794921875 60.703125 L 23.279296875 77.494140625 L 30.3056640625 92.42578125 L 45.4921875 109.4921875 L 67.626953125 124.98828125 L 134.548828125 159.73046875 L 136 156 L 108 47 L 117.875 41.3203125 L 179.75390625 20.376953125 L 193.525390625 25.07421875 L 197.376953125 30.44140625 L 197.923828125 49.2177734375 L 186.8798828125 71.240234375 L 170.5078125 97.3828125 L 162.3359375 112.2109375 L 153.3359375 125.4375 L 134.828125 150.171875 L 132 153",
+            stroke: "#ff35fa",
+            'stroke-linecap': "round",
+            'stroke-width': ".5rem",
+            fill: "#ff35fa"
+          }),
+        ])
       ]),
       div('w-100 bg-light-blue h2', {
         style: {
           'background-color': '#408BC9'
         }
-      }, [])
+      }, []),
     ])
 
   }
@@ -58833,7 +58866,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"pug":270}],332:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"../plant":336,"redom":290}],332:[function(require,module,exports){
 const div = require('../../lib/div')
 const span = require('../../lib/span')
 const el = require('redom').el;
@@ -58892,7 +58925,8 @@ friend:
 	margin:10
 org:
 	color:steelblue
-	margin:5px;
+	margin:7px;
+	line-height:1.3;
 num:
 	font-size:50px
 	padding-left:15px;
@@ -58904,7 +58938,7 @@ desc
 
 class Main {
   constructor() {
-    this.el = div('mt6 ma3 lh-hero', [
+    this.el = div('mt4 ma3 lh-hero', [
       div(css.container, [
         div(css.title, [
           div('f4', [div('I built'), div('and'), div('maintain')]),
@@ -58977,22 +59011,10 @@ module.exports = Main
 const pug = require('pug')
 const div = require('../../lib/div')
 const img = require('../../lib/img')
-const style = require('../../lib/style')
-let css = style`
-container
-	flex: 1
-	display: flex
-	flex-direction: column;
-	font-size:20px;
-	padding:100
-`
-
 
 class Main {
   constructor() {
-    this.el = div({
-      class: 'flex items-center center'
-    }, [
+    this.el = div('flex items-center center overflow-hidden', [
       div({
         class: 'pa4'
       }, [
@@ -59012,7 +59034,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"pug":270}],334:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"pug":270}],334:[function(require,module,exports){
 const el = require('redom').el;
 const mount = require('redom').mount;
 require('web-animations-js/web-animations.min'); //polyfill
@@ -59058,7 +59080,7 @@ class App {
 const app = new App();
 mount(document.body, app);
 
-},{"./born":330,"./end":331,"./github":332,"./hello":333,"./mistakes":335,"./show/first":336,"./show/swim":337,"./today":338,"./tree":342,"redom":290,"web-animations-js/web-animations.min":325}],335:[function(require,module,exports){
+},{"./born":330,"./end":331,"./github":332,"./hello":333,"./mistakes":335,"./show/first":337,"./show/swim":338,"./today":339,"./tree":343,"redom":290,"web-animations-js/web-animations.min":325}],335:[function(require,module,exports){
 const div = require('../../lib/div')
 const img = require('../../lib/img')
 const video = require('../../lib/video')
@@ -59068,39 +59090,39 @@ let css = style`
 
 class Main {
   constructor() {
-    this.el = div('ml3 ', [
-      div('dark-gray f3', '1990-2000,'),
+    this.el = div('ml3 fw1', [
+      div('dark-gray f3', '1990-'),
       div('flex flex-wrap', [
         div('flex tc flex-wrap flex-column', [
           div('mt2  mb2 flex items-center', [
             div('w5', [
-              div('f3 blue avenir', 'compiled linux'),
-              div('mb2', '(many mistakes)'),
+              div('f3 blue avenir fw1', 'compiled linux'),
+              div('mb2 fw1', '(many mistakes)'),
             ]),
             img('./src/mistakes/img/linux.png', 'w4 mh2 mw4 w-90 br3 shadow-1'),
           ]),
           div('mt3 mb2 flex items-center', [
             img('./src/mistakes/img/carpet.jpg', 'w4 ma2 mw4 w-90 br3 shadow-1'),
             div('w5', [
-              div('f3 red avenir', 'got a philosophy degree'),
-              div('mb2', '(huge mistake)'),
+              div('f3 red avenir fw1', 'got a philosophy degree'),
+              div('mb2 fw1', '(huge mistake)'),
             ]),
           ]),
           div('mt3  mb2 flex items-center', [
             div('w5', [
-              div('f3 green avenir', 'went to grad-school'),
-              div('mb2', '(obvious mistake)'),
+              div('f3 green avenir fw1', 'went to grad-school'),
+              div('mb2 fw1', '(obvious mistake)'),
             ]),
             img('./src/mistakes/img/table.png', 'w4 mh2 mw4 w-90 br3 shadow-1'),
           ]),
         ]),
         div('ml5 tc mw5 mb2 flex flex-column mt4 items-center justify-center', [
           div('w5', [
-            div('f3 orange avenir', 'died my hair blue'),
-            div('mb2 tc', '(clear mistake)'),
+            div('f3 orange avenir fw1', 'died my hair blue'),
+            div('mb2 tc fw1', '(clear mistake)'),
           ]),
-          video('./src/mistakes/img/hairblue.mp4', 'w5 w6-ns mw6 mw-100 br3 shadow-1'),
-          div('mb2 tr', 'for some reason.'),
+          video('./src/mistakes/img/hairblue.mp4', 'w5 w6-ns mw6 mr2 mw-100 br3 shadow-1'),
+          div('mb2 tr', 'for some reason...'),
         ]),
       ])
     ])
@@ -59109,6 +59131,79 @@ class Main {
 module.exports = Main
 
 },{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"../../lib/video":6}],336:[function(require,module,exports){
+const svg = require('redom').svg
+const div = require('../../lib/div')
+const img = require('../../lib/img')
+const link = require('../../lib/link')
+
+const leaf = () => {
+  return svg('path', {
+    d: "M 25 53 L 39.34375 28.65625 L 46.6875 23.828125 L 69.34375 20.171875 L 77 22 L 27 53 L 44.0703125 51.1171875 L 55.4462890625 46.7490234375 L 69.3564453125 36.5791015625 L 77 29",
+    stroke: "#00850a",
+    'stroke-linecap': "round",
+    'stroke-width': ".5rem",
+    transform: "scale(0.5) translate(120,50)",
+    fill: "#00850a"
+  })
+}
+const leaf2 = () => {
+  return svg('path', {
+    d: "M 25 53 L 39.34375 28.65625 L 46.6875 23.828125 L 69.34375 20.171875 L 77 22 L 27 53 L 44.0703125 51.1171875 L 55.4462890625 46.7490234375 L 69.3564453125 36.5791015625 L 77 29",
+    stroke: "#00850a",
+    'stroke-linecap': "round",
+    'stroke-width': ".5rem",
+    transform: "scale(0.7) translate(40,50) rotate(20)",
+    fill: "#00850a"
+  })
+}
+const leaf3 = () => {
+  return svg('path', {
+    d: "M 180 30.5 L 138.140625 34.671875 L 114.625 43.1875 L 76.5625 66.8828125 L 27 115.671875 L 22.828125 121.5 L 79.2734375 117.390625 L 159.6875 80.984375 L 196 48.5009765625 L 200.171875 42.328125 L 198.623046875 38.123046875 L 191.171875 36.5 L 188 35.5",
+    stroke: "#158f00",
+    'stroke-linecap': "round",
+    'stroke-width': ".5rem",
+    transform: "scale(0.3) translate(40,50) rotate(20)",
+    fill: "#158f00"
+  })
+}
+const leaf4 = () => {
+  return svg('path', {
+    d: "M 180 30.5 L 138.140625 34.671875 L 114.625 43.1875 L 76.5625 66.8828125 L 27 115.671875 L 22.828125 121.5 L 79.2734375 117.390625 L 159.6875 80.984375 L 196 48.5009765625 L 200.171875 42.328125 L 198.623046875 38.123046875 L 191.171875 36.5 L 188 35.5",
+    stroke: "#158f00",
+    'stroke-linecap': "round",
+    'stroke-width': ".5rem",
+    transform: "scale(0.3) translate(115,-30) rotate(0)",
+    fill: "green"
+  })
+}
+
+class Main {
+  constructor() {
+    this.el = svg('svg', {
+      viewBox: "0 0 100 300",
+      style: {
+        height: '8rem',
+        width: '6rem'
+      }
+    }, [
+      //stem
+      svg('path', {
+        d: "M 102 462 L 110.59375 421.28515625 L 115.712890625 336.7724609375 L 115.7451171875 248.1728515625 L 109.921875 180.48828125 L 97.673828125 128.2431640625 L 74.98046875 64.0234375 L 57.705078125 35.923828125 L 37.869140625 22.623046875 L 20.623046875 20 L 20 20",
+        stroke: "#19a974",
+        'stroke-linecap': "round",
+        'stroke-width': ".5rem",
+        fill: "none"
+      }),
+      leaf(),
+      leaf2(),
+      leaf3(),
+      leaf4(),
+    ])
+  }
+}
+module.exports = Main
+
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"redom":290}],337:[function(require,module,exports){
 const pug = require('pug')
 const div = require('../../lib/div')
 const img = require('../../lib/img')
@@ -59134,7 +59229,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"pug":270}],337:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"pug":270}],338:[function(require,module,exports){
 const pug = require('pug')
 const div = require('../../lib/div')
 const img = require('../../lib/img')
@@ -59157,7 +59252,7 @@ const wave = function() {
 
 class Main {
   constructor() {
-    this.el = div('pt7', [
+    this.el = div('pt5', [
       div('f2 blue ml3 mb3', 'But you know,'),
       div('flex items-center justify-center pt2 pb5 flex-wrap', [
         div('relative', [
@@ -59231,7 +59326,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/video":6,"pug":270,"redom":290}],338:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/video":6,"pug":270,"redom":290}],339:[function(require,module,exports){
 const div = require('../../lib/div')
 const img = require('../../lib/img')
 const svg = require('redom').svg;
@@ -59276,7 +59371,7 @@ class Main {
         div('f1 f-title-m f-headline-ns absolute w-100 center washed-green pa3-ns bottom-0 ', 'Ontario'),
         img('./src/today/img/ontario.png', 'mw-100'),
       ]),
-      div('', 'for some reason'),
+      div('ml3', 'for some reason'),
 
       div('relative flex items-center justify-center mt4', [
         div('f1 f-title-m f-headline-ns absolute w-100 center near-white pa3 top-0', 'I don\'t'),
@@ -59284,11 +59379,11 @@ class Main {
         div('f1 f-title-m f-headline-ns absolute w-100 center near-white pa3 bottom-0 ', 'biology'),
         img('./src/today/img/cell2.png', 'mw-100'),
       ]),
-      div('absolute pr3 left-0', 'but I sure wish I did'),
+      div('absolute mr3 right-0', 'but I sure wish I did'),
 
       div('relative items-center justify-center mt6 mh2 pl4 bb b--blue bw3', {
         style: {
-          'max-width': '550px',
+          'max-width': '500px',
           'width': '75%',
         }
       }, [
@@ -59325,7 +59420,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"../../lib/style":5,"./unicode":339,"macy":234,"redom":290}],339:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"../../lib/style":5,"./unicode":340,"macy":234,"redom":290}],340:[function(require,module,exports){
 
 
 function randomize(arr) {
@@ -59348,7 +59443,7 @@ const unicode = function() {
 }
 module.exports = unicode
 
-},{}],340:[function(require,module,exports){
+},{}],341:[function(require,module,exports){
 const scaleLinear = require('d3-scale').scaleLinear
 //
 const makeAxis = function(width) {
@@ -59364,7 +59459,7 @@ const makeAxis = function(width) {
 }
 module.exports = makeAxis
 
-},{"d3-scale":184}],341:[function(require,module,exports){
+},{"d3-scale":184}],342:[function(require,module,exports){
 const scaleLinear = require('d3-scale').scaleLinear
 const treeData = require('./tree-data')
 let height = 200
@@ -59425,7 +59520,7 @@ const calculate = function(width) {
 
 module.exports = calculate
 
-},{"./tree-data":343,"d3-scale":184}],342:[function(require,module,exports){
+},{"./tree-data":344,"d3-scale":184}],343:[function(require,module,exports){
 const div = require('../../lib/div')
 const style = require('../../lib/style')
 const setStyle = require('redom').setStyle
@@ -59468,7 +59563,7 @@ class Main {
     // this.axis = this.drawAxis(width)
     this.el = div(css.container, [
       div('f1 mid-gray', 'before that though,'),
-      div('gray', 'there were these farmers in even smaller towns.'),
+      div('gray', 'there were these farmers in smaller towns.'),
       div('gray', 'their lives were probably hard.'),
       div('mt3', ' or maybe they weren\'t.'),
       div(' I don\'t know.'),
@@ -59603,7 +59698,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"./axis":340,"./calculate":341,"glamor":203,"redom":290}],343:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"./axis":341,"./calculate":342,"glamor":203,"redom":290}],344:[function(require,module,exports){
 module.exports = {
   name: "Me",
   place: "Barrie",

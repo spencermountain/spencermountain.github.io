@@ -42,7 +42,7 @@ class Main {
         div('f1 f-title-m f-headline-ns absolute w-100 center washed-green pa3-ns bottom-0 ', 'Ontario'),
         img('./src/today/img/ontario.png', 'mw-100'),
       ]),
-      div('', 'for some reason'),
+      div('ml3', 'for some reason'),
 
       div('relative flex items-center justify-center mt4', [
         div('f1 f-title-m f-headline-ns absolute w-100 center near-white pa3 top-0', 'I don\'t'),
@@ -50,11 +50,11 @@ class Main {
         div('f1 f-title-m f-headline-ns absolute w-100 center near-white pa3 bottom-0 ', 'biology'),
         img('./src/today/img/cell2.png', 'mw-100'),
       ]),
-      div('absolute pr3 left-0', 'but I sure wish I did'),
+      div('absolute mr3 right-0', 'but I sure wish I did'),
 
       div('relative items-center justify-center mt6 mh2 pl4 bb b--blue bw3', {
         style: {
-          'max-width': '550px',
+          'max-width': '500px',
           'width': '75%',
         }
       }, [

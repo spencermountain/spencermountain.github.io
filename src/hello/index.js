@@ -1,22 +1,10 @@
 const pug = require('pug')
 const div = require('../../lib/div')
 const img = require('../../lib/img')
-const style = require('../../lib/style')
-let css = style`
-container
-	flex: 1
-	display: flex
-	flex-direction: column;
-	font-size:20px;
-	padding:100
-`
-
 
 class Main {
   constructor() {
-    this.el = div({
-      class: 'flex items-center center'
-    }, [
+    this.el = div('flex items-center center overflow-hidden', [
       div({
         class: 'pa4'
       }, [

@@ -40,7 +40,7 @@ class Main {
     // this.axis = this.drawAxis(width)
     this.el = div(css.container, [
       div('f1 mid-gray', 'before that though,'),
-      div('gray', 'there were these farmers in even smaller towns.'),
+      div('gray', 'there were these farmers in smaller towns.'),
       div('gray', 'their lives were probably hard.'),
       div('mt3', ' or maybe they weren\'t.'),
       div(' I don\'t know.'),
