@@ -2,8 +2,6 @@ const div = require('../../lib/div')
 const span = require('../../lib/span')
 const img = require('../../lib/img')
 const video = require('../../lib/video')
-const style = require('../../lib/style')
-let css = style``
 
 class Main {
   constructor() {

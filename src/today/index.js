@@ -3,8 +3,6 @@ const img = require('../../lib/img')
 const svg = require('redom').svg;
 const link = require('../../lib/link')
 const el = require('redom').el;
-const Macy = require('macy')
-const unicode = require('./unicode')
 const style = require('../../lib/style')
 let css = style`
 container

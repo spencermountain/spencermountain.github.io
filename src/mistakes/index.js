@@ -1,14 +1,11 @@
 const div = require('../../lib/div')
 const img = require('../../lib/img')
 const video = require('../../lib/video')
-const style = require('../../lib/style')
-let css = style`
-`
 
 class Main {
   constructor() {
     this.el = div('ml3 fw1', [
-      div('dark-gray f3', '1990-'),
+      div('f3 mh2 navy', '1990-'),
       div('flex flex-wrap', [
         div('flex tc flex-wrap flex-column', [
           div('mt2  mb2 flex items-center', [
@@ -35,7 +32,7 @@ class Main {
         ]),
         div('ml5 tc mw5 mb2 flex flex-column mt4 items-center justify-center', [
           div('w5', [
-            div('f3 orange avenir fw1', 'died my hair blue'),
+            div('f3 orange avenir fw1', 'dyed my hair blue'),
             div('mb2 tc fw1', '(clear mistake)'),
           ]),
           video('./src/mistakes/img/hairblue.mp4', 'w5 w6-ns mw6 mr2 mw-100 br3 shadow-1'),

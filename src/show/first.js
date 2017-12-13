@@ -1,9 +1,5 @@
-const pug = require('pug')
 const div = require('../../lib/div')
 const img = require('../../lib/img')
-const style = require('../../lib/style')
-let css = style`
-`
 
 class Main {
   constructor() {

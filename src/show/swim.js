@@ -1,4 +1,3 @@
-const pug = require('pug')
 const div = require('../../lib/div')
 const img = require('../../lib/img')
 const el = require('redom').el;

@@ -2,7 +2,6 @@ const div = require('../../lib/div')
 const style = require('../../lib/style')
 const setStyle = require('redom').setStyle
 const img = require('../../lib/img')
-const glamor = require('glamor').css
 const calculate = require('./calculate')
 const makeAxis = require('./axis')
 
