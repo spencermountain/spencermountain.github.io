@@ -14,7 +14,7 @@ class Main {
       // }, "at all."),
       ]),
       img('./src/01-hello/starter.png', {
-        class: 'mw-100 br3 shadow-1'
+        class: 'w-50 mw-100 br3 shadow-1'
       })
     ])
 

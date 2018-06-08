@@ -2,6 +2,7 @@ const el = require('redom').el;
 const mount = require('redom').mount;
 // require('web-animations-js/web-animations.min'); //polyfill
 
+const Intro = require('./01-intro');
 const Hello = require('./01-hello');
 const Show = require('./02-show');
 const Born = require('./03-born');
@@ -27,15 +28,16 @@ class App {
         style: css.container
       },
       [
-        new Hello(),
+        new Intro(),
+        // new Hello(),
         new Show(),
-        new Born(),
-        new Tree(),
-        new Mistakes(),
-        new Swim(),
-        new Github(),
-        new Today(),
-        new Contact(),
+      // new Born(),
+      // new Tree(),
+      // new Mistakes(),
+      // new Swim(),
+      // new Github(),
+      // new Today(),
+      // new Contact(),
       ]
     );
   }

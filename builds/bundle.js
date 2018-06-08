@@ -5,6 +5,17 @@ const isObject = (a) => Object.prototype.toString.call(a) === '[object Object]'
 const isArray = (a) => Object.prototype.toString.call(a) === '[object Array]'
 const isString = (a) => typeof a === 'string'
 
+const toObject = function(str) {
+  var result = {}
+  var attributes = str.split(';');
+  for (var i = 0; i < attributes.length; i++) {
+    var entry = attributes[i].split(':');
+    result[entry.splice(0, 1)[0].trim()] = entry.join(':');
+  }
+  // console.log(result)
+  return result
+}
+
 const div = (a, b, c) => {
   let attr = {}
   let inside = []
@@ -12,6 +23,14 @@ const div = (a, b, c) => {
   if (a && b && isString(a) && isObject(b)) {
     attr = b
     attr.class = a
+    inside = c
+  } else if (a && b && isString(a) && isString(b) && b.indexOf(':') !== -1) {
+    let style = toObject(b)
+    //class, style, children
+    attr = {
+      class: a,
+      style: style
+    }
     inside = c
   } else if (a && b && isString(a) && (isArray(b) || isString(b))) {
     attr = {
@@ -56,6 +75,7 @@ const link = (href, attr, inside) => {
   }
   attr = attr || {}
   attr.href = href
+  console.log(attr)
   return el('a', attr, inside);
 }
 
@@ -10534,7 +10554,7 @@ class Main {
       // }, "at all."),
       ]),
       img('./src/01-hello/starter.png', {
-        class: 'mw-100 br3 shadow-1'
+        class: 'w-50 mw-100 br3 shadow-1'
       })
     ])
 
@@ -10544,6 +10564,43 @@ class Main {
 module.exports = Main
 
 },{"../../lib/div":1,"../../lib/img":2}],140:[function(require,module,exports){
+const div = require('../../lib/div')
+const span = require('../../lib/span')
+const img = require('../../lib/img')
+const link = require('../../lib/link')
+
+class Main {
+  constructor() {
+    this.el = div('w-100 tc flex justify-center items-center flex-wrap', 'min-height:30rem;', [
+      div(' ', 'flex:1; min-width:10rem; max-width:15rem;', [
+        div("Spencer Kelly"),
+        div('pt2', "a software developer"),
+      ]),
+      div('h-100', 'flex:1; min-width:20rem; max-width:20rem;', [
+        img('./src/01-hello/starter.png', 'br3 shadow-1')
+      ]),
+      div('flex flex-column justify-start  items-start ', 'flex:1; min-width:15rem; max-width:30rem;', [
+        div('ml3', ['Projects:']),
+        this.project('http://compromise.cool', './src/07-github/img/nlp-compromise.png', 'compromise'),
+        this.project('https://github.com/spencermountain/wtf_wikipedia', './src/07-github/img/wtf-wikipedia.png', 'wtf-wikipedia'),
+        this.project('https://github.com/spencermountain/spacetime', './src/07-github/img/spacetime.png', 'spacetime')
+
+      ]),
+      div('w-80 h3 bb b-blue outline', 'border-bottom:1px solid red;')
+    ])
+
+  }
+  project(href, src, title) {
+    return div('flex justify-center items-center tl blue mt3 tl ml3', [
+      span('pa2', '  • '),
+      link(href, img(src, 'w2 w1 pa1')),
+      link(href, span('link dim ', title)),
+    ])
+  }
+}
+module.exports = Main
+
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"../../lib/span":4}],141:[function(require,module,exports){
 const div = require('../../lib/div')
 const img = require('../../lib/img')
 
@@ -10565,7 +10622,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2}],141:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2}],142:[function(require,module,exports){
 const div = require('../../lib/div')
 const span = require('../../lib/span')
 const img = require('../../lib/img')
@@ -10618,7 +10675,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/span":4,"../../lib/video":6}],142:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/span":4,"../../lib/video":6}],143:[function(require,module,exports){
 const scaleLinear = require('d3-scale').scaleLinear
 //
 const makeAxis = function(width) {
@@ -10634,7 +10691,7 @@ const makeAxis = function(width) {
 }
 module.exports = makeAxis
 
-},{"d3-scale":95}],143:[function(require,module,exports){
+},{"d3-scale":95}],144:[function(require,module,exports){
 const scaleLinear = require('d3-scale').scaleLinear
 const treeData = require('./tree-data')
 let height = 200
@@ -10695,7 +10752,7 @@ const calculate = function(width) {
 
 module.exports = calculate
 
-},{"./tree-data":145,"d3-scale":95}],144:[function(require,module,exports){
+},{"./tree-data":146,"d3-scale":95}],145:[function(require,module,exports){
 const div = require('../../lib/div')
 const style = require('../../lib/style')
 const setStyle = require('redom').setStyle
@@ -10872,7 +10929,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"./axis":142,"./calculate":143,"redom":137}],145:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"./axis":143,"./calculate":144,"redom":137}],146:[function(require,module,exports){
 module.exports = {
   name: "Me",
   place: "Barrie",
@@ -11246,7 +11303,7 @@ module.exports = {
   },
 };
 
-},{}],146:[function(require,module,exports){
+},{}],147:[function(require,module,exports){
 const div = require('../../lib/div')
 const img = require('../../lib/img')
 const video = require('../../lib/video')
@@ -11293,7 +11350,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/video":6}],147:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/video":6}],148:[function(require,module,exports){
 const div = require('../../lib/div')
 const img = require('../../lib/img')
 const video = require('../../lib/video')
@@ -11388,7 +11445,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/video":6}],148:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/video":6}],149:[function(require,module,exports){
 const div = require('../../lib/div')
 const span = require('../../lib/span')
 const el = require('redom').el;
@@ -11529,7 +11586,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"../../lib/span":4,"../../lib/style":5,"redom":137}],149:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"../../lib/span":4,"../../lib/style":5,"redom":137}],150:[function(require,module,exports){
 const div = require('../../lib/div')
 const img = require('../../lib/img')
 const svg = require('redom').svg;
@@ -11593,7 +11650,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"redom":137}],150:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"redom":137}],151:[function(require,module,exports){
 const svg = require('redom').svg
 const div = require('../../lib/div')
 const img = require('../../lib/img')
@@ -11664,11 +11721,12 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"../plant":152,"redom":137}],151:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"../plant":153,"redom":137}],152:[function(require,module,exports){
 const el = require('redom').el;
 const mount = require('redom').mount;
 // require('web-animations-js/web-animations.min'); //polyfill
 
+const Intro = require('./01-intro');
 const Hello = require('./01-hello');
 const Show = require('./02-show');
 const Born = require('./03-born');
@@ -11694,15 +11752,16 @@ class App {
         style: css.container
       },
       [
-        new Hello(),
+        new Intro(),
+        // new Hello(),
         new Show(),
-        new Born(),
-        new Tree(),
-        new Mistakes(),
-        new Swim(),
-        new Github(),
-        new Today(),
-        new Contact(),
+      // new Born(),
+      // new Tree(),
+      // new Mistakes(),
+      // new Swim(),
+      // new Github(),
+      // new Today(),
+      // new Contact(),
       ]
     );
   }
@@ -11711,7 +11770,7 @@ class App {
 const app = new App();
 mount(document.body, app);
 
-},{"./01-hello":139,"./02-show":140,"./03-born":141,"./04-tree":144,"./05-mistakes":146,"./06-swim":147,"./07-github":148,"./08-today":149,"./09-contact":150,"redom":137}],152:[function(require,module,exports){
+},{"./01-hello":139,"./01-intro":140,"./02-show":141,"./03-born":142,"./04-tree":145,"./05-mistakes":147,"./06-swim":148,"./07-github":149,"./08-today":150,"./09-contact":151,"redom":137}],153:[function(require,module,exports){
 const svg = require('redom').svg
 const div = require('../../lib/div')
 const img = require('../../lib/img')
@@ -11784,4 +11843,4 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"redom":137}]},{},[151]);
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"redom":137}]},{},[152]);
