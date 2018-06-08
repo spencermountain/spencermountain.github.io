@@ -13,10 +13,10 @@ class Main {
               div('f3 blue avenir fw1', 'compiled linux'),
               div('mb2 fw1', '(many mistakes)'),
             ]),
-            img('./src/mistakes/img/linux.png', 'w4 mh2 mw4 w-90 br3 shadow-1'),
+            img('./src/05-mistakes/img/linux.png', 'w4 mh2 mw4 w-90 br3 shadow-1'),
           ]),
           div('mt3 mb2 flex items-center', [
-            img('./src/mistakes/img/carpet.jpg', 'w4 ma2 mw4 w-90 br3 shadow-1'),
+            img('./src/05-mistakes/img/carpet.jpg', 'w4 ma2 mw4 w-90 br3 shadow-1'),
             div('w5', [
               div('f3 red avenir fw1', 'got a philosophy degree'),
               div('mb2 fw1', '(huge mistake)'),
@@ -27,7 +27,7 @@ class Main {
               div('f3 green avenir fw1', 'went to grad-school'),
               div('mb2 fw1', '(obvious mistake)'),
             ]),
-            img('./src/mistakes/img/table.png', 'w4 mh2 mw4 w-90 br3 shadow-1'),
+            img('./src/05-mistakes/img/table.png', 'w4 mh2 mw4 w-90 br3 shadow-1'),
           ]),
         ]),
         div('ml5 tc mw5 mb2 flex flex-column mt4 items-center justify-center', [
@@ -35,7 +35,7 @@ class Main {
             div('f3 orange avenir fw1', 'dyed my hair blue'),
             div('mb2 tc fw1', '(clear mistake)'),
           ]),
-          video('./src/mistakes/img/hairblue.mp4', 'w5 w6-ns mw6 mr2 mw-100 br3 shadow-1'),
+          video('./src/05-mistakes/img/hairblue.mp4', 'w5 w6-ns mw6 mr2 mw-100 br3 shadow-1'),
           div('mb2 tr', 'for some reason...'),
         ]),
       ])

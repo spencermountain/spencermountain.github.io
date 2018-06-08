@@ -9,11 +9,11 @@ class Main {
     this.el = div('tc', [
       div('flex justify-around h4 mw7 ', [
         link('https://twitter.com/spencermountain', 'link grey dim flex flex-column tc', [
-          img('./src/end/icons/twitter.svg', 'w3'),
+          img('./src/09-contact/icons/twitter.svg', 'w3'),
           div('light-blue fw1 ', 'twitter')
         ]),
         link('https://www.goodreads.com/user/show/51017977-spencer', 'link grey dim flex flex-column tc', [
-          img('./src/end/icons/goodreads.svg', 'w3'),
+          img('./src/09-contact/icons/goodreads.svg', 'w3'),
           div('fw2 ', {
             style: {
               color: '#7D5024'

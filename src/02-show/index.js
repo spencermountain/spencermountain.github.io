@@ -6,10 +6,10 @@ class Main {
     this.el = div({
       class: 'flex items-center justify-around'
     }, [
-      img('./src/show/things/rowers.gif', {
+      img('./src/02-show/things/rowers.gif', {
         class: 'w4 w5-ns br3 shadow-1'
       }),
-      img('./src/show/things/compost.png', {
+      img('./src/02-show/things/compost.png', {
         class: 'w4 w5-ns br3 shadow-1 mt5'
       })
     ])

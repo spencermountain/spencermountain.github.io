@@ -2,15 +2,15 @@ const el = require('redom').el;
 const mount = require('redom').mount;
 // require('web-animations-js/web-animations.min'); //polyfill
 
-const Born = require('./born');
-const Mistakes = require('./mistakes');
-const Github = require('./github');
-const Today = require('./today');
-const Tree = require('./tree');
-const Hello = require('./hello');
-const Show = require('./show/first');
-const Swim = require('./show/swim');
-const End = require('./end');
+const Hello = require('./01-hello');
+const Show = require('./02-show');
+const Born = require('./03-born');
+const Tree = require('./04-tree');
+const Mistakes = require('./05-mistakes');
+const Swim = require('./06-swim');
+const Github = require('./07-github');
+const Today = require('./08-today');
+const Contact = require('./09-contact');
 
 const css = {
   container: {
@@ -35,7 +35,7 @@ class App {
         new Swim(),
         new Github(),
         new Today(),
-        new End(),
+        new Contact(),
       ]
     );
   }

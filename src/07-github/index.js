@@ -79,9 +79,9 @@ class Main {
           ]),
         ]),
         div('flex justify-around flex-wrap mw-80 items-end', [
-          this.project('nlp-compromise', './src/github/img/nlp-compromise.png', 'http://compromise.cool'),
-          this.project('wtf_wikipedia', './src/github/img/wtf-wikipedia.png', 'https://spencermountain.github.io/wtf_wikipedia/'),
-          this.project('spacetime', './src/github/img/spacetime.png', 'https://smallwins.github.io/spacetime/'),
+          this.project('nlp-compromise', './src/07-github/img/nlp-compromise.png', 'http://compromise.cool'),
+          this.project('wtf_wikipedia', './src/07-github/img/wtf-wikipedia.png', 'https://spencermountain.github.io/wtf_wikipedia/'),
+          this.project('spacetime', './src/07-github/img/spacetime.png', 'https://smallwins.github.io/spacetime/'),
         ]),
         div('mt4 mb2 f5', 'hilariously, they\'re running at thousands of organizations.'),
         div('f4', [

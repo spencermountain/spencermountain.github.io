@@ -13,7 +13,7 @@ class Main {
       //   class: 'w-100 tr'
       // }, "at all."),
       ]),
-      img('./src/hello/starter.png', {
+      img('./src/01-hello/starter.png', {
         class: 'mw-100 br3 shadow-1'
       })
     ])

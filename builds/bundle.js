@@ -1,20 +1,135 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-const el=require("redom").el,isObject=t=>"[object Object]"===Object.prototype.toString.call(t),isArray=t=>"[object Array]"===Object.prototype.toString.call(t),isString=t=>"string"==typeof t,div=(t,r,e)=>{let i={},s=[];return t&&r&&isString(t)&&isObject(r)?((i=r).class=t,s=e):t&&r&&isString(t)&&(isArray(r)||isString(r))?(i={class:t},s=r):(i=t,s=r),el("div",i,s)};module.exports=div;
+const el = require('redom').el;
+
+const isObject = (a) => Object.prototype.toString.call(a) === '[object Object]'
+const isArray = (a) => Object.prototype.toString.call(a) === '[object Array]'
+const isString = (a) => typeof a === 'string'
+
+const div = (a, b, c) => {
+  let attr = {}
+  let inside = []
+  //class, attr, children
+  if (a && b && isString(a) && isObject(b)) {
+    attr = b
+    attr.class = a
+    inside = c
+  } else if (a && b && isString(a) && (isArray(b) || isString(b))) {
+    attr = {
+      class: a
+    }
+    inside = b
+  } else {
+    attr = a
+    inside = b
+  }
+  return el('div', attr, inside);
+}
+
+module.exports = div
 
 },{"redom":137}],2:[function(require,module,exports){
-const el=require("redom").el,img=(e,r)=>("string"==typeof r&&(r={class:r}),r=r||{},r.src=e,el("img",r));module.exports=img;
+const el = require('redom').el;
+
+//src, class
+const img = (src, attr) => {
+  if (typeof attr === 'string') {
+    attr = {
+      class: attr
+    }
+  }
+  attr = attr || {}
+  attr.src = src
+  return el('img', attr);
+}
+
+module.exports = img
 
 },{"redom":137}],3:[function(require,module,exports){
-const el=require("redom").el,link=(e,l,r)=>("string"==typeof l&&(l={class:l}),l=l||{},l.href=e,el("a",l,r));module.exports=link;
+const el = require('redom').el;
+
+//src, class
+const link = (href, attr, inside) => {
+  if (typeof attr === 'string') {
+    attr = {
+      class: attr
+    }
+  }
+  attr = attr || {}
+  attr.href = href
+  return el('a', attr, inside);
+}
+
+module.exports = link
 
 },{"redom":137}],4:[function(require,module,exports){
-const el=require("redom").el,isObject=t=>"[object Object]"===Object.prototype.toString.call(t),isArray=t=>"[object Array]"===Object.prototype.toString.call(t),isString=t=>"string"==typeof t,div=(t,r,e)=>{let i={},s=[];return t&&r&&isString(t)&&isObject(r)?((i=r).class=t,s=e):t&&r&&isString(t)&&(isArray(r)||isString(r))?(i={class:t},s=r):(i=t,s=r),el("span",i,s)};module.exports=div;
+const el = require('redom').el;
+
+const isObject = (a) => Object.prototype.toString.call(a) === '[object Object]'
+const isArray = (a) => Object.prototype.toString.call(a) === '[object Array]'
+const isString = (a) => typeof a === 'string'
+
+const div = (a, b, c) => {
+  let attr = {}
+  let inside = []
+  //class, attr, children
+  if (a && b && isString(a) && isObject(b)) {
+    attr = b
+    attr.class = a
+    inside = c
+  } else if (a && b && isString(a) && (isArray(b) || isString(b))) {
+    attr = {
+      class: a
+    }
+    inside = b
+  } else {
+    attr = a
+    inside = b
+  }
+  return el('span', attr, inside);
+}
+
+module.exports = div
 
 },{"redom":137}],5:[function(require,module,exports){
-const glamor=require("glamor").css,styler=require("react-styling"),style=function(e){let r=styler(e);return Object.keys(r).forEach(e=>{r[e]=glamor(r[e])}),r};module.exports=style;
+const glamor = require('glamor').css
+const styler = require('react-styling');
+
+//combine the sloppy-syntax of styler, and inline-rendering of glamor
+const style = function(str) {
+  let obj = styler(str)
+  Object.keys(obj).forEach((k) => {
+    obj[k] = glamor(obj[k])
+  })
+  return obj
+}
+module.exports = style
 
 },{"glamor":110,"react-styling":136}],6:[function(require,module,exports){
-const el=require("redom").el,video=(o,e)=>("string"==typeof e&&(e={class:e}),e=e||{},e.src=o,void 0===e.autoplay&&(e.autoplay=!0),void 0===e.loop&&(e.loop=!0),void 0===e.muted&&(e.muted=!0),el("video",e));module.exports=video;
+const el = require('redom').el;
+
+//src, class
+const video = (src, attr) => {
+  if (typeof attr === 'string') {
+    attr = {
+      class: attr
+    }
+  }
+  attr = attr || {}
+  attr.src = src
+  //defaults
+  if (attr.autoplay === undefined) {
+    attr.autoplay = true
+  }
+  if (attr.loop === undefined) {
+    attr.loop = true
+  }
+  if (attr.muted === undefined) {
+    attr.muted = true
+  }
+  return el('video', attr);
+}
+
+module.exports = video
 
 },{"redom":137}],7:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/get-iterator"), __esModule: true };
@@ -10403,13 +10518,884 @@ var StyleBuilder = (function () {
 exports["default"] = new StyleBuilder();
 module.exports = exports["default"];
 },{"object-assign":129}],139:[function(require,module,exports){
-const div=require("../../lib/div"),span=require("../../lib/span"),img=require("../../lib/img"),video=require("../../lib/video");class Main{constructor(){this.el=div("mt5",[div("f3 mh2 navy","the"),div("f1 mh2 navy","1980s."),div({class:"f4 ml4"},["was born in the soft-rock suburbs of ",span("light-red","canada"),span("",".")]),div("flex justify-between flex-wrap",[div("w4 w-25 pa4 center",{style:{"min-width":"150px"}},[img("./src/born/img/brian-mulroney.png",{width:100}),div({class:"f4 blue"},"Brian Mulroney"),div({class:"f5 ml2 near-black"},"was"),div({class:"f4 ml2 near-black"},"prime-minister.")]),div("w1 w-75 flex items-center center justify-center pl2",{style:{"min-width":"300px"}},[div("mw4 f5 tr lh-copy mr2 mid-gray","communism was still basically a really huge thing but I didn't understand because I"),video("./src/born/img/stairsTwo.mp4","w4 w5-ns"),div("f3 f2-ns ml2 mw4 lh-copy mid-gray","was really little")])])])}}module.exports=Main;
+const div = require('../../lib/div')
+const img = require('../../lib/img')
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/span":4,"../../lib/video":6}],140:[function(require,module,exports){
-const svg=require("redom").svg,div=require("../../lib/div"),img=require("../../lib/img"),link=require("../../lib/link"),Plant=require("../plant");class Main{constructor(){this.el=div("tc",[div("flex justify-around h4 mw7 ",[link("https://twitter.com/spencermountain","link grey dim flex flex-column tc",[img("./src/end/icons/twitter.svg","w3"),div("light-blue fw1 ","twitter")]),link("https://www.goodreads.com/user/show/51017977-spencer","link grey dim flex flex-column tc",[img("./src/end/icons/goodreads.svg","w3"),div("fw2 ",{style:{color:"#7D5024"}},"goodreads")])]),div("m3 tl",{style:{position:"relative",bottom:"-55px","z-index":"-1"}},[new Plant]),div("w-100 block tl pb3",{style:{"padding-left":"100px"}},[link("mailto:spencermountain@gmail.com","link dim  b avenir bb bw1 b--dim-gray f6 f3-ns ph2 fw2 light-green","spencermountain@gmail.com"),svg("svg",{viewBox:"0 0 300 300",style:{position:"relative",height:"30px",width:"30px",left:"-5px",top:"10px"}},[svg("path",{d:"M 110 44 L 110 44 L 107.546875 30.546875 L 95.73828125 22.623046875 L 76.7275390625 20 L 47.38671875 22.548828125 L 34.90234375 29.09765625 L 24 43.376953125 L 20.794921875 60.703125 L 23.279296875 77.494140625 L 30.3056640625 92.42578125 L 45.4921875 109.4921875 L 67.626953125 124.98828125 L 134.548828125 159.73046875 L 136 156 L 108 47 L 117.875 41.3203125 L 179.75390625 20.376953125 L 193.525390625 25.07421875 L 197.376953125 30.44140625 L 197.923828125 49.2177734375 L 186.8798828125 71.240234375 L 170.5078125 97.3828125 L 162.3359375 112.2109375 L 153.3359375 125.4375 L 134.828125 150.171875 L 132 153",stroke:"#ff35fa","stroke-linecap":"round","stroke-width":".5rem",fill:"#ff35fa"})])]),div("w-100 bg-light-blue h2",{style:{"background-color":"#408BC9"}},[])])}}module.exports=Main;
+class Main {
+  constructor() {
+    this.el = div('flex items-center center overflow-hidden', [
+      div({
+        class: 'pa4'
+      }, [
+        div("Spencer Kelly"),
+        div('pt2', "not a confident software developer"),
+      // div({
+      //   class: 'w-100 tr'
+      // }, "at all."),
+      ]),
+      img('./src/01-hello/starter.png', {
+        class: 'mw-100 br3 shadow-1'
+      })
+    ])
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"../plant":145,"redom":137}],141:[function(require,module,exports){
-const div=require("../../lib/div"),span=require("../../lib/span"),el=require("redom").el,img=require("../../lib/img"),link=require("../../lib/link"),style=require("../../lib/style");let css=style`
+  }
+
+}
+module.exports = Main
+
+},{"../../lib/div":1,"../../lib/img":2}],140:[function(require,module,exports){
+const div = require('../../lib/div')
+const img = require('../../lib/img')
+
+class Main {
+  constructor() {
+    this.el = div({
+      class: 'flex items-center justify-around'
+    }, [
+      img('./src/02-show/things/rowers.gif', {
+        class: 'w4 w5-ns br3 shadow-1'
+      }),
+      img('./src/02-show/things/compost.png', {
+        class: 'w4 w5-ns br3 shadow-1 mt5'
+      })
+    ])
+
+  }
+
+}
+module.exports = Main
+
+},{"../../lib/div":1,"../../lib/img":2}],141:[function(require,module,exports){
+const div = require('../../lib/div')
+const span = require('../../lib/span')
+const img = require('../../lib/img')
+const video = require('../../lib/video')
+
+class Main {
+  constructor() {
+    this.el = div('mt5', [
+      div('f3 mh2 navy', 'the'),
+      div('f1 mh2 navy', '1980s.'),
+      div({
+        class: 'f4 ml4'
+      }, [
+        'was born in the soft-rock suburbs of ',
+        span('light-red', 'canada'),
+        span('', '.')
+      ]),
+      div('flex justify-between flex-wrap', [
+        div('w4 w-25 pa4 center', {
+          style: {
+            'min-width': '150px'
+          }
+        }, [
+          img('./src/03-born/img/brian-mulroney.png', {
+            width: 100
+          }),
+          div({
+            class: 'f4 blue'
+          }, 'Brian Mulroney'),
+          div({
+            class: 'f5 ml2 near-black'
+          }, 'was'),
+          div({
+            class: 'f4 ml2 near-black'
+          }, 'prime-minister.'),
+        ]),
+        div('w1 w-75 flex items-center center justify-center pl2', {
+          style: {
+            'min-width': '300px'
+          }
+        }, [
+          div('mw4 f5 tr lh-copy mr2 mid-gray', 'communism was still basically a really huge thing but I didn\'t understand because I'),
+          video('./src/03-born/img/stairsTwo.mp4', 'w4 w5-ns'),
+          div('f3 f2-ns ml2 mw4 lh-copy mid-gray', 'was really little')
+        ])
+      ])
+    ])
+  }
+
+}
+module.exports = Main
+
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/span":4,"../../lib/video":6}],142:[function(require,module,exports){
+const scaleLinear = require('d3-scale').scaleLinear
+//
+const makeAxis = function(width) {
+  let now = new Date().getFullYear()
+  let xScale = scaleLinear().range([0, width]).domain([now, 1800])
+  return {
+    spencer: xScale(1986),
+    ww2: xScale(1945),
+    ww1: xScale(1914),
+    // 'war1812': xScale(1812),
+    canada: xScale(1867),
+  }
+}
+module.exports = makeAxis
+
+},{"d3-scale":95}],143:[function(require,module,exports){
+const scaleLinear = require('d3-scale').scaleLinear
+const treeData = require('./tree-data')
+let height = 200
+let GENERATIONS = 4
+
+const calculate = function(width) {
+  if (width < 300) {
+    width = 300
+  }
+  let now = new Date().getFullYear()
+  let xScale = scaleLinear().range([0, width]).domain([now, 1800])
+  let yScale = scaleLinear().range([0, height]).domain([-5, 5])
+
+  let couples = []
+  // const widths=[0,81,45,18]//4gens
+  const widths = [0, 90, 45, 20] //5gens
+  const doCouple = function(girl, guy, gen, y) {
+    let start = girl.death || guy.death
+    if (guy.death < girl.death) {
+      start = guy.death
+    }
+    let arrow = {}
+    if (gen < 5 && girl.mom.name) {
+      arrow = {
+        mom: xScale(girl.mom.birth),
+        dad: xScale(girl.dad.birth),
+      }
+
+    }
+    let opacity = 1
+    // if (gen > GENERATIONS) {
+    //   opacity = 0.5
+    // }
+    couples.push({
+      names: [girl.name.split(' ')[0], guy.name.split(' ')[0]],
+      x: xScale(start - 5),
+      y: y,
+      guy: {
+        start: xScale(guy.death),
+        width: xScale(guy.birth) - xScale(guy.death)
+      },
+      girl: {
+        start: xScale(girl.death),
+        width: xScale(girl.birth) - xScale(girl.death)
+      },
+      opacity: opacity,
+      arrow: arrow
+    })
+    if (gen < GENERATIONS && girl.mom.name) {
+      let half = widths[gen] //parseInt((height/gen)/2)
+      doCouple(girl.mom, girl.dad, gen + 1, y + half)
+      doCouple(guy.mom, guy.dad, gen + 1, y - half)
+    }
+  }
+  doCouple(treeData.mom, treeData.dad, 1, 150)
+  return couples
+}
+
+module.exports = calculate
+
+},{"./tree-data":145,"d3-scale":95}],144:[function(require,module,exports){
+const div = require('../../lib/div')
+const style = require('../../lib/style')
+const setStyle = require('redom').setStyle
+const img = require('../../lib/img')
+const calculate = require('./calculate')
+const makeAxis = require('./axis')
+
+let css = style`
+container
+	flex: 1
+	display: flex
+	flex-direction:column;
+	padding:50
+	margin-bottom:50
+	position:relative;
+	min-height:400px;
+axis:
+	display:flex
+	flex:1
+	justify-content: space-around;
+	color:lightgrey
+	border-bottom:1px solid lightgrey
+`
+let couple = {
+  position: 'absolute',
+  'font-size': 9,
+  color: 'grey',
+  left: 0,
+  top: 0,
+  'text-align': 'left',
+  'padding-left': 10
+}
+
+class Main {
+  constructor() {
+    var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    let data = calculate(width)
+    this.lines = this.drawLines(data)
+    // this.axis = this.drawAxis(width)
+    this.el = div(css.container, [
+      div('f1 mid-gray', 'before that though,'),
+      div('gray', 'there were these farmers in smaller towns.'),
+      div('gray', 'their lives were probably hard.'),
+      div('mt3', ' or maybe they weren\'t.'),
+      div(' I don\'t know.'),
+      div('relative block ml6-ns ml4-m', {
+        style: {
+          height: '370px',
+          top: '0px'
+        }
+      }, [
+        this.lines,
+        this.axis
+      ]),
+    // div(css.axis, [
+    //   div('2017'),
+    //   div('1950'),
+    //   div('1901'),
+    // ]),
+    ])
+  }
+  drawLabel(val, label) {
+    return div({
+      style: {
+        position: 'absolute',
+        color: 'lightgrey',
+        width: '30px',
+        bottom: '15px',
+        'font-size': '10px',
+        'text-align': 'left',
+        '-webkit-transform': 'rotate(-70deg)',
+        '-moz-transform': 'rotate(-70deg)',
+        left: val + 'px',
+      }
+    }, label)
+  }
+  drawAxis(width) {
+    let obj = makeAxis(width)
+    return div('relative w-100 h-100', [
+      div({
+        style: {
+          position: 'absolute',
+          width: '100%',
+          height: '25px',
+          bottom: '0px',
+          'border-bottom': '1px dashed lightgrey'
+        }
+      }, Object.keys(obj).map(k => {
+        return this.drawLabel(obj[k], k)
+      })
+      )
+    ])
+  }
+  drawLines(couples) {
+    let lines = couples.map((obj) => {
+      let f = {
+        opacity: obj.opacity,
+        position: 'absolute',
+        'border-bottom': '2px solid #f4bcc2',
+        left: obj.girl.start + 'px',
+        width: obj.girl.width + 'px',
+        top: (obj.y + 16) + 'px'
+      }
+      let m = {
+        opacity: obj.opacity,
+        position: 'absolute',
+        'border-bottom': '2px solid lightsteelblue',
+        left: obj.guy.start + 'px',
+        width: obj.guy.width + 'px',
+        top: (obj.y + 13) + 'px'
+      }
+      let names = {
+        position: 'absolute',
+        fontSize: '11px',
+        color: '#c1bbbb',
+        left: obj.x + 'px',
+        top: obj.y + 'px'
+      }
+      return div({
+        style: couple
+      }, [
+        div({
+          style: f
+        }),
+        div({
+          style: m
+        }),
+        div({
+          style: names
+        }, `${obj.names[1]}+${obj.names[0]}`),
+      ])
+    })
+    return lines
+  }
+  updateEl(el, obj) {
+    setStyle(el.children[0], {
+      left: obj.girl.start + 'px',
+      width: obj.girl.width + 'px',
+    })
+    setStyle(el.children[1], {
+      left: obj.guy.start + 'px',
+      width: obj.guy.width + 'px',
+    })
+    setStyle(el.children[2], {
+      left: obj.x + 'px',
+    })
+  }
+  redraw() {
+    let width = this.el.getBoundingClientRect().width
+    let data = calculate(width)
+    this.lines.forEach((el, i) => {
+      this.updateEl(el, data[i])
+    })
+  // let axis = makeAxis(width)
+  // let labels = this.axis.children[0].children || []
+  // Object.keys(axis).forEach((k, i) => {
+  //   setStyle(labels[i], {
+  //     left: axis[k] + 'px'
+  //   })
+  // })
+  }
+  onmount() {
+    this.timeout;
+    //debounce on-resize event
+    window.addEventListener('resize', () => {
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+      }
+      this.timeout = setTimeout(() => {
+        this.redraw()
+      }, 500)
+    })
+  }
+}
+module.exports = Main
+
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"./axis":142,"./calculate":143,"redom":137}],145:[function(require,module,exports){
+module.exports = {
+  name: "Me",
+  place: "Barrie",
+  birth: 1986,
+  death: null,
+  siblings: 1,
+  mom: {
+    name: "Mom",
+    place: "Montreal",
+    birth: 1950,
+    death: new Date().getFullYear(), //for the graph!!
+    siblings: 0,
+    mom: {
+      name: "Nana",
+      place: "Orillia",
+      birth: 1923,
+      death: 2017,
+      siblings: 0,
+      mom: {
+        name: "Mabel Eaton",
+        place: "Orillia",
+        birth: 1897,
+        death: 1988,
+        siblings: 6,
+        mom: {
+          name: "Isabella Rawlston",
+          place: "Orillia",
+          birth: 1854,
+          death: 1935,
+          mom: {
+            name: "Mary Jane Wesvig",
+            place: "Orillia",
+            birth: 1827,
+          },
+          dad: {
+            name: "Alexander Rawlston",
+            place: "Orillia",
+            birth: 1824,
+          },
+        },
+        dad: {
+          name: "Edward Eaton",
+          place: "Orillia",
+          birth: 1856,
+          death: 1944,
+          mom: {
+            name: "Lavina Ball",
+            place: "Orillia",
+            birth: 1828,
+            death: 1915,
+          },
+          dad: {
+            name: "James Eaton",
+            place: "Ireland",
+            birth: 1831,
+            death: 1915,
+          },
+        },
+      },
+      dad: {
+        name: "John Cameron",
+        place: "Orillia",
+        birth: 1893,
+        death: 1976,
+        siblings: 4,
+        mom: {
+          name: "Agnes Cotton",
+          place: "Oro",
+          death: 1930,
+          birth: 1861,
+          mom: {
+            name: "Ann Cameron",
+            place: "Scotland",
+            birth: 1829,
+          },
+          dad: {
+            name: "Jeremiah Cotton",
+            place: "England",
+            birth: 1823,
+          },
+        },
+        dad: {
+          name: "Donald Cameron",
+          place: "Scotland",
+          birth: 1855,
+          death: 1922,
+          mom: {
+            name: "Margaret Littler",
+            place: "England",
+            birth: 1828,
+            death: 1876,
+          },
+          dad: {
+            name: "Malcom Cameron",
+            place: "Scotland",
+            birth: 1825,
+            death: 1886,
+          },
+        },
+      }
+    },
+    dad: {
+      name: "Skipper",
+      place: "Orillia",
+      birth: 1921,
+      death: 2003,
+      siblings: 2,
+      mom: {
+        name: "Orphea Snider",
+        place: "Belleville",
+        birth: 1886,
+        death: 1944,
+        estimate: true,
+        siblings: 6,
+        mom: {
+          name: "Elizabeth Gibbs",
+          place: "Belleville",
+          birth: 1862,
+          death: 1940,
+          mom: {
+            name: "Sicela Gibbs",
+            place: null,
+            birth: 1842,
+            estimate: true,
+          },
+          dad: {
+            name: "Andrew Gibbs",
+            place: null,
+            birth: 1839,
+            estimate: true,
+          },
+        },
+        dad: {
+          name: "Adam Snider",
+          place: "St. Catherines",
+          birth: 1852,
+          death: 1921,
+          mom: {
+            name: "Almeda Milligan",
+            place: "Brantford",
+            birth: 1841,
+          },
+          dad: {
+            name: "Zachariah Snider",
+            place: "Belleville",
+            birth: 1825,
+          },
+        },
+      },
+      dad: {
+        name: "James Lawrence",
+        place: "Bracebridge",
+        birth: 1882,
+        death: 1944,
+        siblings: 6,
+        mom: {
+          name: "Christina McLean",
+          place: "Scotland/Perry Sound",
+          birth: 1841,
+          death: 1923,
+          mom: {
+            name: "Mary Muir",
+            place: "Scotland",
+            birth: 1864,
+          },
+          dad: {
+            name: "Colin McLean",
+            place: "Scotland",
+            birth: 1849,
+          },
+        },
+        dad: {
+          name: "James Lawrence",
+          place: "Ireland/Perry Sound",
+          birth: 1833,
+          death: 1921,
+          mom: {
+            name: "Ann Lawrence",
+            place: "Ireland",
+            birth: 1818,
+          },
+          dad: {
+            name: "James Lawrence",
+            place: "England",
+            birth: 1818,
+          },
+        },
+      },
+    },
+  },
+  dad: {
+    name: "Dad",
+    place: "Kingston",
+    birth: 1952,
+    death: new Date().getFullYear(), //for the graph!!
+    siblings: 4,
+    mom: {
+      name: "Grandma",
+      place: "Athens",
+      birth: 1916,
+      death: 2002,
+      siblings: 1,
+      mom: {
+        name: "Ethel Berney",
+        place: "Athens",
+        birth: 1889,
+        death: 1919,
+        siblings: 7,
+        mom: {
+          name: "Rosa Ann Moran",
+          place: "Athens",
+          birth: 1855,
+          death: 1919,
+          mom: {
+            name: "Hanora Moran",
+            place: null,
+            birth: 1828,
+            estimate: true,
+          },
+          dad: {
+            name: "James Moran",
+            place: "Ireland",
+            birth: 1825,
+          },
+        },
+        dad: {
+          name: "Abel Barny",
+          place: "Athens",
+          birth: 1852,
+          death: 1937,
+          mom: {
+            name: "Abigail Wright",
+            place: "Athens",
+            birth: 1814,
+          },
+          dad: {
+            name: "William Berney",
+            place: "Athens",
+            birth: 1804,
+          },
+        },
+      },
+      dad: {
+        name: "Oran Robinson",
+        place: "Brockville",
+        birth: 1889,
+        death: 1919,
+        siblings: 4,
+        mom: {
+          name: "Keziah Yates",
+          place: "Lyndhurst",
+          birth: 1862,
+          death: 1954,
+          mom: {
+            name: "Cynthia Ann Booth",
+            place: "Athens",
+            birth: 1840,
+          },
+          dad: {
+            name: "Gerhom Yates",
+            place: "Athens",
+            birth: 1829,
+          },
+        },
+        dad: {
+          name: "George Robinson",
+          place: "Athens",
+          birth: 1859,
+          death: 1939,
+          mom: {
+            name: "Clarinda Wing",
+            place: "Athens",
+            birth: 1832,
+          },
+          dad: {
+            name: "Abraham Robeson",
+            place: "Athens",
+            birth: 1828,
+          },
+        },
+      },
+    },
+    dad: {
+      name: "Papa",
+      place: "Delta",
+      birth: 1913,
+      death: 1981,
+      siblings: 2,
+      mom: {
+        name: "Clara Arnold",
+        place: "Brockville",
+        birth: 1880,
+        death: 1949,
+        siblings: 0,
+        mom: {
+          name: "Lucy Blancher",
+          place: "Brockville",
+          birth: 1852,
+          death: 1932,
+          mom: {
+            name: "Hulda Blanchard",
+            place: null,
+            birth: 1811,
+            estimate: true,
+          },
+          dad: {
+            name: "Charles Blanchard",
+            place: null,
+            birth: 1811,
+          },
+        },
+        dad: {
+          name: "Omer Arnold",
+          place: "Athens",
+          death: 1943,
+          birth: 1856,
+          mom: {
+            name: "Caroline Webster",
+            place: null,
+            birth: 1827,
+            death: 1907,
+          },
+          dad: {
+            name: "Richard Arnold",
+            place: null,
+            birth: 1821,
+            death: 1906,
+          },
+        },
+      },
+      dad: {
+        name: "Joseph Kelly",
+        place: "Athens",
+        birth: 1879,
+        death: 1946,
+        siblings: 3,
+        mom: {
+          name: "Mary Ann Topping",
+          place: "Athens",
+          birth: 1850,
+          death: 1927,
+          mom: {
+            name: "Ellen Cavanaugh",
+            place: "Ireland",
+            birth: 1831,
+          },
+          dad: {
+            name: "George Topping",
+            place: "Ireland",
+            birth: 1824,
+          }
+        },
+        dad: {
+          name: "Richard Kelly",
+          place: "Athens",
+          birth: 1852,
+          death: 1928,
+          mom: {
+            name: "Eliza Ennis",
+            place: "Athens",
+            birth: 1826,
+          },
+          dad: {
+            name: "Richard Kelly",
+            place: "Athens",
+            birth: 1818,
+          },
+        },
+      },
+    },
+  },
+};
+
+},{}],146:[function(require,module,exports){
+const div = require('../../lib/div')
+const img = require('../../lib/img')
+const video = require('../../lib/video')
+
+class Main {
+  constructor() {
+    this.el = div('ml3 fw1', [
+      div('f3 mh2 navy', '1990-'),
+      div('flex flex-wrap', [
+        div('flex tc flex-wrap flex-column', [
+          div('mt2  mb2 flex items-center', [
+            div('w5', [
+              div('f3 blue avenir fw1', 'compiled linux'),
+              div('mb2 fw1', '(many mistakes)'),
+            ]),
+            img('./src/05-mistakes/img/linux.png', 'w4 mh2 mw4 w-90 br3 shadow-1'),
+          ]),
+          div('mt3 mb2 flex items-center', [
+            img('./src/05-mistakes/img/carpet.jpg', 'w4 ma2 mw4 w-90 br3 shadow-1'),
+            div('w5', [
+              div('f3 red avenir fw1', 'got a philosophy degree'),
+              div('mb2 fw1', '(huge mistake)'),
+            ]),
+          ]),
+          div('mt3  mb2 flex items-center', [
+            div('w5', [
+              div('f3 green avenir fw1', 'went to grad-school'),
+              div('mb2 fw1', '(obvious mistake)'),
+            ]),
+            img('./src/05-mistakes/img/table.png', 'w4 mh2 mw4 w-90 br3 shadow-1'),
+          ]),
+        ]),
+        div('ml5 tc mw5 mb2 flex flex-column mt4 items-center justify-center', [
+          div('w5', [
+            div('f3 orange avenir fw1', 'dyed my hair blue'),
+            div('mb2 tc fw1', '(clear mistake)'),
+          ]),
+          video('./src/05-mistakes/img/hairblue.mp4', 'w5 w6-ns mw6 mr2 mw-100 br3 shadow-1'),
+          div('mb2 tr', 'for some reason...'),
+        ]),
+      ])
+    ])
+  }
+}
+module.exports = Main
+
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/video":6}],147:[function(require,module,exports){
+const div = require('../../lib/div')
+const img = require('../../lib/img')
+const video = require('../../lib/video')
+// const el = require('redom').el;
+
+// const wave = function() {
+//   let d = "M 75 32 L 75 32 L 59.1279296875 36.623046875 L 44.0986328125 42.9892578125 L 38 51"
+//   return el('path', {
+//     'xml:space': "preserve",
+//     d: d,
+//     stroke: "#1b76ff",
+//     'stroke-width': "24px",
+//     fill: "none",
+//     'stroke-linecap': "round",
+//     'stroke-linejoin': "round"
+//   })
+// }
+
+class Main {
+  constructor() {
+    this.el = div('pt5', [
+      div('f2 blue ml3 mb3', 'But you know,'),
+      div('flex items-center justify-center pt2 pb5 flex-wrap', [
+        div('relative', [
+          video('./src/06-swim/swim.mp4', {
+            class: 'w5 br3 shadow-1 relative '
+          }),
+          div('h1 w5 absolute bg-blue bottom-0 o-80', {
+            style: {
+              'border-bottom-left-radius': '.5rem',
+              'border-bottom-right-radius': '.5rem',
+            }
+          }, []),
+        ]),
+        div('w5 ma3', [
+          div('underline pb2 f4', 'the web is a silly place.'),
+          img('./src/06-swim/wave2.svg', 'w4'),
+          // el('svg', {
+          //   'xml:space': "preserve",
+          //   width: '100px',
+          //   height: '100px'
+          // }, [
+          //   el('path', {
+          //     stroke: '#1b76ff',
+          //     d: 'M 32 54 L 77.0126953125'
+          //   })
+          // ]),
+          // div('center', 'the technologies'),
+          // div('center', 'are certainly quite ridiculous'),
+          div('blue ml2', [
+            "⸟",
+            "׆",
+            "∗",
+            "יִ",
+            "ײַ",
+            "؞",
+            "‎",
+            "؛",
+            "؀",
+            "∘",
+            "⌌",
+            "∙",
+            "∻",
+            "⌍",
+            "⋄",
+            "⋅",
+            "٭",
+            "⋆",
+            "ﻩ",
+            "‎",
+            "∼",
+            "ͻ",
+            "∽",
+            "ر",
+            "‎",
+            "⸰",
+            "·",
+            "∾",
+            "∿",
+            "⋰",
+            "፣",
+            "҃",
+            "῁῀ﺓ‎᾽῍῎`‘",
+            "∼ͻ∽ر‎⸰·∾∿⋰",
+          ])
+        ])
+      ])
+    ])
+
+  }
+
+}
+module.exports = Main
+
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/video":6}],148:[function(require,module,exports){
+const div = require('../../lib/div')
+const span = require('../../lib/span')
+const el = require('redom').el;
+const img = require('../../lib/img')
+const link = require('../../lib/link')
+const style = require('../../lib/style')
+let css = style`
 container
 	flex: 1
 	display: flex
@@ -10470,79 +11456,332 @@ num:
 	color:#3aa83c;
 desc
 	border-top:1px solid lightgrey
-`;class Main{constructor(){this.el=div("mt4 ma3 lh-hero",[div(css.container,[div(css.title,[div("f4",[div("I built"),div("and"),div("maintain")]),div(css.num,"3"),div("f3",[div("very-challenging"),div("open-source projects:")])]),div("flex justify-around flex-wrap mw-80 items-end",[this.project("nlp-compromise","./src/github/img/nlp-compromise.png","http://compromise.cool"),this.project("wtf_wikipedia","./src/github/img/wtf-wikipedia.png","https://spencermountain.github.io/wtf_wikipedia/"),this.project("spacetime","./src/github/img/spacetime.png","https://smallwins.github.io/spacetime/")]),div("mt4 mb2 f5","hilariously, they're running at thousands of organizations."),div("f4",[span("f5 mr2","including: "),span(css.org,["Microsoft, CitiBank, the Guardian,",span("gray ph1","and the"),"United Nations",el("a",{href:"https://www.microsoft.com/reallifecode/2017/06/06/geocoding-social-conversations-nlp-javascript/",class:"link dim f5"},[el("sup"," [1]")])])]),div("f5 mt5",[span("dim-gray","I've worked places like:"),div("flex justify-center flex-wrap f6",[link("http://state.com","link dim pa1 light-green","State.com,"),link("http://govinvest.com","link dim pa1 orange","Govinvest,"),link("http://topix.io","link dim pa1 light-blue","Topix.io,"),link("http://kmstandards.com","link dim pa1 pink","KMStandards,"),link("http://begin.com","link dim pa1 light-red","and SmallWins.")])]),div("dim-gray f5 mt4","I've gotten to learn from people like:"),div(css.friendList,[el("a",{href:"http://philgribbon.com/",class:"link dim blue f4"},"Phil Gribbon,"),el("a",{href:"https://zooid.org/~vid/",class:"link dim blue f4"},"David Mason,"),span("pa1 pink","&"),el("a",{href:"https://github.com/brianleroux",class:"link dim blue f4"},"Brian LeRoux")])])])}project(i,e,t){return el("a",{class:"link dim bb bw2 blue mh2 mt3",href:t},[img(e,"w-100 mw3"),div(css.title,i)])}}module.exports=Main;
+`
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"../../lib/span":4,"../../lib/style":5,"redom":137}],142:[function(require,module,exports){
-const div=require("../../lib/div"),img=require("../../lib/img");class Main{constructor(){this.el=div("flex items-center center overflow-hidden",[div({class:"pa4"},[div("Spencer Kelly"),div("pt2","not a confident software developer")]),img("./src/hello/starter.png",{class:"mw-100 br3 shadow-1"})])}}module.exports=Main;
+class Main {
+  constructor() {
+    this.el = div('mt4 ma3 lh-hero', [
+      div(css.container, [
+        div(css.title, [
+          div('f4', [div('I built'), div('and'), div('maintain')]),
+          div(css.num, '3'),
+          div('f3', [div('very-challenging'),
+            div('open-source projects:'),
+          ]),
+        ]),
+        div('flex justify-around flex-wrap mw-80 items-end', [
+          this.project('nlp-compromise', './src/07-github/img/nlp-compromise.png', 'http://compromise.cool'),
+          this.project('wtf_wikipedia', './src/07-github/img/wtf-wikipedia.png', 'https://spencermountain.github.io/wtf_wikipedia/'),
+          this.project('spacetime', './src/07-github/img/spacetime.png', 'https://smallwins.github.io/spacetime/'),
+        ]),
+        div('mt4 mb2 f5', 'hilariously, they\'re running at thousands of organizations.'),
+        div('f4', [
+          span('f5 mr2', 'including: '),
+          span(css.org, [
+            'Microsoft, CitiBank, the Guardian,',
+            span('gray ph1', 'and the'),
+            'United Nations',
+            el('a', {
+              href: 'https://www.microsoft.com/reallifecode/2017/06/06/geocoding-social-conversations-nlp-javascript/',
+              class: 'link dim f5'
+            }, [el('sup', ' [1]')]),
+          ]),
+        ]),
+        div('f5 mt5', [
+          span('dim-gray', 'I\'ve worked places like:'),
+          div('flex justify-center flex-wrap f6', [
+            link('http://state.com', 'link dim pa1 light-green', 'State.com,'),
+            link('http://govinvest.com', 'link dim pa1 orange', 'Govinvest,'),
+            link('http://topix.io', 'link dim pa1 light-blue', 'Topix.io,'),
+            link('http://kmstandards.com', 'link dim pa1 pink', 'KMStandards,'),
+            link('http://begin.com', 'link dim pa1 light-red', 'and SmallWins.'),
+          ])
+        ]),
+        div('dim-gray f5 mt4', 'I\'ve gotten to learn from people like:'),
+        div(css.friendList, [
+          el('a', {
+            href: 'http://philgribbon.com/',
+            class: 'link dim blue f4'
+          }, 'Phil Gribbon,'),
+          el('a', {
+            href: 'https://zooid.org/~vid/',
+            class: 'link dim blue f4'
+          }, 'David Mason,'),
+          span('pa1 pink', '&'),
+          el('a', {
+            href: 'https://github.com/brianleroux',
+            class: 'link dim blue f4'
+          }, 'Brian LeRoux'),
+        ]),
+      ])
+    ])
+  }
+  project(title, src, href) {
+    return el('a', {
+      class: 'link dim bb bw2 blue mh2 mt3',
+      href: href
+    }, [
+      img(src, 'w-100 mw3'),
+      div(css.title, title),
+    // div(css.desc, desc),
+    ])
+  }
+}
+module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2}],143:[function(require,module,exports){
-const el=require("redom").el,mount=require("redom").mount,Born=require("./born"),Mistakes=require("./mistakes"),Github=require("./github"),Today=require("./today"),Tree=require("./tree"),Hello=require("./hello"),Show=require("./show/first"),Swim=require("./show/swim"),End=require("./end"),css_container={display:"flex","flex-direction":"column"};class App{constructor(){this.el=el("#app",{style:css_container},[new Hello,new Show,new Born,new Tree,new Mistakes,new Swim,new Github,new Today,new End])}}const app=new App;mount(document.body,app);
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"../../lib/span":4,"../../lib/style":5,"redom":137}],149:[function(require,module,exports){
+const div = require('../../lib/div')
+const img = require('../../lib/img')
+const svg = require('redom').svg;
+const link = require('../../lib/link')
 
-},{"./born":139,"./end":140,"./github":141,"./hello":142,"./mistakes":144,"./show/first":146,"./show/swim":147,"./today":148,"./tree":151,"redom":137}],144:[function(require,module,exports){
-const div=require("../../lib/div"),img=require("../../lib/img"),video=require("../../lib/video");class Main{constructor(){this.el=div("ml3 fw1",[div("f3 mh2 navy","1990-"),div("flex flex-wrap",[div("flex tc flex-wrap flex-column",[div("mt2  mb2 flex items-center",[div("w5",[div("f3 blue avenir fw1","compiled linux"),div("mb2 fw1","(many mistakes)")]),img("./src/mistakes/img/linux.png","w4 mh2 mw4 w-90 br3 shadow-1")]),div("mt3 mb2 flex items-center",[img("./src/mistakes/img/carpet.jpg","w4 ma2 mw4 w-90 br3 shadow-1"),div("w5",[div("f3 red avenir fw1","got a philosophy degree"),div("mb2 fw1","(huge mistake)")])]),div("mt3  mb2 flex items-center",[div("w5",[div("f3 green avenir fw1","went to grad-school"),div("mb2 fw1","(obvious mistake)")]),img("./src/mistakes/img/table.png","w4 mh2 mw4 w-90 br3 shadow-1")])]),div("ml5 tc mw5 mb2 flex flex-column mt4 items-center justify-center",[div("w5",[div("f3 orange avenir fw1","dyed my hair blue"),div("mb2 tc fw1","(clear mistake)")]),video("./src/mistakes/img/hairblue.mp4","w5 w6-ns mw6 mr2 mw-100 br3 shadow-1"),div("mb2 tr","for some reason...")])])])}}module.exports=Main;
+class Main {
+  constructor() {
+    this.el = div('center relative', [
+      div('relative flex items-center mt4', [
+        div('f1 f-title-m f-headline-ns absolute w-100 center washed-green pa3-ns top-0', 'I really'),
+        div('f1 f-title-m f-headline-ns absolute w-100 center washed-green pa3-ns bottom-4 ', 'like rural'),
+        div('f1 f-title-m f-headline-ns absolute w-100 center washed-green pa3-ns bottom-0 ', 'Ontario'),
+        img('./src/08-today/img/ontario.png', 'mw-100'),
+      ]),
+      div('ml3', 'for some reason'),
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/video":6}],145:[function(require,module,exports){
-const svg=require("redom").svg,div=require("../../lib/div"),img=require("../../lib/img"),link=require("../../lib/link"),leaf=()=>svg("path",{d:"M 25 53 L 39.34375 28.65625 L 46.6875 23.828125 L 69.34375 20.171875 L 77 22 L 27 53 L 44.0703125 51.1171875 L 55.4462890625 46.7490234375 L 69.3564453125 36.5791015625 L 77 29",stroke:"#00850a","stroke-linecap":"round","stroke-width":".5rem",transform:"scale(0.5) translate(120,50)",fill:"#00850a"}),leaf2=()=>svg("path",{d:"M 25 53 L 39.34375 28.65625 L 46.6875 23.828125 L 69.34375 20.171875 L 77 22 L 27 53 L 44.0703125 51.1171875 L 55.4462890625 46.7490234375 L 69.3564453125 36.5791015625 L 77 29",stroke:"#00850a","stroke-linecap":"round","stroke-width":".5rem",transform:"scale(0.7) translate(40,50) rotate(20)",fill:"#00850a"}),leaf3=()=>svg("path",{d:"M 180 30.5 L 138.140625 34.671875 L 114.625 43.1875 L 76.5625 66.8828125 L 27 115.671875 L 22.828125 121.5 L 79.2734375 117.390625 L 159.6875 80.984375 L 196 48.5009765625 L 200.171875 42.328125 L 198.623046875 38.123046875 L 191.171875 36.5 L 188 35.5",stroke:"#158f00","stroke-linecap":"round","stroke-width":".5rem",transform:"scale(0.3) translate(40,50) rotate(20)",fill:"#158f00"}),leaf4=()=>svg("path",{d:"M 180 30.5 L 138.140625 34.671875 L 114.625 43.1875 L 76.5625 66.8828125 L 27 115.671875 L 22.828125 121.5 L 79.2734375 117.390625 L 159.6875 80.984375 L 196 48.5009765625 L 200.171875 42.328125 L 198.623046875 38.123046875 L 191.171875 36.5 L 188 35.5",stroke:"#158f00","stroke-linecap":"round","stroke-width":".5rem",transform:"scale(0.3) translate(115,-30) rotate(0)",fill:"green"});class Main{constructor(){this.el=svg("svg",{viewBox:"0 0 100 300",style:{height:"8rem",width:"6rem"}},[svg("path",{d:"M 102 462 L 110.59375 421.28515625 L 115.712890625 336.7724609375 L 115.7451171875 248.1728515625 L 109.921875 180.48828125 L 97.673828125 128.2431640625 L 74.98046875 64.0234375 L 57.705078125 35.923828125 L 37.869140625 22.623046875 L 20.623046875 20 L 20 20",stroke:"#19a974","stroke-linecap":"round","stroke-width":".5rem",fill:"none"}),leaf(),leaf2(),leaf3(),leaf4()])}}module.exports=Main;
+      div('relative flex items-center justify-center mt4', [
+        div('f1 f-title-m f-headline-ns absolute w-100 center near-white pa3 top-0', 'I don\'t'),
+        div('f1 f-title-m f-headline-ns absolute w-100 center light-blue pa3 bottom-4 ', 'understand'),
+        div('f1 f-title-m f-headline-ns absolute w-100 center near-white pa3 bottom-0 ', 'biology'),
+        img('./src/08-today/img/cell2.png', 'mw-100'),
+      ]),
+      div('absolute mr3 right-0', 'but I sure wish I did'),
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"redom":137}],146:[function(require,module,exports){
-const div=require("../../lib/div"),img=require("../../lib/img");class Main{constructor(){this.el=div({class:"flex items-center justify-around"},[img("./src/show/things/rowers.gif",{class:"w4 w5-ns br3 shadow-1"}),img("./src/show/things/compost.png",{class:"w4 w5-ns br3 shadow-1 mt5"})])}}module.exports=Main;
+      div('relative items-center justify-center mt6 mh2 pl4 bb b--blue bw3', {
+        style: {
+          'max-width': '500px',
+          'width': '75%',
+        }
+      }, [
+        div('relative f2 f1-m f1-ns w-100 center dim-gray shrink', 'because'),
+        div('relative ml3 f1 f-subheadline-m f-headline-ns w-100 center light-gray shrink', 'Software'),
+        div('relative f1 f-headline-m f-headline-ns w-100 center light-blue shrink', 'is not'),
+        div('relative ml3 f2 f1-m f1-ns w-100 center dim-gray shrink', 'clever enough'),
+        div('relative f2 f2-m f1-ns w-100 center light-blue mb2', 'yet.'),
+        svg('svg', {
+          style: {
+            position: 'absolute',
+            right: '-80px',
+            bottom: '-50px',
+            width: '80px',
+            height: '50px',
+            overflow: 'visible'
+          }
+        }, [
+          svg('path', {
+            d: "M-5 4 C 30 5, 40 10, 80 40",
+            stroke: "#357edd",
+            'stroke-linecap': "round",
+            'stroke-width': ".5rem",
+            fill: "none"
+          })
+        ])
+      ]),
+      div('pb6 pt2 mh2 pl4 tl', [
+        link('mailto:spencermountain@gmail.com', 'f3 link dim underline lh-title mh2 light-blue', 'I\'m available for work'),
+        div('ml4', 'I only do one job at a time')
+      ]),
+    ])
+  }
+}
+module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2}],147:[function(require,module,exports){
-const div=require("../../lib/div"),img=require("../../lib/img"),el=require("redom").el,video=require("../../lib/video"),wave=function(){return el("path",{"xml:space":"preserve",d:"M 75 32 L 75 32 L 59.1279296875 36.623046875 L 44.0986328125 42.9892578125 L 38 51",stroke:"#1b76ff","stroke-width":"24px",fill:"none","stroke-linecap":"round","stroke-linejoin":"round"})};class Main{constructor(){this.el=div("pt5",[div("f2 blue ml3 mb3","But you know,"),div("flex items-center justify-center pt2 pb5 flex-wrap",[div("relative",[video("./src/show/things/swim.mp4",{class:"w5 br3 shadow-1 relative "}),div("h1 w5 absolute bg-blue bottom-0 o-80",{style:{"border-bottom-left-radius":".5rem","border-bottom-right-radius":".5rem"}},[])]),div("w5 ma3",[div("underline pb2 f4","the web is a silly place."),img("./src/show/wave2.svg","w4"),div("blue ml2",["⸟","׆","∗","יִ","ײַ","؞","‎","؛","؀","∘","⌌","∙","∻","⌍","⋄","⋅","٭","⋆","ﻩ","‎","∼","ͻ","∽","ر","‎","⸰","·","∾","∿","⋰","፣","҃","῁῀ﺓ‎᾽῍῎`‘","∼ͻ∽ر‎⸰·∾∿⋰"])])])])}}module.exports=Main;
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"redom":137}],150:[function(require,module,exports){
+const svg = require('redom').svg
+const div = require('../../lib/div')
+const img = require('../../lib/img')
+const link = require('../../lib/link')
+const Plant = require('../plant')
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/video":6,"redom":137}],148:[function(require,module,exports){
-const div=require("../../lib/div"),img=require("../../lib/img"),svg=require("redom").svg,link=require("../../lib/link"),el=require("redom").el,style=require("../../lib/style");let css=style`
-container
-	display: flex
-	flex: 1
-	flex-direction: column;
-	font-size:20px;
-thing:
-	display:flex
-	flex:1
-	flex-direction: column;
-	text-align: center;
-	padding:50
-underline:
-	flex:1
-	text-align: left;
-	font-style: italic;
-	padding-left:5
-	margin-bottom:10
-	border-bottom:2px solid steelblue
-streams:
-	font-family: Times, Times New Roman, Georgia, serif;
-	color:lightsteelblue;
-	font-size:30px;
-bio:
-	text-align:center;
-`;class Main{constructor(){this.el=div("center relative",[div("relative flex items-center mt4",[div("f1 f-title-m f-headline-ns absolute w-100 center washed-green pa3-ns top-0","I really"),div("f1 f-title-m f-headline-ns absolute w-100 center washed-green pa3-ns bottom-4 ","like rural"),div("f1 f-title-m f-headline-ns absolute w-100 center washed-green pa3-ns bottom-0 ","Ontario"),img("./src/today/img/ontario.png","mw-100")]),div("ml3","for some reason"),div("relative flex items-center justify-center mt4",[div("f1 f-title-m f-headline-ns absolute w-100 center near-white pa3 top-0","I don't"),div("f1 f-title-m f-headline-ns absolute w-100 center light-blue pa3 bottom-4 ","understand"),div("f1 f-title-m f-headline-ns absolute w-100 center near-white pa3 bottom-0 ","biology"),img("./src/today/img/cell2.png","mw-100")]),div("absolute mr3 right-0","but I sure wish I did"),div("relative items-center justify-center mt6 mh2 pl4 bb b--blue bw3",{style:{"max-width":"500px",width:"75%"}},[div("relative f2 f1-m f1-ns w-100 center dim-gray shrink","because"),div("relative ml3 f1 f-subheadline-m f-headline-ns w-100 center light-gray shrink","Software"),div("relative f1 f-headline-m f-headline-ns w-100 center light-blue shrink","is not"),div("relative ml3 f2 f1-m f1-ns w-100 center dim-gray shrink","clever enough"),div("relative f2 f2-m f1-ns w-100 center light-blue mb2","yet."),svg("svg",{style:{position:"absolute",right:"-80px",bottom:"-50px",width:"80px",height:"50px",overflow:"visible"}},[svg("path",{d:"M-5 4 C 30 5, 40 10, 80 40",stroke:"#357edd","stroke-linecap":"round","stroke-width":".5rem",fill:"none"})])]),div("pb6 pt2 mh2 pl4 tl",[link("mailto:spencermountain@gmail.com","f3 link dim underline lh-title mh2 light-blue","I'm available for work"),div("ml4","I only do one job at a time")])])}}module.exports=Main;
+class Main {
+  constructor() {
+    this.el = div('tc', [
+      div('flex justify-around h4 mw7 ', [
+        link('https://twitter.com/spencermountain', 'link grey dim flex flex-column tc', [
+          img('./src/09-contact/icons/twitter.svg', 'w3'),
+          div('light-blue fw1 ', 'twitter')
+        ]),
+        link('https://www.goodreads.com/user/show/51017977-spencer', 'link grey dim flex flex-column tc', [
+          img('./src/09-contact/icons/goodreads.svg', 'w3'),
+          div('fw2 ', {
+            style: {
+              color: '#7D5024'
+            }
+          }, 'goodreads')
+        ]),
+      ]),
+      div('m3 tl', {
+        style: {
+          position: 'relative',
+          bottom: '-55px',
+          'z-index': '-1',
+        }
+      }, [
+        new Plant(),
+      ]),
+      div('w-100 block tl pb3', {
+        style: {
+          'padding-left': '100px'
+        }
+      }, [
+        link('mailto:spencermountain@gmail.com', 'link dim  b avenir bb bw1 b--dim-gray f6 f3-ns ph2 fw2 light-green', 'spencermountain@gmail.com'),
+        svg('svg', {
+          viewBox: "0 0 300 300",
+          style: {
+            position: 'relative',
+            height: '30px',
+            width: '30px',
+            left: '-5px',
+            top: '10px'
+          }
+        }, [
+          //stem
+          svg('path', {
+            d: "M 110 44 L 110 44 L 107.546875 30.546875 L 95.73828125 22.623046875 L 76.7275390625 20 L 47.38671875 22.548828125 L 34.90234375 29.09765625 L 24 43.376953125 L 20.794921875 60.703125 L 23.279296875 77.494140625 L 30.3056640625 92.42578125 L 45.4921875 109.4921875 L 67.626953125 124.98828125 L 134.548828125 159.73046875 L 136 156 L 108 47 L 117.875 41.3203125 L 179.75390625 20.376953125 L 193.525390625 25.07421875 L 197.376953125 30.44140625 L 197.923828125 49.2177734375 L 186.8798828125 71.240234375 L 170.5078125 97.3828125 L 162.3359375 112.2109375 L 153.3359375 125.4375 L 134.828125 150.171875 L 132 153",
+            stroke: "#ff35fa",
+            'stroke-linecap': "round",
+            'stroke-width': ".5rem",
+            fill: "#ff35fa"
+          }),
+        ])
+      ]),
+      div('w-100 bg-light-blue h2', {
+        style: {
+          'background-color': '#408BC9'
+        }
+      }, []),
+    ])
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"../../lib/style":5,"redom":137}],149:[function(require,module,exports){
-const scaleLinear=require("d3-scale").scaleLinear,makeAxis=function(e){let a=(new Date).getFullYear(),n=scaleLinear().range([0,e]).domain([a,1800]);return{spencer:n(1986),ww2:n(1945),ww1:n(1914),canada:n(1867)}};module.exports=makeAxis;
+  }
 
-},{"d3-scale":95}],150:[function(require,module,exports){
-const scaleLinear=require("d3-scale").scaleLinear,treeData=require("./tree-data");let height=200,GENERATIONS=4;const calculate=function(e){e<300&&(e=300);let a=(new Date).getFullYear(),t=scaleLinear().range([0,e]).domain([a,1800]),r=(scaleLinear().range([0,height]).domain([-5,5]),[]);const d=[0,90,45,20],i=function(e,a,m,n){let h=e.death||a.death;a.death<e.death&&(h=a.death);let l={};m<5&&e.mom.name&&(l={mom:t(e.mom.birth),dad:t(e.dad.birth)});if(r.push({names:[e.name.split(" ")[0],a.name.split(" ")[0]],x:t(h-5),y:n,guy:{start:t(a.death),width:t(a.birth)-t(a.death)},girl:{start:t(e.death),width:t(e.birth)-t(e.death)},opacity:1,arrow:l}),m<GENERATIONS&&e.mom.name){let t=d[m];i(e.mom,e.dad,m+1,n+t),i(a.mom,a.dad,m+1,n-t)}};return i(treeData.mom,treeData.dad,1,150),r};module.exports=calculate;
+}
+module.exports = Main
 
-},{"./tree-data":152,"d3-scale":95}],151:[function(require,module,exports){
-const div=require("../../lib/div"),style=require("../../lib/style"),setStyle=require("redom").setStyle,img=require("../../lib/img"),calculate=require("./calculate"),makeAxis=require("./axis");let css=style`
-container
-	flex: 1
-	display: flex
-	flex-direction:column;
-	padding:50
-	margin-bottom:50
-	position:relative;
-	min-height:400px;
-axis:
-	display:flex
-	flex:1
-	justify-content: space-around;
-	color:lightgrey
-	border-bottom:1px solid lightgrey
-`,couple={position:"absolute","font-size":9,color:"grey",left:0,top:0,"text-align":"left","padding-left":10};class Main{constructor(){var t=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;let e=calculate(t);this.lines=this.drawLines(e),this.el=div(css.container,[div("f1 mid-gray","before that though,"),div("gray","there were these farmers in smaller towns."),div("gray","their lives were probably hard."),div("mt3"," or maybe they weren't."),div(" I don't know."),div("relative block ml6-ns ml4-m",{style:{height:"370px",top:"0px"}},[this.lines,this.axis])])}drawLabel(t,e){return div({style:{position:"absolute",color:"lightgrey",width:"30px",bottom:"15px","font-size":"10px","text-align":"left","-webkit-transform":"rotate(-70deg)","-moz-transform":"rotate(-70deg)",left:t+"px"}},e)}drawAxis(t){let e=makeAxis(t);return div("relative w-100 h-100",[div({style:{position:"absolute",width:"100%",height:"25px",bottom:"0px","border-bottom":"1px dashed lightgrey"}},Object.keys(e).map(t=>this.drawLabel(e[t],t)))])}drawLines(t){return t.map(t=>{let e={opacity:t.opacity,position:"absolute","border-bottom":"2px solid #f4bcc2",left:t.girl.start+"px",width:t.girl.width+"px",top:t.y+16+"px"},i={opacity:t.opacity,position:"absolute","border-bottom":"2px solid lightsteelblue",left:t.guy.start+"px",width:t.guy.width+"px",top:t.y+13+"px"},l={position:"absolute",fontSize:"11px",color:"#c1bbbb",left:t.x+"px",top:t.y+"px"};return div({style:couple},[div({style:e}),div({style:i}),div({style:l},`${t.names[1]}+${t.names[0]}`)])})}updateEl(t,e){setStyle(t.children[0],{left:e.girl.start+"px",width:e.girl.width+"px"}),setStyle(t.children[1],{left:e.guy.start+"px",width:e.guy.width+"px"}),setStyle(t.children[2],{left:e.x+"px"})}redraw(){let t=this.el.getBoundingClientRect().width,e=calculate(t);this.lines.forEach((t,i)=>{this.updateEl(t,e[i])})}onmount(){this.timeout,window.addEventListener("resize",()=>{this.timeout&&clearTimeout(this.timeout),this.timeout=setTimeout(()=>{this.redraw()},500)})}}module.exports=Main;
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"../plant":152,"redom":137}],151:[function(require,module,exports){
+const el = require('redom').el;
+const mount = require('redom').mount;
+// require('web-animations-js/web-animations.min'); //polyfill
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/style":5,"./axis":149,"./calculate":150,"redom":137}],152:[function(require,module,exports){
-module.exports={name:"Me",place:"Barrie",birth:1986,death:null,siblings:1,mom:{name:"Mom",place:"Montreal",birth:1950,death:(new Date).getFullYear(),siblings:0,mom:{name:"Nana",place:"Orillia",birth:1923,death:2017,siblings:0,mom:{name:"Mabel Eaton",place:"Orillia",birth:1897,death:1988,siblings:6,mom:{name:"Isabella Rawlston",place:"Orillia",birth:1854,death:1935,mom:{name:"Mary Jane Wesvig",place:"Orillia",birth:1827},dad:{name:"Alexander Rawlston",place:"Orillia",birth:1824}},dad:{name:"Edward Eaton",place:"Orillia",birth:1856,death:1944,mom:{name:"Lavina Ball",place:"Orillia",birth:1828,death:1915},dad:{name:"James Eaton",place:"Ireland",birth:1831,death:1915}}},dad:{name:"John Cameron",place:"Orillia",birth:1893,death:1976,siblings:4,mom:{name:"Agnes Cotton",place:"Oro",death:1930,birth:1861,mom:{name:"Ann Cameron",place:"Scotland",birth:1829},dad:{name:"Jeremiah Cotton",place:"England",birth:1823}},dad:{name:"Donald Cameron",place:"Scotland",birth:1855,death:1922,mom:{name:"Margaret Littler",place:"England",birth:1828,death:1876},dad:{name:"Malcom Cameron",place:"Scotland",birth:1825,death:1886}}}},dad:{name:"Skipper",place:"Orillia",birth:1921,death:2003,siblings:2,mom:{name:"Orphea Snider",place:"Belleville",birth:1886,death:1944,estimate:!0,siblings:6,mom:{name:"Elizabeth Gibbs",place:"Belleville",birth:1862,death:1940,mom:{name:"Sicela Gibbs",place:null,birth:1842,estimate:!0},dad:{name:"Andrew Gibbs",place:null,birth:1839,estimate:!0}},dad:{name:"Adam Snider",place:"St. Catherines",birth:1852,death:1921,mom:{name:"Almeda Milligan",place:"Brantford",birth:1841},dad:{name:"Zachariah Snider",place:"Belleville",birth:1825}}},dad:{name:"James Lawrence",place:"Bracebridge",birth:1882,death:1944,siblings:6,mom:{name:"Christina McLean",place:"Scotland/Perry Sound",birth:1841,death:1923,mom:{name:"Mary Muir",place:"Scotland",birth:1864},dad:{name:"Colin McLean",place:"Scotland",birth:1849}},dad:{name:"James Lawrence",place:"Ireland/Perry Sound",birth:1833,death:1921,mom:{name:"Ann Lawrence",place:"Ireland",birth:1818},dad:{name:"James Lawrence",place:"England",birth:1818}}}}},dad:{name:"Dad",place:"Kingston",birth:1952,death:(new Date).getFullYear(),siblings:4,mom:{name:"Grandma",place:"Athens",birth:1916,death:2002,siblings:1,mom:{name:"Ethel Berney",place:"Athens",birth:1889,death:1919,siblings:7,mom:{name:"Rosa Ann Moran",place:"Athens",birth:1855,death:1919,mom:{name:"Hanora Moran",place:null,birth:1828,estimate:!0},dad:{name:"James Moran",place:"Ireland",birth:1825}},dad:{name:"Abel Barny",place:"Athens",birth:1852,death:1937,mom:{name:"Abigail Wright",place:"Athens",birth:1814},dad:{name:"William Berney",place:"Athens",birth:1804}}},dad:{name:"Oran Robinson",place:"Brockville",birth:1889,death:1919,siblings:4,mom:{name:"Keziah Yates",place:"Lyndhurst",birth:1862,death:1954,mom:{name:"Cynthia Ann Booth",place:"Athens",birth:1840},dad:{name:"Gerhom Yates",place:"Athens",birth:1829}},dad:{name:"George Robinson",place:"Athens",birth:1859,death:1939,mom:{name:"Clarinda Wing",place:"Athens",birth:1832},dad:{name:"Abraham Robeson",place:"Athens",birth:1828}}}},dad:{name:"Papa",place:"Delta",birth:1913,death:1981,siblings:2,mom:{name:"Clara Arnold",place:"Brockville",birth:1880,death:1949,siblings:0,mom:{name:"Lucy Blancher",place:"Brockville",birth:1852,death:1932,mom:{name:"Hulda Blanchard",place:null,birth:1811,estimate:!0},dad:{name:"Charles Blanchard",place:null,birth:1811}},dad:{name:"Omer Arnold",place:"Athens",death:1943,birth:1856,mom:{name:"Caroline Webster",place:null,birth:1827,death:1907},dad:{name:"Richard Arnold",place:null,birth:1821,death:1906}}},dad:{name:"Joseph Kelly",place:"Athens",birth:1879,death:1946,siblings:3,mom:{name:"Mary Ann Topping",place:"Athens",birth:1850,death:1927,mom:{name:"Ellen Cavanaugh",place:"Ireland",birth:1831},dad:{name:"George Topping",place:"Ireland",birth:1824}},dad:{name:"Richard Kelly",place:"Athens",birth:1852,death:1928,mom:{name:"Eliza Ennis",place:"Athens",birth:1826},dad:{name:"Richard Kelly",place:"Athens",birth:1818}}}}}};
+const Hello = require('./01-hello');
+const Show = require('./02-show');
+const Born = require('./03-born');
+const Tree = require('./04-tree');
+const Mistakes = require('./05-mistakes');
+const Swim = require('./06-swim');
+const Github = require('./07-github');
+const Today = require('./08-today');
+const Contact = require('./09-contact');
 
-},{}]},{},[143]);
+const css = {
+  container: {
+    display: 'flex',
+    'flex-direction': 'column'
+  }
+};
+
+class App {
+  constructor() {
+    this.el = el(
+      '#app',
+      {
+        style: css.container
+      },
+      [
+        new Hello(),
+        new Show(),
+        new Born(),
+        new Tree(),
+        new Mistakes(),
+        new Swim(),
+        new Github(),
+        new Today(),
+        new Contact(),
+      ]
+    );
+  }
+}
+
+const app = new App();
+mount(document.body, app);
+
+},{"./01-hello":139,"./02-show":140,"./03-born":141,"./04-tree":144,"./05-mistakes":146,"./06-swim":147,"./07-github":148,"./08-today":149,"./09-contact":150,"redom":137}],152:[function(require,module,exports){
+const svg = require('redom').svg
+const div = require('../../lib/div')
+const img = require('../../lib/img')
+const link = require('../../lib/link')
+
+const leaf = () => {
+  return svg('path', {
+    d: "M 25 53 L 39.34375 28.65625 L 46.6875 23.828125 L 69.34375 20.171875 L 77 22 L 27 53 L 44.0703125 51.1171875 L 55.4462890625 46.7490234375 L 69.3564453125 36.5791015625 L 77 29",
+    stroke: "#00850a",
+    'stroke-linecap': "round",
+    'stroke-width': ".5rem",
+    transform: "scale(0.5) translate(120,50)",
+    fill: "#00850a"
+  })
+}
+const leaf2 = () => {
+  return svg('path', {
+    d: "M 25 53 L 39.34375 28.65625 L 46.6875 23.828125 L 69.34375 20.171875 L 77 22 L 27 53 L 44.0703125 51.1171875 L 55.4462890625 46.7490234375 L 69.3564453125 36.5791015625 L 77 29",
+    stroke: "#00850a",
+    'stroke-linecap': "round",
+    'stroke-width': ".5rem",
+    transform: "scale(0.7) translate(40,50) rotate(20)",
+    fill: "#00850a"
+  })
+}
+const leaf3 = () => {
+  return svg('path', {
+    d: "M 180 30.5 L 138.140625 34.671875 L 114.625 43.1875 L 76.5625 66.8828125 L 27 115.671875 L 22.828125 121.5 L 79.2734375 117.390625 L 159.6875 80.984375 L 196 48.5009765625 L 200.171875 42.328125 L 198.623046875 38.123046875 L 191.171875 36.5 L 188 35.5",
+    stroke: "#158f00",
+    'stroke-linecap': "round",
+    'stroke-width': ".5rem",
+    transform: "scale(0.3) translate(40,50) rotate(20)",
+    fill: "#158f00"
+  })
+}
+const leaf4 = () => {
+  return svg('path', {
+    d: "M 180 30.5 L 138.140625 34.671875 L 114.625 43.1875 L 76.5625 66.8828125 L 27 115.671875 L 22.828125 121.5 L 79.2734375 117.390625 L 159.6875 80.984375 L 196 48.5009765625 L 200.171875 42.328125 L 198.623046875 38.123046875 L 191.171875 36.5 L 188 35.5",
+    stroke: "#158f00",
+    'stroke-linecap': "round",
+    'stroke-width': ".5rem",
+    transform: "scale(0.3) translate(115,-30) rotate(0)",
+    fill: "green"
+  })
+}
+
+class Main {
+  constructor() {
+    this.el = svg('svg', {
+      viewBox: "0 0 100 300",
+      style: {
+        height: '8rem',
+        width: '6rem'
+      }
+    }, [
+      //stem
+      svg('path', {
+        d: "M 102 462 L 110.59375 421.28515625 L 115.712890625 336.7724609375 L 115.7451171875 248.1728515625 L 109.921875 180.48828125 L 97.673828125 128.2431640625 L 74.98046875 64.0234375 L 57.705078125 35.923828125 L 37.869140625 22.623046875 L 20.623046875 20 L 20 20",
+        stroke: "#19a974",
+        'stroke-linecap': "round",
+        'stroke-width': ".5rem",
+        fill: "none"
+      }),
+      leaf(),
+      leaf2(),
+      leaf3(),
+      leaf4(),
+    ])
+  }
+}
+module.exports = Main
+
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"redom":137}]},{},[151]);
