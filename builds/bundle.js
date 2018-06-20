@@ -2198,7 +2198,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 })));
 
 },{}],92:[function(require,module,exports){
-// https://d3js.org/d3-color/ Version 1.0.3. Copyright 2017 Mike Bostock.
+// https://d3js.org/d3-color/ Version 1.2.0. Copyright 2018 Mike Bostock.
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
 	typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -2388,6 +2388,9 @@ define(Color, color, {
   displayable: function() {
     return this.rgb().displayable();
   },
+  hex: function() {
+    return this.rgb().hex();
+  },
   toString: function() {
     return this.rgb() + "";
   }
@@ -2454,6 +2457,9 @@ define(Rgb, rgb, extend(Color, {
         && (0 <= this.b && this.b <= 255)
         && (0 <= this.opacity && this.opacity <= 1);
   },
+  hex: function() {
+    return "#" + hex(this.r) + hex(this.g) + hex(this.b);
+  },
   toString: function() {
     var a = this.opacity; a = isNaN(a) ? 1 : Math.max(0, Math.min(1, a));
     return (a === 1 ? "rgb(" : "rgba(")
@@ -2463,6 +2469,11 @@ define(Rgb, rgb, extend(Color, {
         + (a === 1 ? ")" : ", " + a + ")");
   }
 }));
+
+function hex(value) {
+  value = Math.max(0, Math.min(255, Math.round(value) || 0));
+  return (value < 16 ? "0" : "") + value.toString(16);
+}
 
 function hsla(h, s, l, a) {
   if (a <= 0) h = s = l = NaN;
@@ -2548,10 +2559,11 @@ function hsl2rgb(h, m1, m2) {
 var deg2rad = Math.PI / 180;
 var rad2deg = 180 / Math.PI;
 
-var Kn = 18;
-var Xn = 0.950470;
+// https://beta.observablehq.com/@mbostock/lab-and-rgb
+var K = 18;
+var Xn = 0.96422;
 var Yn = 1;
-var Zn = 1.088830;
+var Zn = 0.82521;
 var t0 = 4 / 29;
 var t1 = 6 / 29;
 var t2 = 3 * t1 * t1;
@@ -2560,17 +2572,24 @@ var t3 = t1 * t1 * t1;
 function labConvert(o) {
   if (o instanceof Lab) return new Lab(o.l, o.a, o.b, o.opacity);
   if (o instanceof Hcl) {
+    if (isNaN(o.h)) return new Lab(o.l, 0, 0, o.opacity);
     var h = o.h * deg2rad;
     return new Lab(o.l, Math.cos(h) * o.c, Math.sin(h) * o.c, o.opacity);
   }
   if (!(o instanceof Rgb)) o = rgbConvert(o);
-  var b = rgb2xyz(o.r),
-      a = rgb2xyz(o.g),
-      l = rgb2xyz(o.b),
-      x = xyz2lab((0.4124564 * b + 0.3575761 * a + 0.1804375 * l) / Xn),
-      y = xyz2lab((0.2126729 * b + 0.7151522 * a + 0.0721750 * l) / Yn),
-      z = xyz2lab((0.0193339 * b + 0.1191920 * a + 0.9503041 * l) / Zn);
+  var r = rgb2lrgb(o.r),
+      g = rgb2lrgb(o.g),
+      b = rgb2lrgb(o.b),
+      y = xyz2lab((0.2225045 * r + 0.7168786 * g + 0.0606169 * b) / Yn), x, z;
+  if (r === g && g === b) x = z = y; else {
+    x = xyz2lab((0.4360747 * r + 0.3850649 * g + 0.1430804 * b) / Xn);
+    z = xyz2lab((0.0139322 * r + 0.0971045 * g + 0.7141733 * b) / Zn);
+  }
   return new Lab(116 * y - 16, 500 * (x - y), 200 * (y - z), o.opacity);
+}
+
+function gray(l, opacity) {
+  return new Lab(l, 0, 0, opacity == null ? 1 : opacity);
 }
 
 function lab(l, a, b, opacity) {
@@ -2586,22 +2605,22 @@ function Lab(l, a, b, opacity) {
 
 define(Lab, lab, extend(Color, {
   brighter: function(k) {
-    return new Lab(this.l + Kn * (k == null ? 1 : k), this.a, this.b, this.opacity);
+    return new Lab(this.l + K * (k == null ? 1 : k), this.a, this.b, this.opacity);
   },
   darker: function(k) {
-    return new Lab(this.l - Kn * (k == null ? 1 : k), this.a, this.b, this.opacity);
+    return new Lab(this.l - K * (k == null ? 1 : k), this.a, this.b, this.opacity);
   },
   rgb: function() {
     var y = (this.l + 16) / 116,
         x = isNaN(this.a) ? y : y + this.a / 500,
         z = isNaN(this.b) ? y : y - this.b / 200;
-    y = Yn * lab2xyz(y);
     x = Xn * lab2xyz(x);
+    y = Yn * lab2xyz(y);
     z = Zn * lab2xyz(z);
     return new Rgb(
-      xyz2rgb( 3.2404542 * x - 1.5371385 * y - 0.4985314 * z), // D65 -> sRGB
-      xyz2rgb(-0.9692660 * x + 1.8760108 * y + 0.0415560 * z),
-      xyz2rgb( 0.0556434 * x - 0.2040259 * y + 1.0572252 * z),
+      lrgb2rgb( 3.1338561 * x - 1.6168667 * y - 0.4906146 * z),
+      lrgb2rgb(-0.9787684 * x + 1.9161415 * y + 0.0334540 * z),
+      lrgb2rgb( 0.0719453 * x - 0.2289914 * y + 1.4052427 * z),
       this.opacity
     );
   }
@@ -2615,19 +2634,24 @@ function lab2xyz(t) {
   return t > t1 ? t * t * t : t2 * (t - t0);
 }
 
-function xyz2rgb(x) {
+function lrgb2rgb(x) {
   return 255 * (x <= 0.0031308 ? 12.92 * x : 1.055 * Math.pow(x, 1 / 2.4) - 0.055);
 }
 
-function rgb2xyz(x) {
+function rgb2lrgb(x) {
   return (x /= 255) <= 0.04045 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4);
 }
 
 function hclConvert(o) {
   if (o instanceof Hcl) return new Hcl(o.h, o.c, o.l, o.opacity);
   if (!(o instanceof Lab)) o = labConvert(o);
+  if (o.a === 0 && o.b === 0) return new Hcl(NaN, 0, o.l, o.opacity);
   var h = Math.atan2(o.b, o.a) * rad2deg;
   return new Hcl(h < 0 ? h + 360 : h, Math.sqrt(o.a * o.a + o.b * o.b), o.l, o.opacity);
+}
+
+function lch(l, c, h, opacity) {
+  return arguments.length === 1 ? hclConvert(l) : new Hcl(h, c, l, opacity == null ? 1 : opacity);
 }
 
 function hcl(h, c, l, opacity) {
@@ -2643,10 +2667,10 @@ function Hcl(h, c, l, opacity) {
 
 define(Hcl, hcl, extend(Color, {
   brighter: function(k) {
-    return new Hcl(this.h, this.c, this.l + Kn * (k == null ? 1 : k), this.opacity);
+    return new Hcl(this.h, this.c, this.l + K * (k == null ? 1 : k), this.opacity);
   },
   darker: function(k) {
-    return new Hcl(this.h, this.c, this.l - Kn * (k == null ? 1 : k), this.opacity);
+    return new Hcl(this.h, this.c, this.l - K * (k == null ? 1 : k), this.opacity);
   },
   rgb: function() {
     return labConvert(this).rgb();
@@ -2716,6 +2740,8 @@ exports.rgb = rgb;
 exports.hsl = hsl;
 exports.lab = lab;
 exports.hcl = hcl;
+exports.lch = lch;
+exports.gray = gray;
 exports.cubehelix = cubehelix;
 
 Object.defineProperty(exports, '__esModule', { value: true });
@@ -10576,25 +10602,29 @@ class Main {
         div("Spencer Kelly"),
         div('pt2', "a software developer"),
       ]),
-      div('h-100', 'flex:1; min-width:20rem; max-width:20rem;', [
-        img('./src/01-hello/starter.png', 'br3 shadow-1')
-      ]),
-      div('flex flex-column justify-start  items-start ', 'flex:1; min-width:15rem; max-width:30rem;', [
-        div('ml3', ['Projects:']),
-        this.project('http://compromise.cool', './src/07-github/img/nlp-compromise.png', 'compromise'),
-        this.project('https://github.com/spencermountain/wtf_wikipedia', './src/07-github/img/wtf-wikipedia.png', 'wtf-wikipedia'),
-        this.project('https://github.com/spencermountain/spacetime', './src/07-github/img/spacetime.png', 'spacetime')
+      div('h-100 relative', 'flex:1; min-width:20rem; max-width:30rem;', [
+        img('./src/01-hello/starter.png', 'br3 shadow-1'),
+        div('flex flex-column justify-start  items-start absolute', 'top:15%; left:45%; flex:1; width:50%;', [
+          // div('ml3', ['work:']),
+          this.project('http://compromise.cool', './src/07-github/img/nlp-compromise.png', 'nlp-compromise', 'nlp in javascript'),
+          this.project('https://github.com/spencermountain/wtf_wikipedia', './src/07-github/img/wtf-wikipedia.png', 'wtf-wikipedia', 'wikipedia parsing'),
+          this.project('https://github.com/spencermountain/spacetime', './src/07-github/img/spacetime.png', 'spacetime', 'timezone library')
 
-      ]),
-      div('w-80 h3 bb b-blue outline', 'border-bottom:1px solid red;')
+        ]),
+      ])
     ])
 
   }
-  project(href, src, title) {
-    return div('flex justify-center items-center tl blue mt3 tl ml3', [
-      span('pa2', '  • '),
-      link(href, img(src, 'w2 w1 pa1')),
-      link(href, span('link dim ', title)),
+  project(href, src, title, desc) {
+    return div('flex justify-center items-center tl black mt4 tl ml3 link pointer', [
+      // link(href, img(src, 'w2 w1 pa1')),
+      link(href, [
+        div('grow', 'font-weight:700; font-size:18px; color:#4e6b87; white-space: nowrap', [
+          span('pa1', '  • '),
+          title
+        ]),
+        div('ml1', 'color:grey; margin-left:3rem;', desc),
+      ]),
     ])
   }
 }
@@ -10603,26 +10633,30 @@ module.exports = Main
 },{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"../../lib/span":4}],141:[function(require,module,exports){
 const div = require('../../lib/div')
 const img = require('../../lib/img')
-
+const flair = require('../lib/flair')
 class Main {
   constructor() {
-    this.el = div({
-      class: 'flex items-center justify-around'
-    }, [
-      img('./src/02-show/things/rowers.gif', {
-        class: 'w4 w5-ns br3 shadow-1'
-      }),
-      img('./src/02-show/things/compost.png', {
-        class: 'w4 w5-ns br3 shadow-1 mt5'
-      })
+    this.el = div([
+      div({
+        class: 'flex items-center justify-around'
+      }, [
+        img('./src/02-show/things/rowers.gif', {
+          class: 'w4 w5-ns br3 shadow-1'
+        }),
+        img('./src/02-show/things/compost.png', {
+          class: 'w4 w5-ns br3 shadow-1 mt5'
+        }),
+      ]),
+      div('relative', 'left:40%; max-width:50%; width:25rem;', [
+        flair(["#e6b3c1", "#b3e6d8", "#e6d8b3", "#6699cc"])
+      ])
     ])
-
   }
 
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2}],142:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../lib/flair":153}],142:[function(require,module,exports){
 const div = require('../../lib/div')
 const span = require('../../lib/span')
 const img = require('../../lib/img')
@@ -11721,7 +11755,7 @@ class Main {
 }
 module.exports = Main
 
-},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"../plant":153,"redom":137}],152:[function(require,module,exports){
+},{"../../lib/div":1,"../../lib/img":2,"../../lib/link":3,"../plant":154,"redom":137}],152:[function(require,module,exports){
 const el = require('redom').el;
 const mount = require('redom').mount;
 // require('web-animations-js/web-animations.min'); //polyfill
@@ -11771,6 +11805,25 @@ const app = new App();
 mount(document.body, app);
 
 },{"./01-hello":139,"./01-intro":140,"./02-show":141,"./03-born":142,"./04-tree":145,"./05-mistakes":147,"./06-swim":148,"./07-github":149,"./08-today":150,"./09-contact":151,"redom":137}],153:[function(require,module,exports){
+const div = require('../../lib/div')
+
+const flair = (colors, height) => {
+  height = height || 1.2
+  return div('flex justify-around items-center tc mt3', `width:100%; height:${height}rem; overflow:hidden; border-radius:5px;`, colors.map((c) => {
+    let r = 1
+    if (Math.random() > 0.5) {
+      r = 1.5
+    }
+    return div({
+      style: `flex:${r}; height:100%; background-color:${c};`
+    })
+  })
+  )
+}
+
+module.exports = flair
+
+},{"../../lib/div":1}],154:[function(require,module,exports){
 const svg = require('redom').svg
 const div = require('../../lib/div')
 const img = require('../../lib/img')
