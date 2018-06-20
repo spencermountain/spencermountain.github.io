@@ -3,20 +3,24 @@ const mount = require('redom').mount;
 // require('web-animations-js/web-animations.min'); //polyfill
 
 const Intro = require('./01-intro');
-const Hello = require('./01-hello');
 const Show = require('./02-show');
-const Born = require('./03-born');
-const Tree = require('./04-tree');
-const Mistakes = require('./05-mistakes');
-const Swim = require('./06-swim');
-const Github = require('./07-github');
-const Today = require('./08-today');
-const Contact = require('./09-contact');
+const Blog = require('./03-blog');
+// const Hello = require('./01-hello');
+// const Born = require('./03-born');
+// const Tree = require('./04-tree');
+// const Mistakes = require('./05-mistakes');
+// const Swim = require('./06-swim');
+// const Github = require('./07-github');
+// const Today = require('./08-today');
+// const Contact = require('./09-contact');
 
 const css = {
   container: {
     display: 'flex',
-    'flex-direction': 'column'
+    'flex-direction': 'column',
+    'text-align': 'center',
+    'align-items': 'center',
+    'align-content': 'center'
   }
 };
 
@@ -29,8 +33,9 @@ class App {
       },
       [
         new Intro(),
-        // new Hello(),
         new Show(),
+        new Blog(),
+      // new Hello(),
       // new Born(),
       // new Tree(),
       // new Mistakes(),
