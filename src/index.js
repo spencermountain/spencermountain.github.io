@@ -10,10 +10,10 @@ let images = [
   'boats.jpg',
   'delta.jpg',
   'flood.jpg',
-  'house.png',
-  'orange.png',
-  'satellite.png',
-  'sea.png',
+  'house.jpg',
+  'orange.jpg',
+  'satellite.jpg',
+  'sea.jpg',
   'vancouver.jpg',
   'yeast.jpg'
 ].map(str => './assets/misc/' + str)
