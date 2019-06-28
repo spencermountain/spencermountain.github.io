@@ -3,15 +3,45 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
-    <style></style>
-
-    <link rel="stylesheet" type="text/css" href="./assets/spencer.min.css" />
+    <link
+      href="https://unpkg.com/spencer-css@1.1.1/builds/spencer.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .mainStage {
+        /* min-width: 300px; */
+        display: grid;
+        grid-template-columns: 0.5fr 1.618fr 0.5fr;
+      }
+      .goldGrid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(50px, 200px));
+        /* width: 100%; */
+        /* justify-self: center; */
+      }
+      /* tablet - change grid6 to grid3 */
+      @media (max-width: 900px) {
+        .goldGrid {
+          grid-template-columns: 1fr 1.618fr 1fr;
+          justify-self: stretch;
+          min-height: 10rem;
+        }
+      }
+      /* phone - remove margins */
+      @media (max-width: 550px) {
+        .mainStage {
+          grid-template-columns: 0.5rem 1fr 0.5rem;
+        }
+      }
+    </style>
   </head>
 
   <body>
-    <div id="grid" class="row"></div>
-
+    <div class="mainStage mt5">
+      <div class=""></div>
+      <div id="showAll" class="block"></div>
+      <div class=""></div>
+    </div>
     <!-- script -->
     <script src="./assets/bundle.js"></script>
   </body>
