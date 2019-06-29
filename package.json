@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "htm": "^2.1.1",
+    "intersection-observer": "^0.7.0",
+    "scrollama": "^2.0.0",
     "somehow": "0.1.4",
     "somehow-input": "0.0.8",
     "spacetime": "5.9.0",

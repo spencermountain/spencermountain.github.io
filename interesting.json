@@ -49,7 +49,7 @@
     { "classes": ["col2", ""] },
     {
       "classes": ["row2", "f2", "m1", "sea", "maxw6"],
-      "text": "computers do not work very well"
+      "text": "because computers do not work very well"
     },
     { "classes": ["h6"], "image": "./assets/misc/flood.jpg" },
     { "classes": [""] },
@@ -78,7 +78,7 @@
     { "classes": ["bgbrown"] },
     {
       "classes": ["f3", "dimgrey", "m1"],
-      "text": "we're losing."
+      "text": "we're a mess."
     },
     { "classes": ["col2", "bgrose"] },
     { "classes": [""] },
