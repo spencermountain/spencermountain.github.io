@@ -7,6 +7,10 @@
       href="https://unpkg.com/spencer-css@1.1.1/builds/spencer.min.css"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Tajawal&display=swap"
+      rel="stylesheet"
+    />
     <style>
       .mainStage {
         /* min-width: 300px; */
@@ -15,14 +19,15 @@
       }
       .goldGrid {
         display: grid;
-        grid-template-columns: repeat(6, minmax(50px, 200px));
+        grid-template-columns: repeat(6, minmax(50px, 150px));
+        height: 16.5rem;
         /* width: 100%; */
         /* justify-self: center; */
       }
       /* tablet - change grid6 to grid3 */
       @media (max-width: 900px) {
         .goldGrid {
-          grid-template-columns: 1fr 1.618fr 1fr;
+          grid-template-columns: 1fr 1.618fr 1fr 1.618fr;
           justify-self: stretch;
           min-height: 10rem;
         }
@@ -33,15 +38,83 @@
           grid-template-columns: 0.5rem 1fr 0.5rem;
         }
       }
+      .font {
+        font-family: 'Tajawal', sans-serif;
+      }
+      .fourGrid {
+        display: grid;
+        grid-template-columns: 0.618fr 1fr 0.618fr 1fr;
+        grid-template-rows: 1fr 0.618fr 1fr;
+      }
     </style>
   </head>
 
-  <body>
-    <div class="mainStage mt5">
+  <body class="font">
+    <!-- top-part  -->
+    <div id="topGrid"></div>
+
+    <!-- hello -->
+    <div class="f4 grey row-middle mt3 relative font">
+      <div class="f2 absolute top0 sky" style="left:25%; top:-20px;">Hello</div>
+      I'm Spencer Kelly
+    </div>
+    <!-- picture -->
+    <div class="mainStage mv5">
+      <div></div>
+      <div class="right">
+        <img class=" right w8 rounded" src="./assets/full/shelf.jpg" />
+      </div>
+      <div></div>
+    </div>
+
+    <!-- 2 -->
+    <div id="grid m5" class="row">
+      <div class="h8 grow maxw10 fourGrid">
+        <div class=""></div>
+        <div class=""></div>
+        <div
+          class="col2 rounded"
+          style='background-image: url("./assets/misc/sawdust.jpg");'
+        ></div>
+        <div class=""></div>
+        <div class="bgbrown"></div>
+        <div></div>
+        <div class="bgblue"></div>
+        <div class="bgsky rounded"></div>
+        <div class="row2"></div>
+        <div class="bgrose"></div>
+      </div>
+    </div>
+
+    <!-- grids  -->
+    <div class="mainStage">
       <div class=""></div>
       <div id="showAll" class="block"></div>
       <div class=""></div>
     </div>
+
+    <!-- can't fix -->
+    <div class="mainStage mv5">
+      <div></div>
+      <div class="left f3 sea">
+        and <br />
+        it is<br />
+        important
+      </div>
+      <div></div>
+    </div>
+
+    <!-- contact -->
+    <div class="mainStage mv7">
+      <div></div>
+      <div class="center f3 nearblack">
+        so
+        <a href="mailto:spencermountain@gmail.com">➡ email</a> me. <br />
+        <div class="mt3 slate f2">we need a plan.</div>
+      </div>
+      <div></div>
+    </div>
+
     <!-- script -->
     <script src="./assets/bundle.js"></script>
   </body>

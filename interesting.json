@@ -1,178 +1,89 @@
 [
   [
-    { "classes": ["col2"], "image": null },
-    { "classes": ["row2"], "image": "./assets/misc/yeast.jpg" },
-    { "classes": ["row2", "bgpink"], "image": null },
-    { "classes": ["bgpink", ""], "image": null },
-    { "classes": [""], "image": "./assets/misc/sea.jpg" },
-    { "classes": ["col2", "sky2"], "image": "./assets/misc/satellite.jpg" },
-    { "classes": [""], "image": null },
-    { "classes": [""], "image": null }
-  ],
-  [
-    { "classes": ["col2"], "image": null },
-    { "classes": ["bgblue", "row 2"], "image": null },
-    { "classes": [""], "image": null },
-    { "classes": ["bgpink", "row2"], "image": null },
-    { "classes": ["bgblue"], "image": null },
-    { "classes": ["row2"], "image": "./assets/misc/yeast.jpg" },
-    { "classes": [""], "image": "./assets/misc/boats.jpg" },
-    { "classes": [""], "image": null }
-  ],
-
-  [
-    { "classes": [""], "image": null },
-    { "classes": [""], "image": null },
-    { "classes": ["col2", "bgred"], "image": null },
-    { "classes": [""], "image": null },
-    { "classes": ["bggrey"], "image": null },
-    { "classes": [""], "image": null },
-    { "classes": ["row2", "bgsky"], "image": null },
-    { "classes": [""], "image": null }
-  ],
-  [
-    { "classes": [""], "image": null },
-    { "classes": [""], "image": null },
-    { "classes": ["col2", "bgblue"], "image": null },
-    { "classes": ["row2", "bgpink"], "image": null },
-    { "classes": [""], "image": null },
-    { "classes": [""], "image": null },
-    { "classes": [""], "image": null },
-    { "classes": [""], "image": null }
-  ],
-
-  [
-    { "classes": ["col2", "bgpink"], "image": null },
-    { "classes": [""], "image": null },
-    { "classes": [""], "image": null },
-    { "classes": [""], "image": "./assets/misc/venus.jpg" },
-    { "classes": [""], "image": null },
-    { "classes": ["row2", "bgsky"], "image": null },
-    { "classes": [""], "image": null },
-    { "classes": [""], "image": null }
-  ],
-
-  [
-    { "classes": [""], "image": null },
-    { "classes": [""], "image": null },
+    { "classes": [""] },
+    { "classes": [""] },
     { "classes": ["col2", ""], "image": "./assets/misc/church.jpg" },
-    { "classes": ["bgpink"], "image": null },
-    { "classes": [""], "image": null },
-    { "classes": ["bgrose"], "image": null },
-    { "classes": ["bgsky"], "image": null },
+    { "classes": ["bgpink"] },
+    { "classes": [""] },
+    { "classes": ["bgrose"] },
+    { "classes": ["bgsky"] },
     { "classes": [""], "image": "./assets/misc/victoria-cow.jpg" }
   ],
 
   [
-    { "classes": [""], "image": null },
-    { "classes": ["row2", "col2", "bgred"], "image": null },
-    { "classes": [""], "image": null },
-    { "classes": ["bgblue"], "image": null },
-    { "classes": ["bgsky"], "image": null },
-    { "classes": ["bgsky"], "image": null },
-    { "classes": ["bgrose"], "image": "./assets/misc/sawdust.jpg" },
-    { "classes": [""], "image": null }
+    { "classes": ["col2", "bgpink"] },
+    { "classes": [""] },
+    { "classes": [""] },
+    { "classes": [""], "image": "./assets/misc/venus.jpg" },
+    { "classes": [""] },
+    { "classes": ["row2", "bgsky"] },
+    { "classes": [""] },
+    { "classes": ["f2", "right"], "text": "i'm worried." }
   ],
 
   [
-    { "classes": ["bgsky"], "image": null },
-    { "classes": ["bgred"], "image": "./assets/misc/cow-street.jpg" },
-    { "classes": [""], "image": "./assets/misc/mushrooms.jpg" },
-    { "classes": ["col2", "bgbrown"], "image": null },
-    { "classes": ["bgred"], "image": "./assets/misc/europa.jpg" },
-    { "classes": [""], "image": null },
-    { "classes": ["row2", ""], "image": null },
-    { "classes": ["bggrey"], "image": null }
-  ],
-
-  [
-    { "classes": ["bgbrown"], "image": null },
-    { "classes": [""], "image": null },
-    { "classes": ["bgsky"], "image": null },
-    { "classes": ["col2", ""], "image": "./assets/misc/victoria-cow.jpg" },
-    { "classes": [""], "image": null },
-    { "classes": [""], "image": "./assets/misc/saddam.jpg" },
-    { "classes": [""], "image": null },
-    { "classes": ["row2", ""], "image": null }
-  ],
-
-  [
-    { "classes": ["bgrose"], "image": null },
-    { "classes": ["bgrose"], "image": null },
-    { "classes": ["col2", ""], "image": null },
-    { "classes": ["bgpink"], "image": null },
-    { "classes": [""], "image": null },
+    { "classes": ["bgrose"] },
+    { "classes": ["bgrose"] },
+    { "classes": ["col2", ""] },
+    { "classes": ["bgpink"] },
+    { "classes": [""] },
     { "classes": ["bggrey"], "image": "./assets/misc/satellite.jpg" },
-    { "classes": [""], "image": null },
-    { "classes": ["row2", ""], "image": null }
+    { "classes": [""] },
+    { "classes": ["row2", ""] }
   ],
 
   [
-    { "classes": [""], "image": null },
-    { "classes": ["row2", ""], "image": null },
-    { "classes": ["bgsky"], "image": null },
-    { "classes": ["col2", "bgrose"], "image": null },
-    { "classes": [""], "image": "./assets/misc/boats.jpg" },
-    { "classes": [""], "image": null },
-    { "classes": [""], "image": null },
-    { "classes": [""], "image": null }
-  ],
-
-  [
-    { "classes": ["col2", ""], "image": "./assets/misc/dinner-1.jpg" },
-    { "classes": [""], "image": null },
-    { "classes": [""], "image": null },
-    { "classes": ["row2", "bgblue"], "image": null },
-    { "classes": [""], "image": null },
-    { "classes": ["bgpink"], "image": null },
-    { "classes": [""], "image": "./assets/misc/church.jpg" },
-    { "classes": ["bgsky"], "image": null }
-  ],
-
-  [
-    { "classes": [""], "image": null },
+    { "classes": [""] },
     { "classes": ["col2", "bgrose"], "image": "./assets/misc/saddam.jpg" },
-    { "classes": ["bgpink"], "image": null },
-    { "classes": ["row2", "bgblue"], "image": null },
+    { "classes": ["bgpink"] },
+    { "classes": ["row2", "bgblue"] },
     { "classes": ["bgbrown"], "image": "./assets/misc/mushrooms.jpg" },
-    { "classes": [""], "image": null },
-    { "classes": ["bgred"], "image": null },
+    { "classes": [""] },
+    { "classes": ["bgred"] },
     { "classes": ["bgsky"], "image": "./assets/misc/house.jpg" }
   ],
 
   [
-    { "classes": [""], "image": null },
-    { "classes": ["bgpink"], "image": null },
-    { "classes": ["col2", ""], "image": null },
-    { "classes": ["row2", ""], "image": null },
-    { "classes": [""], "image": "./assets/misc/flood.jpg" },
-    { "classes": [""], "image": null },
-    { "classes": ["bgred"], "image": null },
-    { "classes": [""], "image": null }
+    { "classes": [""] },
+    { "classes": ["bgpink"] },
+    { "classes": ["col2", ""] },
+    {
+      "classes": ["row2", "f2", "m1", "sea", "maxw6"],
+      "text": "computers do not work very well"
+    },
+    { "classes": ["h6"], "image": "./assets/misc/flood.jpg" },
+    { "classes": [""] },
+    { "classes": ["bgred"] },
+    {
+      "classes": []
+    }
   ],
 
   [
-    { "classes": [""], "image": null },
+    { "classes": [""] },
     { "classes": [""], "image": "./assets/misc/europa.jpg" },
     {
       "classes": ["row2", "col2", "bggrey"],
       "image": "./assets/misc/cement-house.jpg"
     },
-    { "classes": [""], "image": null },
-    { "classes": [""], "image": "./assets/misc/dog-rose.jpg" },
-    { "classes": ["bgrose"], "image": null },
-    { "classes": ["bggrey"], "image": null },
-    { "classes": ["bgbrown"], "image": null }
+    { "classes": [""] },
+    { "classes": [""], "image": "./assets/misc/hay.jpg" },
+    { "classes": ["bgrose"] },
+    { "classes": ["bggrey"] },
+    { "classes": ["bgbrown"] }
   ],
 
   [
-    { "classes": ["bgred"], "image": null },
-    { "classes": ["bgbrown"], "image": null },
-    { "classes": [""], "image": null },
-    { "classes": ["col2", "bgrose"], "image": null },
-    { "classes": [""], "image": null },
-    { "classes": ["row2", "bgsky"], "image": null },
+    { "classes": ["bgred"] },
+    { "classes": ["bgbrown"] },
+    {
+      "classes": ["f3", "dimgrey", "m1"],
+      "text": "we're losing."
+    },
+    { "classes": ["col2", "bgrose"] },
+    { "classes": [""] },
+    { "classes": ["row2", "bgsky"] },
     { "classes": ["bgsky"], "image": "./assets/misc/grandfather.jpg" },
-    { "classes": ["bgbrown"], "image": null }
+    { "classes": ["bgbrown"] }
   ]
 ]
