@@ -66,12 +66,61 @@
         /* text-decoration: underline; */
         border-bottom: 2px solid #cc8a66;
       }
+
+      .slider {
+        animation-duration: 0.3s;
+        animation-name: slidein;
+        animation-timing-function: ease-in;
+      }
+      @keyframes slidein {
+        from {
+          margin-left: 100%;
+          width: 100%;
+        }
+        to {
+          margin-left: 0%;
+          width: 100%;
+        }
+      }
     </style>
   </head>
 
   <body class="font">
+    <div id="tmp"></div>
     <!-- top-part  -->
-    <div id="topGrid" class="step"></div>
+    <div id="topGrid">
+      <div id="grid" class="row">
+        <div
+          class="h8 grow maxw10 rounded clip"
+          style="
+    display:grid;
+    grid-template-columns: 0.618fr 1fr 0.618fr 1fr ;
+    grid-template-rows: 1fr 0.618fr 1fr;
+    "
+        >
+          <div class=""></div>
+          <div
+            class=" row2 hasImg"
+            id="boats"
+            style='background-image: url("./assets/misc/boats.jpg");'
+          ></div>
+          <div class=" bgpink" id="pink"></div>
+          <div class=" "></div>
+          <div
+            class=" col2 hasImg"
+            style='background-image: url("./assets/misc/sea.jpg");'
+          ></div>
+          <div class=" bgsky"></div>
+          <div class=" "></div>
+          <div class=" bgpink"></div>
+          <div
+            class=" bgpink hasImg"
+            style='background-image: url("./assets/misc/orange.jpg");'
+          ></div>
+          <div class=" bgrose"></div>
+        </div>
+      </div>
+    </div>
 
     <!-- hello -->
     <div class="f4 grey row-middle mt3 relative font">
@@ -88,15 +137,15 @@
     </div>
 
     <!-- 2 -->
-    <div id="grid m5" class="row step">
+    <div id="grid m5" class="row">
       <div class="h8 grow maxw10 fourGrid">
-        <div class=""></div>
-        <div class=""></div>
+        <div></div>
+        <div></div>
         <div
           class="col2 rounded"
           style='background-image: url("./assets/misc/sawdust.jpg");'
         ></div>
-        <div class=""></div>
+        <div></div>
         <div class="bgbrown"></div>
         <div></div>
         <div class="bgblue"></div>
@@ -108,13 +157,127 @@
 
     <!-- grids  -->
     <div class="mainStage step">
-      <div class=""></div>
-      <div id="showAll" class="block"></div>
-      <div class=""></div>
+      <div></div>
+      <div class="block">
+        <div id="showAll" class="block">
+          <!-- horse grid -->
+          <div class="goldGrid mv6">
+            <div></div>
+            <div></div>
+            <div
+              class="col2"
+              style="background-image:url(./assets/misc/church.jpg);"
+            ></div>
+            <div class="bgpink"></div>
+            <div></div>
+            <div class="bgrose"></div>
+            <div class="bgsky"></div>
+            <div
+              style="background-image:url(./assets/misc/victoria-cow.jpg);"
+            ></div>
+          </div>
+
+          <!-- worried grid -->
+          <div class="goldGrid mv6">
+            <div class="col2 bgpink"></div>
+            <div></div>
+            <div></div>
+            <div style="background-image:url(./assets/misc/venus.jpg);"></div>
+            <div></div>
+            <div class="row2 bgsky"></div>
+            <div></div>
+            <div class="f2 right brown">i'm worried</div>
+          </div>
+
+          <!-- small clouds -->
+          <div class="goldGrid mv6">
+            <div class="bgrose"></div>
+            <div class="bgrose"></div>
+            <div class="col2 "></div>
+            <div class="bgpink"></div>
+            <div></div>
+            <div
+              class="bggrey"
+              style="background-image:url(./assets/misc/satellite.jpg);"
+            ></div>
+            <div></div>
+            <div class="row2 "></div>
+          </div>
+
+          <!-- mushroom grid -->
+          <div class="goldGrid mv6">
+            <div></div>
+            <div
+              class="col2 bgrose"
+              style="background-image:url(./assets/misc/saddam.jpg);"
+            ></div>
+            <div class="bgpink"></div>
+            <div class="row2 bgblue"></div>
+            <div
+              class="bgbrown"
+              style="background-image:url(./assets/misc/mushrooms.jpg);"
+            ></div>
+            <div></div>
+            <div class="bgred"></div>
+            <div
+              class="bgsky"
+              style="background-image:url(./assets/misc/house.jpg);"
+            ></div>
+          </div>
+
+          <!-- computers dont work -->
+          <div class="goldGrid mv6">
+            <div></div>
+            <div class="bgpink"></div>
+            <div class="col2 "></div>
+            <div class="row2 f2 m1 sea maxw6">
+              computers do not work very well
+            </div>
+            <div
+              class="h6"
+              style="background-image:url(./assets/misc/flood.jpg);"
+            ></div>
+            <div></div>
+            <div class="bgred"></div>
+            <div></div>
+          </div>
+
+          <!-- cement house grid -->
+          <div class="goldGrid mv6">
+            <div></div>
+            <div style="background-image:url(./assets/misc/europa.jpg);"></div>
+            <div
+              class="row2 col2 bggrey"
+              style="background-image:url(./assets/misc/cement-house.jpg);"
+            ></div>
+            <div></div>
+            <div style="background-image:url(./assets/misc/hay.jpg);"></div>
+            <div class="bgrose"></div>
+            <div class="bggrey"></div>
+            <div class="bgbrown"></div>
+          </div>
+
+          <!-- geneology grid -->
+          <div class="goldGrid mv6">
+            <div class="bgred"></div>
+            <div class="bgbrown"></div>
+            <div class="f3 dimgrey m1">things are a mess.</div>
+            <div class="col2 bgrose"></div>
+            <div></div>
+            <div class="row2 bgsky"></div>
+            <div
+              class="bgsky"
+              style="background-image:url(./assets/misc/grandfather.jpg);"
+            ></div>
+            <div class="bgbrown"></div>
+          </div>
+        </div>
+      </div>
+      <div></div>
     </div>
 
     <!-- can't fix -->
-    <div class="mainStage mv5 step">
+    <div class="mainStage mv5">
       <div></div>
       <div class="col-left">
         <div class="left f3 sea">
@@ -128,7 +291,7 @@
     </div>
 
     <!-- ontario farms -->
-    <div id="farms" class="mainStage mv5 step">
+    <div id="farms" class="mainStage mv5">
       <div></div>
       <div class="center relative ">
         <div
@@ -201,7 +364,7 @@
     </div>
 
     <!-- garbage -->
-    <div class="mainStage mv5 step">
+    <div class="mainStage mv5">
       <div></div>
       <div class="right m2">
         <img class="rounded shadow" src="./assets/full/yeast.jpg" />
@@ -210,8 +373,8 @@
     </div>
 
     <!-- toronto -->
-    <div id="toronto" class="mainStage mv5 step">
-      <div class=""></div>
+    <div id="toronto" class="mainStage mv5">
+      <div></div>
       <div class="row">
         <div class="f2 grow row">
           <div class="left brown">
@@ -228,11 +391,11 @@
           />
         </div>
       </div>
-      <div class=""></div>
+      <div></div>
     </div>
     <!-- apartment -->
-    <div id="apartment" class="mainStage mv5 step">
-      <div class=""></div>
+    <div id="apartment" class="mainStage mv5">
+      <div></div>
       <div class="row">
         <div class="f2 brown grow row">
           <div class="left">
@@ -244,11 +407,11 @@
           <img src="./assets/full/github.jpg" class="rounded shadow w8" />
         </div>
       </div>
-      <div class=""></div>
+      <div></div>
     </div>
 
     <!-- my age-->
-    <div class="mainStage mt7 step">
+    <div class="mainStage mt7">
       <div></div>
       <div>
         <div class="brown">
@@ -263,9 +426,9 @@
           <div class="row2 col-bottom">
             <div class="bgblue h08 w100p"></div>
           </div>
-          <div class=""></div>
+          <div></div>
 
-          <div class=""></div>
+          <div></div>
           <img src="./assets/more/statue.jpg" class="rounded shadow w6" />
           <div class="f2 col-bottom brown left">
             <div class="goleft">
@@ -294,19 +457,19 @@
     </div>
 
     <!-- can't fix -->
-    <div class="mainStage step">
+    <div class="mainStage">
       <div></div>
       <div class="left ml4"></div>
       <div></div>
     </div>
     <!-- hr -->
-    <div class="mainStage mv6 step">
+    <div class="mainStage mv6">
       <div></div>
       <div><hr /></div>
       <div></div>
     </div>
     <!-- contact -->
-    <div class="mainStage mv7 step">
+    <div class="mainStage mv7">
       <div></div>
       <div class="center f3 nearblack">
         <a href="mailto:spencermountain@gmail.com">➡ email </a> me <br />
