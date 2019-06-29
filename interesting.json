@@ -18,7 +18,7 @@
     { "classes": [""] },
     { "classes": ["row2", "bgsky"] },
     { "classes": [""] },
-    { "classes": ["f2", "right"], "text": "i'm worried." }
+    { "classes": ["f2", "right", "brown"], "text": "i'm worried" }
   ],
 
   [
@@ -78,7 +78,7 @@
     { "classes": ["bgbrown"] },
     {
       "classes": ["f3", "dimgrey", "m1"],
-      "text": "we're a mess."
+      "text": "things are a mess."
     },
     { "classes": ["col2", "bgrose"] },
     { "classes": [""] },

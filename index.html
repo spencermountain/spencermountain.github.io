@@ -24,6 +24,9 @@
         /* width: 100%; */
         /* justify-self: center; */
       }
+      .notiny {
+        display: initial;
+      }
       /* tablet - change grid6 to grid3 */
       @media (max-width: 900px) {
         .goldGrid {
@@ -36,6 +39,9 @@
       @media (max-width: 550px) {
         .mainStage {
           grid-template-columns: 0.5rem 1fr 0.5rem;
+        }
+        .notiny {
+          display: none;
         }
       }
       .font {
@@ -106,10 +112,13 @@
     <!-- can't fix -->
     <div class="mainStage mv5 step">
       <div></div>
-      <div class="left f3 sea">
-        and <br />
-        it is<br />
-        important
+      <div class="col-left">
+        <div class="left f3 sea">
+          and <br />
+          it is<br />
+          important
+        </div>
+        <div class="ml3">to get right.</div>
       </div>
       <div></div>
     </div>
@@ -117,34 +126,57 @@
     <!-- ontario farms -->
     <div id="farms" class="mainStage mv5 step">
       <div></div>
-      <div class="center relative">
+      <div class="center relative ">
         <div
-          class="absolute w7 rounded bgpurple "
+          class="absolute w7 rounded bgpurple notiny"
           style="top: -20px; right:-50px; z-index:-2; height:20%; opacity:0.9 ;"
         ></div>
         <div
-          class="absolute"
+          class="absolute notiny"
           style="top: 70px; right:-100px; z-index:-1; height:20%;"
         >
-          <img class="rounded shadow" src="./assets/full/sun-exposure.jpg" />
+          <div
+            class="h1 w100p bgblue rounded relative"
+            style="left:0px; top:10px; opacity:0.2;"
+          ></div>
+          <img class="rounded shadow " src="./assets/full/sun-exposure.jpg" />
         </div>
         <div
-          class="absolute"
+          class="absolute notiny"
           style="top: 170px; right:-60px; z-index:2; height:20%;"
         >
+          <div
+            class="h1 w100p bgpink rounded relative"
+            style="left:20px; top:10px; opacity:0.2;"
+          ></div>
           <img class="w6 rounded shadow" src="./assets/more/boat.jpg" />
         </div>
         <div
-          class="absolute"
-          style="top: 230px; right:-20px; z-index:-2; height:20%;"
+          class="absolute notiny"
+          style="top: 220px; right:-150px; z-index:-2; height:20%;"
         >
-          <img class="w7 rounded shadow" src="./assets/more/line-chart.jpg" />
+          <img class="w7 rounded" src="./assets/more/line-chart.jpg" />
         </div>
         <div
-          class="absolute"
-          style="top: 240px; right:-20px; z-index:-3; height:20%;"
+          class="absolute notiny"
+          style="top: 235px; right:-35px; z-index:1; height:20%;"
         >
+          <div
+            class="h1 w100p bgblue rounded relative"
+            style="left:20px; top:10px; opacity:0.2;"
+          ></div>
           <img class="w5 rounded" src="./assets/full/harper-chair.jpg" />
+        </div>
+        <div class="absolute notiny" style="top: 315px; right:-65px; ">
+          <div
+            class="h1 w90p bgpink rounded relative"
+            style="left:10%; top:-10px; opacity:0.2; z-index:2;"
+          ></div>
+          <img
+            class="w6 rounded"
+            style="z-index:0;"
+            src="./assets/more/cherry-blossoms.jpg"
+          />
         </div>
         <img
           class="rounded shadow"
@@ -205,30 +237,43 @@
     <!-- my age-->
     <div class="mainStage mv7 step">
       <div></div>
-      <div class="goldGrid ml2">
-        <div class="row2">
-          <img src="./assets/full/linux.jpg" class="rounded shadow w5" />
-        </div>
-        <div class="f2 brown col-bottom right"></div>
-        <img src="./assets/more/dufferin.jpg" class="rounded shadow w6" />
-        <div class="row2 col-bottom">
-          <div class="bgblue h08 w100p"></div>
-        </div>
-        <div class=""></div>
+      <div>
+        <div class="brown">
+          i write <br />
 
-        <div class=""></div>
-        <img src="./assets/more/statue.jpg" class="rounded shadow w6" />
-        <div class="f2 col-bottom brown left">
-          <div class="goleft">
-            <!-- <span class="f1">joking</span><br /> -->
-            I'm 33.
+          <span class="ml1">(clumsy) software.</span>
+        </div>
+        <div class="goldGrid ml2">
+          <div class="row2">
+            <img src="./assets/full/linux.jpg" class="rounded shadow w5" />
+          </div>
+          <div class="f2 brown col-bottom right"></div>
+          <img src="./assets/more/dufferin.jpg" class="rounded shadow w6" />
+          <div class="row2 col-bottom">
+            <div class="bgblue h08 w100p"></div>
+          </div>
+          <div class=""></div>
+
+          <div class=""></div>
+          <img src="./assets/more/statue.jpg" class="rounded shadow w6" />
+          <div class="f2 col-bottom brown left">
+            <div class="goleft">
+              <!-- <span class="f1">joking</span><br /> -->
+              I'm 33.
+            </div>
+          </div>
+          <div class="bgpink rounded"></div>
+          <div class="col-middle rounded clip">
+            <!-- <img src="./assets/more/more-hair.jpg" class=" shadow w6" /> -->
+            <!-- <div class="bgblue h1 w6"></div> -->
+            <!-- <img src="./assets/more/wood-red.jpg" class="shadow w6" /> -->
           </div>
         </div>
-        <div class="bgpink rounded"></div>
-        <div class="col-middle rounded clip">
-          <!-- <img src="./assets/more/more-hair.jpg" class=" shadow w6" /> -->
-          <!-- <div class="bgblue h1 w6"></div> -->
-          <!-- <img src="./assets/more/wood-red.jpg" class="shadow w6" /> -->
+        <div class="brown right maxw11 mt1" style="margin-right:24px;">
+          i don't know<br />
+          how to<br />
+          <span style="margin-right:-24px;">do anything</span><br />
+          else.
         </div>
       </div>
       <div></div>
@@ -241,17 +286,17 @@
       <div></div>
     </div>
     <!-- contact -->
-    <!-- <div class="mainStage mv7 step">
+    <div class="mainStage mv7 step">
       <div></div>
       <div class="center f3 nearblack">
-        so
-        <a href="mailto:spencermountain@gmail.com">➡ email</a> me. <br />
-        <div class="mt3 slate f2">we need a plan.</div>
+        <a href="mailto:spencermountain@gmail.com">➡ email</a> me <br />
+        <div class="mt3 slate f2">if you want</div>
+        <div class="mt3 slate f1">i don't to work any more.</div>
       </div>
       <div></div>
-    </div> -->
+    </div>
 
-    <!-- <div class="mb4 row">
+    <div class="mb4 row">
       <div class="grow maxw8"></div>
       <div class="grow maxw8 p1 f2 ulorange">
         <div class="row mb2">
@@ -273,7 +318,7 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
 
     <!-- script -->
     <script src="./assets/bundle.js"></script>
