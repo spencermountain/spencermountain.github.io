@@ -1,6 +1,8 @@
 require('intersection-observer')
 const scrollama = require('scrollama')
-const tweens = require('./tweens')
+// const changes = require('./changes')
+const htm = require('htm')
+const h = htm.bind(require('vhtml'))
 
 // instantiate the scrollama
 const scroller = scrollama()
@@ -8,15 +10,20 @@ const scroller = scrollama()
 // setup the instance, pass callback functions
 scroller
   .setup({
-    step: '.step'
+    step: '#hideblue'
   })
-  .onStepEnter(response => {
-    tweens.top()
-    // console.log(response)
-    // { element, index, direction }
+  .onStepEnter(resp => {
+    if (resp.direction === 'down') {
+      resp.element.style.left = '0%'
+      // let newEl = h`<div class="slider bgnavy h100p"></div>`
+      // resp.element.innerHTML = newEl
+    }
   })
-  .onStepExit(response => {
-    // { element, index, direction }
+  .onStepExit(resp => {
+    if (resp.direction === 'up') {
+      resp.element.style.left = '-100%'
+      // resp.element.innerHTML = ''
+    }
   })
 
 // setup resize event

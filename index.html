@@ -67,20 +67,10 @@
         border-bottom: 2px solid #cc8a66;
       }
 
-      .slider {
-        animation-duration: 0.3s;
-        animation-name: slidein;
+      .slipper {
+        transition: left 0.3s;
         animation-timing-function: ease-in;
-      }
-      @keyframes slidein {
-        from {
-          margin-left: 100%;
-          width: 100%;
-        }
-        to {
-          margin-left: 0%;
-          width: 100%;
-        }
+        left: -100%;
       }
     </style>
   </head>
@@ -148,7 +138,16 @@
         <div></div>
         <div class="bgbrown"></div>
         <div></div>
-        <div class="bgblue"></div>
+        <div class="clip relative rounded">
+          <div
+            id="hideblue"
+            class="slipper relative h100p row"
+            style="width:200%;"
+          >
+            <div class="bgblue grow h100p"></div>
+            <div class="bgpink grow h100p"></div>
+          </div>
+        </div>
         <div class="bgsky rounded"></div>
         <div class="row2"></div>
         <div class="bgrose"></div>
@@ -156,7 +155,7 @@
     </div>
 
     <!-- grids  -->
-    <div class="mainStage step">
+    <div class="mainStage">
       <div></div>
       <div class="block">
         <div id="showAll" class="block">
