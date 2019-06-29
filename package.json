@@ -11,6 +11,13 @@
     "watch": "npm run start",
     "build": "browserify src/index.js -t [ babelify --presets [ @babel/preset-env ] ] | derequire > ./assets/bundle.js"
   },
+  "prettier": {
+    "trailingComma": "none",
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 100
+  },
   "dependencies": {
     "htm": "^2.1.1",
     "intersection-observer": "^0.7.0",
