@@ -7,17 +7,20 @@
     <meta name="author" content="Spencer Kelly" />
     <meta name="description" content="Spencer Kelly" />
     <meta name="keywords" content="spencer kelly, toronto, javascript" />
-    <link
-      href="https://unpkg.com/spencer-css@1.1.1/builds/spencer.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Tajawal&display=swap"
-      rel="stylesheet"
-    />
+    <link href="./assets/spencer.min.css" rel="stylesheet" />
     <style>
+      @font-face {
+        font-family: 'Tajawal';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: local('Tajawal'), local('Tajawal-Regular'),
+          url(./assets/tajawal-font.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
       .mainStage {
-        /* min-width: 300px; */
         display: grid;
         grid-template-columns: 0.5fr 1.618fr 0.5fr;
       }
@@ -25,11 +28,15 @@
         display: grid;
         grid-template-columns: repeat(6, minmax(50px, 150px));
         height: 16.5rem;
-        /* width: 100%; */
-        /* justify-self: center; */
       }
       .notiny {
         display: initial;
+      }
+      /* huge- set max-width */
+      @media (min-width: 1550px) {
+        .mainStage {
+          grid-template-columns: 1fr 1000px 1fr;
+        }
       }
       /* tablet - change grid6 to grid3 */
       @media (max-width: 900px) {
@@ -56,17 +63,9 @@
         grid-template-columns: 0.618fr 1fr 0.618fr 1fr;
         grid-template-rows: 1fr 0.618fr 1fr;
       }
-      .ulorange {
-        border-bottom: 4px solid #cc8a66;
-      }
-      .clean {
-        text-decoration: none;
-      }
       .clean:hover {
-        /* text-decoration: underline; */
-        border-bottom: 2px solid #cc8a66;
+        border-width: 3px;
       }
-
       .slider {
         animation-duration: 0.3s;
         animation-name: slidein;
@@ -86,38 +85,27 @@
   </head>
 
   <body class="font">
-    <div id="tmp"></div>
     <!-- top-part  -->
     <div id="topGrid">
       <div id="grid" class="row">
-        <div
-          class="h8 grow maxw10 rounded clip"
-          style="
-    display:grid;
-    grid-template-columns: 0.618fr 1fr 0.618fr 1fr ;
-    grid-template-rows: 1fr 0.618fr 1fr;
-    "
-        >
-          <div class=""></div>
+        <div class="h8 grow maxw10 rounded clip fourGrid">
+          <div></div>
           <div
-            class=" row2 hasImg"
+            class="row2 hasImg"
             id="boats"
             style='background-image: url("./assets/misc/boats.jpg");'
           ></div>
-          <div class=" bgpink" id="pink"></div>
-          <div class=" "></div>
+          <div class="bgpink" id="pink"></div>
+          <div></div>
+          <div class="col2 hasImg" style='background-image: url("./assets/misc/sea.jpg");'></div>
+          <div class="bgsky"></div>
+          <div></div>
+          <div class="bgpink"></div>
           <div
-            class=" col2 hasImg"
-            style='background-image: url("./assets/misc/sea.jpg");'
-          ></div>
-          <div class=" bgsky"></div>
-          <div class=" "></div>
-          <div class=" bgpink"></div>
-          <div
-            class=" bgpink hasImg"
+            class="bgpink hasImg"
             style='background-image: url("./assets/misc/orange.jpg");'
           ></div>
-          <div class=" bgrose"></div>
+          <div class="bgrose"></div>
         </div>
       </div>
     </div>
@@ -131,7 +119,7 @@
     <div class="mainStage mv5">
       <div></div>
       <div class="right">
-        <img class=" right w8 rounded" src="./assets/full/shelf.jpg" />
+        <img class="right w8 rounded shadow" src="./assets/full/shelf.jpg" />
       </div>
       <div></div>
     </div>
@@ -142,7 +130,7 @@
         <div></div>
         <div></div>
         <div
-          class="col2 rounded"
+          class="col2 rounded shadow"
           style='background-image: url("./assets/misc/sawdust.jpg");'
         ></div>
         <div></div>
@@ -156,7 +144,7 @@
     </div>
 
     <!-- grids  -->
-    <div class="mainStage step">
+    <div class="mainStage">
       <div></div>
       <div class="block">
         <div id="showAll" class="block">
@@ -164,17 +152,12 @@
           <div class="goldGrid mv6">
             <div></div>
             <div></div>
-            <div
-              class="col2"
-              style="background-image:url(./assets/misc/church.jpg);"
-            ></div>
+            <div class="col2" style="background-image:url(./assets/misc/church.jpg);"></div>
             <div class="bgpink"></div>
             <div></div>
             <div class="bgrose"></div>
             <div class="bgsky"></div>
-            <div
-              style="background-image:url(./assets/misc/victoria-cow.jpg);"
-            ></div>
+            <div style="background-image:url(./assets/misc/victoria-cow.jpg);"></div>
           </div>
 
           <!-- worried grid -->
@@ -186,20 +169,20 @@
             <div></div>
             <div class="row2 bgsky"></div>
             <div></div>
-            <div class="f2 right brown">i'm worried</div>
+            <div class="f2 right brown">
+              i'm<br />
+              worried
+            </div>
           </div>
 
           <!-- small clouds -->
-          <div class="goldGrid mv6">
-            <div class="bgrose"></div>
-            <div class="bgrose"></div>
+          <div class="goldGrid mv6" style="max-height:8rem;">
+            <div class=""></div>
+            <div class=""></div>
             <div class="col2 "></div>
             <div class="bgpink"></div>
             <div></div>
-            <div
-              class="bggrey"
-              style="background-image:url(./assets/misc/satellite.jpg);"
-            ></div>
+            <div class="bggrey" style="background-image:url(./assets/misc/satellite.jpg);"></div>
             <div></div>
             <div class="row2 "></div>
           </div>
@@ -207,22 +190,13 @@
           <!-- mushroom grid -->
           <div class="goldGrid mv6">
             <div></div>
-            <div
-              class="col2 bgrose"
-              style="background-image:url(./assets/misc/saddam.jpg);"
-            ></div>
+            <div class="col2 bgrose" style="background-image:url(./assets/misc/saddam.jpg);"></div>
             <div class="bgpink"></div>
             <div class="row2 bgblue"></div>
-            <div
-              class="bgbrown"
-              style="background-image:url(./assets/misc/mushrooms.jpg);"
-            ></div>
+            <div class="bgbrown" style="background-image:url(./assets/misc/mushrooms.jpg);"></div>
             <div></div>
             <div class="bgred"></div>
-            <div
-              class="bgsky"
-              style="background-image:url(./assets/misc/house.jpg);"
-            ></div>
+            <div class="bgsky" style="background-image:url(./assets/misc/house.jpg);"></div>
           </div>
 
           <!-- computers dont work -->
@@ -230,13 +204,12 @@
             <div></div>
             <div class="bgpink"></div>
             <div class="col2 "></div>
-            <div class="row2 f2 m1 sea maxw6">
-              computers do not work very well
+            <div class="row2 f3 m1 purple maxw6 mt1">
+              <!-- <div class="f1 grey">because</div> -->
+              <span class="sea">computers</span> <span class="navy">do not work </span
+              ><span class="nobreak f2">very well</span>
             </div>
-            <div
-              class="h6"
-              style="background-image:url(./assets/misc/flood.jpg);"
-            ></div>
+            <div class="h6" style="background-image:url(./assets/misc/flood.jpg);"></div>
             <div></div>
             <div class="bgred"></div>
             <div></div>
@@ -255,19 +228,23 @@
             <div class="bgrose"></div>
             <div class="bggrey"></div>
             <div class="bgbrown"></div>
+            <div class="col-bottom sea f2">and,</div>
           </div>
 
           <!-- geneology grid -->
-          <div class="goldGrid mv6">
+          <div id="mess" class="goldGrid mv6">
             <div class="bgred"></div>
             <div class="bgbrown"></div>
-            <div class="f3 dimgrey m1">things are a mess.</div>
+            <div class="f3 dimgrey m1 ">
+              <div class="nobreak">things are</div>
+              <div class="nobreak">a mess.</div>
+            </div>
             <div class="col2 bgrose"></div>
             <div></div>
             <div class="row2 bgsky"></div>
             <div
               class="bgsky"
-              style="background-image:url(./assets/misc/grandfather.jpg);"
+              style="min-height: 1.2rem; min-width: 10rem; background-image:url(./assets/misc/grandfather.jpg);"
             ></div>
             <div class="bgbrown"></div>
           </div>
@@ -279,86 +256,9 @@
     <!-- can't fix -->
     <div class="mainStage mv5">
       <div></div>
-      <div class="col-left">
-        <div class="left f3 sea">
-          and <br />
-          it is<br />
-          important.
-        </div>
-        <!-- <div class="ml3">to get right.</div> -->
-      </div>
-      <div></div>
-    </div>
-
-    <!-- ontario farms -->
-    <div id="farms" class="mainStage mv5">
-      <div></div>
-      <div class="center relative ">
-        <div
-          class="absolute w7 rounded bgpurple notiny"
-          style="top: -20px; right:-50px; z-index:-2; height:150px; opacity:0.9 ;"
-        ></div>
-        <div
-          class="absolute notiny"
-          style="top: 70px; right:-100px; z-index:-1; height:20%;"
-        >
-          <div
-            class="h1 w100p bgblue rounded relative"
-            style="left:0px; top:10px; opacity:0.2;"
-          ></div>
-          <img class="rounded shadow " src="./assets/full/sun-exposure.jpg" />
-        </div>
-        <div
-          class="absolute notiny"
-          style="top: 170px; right:-60px; z-index:2; height:20%;"
-        >
-          <div
-            class="h1 w100p bgpink rounded relative"
-            style="left:20px; top:10px; opacity:0.2;"
-          ></div>
-          <img class="w6 rounded shadow" src="./assets/more/boat.jpg" />
-        </div>
-        <div
-          class="absolute notiny"
-          style="top: 220px; right:-150px;  height:20%;"
-        >
-          <img class="w7 rounded" src="./assets/more/line-chart.jpg" />
-        </div>
-        <div
-          class="absolute notiny"
-          style="top: 235px; right:-35px; z-index:1; height:20%;"
-        >
-          <div
-            class="h1 w100p bgblue rounded relative"
-            style="left:20px; top:10px; opacity:0.2;"
-          ></div>
-          <div
-            class="h1 w90p bgpink rounded relative"
-            style="left:10%; top:50px; opacity:0.2; "
-          ></div>
-          <img
-            class="w5 rounded"
-            style="z-index:2;"
-            src="./assets/full/harper-chair.jpg"
-          />
-          <img
-            class="w6 absolute rounded"
-            style="z-index:-2; top:-20px;"
-            src="./assets/more/cherry-blossoms.jpg"
-          />
-        </div>
-
-        <div class="center" style="max-width:800px;">
-          <img
-            class="rounded shadow"
-            style="z-index:2;"
-            src="./assets/full/fields.jpg"
-          />
-          <div
-            class="h08 bgpink w100p absolute center"
-            style="bottom:25%; opacity:0.8; "
-          ></div>
-        </div>
+      <div class=" f3 sea mv2">
+        wikipedia
+        <a href="http://blog.spencermounta.in/2019/wikipedias-in-trouble/index.html">is failing</a>.
       </div>
       <div></div>
     </div>
@@ -366,8 +266,36 @@
     <!-- garbage -->
     <div class="mainStage mv5">
       <div></div>
-      <div class="right m2">
-        <img class="rounded shadow" src="./assets/full/yeast.jpg" />
+      <div class="row m2 nowrap">
+        <div class="f3 right sea">
+          <div class="f1 mr2 grey">and</div>
+          software<br />
+          <a class="blue" href="http://blog.spencermounta.in/2019/should-we-stop/index.html"
+            >is in decline</a
+          >.
+        </div>
+        <img class="rounded shadow ml1" src="./assets/full/yeast.jpg" />
+      </div>
+      <div></div>
+    </div>
+
+    <!-- ontario farms -->
+    <div id="farms" class="mainStage mv5">
+      <div></div>
+      <div class="row nowrap">
+        <div class="w75 relative" style="flex-grow:1; max-width:800px;">
+          <img class="rounded shadow" src="./assets/full/fields.jpg" />
+          <div class="h1 bgpink w100p absolute center" style="bottom:25%; opacity:0.8; "></div>
+        </div>
+        <div class="w25p grid2 h100p ml2">
+          <div class=""></div>
+          <div class=""></div>
+          <div class=""></div>
+          <div class="bgsky rounded"></div>
+          <div class=""></div>
+          <div class=""></div>
+          <div class="bgred rounded"></div>
+        </div>
       </div>
       <div></div>
     </div>
@@ -382,7 +310,7 @@
             <div class="f1 red">canada.</div>
           </div>
         </div>
-        <div class=" grow left relative">
+        <div class="grow left relative">
           <img src="./assets/full/cn-tower.jpg" class="rounded w8" />
           <img
             src="./assets/more/n-america-winter.jpg"
@@ -396,34 +324,34 @@
     <!-- apartment -->
     <div id="apartment" class="mainStage mv5">
       <div></div>
-      <div class="row">
+      <div class="row nowrap">
         <div class="f2 brown grow row">
-          <div class="left">
-            i live in a modest apartment.
-          </div>
+          <div class="left"></div>
         </div>
-        <div class=" grow left">
-          <img src="./assets/full/desk.jpg" class="rounded w8" />
-          <img src="./assets/full/github.jpg" class="rounded shadow w8" />
+        <div class="grow left row-middle nowrap">
+          <img src="./assets/full/desk.jpg" class="rounded w9" />
+          <div class="col-bottom h100p ml3" style="align-items: start;">
+            <div>i live in a modest apartment.</div>
+            <img src="./assets/full/github.jpg" class="rounded shadow w8" />
+          </div>
         </div>
       </div>
       <div></div>
     </div>
 
     <!-- my age-->
-    <div class="mainStage mt7">
+    <div id="age" class="mainStage mt7">
       <div></div>
       <div>
-        <div class="brown">
-          i write software
-        </div>
+        <div></div>
         <div class="goldGrid ml2">
           <div class="row2">
-            <img src="./assets/full/linux.jpg" class="rounded shadow w5" />
+            <img src="./assets/more/exhibition.jpg" class="rounded shadow" />
           </div>
           <div class="f2 brown col-bottom right"></div>
           <img src="./assets/more/dufferin.jpg" class="rounded shadow w6" />
-          <div class="row2 col-bottom">
+          <div class="row2 col-bottom brown">
+            i write software
             <div class="bgblue h08 w100p"></div>
           </div>
           <div></div>
@@ -431,17 +359,12 @@
           <div></div>
           <img src="./assets/more/statue.jpg" class="rounded shadow w6" />
           <div class="f2 col-bottom brown left">
-            <div class="goleft">
-              <!-- <span class="f1">joking</span><br /> -->
+            <div class="goleft ml1">
               I'm 33.
             </div>
           </div>
           <div class="bgpink rounded"></div>
-          <div class="col-middle rounded clip">
-            <!-- <img src="./assets/more/more-hair.jpg" class=" shadow w6" /> -->
-            <!-- <div class="bgblue h1 w6"></div> -->
-            <!-- <img src="./assets/more/wood-red.jpg" class="shadow w6" /> -->
-          </div>
+          <div class="col-middle rounded clip"></div>
         </div>
         <div class="brown right maxw11 mt1" style="margin-right:24px;">
           i don't know<br />
@@ -483,23 +406,21 @@
 
     <div class="mb4 row">
       <div class="grow maxw8"></div>
-      <div class="grow maxw8 p1 f2 ulorange">
+      <div class="grow maxw8 p1 f2">
         <div class="row mb2">
           <div>
-            <a class="clean" href="http://blog.spencermounta.in/">blog</a>
+            <a class="clean ulgreen" href="http://blog.spencermounta.in/">blog</a>
           </div>
-          <div><a class="clean" href="http://thensome.how/">graphs</a></div>
+          <div>
+            <a class="clean ulpurple" href="http://thensome.how/">graphs</a>
+          </div>
         </div>
         <div class="row">
           <div>
-            <a class="clean" href="http://github.com/spencermountain/"
-              >github</a
-            >
+            <a class="clean ulpurple" href="http://github.com/spencermountain/">github</a>
           </div>
           <div>
-            <a class="clean" href="http://twitter.com/spencermountain"
-              >twitter</a
-            >
+            <a class="clean ulpink" href="http://twitter.com/spencermountain">twitter</a>
           </div>
         </div>
       </div>
