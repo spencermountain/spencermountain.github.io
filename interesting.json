@@ -1,0 +1,89 @@
+[
+  [
+    { "classes": [""] },
+    { "classes": [""] },
+    { "classes": ["col2", ""], "image": "./assets/misc/church.jpg" },
+    { "classes": ["bgpink"] },
+    { "classes": [""] },
+    { "classes": ["bgrose"] },
+    { "classes": ["bgsky"] },
+    { "classes": [""], "image": "./assets/misc/victoria-cow.jpg" }
+  ],
+
+  [
+    { "classes": ["col2", "bgpink"] },
+    { "classes": [""] },
+    { "classes": [""] },
+    { "classes": [""], "image": "./assets/misc/venus.jpg" },
+    { "classes": [""] },
+    { "classes": ["row2", "bgsky"] },
+    { "classes": [""] },
+    { "classes": ["f2", "right", "brown"], "text": "i'm worried" }
+  ],
+
+  [
+    { "classes": ["bgrose"] },
+    { "classes": ["bgrose"] },
+    { "classes": ["col2", ""] },
+    { "classes": ["bgpink"] },
+    { "classes": [""] },
+    { "classes": ["bggrey"], "image": "./assets/misc/satellite.jpg" },
+    { "classes": [""] },
+    { "classes": ["row2", ""] }
+  ],
+
+  [
+    { "classes": [""] },
+    { "classes": ["col2", "bgrose"], "image": "./assets/misc/saddam.jpg" },
+    { "classes": ["bgpink"] },
+    { "classes": ["row2", "bgblue"] },
+    { "classes": ["bgbrown"], "image": "./assets/misc/mushrooms.jpg" },
+    { "classes": [""] },
+    { "classes": ["bgred"] },
+    { "classes": ["bgsky"], "image": "./assets/misc/house.jpg" }
+  ],
+
+  [
+    { "classes": [""] },
+    { "classes": ["bgpink"] },
+    { "classes": ["col2", ""] },
+    {
+      "classes": ["row2", "f2", "m1", "sea", "maxw6"],
+      "text": "computers do not work very well"
+    },
+    { "classes": ["h6"], "image": "./assets/misc/flood.jpg" },
+    { "classes": [""] },
+    { "classes": ["bgred"] },
+    {
+      "classes": []
+    }
+  ],
+
+  [
+    { "classes": [""] },
+    { "classes": [""], "image": "./assets/misc/europa.jpg" },
+    {
+      "classes": ["row2", "col2", "bggrey"],
+      "image": "./assets/misc/cement-house.jpg"
+    },
+    { "classes": [""] },
+    { "classes": [""], "image": "./assets/misc/hay.jpg" },
+    { "classes": ["bgrose"] },
+    { "classes": ["bggrey"] },
+    { "classes": ["bgbrown"] }
+  ],
+
+  [
+    { "classes": ["bgred"] },
+    { "classes": ["bgbrown"] },
+    {
+      "classes": ["f3", "dimgrey", "m1"],
+      "text": "things are a mess."
+    },
+    { "classes": ["col2", "bgrose"] },
+    { "classes": [""] },
+    { "classes": ["row2", "bgsky"] },
+    { "classes": ["bgsky"], "image": "./assets/misc/grandfather.jpg" },
+    { "classes": ["bgbrown"] }
+  ]
+]

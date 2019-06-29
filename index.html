@@ -1,1 +1,344 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="/favicon.ico"><title>Spencer Kelly</title><link href="/static/css/main.dcc5560e.css" rel="stylesheet"></head><body><div id="root"></div><script type="text/javascript" src="/static/js/main.3c4376e7.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/spencer-css@1.1.1/builds/spencer.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Tajawal&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .mainStage {
+        /* min-width: 300px; */
+        display: grid;
+        grid-template-columns: 0.5fr 1.618fr 0.5fr;
+      }
+      .goldGrid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(50px, 150px));
+        height: 16.5rem;
+        /* width: 100%; */
+        /* justify-self: center; */
+      }
+      .notiny {
+        display: initial;
+      }
+      /* tablet - change grid6 to grid3 */
+      @media (max-width: 900px) {
+        .goldGrid {
+          grid-template-columns: 1fr 1.618fr 1fr 1.618fr;
+          justify-self: stretch;
+          min-height: 10rem;
+        }
+      }
+      /* phone - remove margins */
+      @media (max-width: 550px) {
+        .mainStage {
+          grid-template-columns: 0.5rem 1fr 0.5rem;
+        }
+        .notiny {
+          display: none;
+        }
+      }
+      .font {
+        font-family: 'Tajawal', sans-serif;
+      }
+      .fourGrid {
+        display: grid;
+        grid-template-columns: 0.618fr 1fr 0.618fr 1fr;
+        grid-template-rows: 1fr 0.618fr 1fr;
+      }
+      .ulorange {
+        border-bottom: 4px solid #cc8a66;
+      }
+      .clean {
+        text-decoration: none;
+      }
+      .clean:hover {
+        /* text-decoration: underline; */
+        border-bottom: 2px solid #cc8a66;
+      }
+    </style>
+  </head>
+
+  <body class="font">
+    <!-- top-part  -->
+    <div id="topGrid" class="step"></div>
+
+    <!-- hello -->
+    <div class="f4 grey row-middle mt3 relative font">
+      <div class="f2 absolute top0 sky" style="left:25%; top:-20px;">Hello</div>
+      I'm Spencer Kelly
+    </div>
+    <!-- picture -->
+    <div class="mainStage mv5">
+      <div></div>
+      <div class="right">
+        <img class=" right w8 rounded" src="./assets/full/shelf.jpg" />
+      </div>
+      <div></div>
+    </div>
+
+    <!-- 2 -->
+    <div id="grid m5" class="row step">
+      <div class="h8 grow maxw10 fourGrid">
+        <div class=""></div>
+        <div class=""></div>
+        <div
+          class="col2 rounded"
+          style='background-image: url("./assets/misc/sawdust.jpg");'
+        ></div>
+        <div class=""></div>
+        <div class="bgbrown"></div>
+        <div></div>
+        <div class="bgblue"></div>
+        <div class="bgsky rounded"></div>
+        <div class="row2"></div>
+        <div class="bgrose"></div>
+      </div>
+    </div>
+
+    <!-- grids  -->
+    <div class="mainStage step">
+      <div class=""></div>
+      <div id="showAll" class="block"></div>
+      <div class=""></div>
+    </div>
+
+    <!-- can't fix -->
+    <div class="mainStage mv5 step">
+      <div></div>
+      <div class="col-left">
+        <div class="left f3 sea">
+          and <br />
+          it is<br />
+          important.
+        </div>
+        <!-- <div class="ml3">to get right.</div> -->
+      </div>
+      <div></div>
+    </div>
+
+    <!-- ontario farms -->
+    <div id="farms" class="mainStage mv5 step">
+      <div></div>
+      <div class="center relative ">
+        <div
+          class="absolute w7 rounded bgpurple notiny"
+          style="top: -20px; right:-50px; z-index:-2; height:150px; opacity:0.9 ;"
+        ></div>
+        <div
+          class="absolute notiny"
+          style="top: 70px; right:-100px; z-index:-1; height:20%;"
+        >
+          <div
+            class="h1 w100p bgblue rounded relative"
+            style="left:0px; top:10px; opacity:0.2;"
+          ></div>
+          <img class="rounded shadow " src="./assets/full/sun-exposure.jpg" />
+        </div>
+        <div
+          class="absolute notiny"
+          style="top: 170px; right:-60px; z-index:2; height:20%;"
+        >
+          <div
+            class="h1 w100p bgpink rounded relative"
+            style="left:20px; top:10px; opacity:0.2;"
+          ></div>
+          <img class="w6 rounded shadow" src="./assets/more/boat.jpg" />
+        </div>
+        <div
+          class="absolute notiny"
+          style="top: 220px; right:-150px;  height:20%;"
+        >
+          <img class="w7 rounded" src="./assets/more/line-chart.jpg" />
+        </div>
+        <div
+          class="absolute notiny"
+          style="top: 235px; right:-35px; z-index:1; height:20%;"
+        >
+          <div
+            class="h1 w100p bgblue rounded relative"
+            style="left:20px; top:10px; opacity:0.2;"
+          ></div>
+          <div
+            class="h1 w90p bgpink rounded relative"
+            style="left:10%; top:50px; opacity:0.2; "
+          ></div>
+          <img
+            class="w5 rounded"
+            style="z-index:2;"
+            src="./assets/full/harper-chair.jpg"
+          />
+          <img
+            class="w6 absolute rounded"
+            style="z-index:-2; top:-20px;"
+            src="./assets/more/cherry-blossoms.jpg"
+          />
+        </div>
+
+        <div class="center" style="max-width:800px;">
+          <img
+            class="rounded shadow"
+            style="z-index:2;"
+            src="./assets/full/fields.jpg"
+          />
+          <div
+            class="h08 bgpink w100p absolute center"
+            style="bottom:25%; opacity:0.8; "
+          ></div>
+        </div>
+      </div>
+      <div></div>
+    </div>
+
+    <!-- garbage -->
+    <div class="mainStage mv5 step">
+      <div></div>
+      <div class="right m2">
+        <img class="rounded shadow" src="./assets/full/yeast.jpg" />
+      </div>
+      <div></div>
+    </div>
+
+    <!-- toronto -->
+    <div id="toronto" class="mainStage mv5 step">
+      <div class=""></div>
+      <div class="row">
+        <div class="f2 grow row">
+          <div class="left brown">
+            I'm from Toronto
+            <div class="f1 red">canada.</div>
+          </div>
+        </div>
+        <div class=" grow left relative">
+          <img src="./assets/full/cn-tower.jpg" class="rounded w8" />
+          <img
+            src="./assets/more/n-america-winter.jpg"
+            class="rounded absolute w6"
+            style="left:200px; bottom:0px;"
+          />
+        </div>
+      </div>
+      <div class=""></div>
+    </div>
+    <!-- apartment -->
+    <div id="apartment" class="mainStage mv5 step">
+      <div class=""></div>
+      <div class="row">
+        <div class="f2 brown grow row">
+          <div class="left">
+            i live in a modest apartment.
+          </div>
+        </div>
+        <div class=" grow left">
+          <img src="./assets/full/desk.jpg" class="rounded w8" />
+          <img src="./assets/full/github.jpg" class="rounded shadow w8" />
+        </div>
+      </div>
+      <div class=""></div>
+    </div>
+
+    <!-- my age-->
+    <div class="mainStage mt7 step">
+      <div></div>
+      <div>
+        <div class="brown">
+          i write software
+        </div>
+        <div class="goldGrid ml2">
+          <div class="row2">
+            <img src="./assets/full/linux.jpg" class="rounded shadow w5" />
+          </div>
+          <div class="f2 brown col-bottom right"></div>
+          <img src="./assets/more/dufferin.jpg" class="rounded shadow w6" />
+          <div class="row2 col-bottom">
+            <div class="bgblue h08 w100p"></div>
+          </div>
+          <div class=""></div>
+
+          <div class=""></div>
+          <img src="./assets/more/statue.jpg" class="rounded shadow w6" />
+          <div class="f2 col-bottom brown left">
+            <div class="goleft">
+              <!-- <span class="f1">joking</span><br /> -->
+              I'm 33.
+            </div>
+          </div>
+          <div class="bgpink rounded"></div>
+          <div class="col-middle rounded clip">
+            <!-- <img src="./assets/more/more-hair.jpg" class=" shadow w6" /> -->
+            <!-- <div class="bgblue h1 w6"></div> -->
+            <!-- <img src="./assets/more/wood-red.jpg" class="shadow w6" /> -->
+          </div>
+        </div>
+        <div class="brown right maxw11 mt1" style="margin-right:24px;">
+          i don't know<br />
+          how to<br />
+          <span style="margin-right:-24px;">do anything</span><br />
+          else.
+        </div>
+        <div class="left maxw11 mt1 ml3">
+          <img class="rounded shadow" src="./assets/more/stadium.jpg" />
+        </div>
+      </div>
+      <div></div>
+    </div>
+
+    <!-- can't fix -->
+    <div class="mainStage step">
+      <div></div>
+      <div class="left ml4"></div>
+      <div></div>
+    </div>
+    <!-- hr -->
+    <div class="mainStage mv6 step">
+      <div></div>
+      <div><hr /></div>
+      <div></div>
+    </div>
+    <!-- contact -->
+    <div class="mainStage mv7 step">
+      <div></div>
+      <div class="center f3 nearblack">
+        <a href="mailto:spencermountain@gmail.com">➡ email </a> me <br />
+        <div class="mt3 slate f2">if you want</div>
+        <div class="mt3 slate f1">
+          i don't work hard.
+        </div>
+      </div>
+      <div></div>
+    </div>
+
+    <div class="mb4 row">
+      <div class="grow maxw8"></div>
+      <div class="grow maxw8 p1 f2 ulorange">
+        <div class="row mb2">
+          <div>
+            <a class="clean" href="http://blog.spencermounta.in/">blog</a>
+          </div>
+          <div><a class="clean" href="http://thensome.how/">graphs</a></div>
+        </div>
+        <div class="row">
+          <div>
+            <a class="clean" href="http://github.com/spencermountain/"
+              >github</a
+            >
+          </div>
+          <div>
+            <a class="clean" href="http://twitter.com/spencermountain"
+              >twitter</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- script -->
+    <script src="./assets/bundle.js"></script>
+  </body>
+</html>
