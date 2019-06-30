@@ -26,6 +26,31 @@
       h2 {
         color: steelblue;
       }
+      .year {
+        border: 4px solid steelblue;
+        padding-left: 2rem;
+        border-radius: 8px;
+      }
+      .blred {
+        border: none;
+        border-left: 4px solid #cc7066;
+        padding-left: 2rem;
+      }
+      .blblue {
+        border: none;
+        border-left: 4px solid #6699cc;
+        padding-left: 2rem;
+      }
+      .blbeige {
+        border: none;
+        border-left: 4px solid #e6d7b3;
+        padding-left: 2rem;
+      }
+      .blrose {
+        border: none;
+        border-left: 4px solid #d68881;
+        padding-left: 2rem;
+      }
     </style>
   </head>
 
@@ -33,10 +58,12 @@
     <!-- 2018 -->
     <div class="mainStage minh3 mt5">
       <div class="brown right mr4 f2">2018</div>
-      <div class="col-left outline">
+      <div class="col-left blblue">
         <h2>Begin.com</h2>
+        <div class="ml3 brown">text-interface platform</div>
         <div class="row"><img class="rounded " src="./assets/begin/begin-cli.gif" /></div>
         <h2>Spacetime</h2>
+        <div class="ml3 brown">timezone library</div>
         <div class="row"><img class="rounded " src="./assets/begin/spacetime.gif" /></div>
 
         <div class="m2 brown">
@@ -53,8 +80,9 @@
     <!-- 2017 -->
     <div class="mainStage minh3 mt5">
       <div class="brown right mr4 f2">2017</div>
-      <div class="col-left outline">
+      <div class="col-left blred">
         <h2>wtf-wikipeda</h2>
+        <div class="ml3 brown">parses a wikipedia article to JSON.</div>
         <div class="row-left ml4">
           <img class="rounded shadow" src="./assets/wtf-wikipedia/wtf-wikipedia.gif" />
         </div>
@@ -68,8 +96,9 @@
     <!-- 2016 -->
     <div class="mainStage minh3 mt5">
       <div class="brown right mr4 f2">2016</div>
-      <div class="col-left outline">
+      <div class="col-left blbeige">
         <h2>NLP-Compromise</h2>
+        <div class="ml3 brown mb1">parses grammar in the browser.</div>
         <iframe
           class="rounded m3"
           width="400"
@@ -79,7 +108,11 @@
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         ></iframe>
-        <div>
+        <div class="row-left ml4">
+          <img class="rounded shadow" src="./assets/compromise/trending.jpg" />
+        </div>
+
+        <div class="m2 brown">
           profiled on
           <a
             href="https://www.microsoft.com/developerblog/2017/06/06/geocoding-social-conversations-nlp-javascript/"
@@ -93,8 +126,9 @@
     <!-- 2015 -->
     <div class="mainStage minh3 mt5">
       <div class="brown right mr4 f2">2015</div>
-      <div class="col-left outline">
+      <div class="col-left blblue">
         <h2>Govinvest</h2>
+        <div class="ml3 brown">explores the problem-space of pension liabilities</div>
         <div class="row-left ml4">
           <img class="rounded shadow w7" src="./assets/govinvest/govinvest-dna.jpg" />
         </div>
@@ -109,8 +143,9 @@
     <!-- 2014 -->
     <div class="mainStage minh3 mt5">
       <div class="brown right mr4 f2">2014</div>
-      <div class="col-left outline">
+      <div class="col-left blrose">
         <h2 class="">EarthBarely</h2>
+        <div class="ml3 brown">experiments in browsing a fully-parsed wikipedia</div>
         <iframe
           class="rounded m3"
           src="https://player.vimeo.com/video/103858377?byline=0&portrait=0"
@@ -138,8 +173,9 @@
     <!-- 2012 -->
     <div class="mainStage minh3 mt5">
       <div class="brown right mr4 f2">2012</div>
-      <div class="col-left outline  ">
+      <div class="col-left blred">
         <h2 class="">State.com</h2>
+        <div class="ml3 brown">a structured communication and word-sense learning platform.</div>
         <div class="row m2">
           <img class="rounded shadow" src="./assets/state/piers-morgan.jpg" />
         </div>
@@ -165,10 +201,10 @@
     <!-- 2009 -->
     <div class="mainStage minh3 mt5">
       <div class="brown right mr4 f2">2010</div>
-      <div class="col-left outline  ">
+      <div class="col-left blbeige">
         <h2 class="">Freebase.js</h2>
-        <div class="brown m2">
-          Built a question-answering service, using freebase.
+        <div class="brown ml3">
+          a question-answering service, for semantic web.
         </div>
         <iframe
           class="rounded m3"
@@ -190,13 +226,13 @@
     <!-- 2009 -->
     <div class="mainStage minh3 mt5">
       <div class="brown right mr4 f2">2009</div>
-      <div class="col-left outline  ">
+      <div class="col-left blred">
         <h2 class="">Wikipedia bot</h2>
-        <div class="brown m2">
+        <div class="brown ml3">
           automatic generation of missing publisher data in wikipedia citations, using Freebase
         </div>
         <h2 class="">Text simplification</h2>
-        <div class="m2 brown">
+        <div class="ml3 brown">
           created a script to automatically convert wikipedia articles to the simple-english
           wikipedia.
         </div>
