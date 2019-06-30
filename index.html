@@ -14,10 +14,9 @@
         font-style: normal;
         font-weight: 400;
         font-display: swap;
-        src: local('Tajawal'), local('Tajawal-Regular'),
-          url(./assets/tajawal-font.woff2) format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-          U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        src: local('Tajawal'), local('Tajawal-Regular'), url(./assets/tajawal-font.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+          U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
       }
 
       .mainStage {
@@ -80,6 +79,9 @@
       .slow {
         transition: width 0.6s !important;
       }
+      .purple {
+        color: #6d5685;
+      }
     </style>
   </head>
 
@@ -89,21 +91,14 @@
       <div id="grid" class="row">
         <div class="h8 grow maxw10 rounded clip fourGrid">
           <div></div>
-          <div
-            class="row2 hasImg"
-            id="boats"
-            style='background-image: url("./assets/misc/boats.jpg");'
-          ></div>
+          <div class="row2 hasImg" id="boats" style='background-image: url("./assets/misc/boats.jpg");'></div>
           <div class="bgpink" id="pink"></div>
           <div></div>
           <div class="col2 hasImg" style='background-image: url("./assets/misc/sea.jpg");'></div>
           <div class="bgsky"></div>
           <div></div>
           <div class="bgpink"></div>
-          <div
-            class="bgpink hasImg"
-            style='background-image: url("./assets/misc/orange.jpg");'
-          ></div>
+          <div class="bgpink hasImg" style='background-image: url("./assets/misc/orange.jpg");'></div>
           <div class="bgrose"></div>
         </div>
       </div>
@@ -198,11 +193,7 @@
           <!-- mushroom grid -->
           <div class="goldGrid mv6">
             <div></div>
-            <div
-              id="saddam"
-              class="col2 bgrose"
-              style="background-image:url(./assets/misc/saddam.jpg);"
-            ></div>
+            <div id="saddam" class="col2 bgrose" style="background-image:url(./assets/misc/saddam.jpg);"></div>
             <div class="bgpink"></div>
             <div class="row2 bgblue"></div>
             <div class="bgbrown" style="background-image:url(./assets/misc/mushrooms.jpg);"></div>
@@ -231,10 +222,7 @@
           <div class="goldGrid mv6">
             <div></div>
             <div style="background-image:url(./assets/misc/europa.jpg);"></div>
-            <div
-              class="row2 col2 bggrey"
-              style="background-image:url(./assets/misc/cement-house.jpg);"
-            ></div>
+            <div class="row2 col2 bggrey" style="background-image:url(./assets/misc/cement-house.jpg);"></div>
             <div></div>
             <div style="background-image:url(./assets/misc/hay.jpg);"></div>
             <div class="bgrose"></div>
@@ -282,9 +270,7 @@
         <div class="f3 right sea">
           <div class="f1 mr2 grey">and</div>
           software<br />
-          <a class="blue" href="http://blog.spencermounta.in/2019/should-we-stop/index.html"
-            >is in decline</a
-          >.
+          <a class="blue" href="http://blog.spencermounta.in/2019/should-we-stop/index.html">is in decline</a>.
         </div>
         <div class="">
           <img class="rounded shadow ml1" src="./assets/full/yeast.jpg" />
@@ -313,7 +299,16 @@
       </div>
       <div></div>
     </div>
-
+    <!-- portfolio -->
+    <div id="portfolio" class="mainStage mv6">
+      <div></div>
+      <div class="row-middle">
+        <div>
+          <a class="bold f4 purple ulblue clean" href="./portfolio">Portfolio</a> <span class="navy f2 ml1"> ➡</span>
+        </div>
+      </div>
+      <div></div>
+    </div>
     <!-- toronto -->
     <div id="toronto" class="mainStage mv5">
       <div></div>
@@ -326,11 +321,7 @@
         </div>
         <div class="grow left relative">
           <img src="./assets/full/cn-tower.jpg" class="rounded w8" />
-          <img
-            src="./assets/more/n-america-winter.jpg"
-            class="rounded absolute w6"
-            style="left:200px; bottom:0px;"
-          />
+          <img src="./assets/more/n-america-winter.jpg" class="rounded absolute w6" style="left:200px; bottom:0px;" />
         </div>
       </div>
       <div></div>
