@@ -66,20 +66,19 @@
       .clean:hover {
         border-width: 3px;
       }
+      .slip-left {
+        left: 0%;
+      }
       .slider {
-        animation-duration: 0.3s;
-        animation-name: slidein;
+        transition: left 0.3s;
         animation-timing-function: ease-in;
       }
-      @keyframes slidein {
-        from {
-          margin-left: 100%;
-          width: 100%;
-        }
-        to {
-          margin-left: 0%;
-          width: 100%;
-        }
+      .shrink {
+        transition: width 0.3s;
+        animation-timing-function: ease-in;
+      }
+      .slow {
+        transition: width 0.6s !important;
       }
     </style>
   </head>
@@ -130,13 +129,16 @@
         <div></div>
         <div></div>
         <div
-          class="col2 rounded shadow"
+          class="trigger col2 rounded shadow"
+          id="trigger1"
           style='background-image: url("./assets/misc/sawdust.jpg");'
         ></div>
         <div></div>
         <div class="bgbrown"></div>
         <div></div>
-        <div class="bgblue"></div>
+        <div class="bgblue clip" id="hideblue">
+          <div id="slideblue" class="slider bgred w100p h100p relative" style="left:100%;"></div>
+        </div>
         <div class="bgsky rounded"></div>
         <div class="row2"></div>
         <div class="bgrose"></div>
@@ -156,7 +158,9 @@
             <div class="bgpink"></div>
             <div></div>
             <div class="bgrose"></div>
-            <div class="bgsky"></div>
+            <div class="relative">
+              <div class="relative bgsky h100p w50p slider" style="left:0%;" id="hidesky"></div>
+            </div>
             <div style="background-image:url(./assets/misc/victoria-cow.jpg);"></div>
           </div>
 
@@ -176,13 +180,17 @@
           </div>
 
           <!-- small clouds -->
-          <div class="goldGrid mv6" style="max-height:8rem;">
+          <div class="goldGrid mv6" style="max-height:10rem;">
             <div class=""></div>
             <div class=""></div>
             <div class="col2 "></div>
             <div class="bgpink"></div>
             <div></div>
-            <div class="bggrey" style="background-image:url(./assets/misc/satellite.jpg);"></div>
+            <div
+              class="trigger bggrey"
+              id="hide_earth"
+              style="background-image:url(./assets/misc/satellite.jpg);"
+            ></div>
             <div></div>
             <div class="row2 "></div>
           </div>
@@ -190,7 +198,11 @@
           <!-- mushroom grid -->
           <div class="goldGrid mv6">
             <div></div>
-            <div class="col2 bgrose" style="background-image:url(./assets/misc/saddam.jpg);"></div>
+            <div
+              id="saddam"
+              class="col2 bgrose"
+              style="background-image:url(./assets/misc/saddam.jpg);"
+            ></div>
             <div class="bgpink"></div>
             <div class="row2 bgblue"></div>
             <div class="bgbrown" style="background-image:url(./assets/misc/mushrooms.jpg);"></div>
@@ -254,17 +266,17 @@
     </div>
 
     <!-- can't fix -->
-    <div class="mainStage mv5">
+    <!-- <div class="mainStage mv5">
       <div></div>
       <div class=" f3 sea mv2">
         wikipedia
         <a href="http://blog.spencermounta.in/2019/wikipedias-in-trouble/index.html">is failing</a>.
       </div>
       <div></div>
-    </div>
+    </div> -->
 
     <!-- garbage -->
-    <div class="mainStage mv5">
+    <div class="mainStage mv6">
       <div></div>
       <div class="row m2 nowrap">
         <div class="f3 right sea">
@@ -274,7 +286,9 @@
             >is in decline</a
           >.
         </div>
-        <img class="rounded shadow ml1" src="./assets/full/yeast.jpg" />
+        <div class="">
+          <img class="rounded shadow ml1" src="./assets/full/yeast.jpg" />
+        </div>
       </div>
       <div></div>
     </div>
@@ -291,7 +305,7 @@
           <div class=""></div>
           <div class=""></div>
           <div class=""></div>
-          <div class="bgsky rounded"></div>
+          <div id="shrinkblue" class="trigger shrink bgsky rounded" style="width:100%;"></div>
           <div class=""></div>
           <div class=""></div>
           <div class="bgred rounded"></div>
@@ -329,7 +343,9 @@
           <div class="left"></div>
         </div>
         <div class="grow left row-middle nowrap">
-          <img src="./assets/full/desk.jpg" class="rounded w9" />
+          <div class="">
+            <img src="./assets/full/desk.jpg" class="rounded w9" />
+          </div>
           <div class="col-bottom h100p ml3" style="align-items: start;">
             <div>i live in a modest apartment.</div>
             <img src="./assets/full/github.jpg" class="rounded shadow w8" />
@@ -363,7 +379,7 @@
               I'm 33.
             </div>
           </div>
-          <div class="bgpink rounded"></div>
+          <div id="growpink" class="trigger bgpink rounded shrink slow" style="width:100%;"></div>
           <div class="col-middle rounded clip"></div>
         </div>
         <div class="brown right maxw11 mt1" style="margin-right:24px;">
