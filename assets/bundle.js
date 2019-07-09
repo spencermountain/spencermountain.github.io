@@ -1425,8 +1425,6 @@ scroller.setup({
   step: '.trigger'
 }).onStepEnter(function (resp) {
   if (resp.direction === 'down') {
-    console.log(resp.element.id);
-
     if (resp.element.id === 'trigger1') {
       sideblue.style.left = '0%';
       hidesky.style.left = '50%';
