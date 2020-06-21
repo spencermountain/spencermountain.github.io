@@ -2,11 +2,12 @@ script.
   import Img from '../components/Img.svelte'
   import Mov from '../components/Mov.svelte'
   import Youtube from '../components/Youtube.svelte'
+  import Hr from '../components/Hr.svelte'
 style.
   .mono {
     font-family:"Lucida Console", Monaco, monospace;
   }
-.mono.f08 spencer kelly <i>is trying his best</i>.
+.mono.f08.i spencer kelly <i>is trying his best</i>.
 
 .main.mt3
   #2020.year
@@ -20,7 +21,11 @@ style.
         Img(src='./assets/2020/2020.jpg', width='250px', caption='')
     Img(src='./assets/2020/skydome.png', width='200px', caption='')
     .m4 
-      Img(src='./assets/2020/fr-compromise.png', width='450px', caption='french-language conjugation')
+      Img(
+        src='./assets/2020/fr-compromise.png',
+        width='450px',
+        caption='compromise-community begins<br/><i>french-language conjugation</i>'
+      )
     iframe(
       title='Computer Programming with Spencer Kelly',
       style='border: solid 1px #dedede; margin-top:60px;',
@@ -31,32 +36,49 @@ style.
       scrolling='no'
     )
     .tab.i.f09 Computer programming with Spencer Kelly
-    .mt3
+    .mt4
       Mov(
         src='./assets/2020/fast-mode.mp4',
         width='450px',
         caption='compromise became fast<br/><i>contract w/ <a href="https://moov.co/">Moov.co</a></i>'
       )
-      //- ul.tab.f09.i for Moov Inc
-
-.main.mt5
-  #2019.year
-    h2 2019
-    Img(src='./assets/2019/2019.jpg', width='150px', caption='')
-    Img(src='./assets/2019/dumps.png', width='150px', caption='')
-    Img(src='./assets/2019/globe.png', width='150px')
-    ul.i.m4 compromise running in the NHS
-      .tab.f09 for <a href="http://mbihealthgroup.com/">MBI health</a>.
-    Img(src='./assets/2019/twitter.png', width='380px')
-    ul.m3.i wrote a constraint-solver
-      .tab for design layout
-        .tab at <a href="https://venngage.com/">venngage.com</a>
+    .mt5
+      .tab.i.f09 svelte + blender:
     .row
       .half
+        Img(src='./assets/2020/wayne.png', width='150px')
+        //- Img(src='./assets/2020/ontario.png', width='50px')
+        Img(src='./assets/2019/blender.jpg', width='175px')
       .half
-        Img(src='./assets/2019/blender.jpg', width='350px')
+        Img(src='./assets/2020/sport-season.png', width='250px')
+        Img(src='./assets/2020/calendar.png', width='200px')
+    .mt5
+      Img(src='./assets/2020/gun-and-rose.png', width='350px')
 
-.main.mt5
+.main.mt4
+  #2019.year
+    h2 2019
+    .row
+      .half
+        Img(src='./assets/2019/v12.png', width='380px')
+      .half
+        Img(src='./assets/2019/2019.jpg', width='150px', caption='')
+        Img(src='./assets/2019/dumps.png', width='150px', caption='')
+        Img(src='./assets/2019/globe.png', width='150px')
+    ul.i.m4 compromise running in the NHS
+      .tab.f09 for <a href="http://mbihealthgroup.com/">MBI health</a>.
+
+    .row.mt4
+      Img(src='./assets/2019/twitter.png', width='380px')
+      Img(src='./assets/2019/2019-2.jpg', width='120px')
+
+    .tab.row.mt3(style='justify-content: normal;')
+      div
+        .i wrote a realtime constraint-solver
+          .tab.f09 for <a href="https://venngage.com/">venngage.com</a>
+      Img(src='./assets/2019/venngage.png', width='60px')
+
+.main.mt4
   #2018.year
     h2 2018
     .row
@@ -73,8 +95,11 @@ style.
         Img(src='./assets/2018/spacetime.png', width='250px', caption='')
         Img(src='./assets/2018/spacetime.gif', width='250px', caption='')
       .half
-        div wrote a timezone library
+        div made a timezone library
         .i also hard.
+    .tab2
+      Img(src='./assets/2019/colors.png', width='280px')
+    Hr
 
 .main.mt5
   #2017.year
@@ -84,17 +109,18 @@ style.
       .half
         Img(src='./assets/2017/who-ordinal.png', width='350px', caption='')
         .mt2
-          Img(src='./assets/2017/2017.jpg', width='200px', caption='')
+          Img(src='./assets/2017/2017.jpg', width='175px', caption='')
         .mt3 
           Img(
             src='./assets/2017/dumpster.gif',
-            width='350px',
+            width='400px',
             caption='system for parsing wikipedia<br/>in-use at Wolfram Alpha'
           )
       .half
         Img(src='./assets/2017/wtf-wikipedia.png', width='250px', caption='')
         Img(src='./assets/2017/japan.jpg', width='150px', caption='')
-    .m3 compromise being used <a href="https://devblogs.microsoft.com/cse/2017/06/06/geocoding-social-conversations-nlp-javascript/">at the United Nations</a>
+    .mt5.ml3 compromise being used <a href="https://devblogs.microsoft.com/cse/2017/06/06/geocoding-social-conversations-nlp-javascript/">at the United Nations</a>
+    Hr
 
 .main.mt5
   #2016.year
@@ -109,13 +135,14 @@ style.
 
     .mt3
       Img(src='./assets/2016/trending.jpg', width='500px')
+    .mt3
+      Youtube(video='WuPVS2tCg8s')
     .row.nowrap
       .half
       .half
         .mt3
           Img(src='./assets/2016/montreal.png', width='200px', caption='')
-    .mt3
-      Youtube(video='WuPVS2tCg8s')
+    Hr
 
 .main.mt5 
   #2015.year
@@ -124,7 +151,9 @@ style.
     Img(src='./assets/2015/toronto.jpg', width='250px', caption='moved to Toronto')
     .right.mt2 pension vizualization dashboard
     Img(src='./assets/2017/govdna.png', width='450px', caption='') 
-    .tab for <a href="https://govinvest.com/">GovInvest.com</a>
+    .tab
+      Img(src='./assets/2015/govinvest2.jpg', width='300px', caption='') 
+      .tab.f09 for <a href="https://govinvest.com/">govInvest</a>
     .mt3
       Img(src='./assets/2015/playoffs.jpg', width='400px', caption='blue jays win ALDS<br/>but lose semi-final')
 
@@ -139,13 +168,14 @@ style.
         .mt2
           Img(src='./assets/2014/digraph-genealogy.jpg', width='150px', caption='')
     ul.mt4.i granted this weird software patent
-      Img(src='./assets/2014/state-patent.jpg', width='450px', caption='')
+      a(href='https://patents.google.com/patent/US20150089409A1/en')
+        Img(src='./assets/2014/state-patent.jpg', width='450px', caption='')
     .row.mt3
       .half
         Img(src='./assets/2014/earthbarely1.jpg', width='250px', caption='')
       .half
         Img(src='./assets/2014/earthbarely2.jpg', width='250px', caption='')
-        .f09.i.grey finalist at CUSEC14 hackathon
+        .f09.i.grey CUSEC14 hackathon finalist
 
 .main.mt5
   #2013.year
@@ -159,9 +189,11 @@ style.
     .tab.mt5 state.com hires 45 people
       .i.f09.tab all will be laid-off the next year.
       Img(src='./assets/2013/alex-techcrunch.png', width='350px', caption='')
+    .hangright.mt5 webby nomination - <i>best community, 2013</i>
     .m3
       Img(src='./assets/2013/deceased-persons.png', width='250px', caption='')
-    .tab.i.f09.ml4 
+    Img(src='./assets/2013/mturk.jpg', width='320px', caption='')
+    .tab.i.f09.ml4.mt3
       div Freebase shuts-down.
       div React and D3 are both created.
 
@@ -175,8 +207,10 @@ style.
         div moved to London
         .tab.i.f09 for <a href="https://state.com/">State.com</a>
         //- Img(src='./assets/2012/beach.jpg', width='250px', caption='')
-    Img(src='./assets/2012/opinion.png', width='420px', caption='')
-    Img(src='./assets/2012/mars.jpg', width='550px', caption='')
+    .mt3
+      Img(src='./assets/2012/opinion.png', width='300px', caption='<i >london in the rain in beautiful</i>')
+    .mt3
+      Img(src='./assets/2012/mars.jpg', width='550px', caption='')
 
 .main.mt5 
   #2011.year
@@ -195,10 +229,85 @@ style.
     h2 2010
     div English Text simplification
     Img(src='./assets/2010/simple.jpg', width='450px', caption='')
-    ul often cited as <i>'the most naive' English simplification</i>
+    ul often cited as <i>'the most naive' simplification of english</i>
       .tab in many papers, somehow.
-    .mt4.ml2.b.navy wikipedia bot accepted in en.wikipedia
-    .ml4.i filled-in missing citation data.
+    .mt4.ml2.b.navy wikipedia bot
+    .ml4 accepted on en.wikipedia
+    .ml4.i filled-in missing citation data until 2012.
+  Hr
+
+.main.mt4
+  .row(style='justify-content: normal;')
+    .f2 citations:
+    img.ml3(src='./assets/2010/piano.gif')
+  ul
+    li
+      a(href='https://arxiv.org/abs/1901.05350') TensorFlow.js: Machine Learning for the Web and Beyond
+      ul
+        | Google. 2019.
+    li
+      a(href='https://repository.ihu.edu.gr//xmlui/handle/11544/29186') Development of a web application for an automated user assistant
+      ul
+        | the International Helenic University. 2018.
+    li
+      a(href='https://www.isca-speech.org/archive/ISAPh_2018/pdfs/18.pdf') Pronunciation Scaffolder: Annotation accuracy
+      ul
+        | University of Aizu, Japan. 2018.
+    li
+      a(href='https://link.springer.com/chapter/10.1007/978-981-10-8797-4_31') Authentication Using Dynamic Question Generation
+      ul
+        | Somaiya College OF Engineering, Mumbai. 2018.
+    li
+      a(href='https://osf.io/w9nhb') NETANOS - Named entity-based Text Anonymization for Open Science
+      ul
+        | University of Amsterdam. 2017.
+    li
+      a(href='https://www.cg.tuwien.ac.at/research/publications/2017/mazurek-2017-vows/mazurek-2017-vows-report.pdf') Visualization of Thesaurus-Based Web Search
+      ul
+        | Vienna University of Technology. 2017.
+    li
+      a(href='https://www.mdpi.com/2227-9709/4/3/28/htm') Web Apps Come of Age for Molecular Sciences
+      ul
+        | Swiss Federal Institute of Technology. 2017.
+    li
+      a(href='https://core.ac.uk/download/pdf/132597718.pdf') Martello.io whitepaper
+      ul
+        | National College of Ireland. 2017.
+    li
+      a(href='https://otik.uk.zcu.cz/handle/11025/23829') Wikipedia graph data retrieval
+      ul
+        | University of West Bohemia. 2016
+    li
+      a(href='https://wlv.openrepository.com/bitstream/handle/2436/601113/Stajner_PhD+thesis.pdf?sequence=1') New Data-Driven Approaches to Text Simplification
+      ul
+        | University of Wolverhampton. 2015.
+    li
+      a(href='http://l3s.de/~gtran/publications/vu_et_al_2014.pdf') Learning to Simplify Children Stories with Limited Data
+      ul
+        | Vietnam National University. 2014.
+    li
+      a(href='https://wiki.eecs.yorku.ca/course_archive/2013-14/W/6339/_media/simple_book.pdf') SimpLe: Lexical Simplification using Word Sense Disambiguation
+      ul
+        | York University, Toronto. 2013.
+    li
+      a(
+        href='https://www.semanticscholar.org/paper/WikiSimple%3A-Automatic-Simplification-of-Wikipedia-Woodsend-Lapata/e4c71fd504fd6657fc444e82e481b22f952bcaab'
+      ) WikiSimple: Automatic Simplification of Wikipedia Articles
+      ul
+        | University of Edinburgh. 2011.
+    li
+      a(href='https://dl.acm.org/citation.cfm?id=2145480')
+        | Learning to Simplify Sentences with Quasi-Synchronous Grammar and Integer Programming
+      ul
+        | University of Edinburgh. 2011
+    li
+      a(href='https://www.slideshare.net/marti_hearst/the-future-of-search-keynote-at-iknow-2010') The future of Search
+      ul
+        | UC Berkeley. 2010.
+    li
+      a(href='https://dl.acm.org/citation.cfm?id=1858055') Unsupervised extraction of lexical simplifications Wikipedia
+      ul
+        | Cornell. 2010.
 
 .space
 .space
