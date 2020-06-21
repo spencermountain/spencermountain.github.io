@@ -1,18 +1,26 @@
-script#2020.
+script.
   import Img from '../components/Img.svelte'
   import Mov from '../components/Mov.svelte'
-  
-.main
-  #2020.year.blblue
+  import Youtube from '../components/Youtube.svelte'
+style.
+  .mono {
+    font-family:"Lucida Console", Monaco, monospace;
+  }
+.mono.f08 spencer kelly <i>is trying his best</i>.
+
+.main.mt3
+  #2020.year
     h2 2020
     .row
       .half
-        Img(src='./assets/2020/covid.png', width='150px', caption='covid-19')
+        Img(src='./assets/2020/covid.png', width='150px', caption='')
+        .f06.tab2.mono.grey.right.orange Covid-19 is the bummer
       .half
         Mov(src='./assets/2020/hand-computer.mp4', width='250px', caption='')
+        Img(src='./assets/2020/2020.jpg', width='250px', caption='')
     Img(src='./assets/2020/skydome.png', width='200px', caption='')
     .m4 
-      Img(src='./assets/2020/fr-compromise.png', width='450px', caption='started fr-compromise')
+      Img(src='./assets/2020/fr-compromise.png', width='450px', caption='french-language conjugation')
     iframe(
       title='Computer Programming with Spencer Kelly',
       style='border: solid 1px #dedede; margin-top:60px;',
@@ -27,7 +35,7 @@ script#2020.
       Mov(
         src='./assets/2020/fast-mode.mp4',
         width='450px',
-        caption='compromise started being very fast<br/><i>contract w/ <a href="https://moov.co/">Moov.co</a></i>'
+        caption='compromise became fast<br/><i>contract w/ <a href="https://moov.co/">Moov.co</a></i>'
       )
       //- ul.tab.f09.i for Moov Inc
 
@@ -37,49 +45,56 @@ script#2020.
     Img(src='./assets/2019/2019.jpg', width='150px', caption='')
     Img(src='./assets/2019/dumps.png', width='150px', caption='')
     Img(src='./assets/2019/globe.png', width='150px')
-    ul.i.m3 got compromise running at the NHS
-      .tab for <a href="http://mbihealthgroup.com/">MBI health</a>.
+    ul.i.m4 compromise running in the NHS
+      .tab.f09 for <a href="http://mbihealthgroup.com/">MBI health</a>.
     Img(src='./assets/2019/twitter.png', width='380px')
-    ul.m3.i worked at <a href="https://venngage.com/">Venngage</a>
-      .tab built an automated-layout design tool.
-    Img(src='./assets/2019/blender.jpg', width='450px')
+    ul.m3.i wrote a constraint-solver
+      .tab for design layout
+        .tab at <a href="https://venngage.com/">venngage.com</a>
+    .row
+      .half
+      .half
+        Img(src='./assets/2019/blender.jpg', width='350px')
 
 .main.mt5
-  #2018.year.blsky
+  #2018.year
     h2 2018
     .row
       .half
-        Img(src='./assets/2018/geneology.png', width='450px')
-        Img(src='./assets/2018/cheese-maker.png', width='250px', caption='did my genealogy. it was hard.')
+        Img(src='./assets/2018/geneology.png', width='450px', caption='did my genealogy. it was hard.')
+        Img(src='./assets/2018/cheese-maker.png', width='250px')
       .half
         Img(src='./assets/2018/mars.jpg', width='350px')
-        Img(src='./assets/2018/begin-cli.gif', width='350px', caption='worked at Begin.com')
-        ul.i wrote a date-parser for natural language
-    .row
+        Img(src='./assets/2018/begin-cli.gif', width='350px')
+        ul wrote a date-parser for natural language
+          .i.tab.f09 for <a href="https://begin.com">begin.com</a>
+    .row.mt4
       .half
         Img(src='./assets/2018/spacetime.png', width='250px', caption='')
         Img(src='./assets/2018/spacetime.gif', width='250px', caption='')
       .half
-        ul.i wrote a timezone library
-        ul.i that was hard.
+        div wrote a timezone library
+        .i also hard.
 
 .main.mt5
   #2017.year
     h2 2017
-    Img(
-      src='./assets/2017/tests-failing.png',
-      width='500px',
-      caption='probably the hardest thing I\'ve ever done.</br>compromise v12'
-    )
+    Img(src='./assets/2017/tests-failing.png', width='500px', caption='compromise v12')
     .row.mt3
       .half
         Img(src='./assets/2017/who-ordinal.png', width='350px', caption='')
-        Img(src='./assets/2017/2017.jpg', width='150px', caption='')
-        Img(src='./assets/2017/dumpster.gif', width='350px', caption='parsing wikipedia<br/>in-use at wolfram alpha')
+        .mt2
+          Img(src='./assets/2017/2017.jpg', width='200px', caption='')
+        .mt3 
+          Img(
+            src='./assets/2017/dumpster.gif',
+            width='350px',
+            caption='system for parsing wikipedia<br/>in-use at Wolfram Alpha'
+          )
       .half
         Img(src='./assets/2017/wtf-wikipedia.png', width='250px', caption='')
         Img(src='./assets/2017/japan.jpg', width='150px', caption='')
-    Img(src='./assets/2017/govdna.png', width='450px', caption='pension vizualization for GovInvest Inc')
+    .m3 compromise being used <a href="https://devblogs.microsoft.com/cse/2017/06/06/geocoding-social-conversations-nlp-javascript/">at the United Nations</a>
 
 .main.mt5
   #2016.year
@@ -87,42 +102,68 @@ script#2020.
     .row
       .half
         Img(src='./assets/2016/map.jpg', width='250px', caption='')
-        Img(src='./assets/2016/yonge-street.jpg', width='150px', caption='')
+        .mt2
+          Img(src='./assets/2016/yonge-street.jpg', width='200px', caption='')
       .half
-        Img(src='./assets/2016/old.png', width='250px', caption='')
-        Img(src='./assets/2016/montreal.png', width='150px', caption='')
+        Img(src='./assets/2016/old.png', width='200px', caption='')
+
+    .mt3
+      Img(src='./assets/2016/trending.jpg', width='500px')
+    .row.nowrap
+      .half
+      .half
+        .mt3
+          Img(src='./assets/2016/montreal.png', width='200px', caption='')
+    .mt3
+      Youtube(video='WuPVS2tCg8s')
 
 .main.mt5 
   #2015.year
     h2 2015
     Img(src='./assets/2015/2015.jpg', width='150px', caption='')
     Img(src='./assets/2015/toronto.jpg', width='250px', caption='moved to Toronto')
-    .mt3.i.tab blue jays win the ALDS
-    Img(src='./assets/2015/playoffs.jpg', width='400px')
+    .right.mt2 pension vizualization dashboard
+    Img(src='./assets/2017/govdna.png', width='450px', caption='') 
+    .tab for <a href="https://govinvest.com/">GovInvest.com</a>
+    .mt3
+      Img(src='./assets/2015/playoffs.jpg', width='400px', caption='blue jays win ALDS<br/>but lose semi-final')
 
 .main.mt5 
   #2014.year
     h2 2014
-    div went to grad school for a bit.
+    div went to grad school for a short time.
     .row
       .half
         Img(src='./assets/2014/gradschool.jpg', width='150px', caption='')
       .half
         .mt2
           Img(src='./assets/2014/digraph-genealogy.jpg', width='150px', caption='')
-    .mt4 was granted this weird software patent
-    Img(src='./assets/2014/state-patent.jpg', width='450px', caption='')
+    ul.mt4.i granted this weird software patent
+      Img(src='./assets/2014/state-patent.jpg', width='450px', caption='')
+    .row.mt3
+      .half
+        Img(src='./assets/2014/earthbarely1.jpg', width='250px', caption='')
+      .half
+        Img(src='./assets/2014/earthbarely2.jpg', width='250px', caption='')
+        .f09.i.grey finalist at CUSEC14 hackathon
 
 .main.mt5
   #2013.year
     h2 2013
-    Img(src='./assets/2013/2013.png', width='150px', caption='')
-    Img(src='./assets/2013/deceased-persons.jpg', width='250px', caption='')
     .row
       .half
-        Img(src='./assets/2013/london.jpg', width='250px', caption='')
+        Img(src='./assets/2013/london.jpg', width='350px', caption='')
       .half
+        Img(src='./assets/2013/2013.png', width='150px', caption='')
         Img(src='./assets/2013/Tree.png', width='150px', caption='')
+    .tab.mt5 state.com hires 45 people
+      .i.f09.tab all will be laid-off the next year.
+      Img(src='./assets/2013/alex-techcrunch.png', width='350px', caption='')
+    .m3
+      Img(src='./assets/2013/deceased-persons.png', width='250px', caption='')
+    .tab.i.f09.ml4 
+      div Freebase shuts-down.
+      div React and D3 are both created.
 
 .main.mt5 
   #2012.year
@@ -141,6 +182,7 @@ script#2020.
   #2011.year
     h2 2011
     iframe.m3(
+      title='Freebase + Ubiquity',
       src='https://player.vimeo.com/video/13992710?byline=0&portrait=0',
       width='550',
       height='309',
@@ -148,4 +190,15 @@ script#2020.
       allow='autoplay; fullscreen',
       allowfullscreen
     )
-.spacer
+.main.mt5 
+  #2010.year
+    h2 2010
+    div English Text simplification
+    Img(src='./assets/2010/simple.jpg', width='450px', caption='')
+    ul often cited as <i>'the most naive' English simplification</i>
+      .tab in many papers, somehow.
+    .mt4.ml2.b.navy wikipedia bot accepted in en.wikipedia
+    .ml4.i filled-in missing citation data.
+
+.space
+.space
