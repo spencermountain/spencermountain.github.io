@@ -3,11 +3,14 @@ script.
   import Mov from '../components/Mov.svelte'
   import Youtube from '../components/Youtube.svelte'
   import Hr from '../components/Hr.svelte'
+  import Vimeo from '../components/Vimeo.svelte'
 style.
   .mono {
     font-family:"Lucida Console", Monaco, monospace;
   }
-.mono.f08.i spencer kelly <i>is trying his best</i>.
+.mono.f08.row.i(style='justify-content: left;')
+  a.cursor(href='../', style='border-bottom:1px solid transparent;') 〱&nbsp;
+  div spencer kelly <i>is just trying his best</i>.
 
 .main.mt3
   #2020.year
@@ -30,7 +33,7 @@ style.
       title='Computer Programming with Spencer Kelly',
       style='border: solid 1px #dedede; margin-top:60px;',
       src='https://app.stitcher.com/splayer/f/502426/68480006',
-      width='420',
+      width='350',
       height='100',
       frameborder='0',
       scrolling='no'
@@ -43,7 +46,7 @@ style.
         caption='compromise became fast<br/><i>contract w/ <a href="https://moov.co/">Moov.co</a></i>'
       )
     .mt5
-      .tab.i.f09 svelte + blender:
+      .tab.i.f09 learning svelte + blender:
     .row
       .half
         Img(src='./assets/2020/wayne.png', width='150px')
@@ -74,7 +77,7 @@ style.
 
     .tab.row.mt3(style='justify-content: normal;')
       div
-        .i wrote a realtime constraint-solver
+        .i built a realtime layout solver
           .tab.f09 for <a href="https://venngage.com/">venngage.com</a>
       Img(src='./assets/2019/venngage.png', width='60px')
 
@@ -117,7 +120,7 @@ style.
             caption='system for parsing wikipedia<br/>in-use at Wolfram Alpha'
           )
       .half
-        Img(src='./assets/2017/wtf-wikipedia.png', width='250px', caption='')
+        Img(src='./assets/2017/wtf-wikipedia.png', width='225px', caption='')
         Img(src='./assets/2017/japan.jpg', width='150px', caption='')
     .mt5.ml3 compromise being used <a href="https://devblogs.microsoft.com/cse/2017/06/06/geocoding-social-conversations-nlp-javascript/">at the United Nations</a>
     Hr
@@ -213,17 +216,9 @@ style.
       Img(src='./assets/2012/mars.jpg', width='550px', caption='')
 
 .main.mt5 
-  #2011.year
+  #2011.year(style='width: 100%; max-width:600px;')
     h2 2011
-    iframe.m3(
-      title='Freebase + Ubiquity',
-      src='https://player.vimeo.com/video/13992710?byline=0&portrait=0',
-      width='550',
-      height='309',
-      frameborder='0',
-      allow='autoplay; fullscreen',
-      allowfullscreen
-    )
+    Vimeo(title='Freebase + Ubiquity', video='13992710')
 .main.mt5 
   #2010.year
     h2 2010
