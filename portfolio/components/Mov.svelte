@@ -2,6 +2,8 @@
   export let src = ''
   export let caption = ''
   export let link = ''
+  export let href = ''
+  link = link || href
   export let width = '100%'
 </script>
 
@@ -12,7 +14,7 @@
   .caption {
     font-size: 0.9rem;
   }
-  .link {
+  .href {
     text-decoration: none;
   }
   video {
@@ -22,7 +24,7 @@
 
 <div class="container">
   {#if link}
-    <a href={link} class="link" target="_blank">
+    <a href={link} class="href" target="_blank">
       <video style="width:{width}; margin-bottom:0px;" {src} autoplay mute loop />
     </a>
   {:else}

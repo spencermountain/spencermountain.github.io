@@ -2,6 +2,8 @@
   export let src = ''
   export let caption = ''
   export let link = ''
+  export let href = ''
+  link = link || href
   export let width = '100%'
 </script>
 

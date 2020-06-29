@@ -324,7 +324,7 @@ var app = (function () {
 
     const file = "portfolio/components/Img.svelte";
 
-    // (25:2) {:else}
+    // (27:2) {:else}
     function create_else_block(ctx) {
     	let img;
     	let img_src_value;
@@ -332,22 +332,22 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			img = element("img");
-    			if (img.src !== (img_src_value = /*src*/ ctx[0])) attr_dev(img, "src", img_src_value);
-    			attr_dev(img, "alt", /*caption*/ ctx[1]);
+    			if (img.src !== (img_src_value = /*src*/ ctx[1])) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", /*caption*/ ctx[2]);
     			set_style(img, "width", /*width*/ ctx[3]);
     			set_style(img, "margin-bottom", "0px");
-    			add_location(img, file, 25, 4, 445);
+    			add_location(img, file, 27, 4, 490);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*src*/ 1 && img.src !== (img_src_value = /*src*/ ctx[0])) {
+    			if (dirty & /*src*/ 2 && img.src !== (img_src_value = /*src*/ ctx[1])) {
     				attr_dev(img, "src", img_src_value);
     			}
 
-    			if (dirty & /*caption*/ 2) {
-    				attr_dev(img, "alt", /*caption*/ ctx[1]);
+    			if (dirty & /*caption*/ 4) {
+    				attr_dev(img, "alt", /*caption*/ ctx[2]);
     			}
 
     			if (dirty & /*width*/ 8) {
@@ -363,14 +363,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(25:2) {:else}",
+    		source: "(27:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (21:2) {#if link}
+    // (23:2) {#if link}
     function create_if_block(ctx) {
     	let a;
     	let img;
@@ -380,35 +380,35 @@ var app = (function () {
     		c: function create() {
     			a = element("a");
     			img = element("img");
-    			if (img.src !== (img_src_value = /*src*/ ctx[0])) attr_dev(img, "src", img_src_value);
-    			attr_dev(img, "alt", /*caption*/ ctx[1]);
+    			if (img.src !== (img_src_value = /*src*/ ctx[1])) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", /*caption*/ ctx[2]);
     			set_style(img, "width", /*width*/ ctx[3]);
     			set_style(img, "margin-bottom", "0px");
-    			add_location(img, file, 22, 6, 352);
-    			attr_dev(a, "href", /*link*/ ctx[2]);
+    			add_location(img, file, 24, 6, 397);
+    			attr_dev(a, "href", /*link*/ ctx[0]);
     			attr_dev(a, "class", "link svelte-11my378");
     			attr_dev(a, "target", "_blank");
-    			add_location(a, file, 21, 4, 301);
+    			add_location(a, file, 23, 4, 346);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
     			append_dev(a, img);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*src*/ 1 && img.src !== (img_src_value = /*src*/ ctx[0])) {
+    			if (dirty & /*src*/ 2 && img.src !== (img_src_value = /*src*/ ctx[1])) {
     				attr_dev(img, "src", img_src_value);
     			}
 
-    			if (dirty & /*caption*/ 2) {
-    				attr_dev(img, "alt", /*caption*/ ctx[1]);
+    			if (dirty & /*caption*/ 4) {
+    				attr_dev(img, "alt", /*caption*/ ctx[2]);
     			}
 
     			if (dirty & /*width*/ 8) {
     				set_style(img, "width", /*width*/ ctx[3]);
     			}
 
-    			if (dirty & /*link*/ 4) {
-    				attr_dev(a, "href", /*link*/ ctx[2]);
+    			if (dirty & /*link*/ 1) {
+    				attr_dev(a, "href", /*link*/ ctx[0]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -420,7 +420,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(21:2) {#if link}",
+    		source: "(23:2) {#if link}",
     		ctx
     	});
 
@@ -433,7 +433,7 @@ var app = (function () {
     	let div0;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*link*/ ctx[2]) return create_if_block;
+    		if (/*link*/ ctx[0]) return create_if_block;
     		return create_else_block;
     	}
 
@@ -447,9 +447,9 @@ var app = (function () {
     			t = space();
     			div0 = element("div");
     			attr_dev(div0, "class", "caption svelte-11my378");
-    			add_location(div0, file, 27, 2, 525);
+    			add_location(div0, file, 29, 2, 570);
     			attr_dev(div1, "class", "container svelte-11my378");
-    			add_location(div1, file, 19, 0, 260);
+    			add_location(div1, file, 21, 0, 305);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -459,7 +459,7 @@ var app = (function () {
     			if_block.m(div1, null);
     			append_dev(div1, t);
     			append_dev(div1, div0);
-    			div0.innerHTML = /*caption*/ ctx[1];
+    			div0.innerHTML = /*caption*/ ctx[2];
     		},
     		p: function update(ctx, [dirty]) {
     			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
@@ -474,7 +474,7 @@ var app = (function () {
     				}
     			}
 
-    			if (dirty & /*caption*/ 2) div0.innerHTML = /*caption*/ ctx[1];		},
+    			if (dirty & /*caption*/ 4) div0.innerHTML = /*caption*/ ctx[2];		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
@@ -498,8 +498,10 @@ var app = (function () {
     	let { src = "" } = $$props;
     	let { caption = "" } = $$props;
     	let { link = "" } = $$props;
+    	let { href = "" } = $$props;
+    	link = link || href;
     	let { width = "100%" } = $$props;
-    	const writable_props = ["src", "caption", "link", "width"];
+    	const writable_props = ["src", "caption", "link", "href", "width"];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Img> was created with unknown prop '${key}'`);
@@ -509,18 +511,20 @@ var app = (function () {
     	validate_slots("Img", $$slots, []);
 
     	$$self.$set = $$props => {
-    		if ("src" in $$props) $$invalidate(0, src = $$props.src);
-    		if ("caption" in $$props) $$invalidate(1, caption = $$props.caption);
-    		if ("link" in $$props) $$invalidate(2, link = $$props.link);
+    		if ("src" in $$props) $$invalidate(1, src = $$props.src);
+    		if ("caption" in $$props) $$invalidate(2, caption = $$props.caption);
+    		if ("link" in $$props) $$invalidate(0, link = $$props.link);
+    		if ("href" in $$props) $$invalidate(4, href = $$props.href);
     		if ("width" in $$props) $$invalidate(3, width = $$props.width);
     	};
 
-    	$$self.$capture_state = () => ({ src, caption, link, width });
+    	$$self.$capture_state = () => ({ src, caption, link, href, width });
 
     	$$self.$inject_state = $$props => {
-    		if ("src" in $$props) $$invalidate(0, src = $$props.src);
-    		if ("caption" in $$props) $$invalidate(1, caption = $$props.caption);
-    		if ("link" in $$props) $$invalidate(2, link = $$props.link);
+    		if ("src" in $$props) $$invalidate(1, src = $$props.src);
+    		if ("caption" in $$props) $$invalidate(2, caption = $$props.caption);
+    		if ("link" in $$props) $$invalidate(0, link = $$props.link);
+    		if ("href" in $$props) $$invalidate(4, href = $$props.href);
     		if ("width" in $$props) $$invalidate(3, width = $$props.width);
     	};
 
@@ -528,13 +532,20 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [src, caption, link, width];
+    	return [link, src, caption, width, href];
     }
 
     class Img extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance, create_fragment, safe_not_equal, { src: 0, caption: 1, link: 2, width: 3 });
+
+    		init(this, options, instance, create_fragment, safe_not_equal, {
+    			src: 1,
+    			caption: 2,
+    			link: 0,
+    			href: 4,
+    			width: 3
+    		});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -568,6 +579,14 @@ var app = (function () {
     		throw new Error("<Img>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
+    	get href() {
+    		throw new Error("<Img>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set href(value) {
+    		throw new Error("<Img>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
     	get width() {
     		throw new Error("<Img>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
@@ -581,7 +600,7 @@ var app = (function () {
 
     const file$1 = "portfolio/components/Mov.svelte";
 
-    // (28:2) {:else}
+    // (30:2) {:else}
     function create_else_block$1(ctx) {
     	let video;
     	let video_src_value;
@@ -591,12 +610,12 @@ var app = (function () {
     			video = element("video");
     			set_style(video, "width", /*width*/ ctx[3]);
     			set_style(video, "margin-bottom", "0px");
-    			if (video.src !== (video_src_value = /*src*/ ctx[0])) attr_dev(video, "src", video_src_value);
+    			if (video.src !== (video_src_value = /*src*/ ctx[1])) attr_dev(video, "src", video_src_value);
     			video.autoplay = true;
     			attr_dev(video, "mute", "");
     			video.loop = true;
-    			attr_dev(video, "class", "svelte-1k0auip");
-    			add_location(video, file$1, 28, 4, 487);
+    			attr_dev(video, "class", "svelte-cyrp5o");
+    			add_location(video, file$1, 30, 4, 532);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, video, anchor);
@@ -606,7 +625,7 @@ var app = (function () {
     				set_style(video, "width", /*width*/ ctx[3]);
     			}
 
-    			if (dirty & /*src*/ 1 && video.src !== (video_src_value = /*src*/ ctx[0])) {
+    			if (dirty & /*src*/ 2 && video.src !== (video_src_value = /*src*/ ctx[1])) {
     				attr_dev(video, "src", video_src_value);
     			}
     		},
@@ -619,14 +638,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(28:2) {:else}",
+    		source: "(30:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (24:2) {#if link}
+    // (26:2) {#if link}
     function create_if_block$1(ctx) {
     	let a;
     	let video;
@@ -638,16 +657,16 @@ var app = (function () {
     			video = element("video");
     			set_style(video, "width", /*width*/ ctx[3]);
     			set_style(video, "margin-bottom", "0px");
-    			if (video.src !== (video_src_value = /*src*/ ctx[0])) attr_dev(video, "src", video_src_value);
+    			if (video.src !== (video_src_value = /*src*/ ctx[1])) attr_dev(video, "src", video_src_value);
     			video.autoplay = true;
     			attr_dev(video, "mute", "");
     			video.loop = true;
-    			attr_dev(video, "class", "svelte-1k0auip");
-    			add_location(video, file$1, 25, 6, 387);
-    			attr_dev(a, "href", /*link*/ ctx[2]);
-    			attr_dev(a, "class", "link svelte-1k0auip");
+    			attr_dev(video, "class", "svelte-cyrp5o");
+    			add_location(video, file$1, 27, 6, 432);
+    			attr_dev(a, "href", /*link*/ ctx[0]);
+    			attr_dev(a, "class", "href svelte-cyrp5o");
     			attr_dev(a, "target", "_blank");
-    			add_location(a, file$1, 24, 4, 336);
+    			add_location(a, file$1, 26, 4, 381);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -658,12 +677,12 @@ var app = (function () {
     				set_style(video, "width", /*width*/ ctx[3]);
     			}
 
-    			if (dirty & /*src*/ 1 && video.src !== (video_src_value = /*src*/ ctx[0])) {
+    			if (dirty & /*src*/ 2 && video.src !== (video_src_value = /*src*/ ctx[1])) {
     				attr_dev(video, "src", video_src_value);
     			}
 
-    			if (dirty & /*link*/ 4) {
-    				attr_dev(a, "href", /*link*/ ctx[2]);
+    			if (dirty & /*link*/ 1) {
+    				attr_dev(a, "href", /*link*/ ctx[0]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -675,7 +694,7 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(24:2) {#if link}",
+    		source: "(26:2) {#if link}",
     		ctx
     	});
 
@@ -688,7 +707,7 @@ var app = (function () {
     	let div0;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*link*/ ctx[2]) return create_if_block$1;
+    		if (/*link*/ ctx[0]) return create_if_block$1;
     		return create_else_block$1;
     	}
 
@@ -701,10 +720,10 @@ var app = (function () {
     			if_block.c();
     			t = space();
     			div0 = element("div");
-    			attr_dev(div0, "class", "caption svelte-1k0auip");
-    			add_location(div0, file$1, 30, 2, 574);
-    			attr_dev(div1, "class", "container svelte-1k0auip");
-    			add_location(div1, file$1, 22, 0, 295);
+    			attr_dev(div0, "class", "caption svelte-cyrp5o");
+    			add_location(div0, file$1, 32, 2, 619);
+    			attr_dev(div1, "class", "container svelte-cyrp5o");
+    			add_location(div1, file$1, 24, 0, 340);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -714,7 +733,7 @@ var app = (function () {
     			if_block.m(div1, null);
     			append_dev(div1, t);
     			append_dev(div1, div0);
-    			div0.innerHTML = /*caption*/ ctx[1];
+    			div0.innerHTML = /*caption*/ ctx[2];
     		},
     		p: function update(ctx, [dirty]) {
     			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
@@ -729,7 +748,7 @@ var app = (function () {
     				}
     			}
 
-    			if (dirty & /*caption*/ 2) div0.innerHTML = /*caption*/ ctx[1];		},
+    			if (dirty & /*caption*/ 4) div0.innerHTML = /*caption*/ ctx[2];		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
@@ -753,8 +772,10 @@ var app = (function () {
     	let { src = "" } = $$props;
     	let { caption = "" } = $$props;
     	let { link = "" } = $$props;
+    	let { href = "" } = $$props;
+    	link = link || href;
     	let { width = "100%" } = $$props;
-    	const writable_props = ["src", "caption", "link", "width"];
+    	const writable_props = ["src", "caption", "link", "href", "width"];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Mov> was created with unknown prop '${key}'`);
@@ -764,18 +785,20 @@ var app = (function () {
     	validate_slots("Mov", $$slots, []);
 
     	$$self.$set = $$props => {
-    		if ("src" in $$props) $$invalidate(0, src = $$props.src);
-    		if ("caption" in $$props) $$invalidate(1, caption = $$props.caption);
-    		if ("link" in $$props) $$invalidate(2, link = $$props.link);
+    		if ("src" in $$props) $$invalidate(1, src = $$props.src);
+    		if ("caption" in $$props) $$invalidate(2, caption = $$props.caption);
+    		if ("link" in $$props) $$invalidate(0, link = $$props.link);
+    		if ("href" in $$props) $$invalidate(4, href = $$props.href);
     		if ("width" in $$props) $$invalidate(3, width = $$props.width);
     	};
 
-    	$$self.$capture_state = () => ({ src, caption, link, width });
+    	$$self.$capture_state = () => ({ src, caption, link, href, width });
 
     	$$self.$inject_state = $$props => {
-    		if ("src" in $$props) $$invalidate(0, src = $$props.src);
-    		if ("caption" in $$props) $$invalidate(1, caption = $$props.caption);
-    		if ("link" in $$props) $$invalidate(2, link = $$props.link);
+    		if ("src" in $$props) $$invalidate(1, src = $$props.src);
+    		if ("caption" in $$props) $$invalidate(2, caption = $$props.caption);
+    		if ("link" in $$props) $$invalidate(0, link = $$props.link);
+    		if ("href" in $$props) $$invalidate(4, href = $$props.href);
     		if ("width" in $$props) $$invalidate(3, width = $$props.width);
     	};
 
@@ -783,13 +806,20 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [src, caption, link, width];
+    	return [link, src, caption, width, href];
     }
 
     class Mov extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { src: 0, caption: 1, link: 2, width: 3 });
+
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, {
+    			src: 1,
+    			caption: 2,
+    			link: 0,
+    			href: 4,
+    			width: 3
+    		});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -820,6 +850,14 @@ var app = (function () {
     	}
 
     	set link(value) {
+    		throw new Error("<Mov>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get href() {
+    		throw new Error("<Mov>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set href(value) {
     		throw new Error("<Mov>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
@@ -1640,7 +1678,7 @@ var app = (function () {
     			props: {
     				src: "./assets/2020/covid.png",
     				width: "150px",
-    				caption: ""
+    				href: "https://www.reddit.com/r/dataisbeautiful/comments/fkwova/oc_rna_sequence_of_covid19_this_8kb_of_data_is/"
     			},
     			$$inline: true
     		});
@@ -1649,7 +1687,7 @@ var app = (function () {
     			props: {
     				src: "./assets/2020/hand-computer.mp4",
     				width: "250px",
-    				caption: ""
+    				href: "http://blog.spencermounta.in/2020/computer-is-furniture/index.html"
     			},
     			$$inline: true
     		});
@@ -1667,7 +1705,7 @@ var app = (function () {
     			props: {
     				src: "./assets/2020/skydome.png",
     				width: "200px",
-    				caption: ""
+    				href: "http://thensome.how/2020/covid-as-skydome/"
     			},
     			$$inline: true
     		});
@@ -1676,7 +1714,8 @@ var app = (function () {
     			props: {
     				src: "./assets/2020/fr-compromise.png",
     				width: "450px",
-    				caption: "compromise-community begins<br/><i>french-language conjugation</i>"
+    				caption: "compromise-community begins<br/><i>french-language conjugation</i>",
+    				link: "https://github.com/nlp-compromise/fr-compromise"
     			},
     			$$inline: true
     		});
@@ -1685,6 +1724,7 @@ var app = (function () {
     			props: {
     				src: "./assets/2020/fast-mode.mp4",
     				width: "450px",
+    				href: "https://github.com/spencermountain/compromise/tree/master/plugins/scan",
     				caption: "compromise became fast<br/><i>contract w/ <a href=\"https://moov.co/\">Moov.co</a></i>"
     			},
     			$$inline: true
@@ -1709,7 +1749,8 @@ var app = (function () {
     	const img6 = new Img({
     			props: {
     				src: "./assets/2020/sport-season.png",
-    				width: "250px"
+    				width: "250px",
+    				href: "http://thensome.how/2018/sports-by-city/"
     			},
     			$$inline: true
     		});
@@ -1717,7 +1758,8 @@ var app = (function () {
     	const img7 = new Img({
     			props: {
     				src: "./assets/2020/calendar.png",
-    				width: "200px"
+    				width: "200px",
+    				href: "http://blog.spencermounta.in/2019/millenial-calendar/index.html"
     			},
     			$$inline: true
     		});
@@ -1725,7 +1767,8 @@ var app = (function () {
     	const img8 = new Img({
     			props: {
     				src: "./assets/2020/gun-and-rose.png",
-    				width: "350px"
+    				width: "350px",
+    				href: "https://observablehq.com/@spencermountain/nouns"
     			},
     			$$inline: true
     		});
@@ -1733,7 +1776,8 @@ var app = (function () {
     	const img9 = new Img({
     			props: {
     				src: "./assets/2019/v12.png",
-    				width: "380px"
+    				width: "380px",
+    				href: "https://observablehq.com/@spencermountain/compromise-values"
     			},
     			$$inline: true
     		});
@@ -1741,8 +1785,7 @@ var app = (function () {
     	const img10 = new Img({
     			props: {
     				src: "./assets/2019/2019.jpg",
-    				width: "150px",
-    				caption: ""
+    				width: "150px"
     			},
     			$$inline: true
     		});
@@ -1751,7 +1794,7 @@ var app = (function () {
     			props: {
     				src: "./assets/2019/dumps.png",
     				width: "150px",
-    				caption: ""
+    				href: "http://thensome.how/2019/ontario-landfills/"
     			},
     			$$inline: true
     		});
@@ -1759,7 +1802,8 @@ var app = (function () {
     	const img12 = new Img({
     			props: {
     				src: "./assets/2019/globe.png",
-    				width: "150px"
+    				width: "150px",
+    				href: "http://blog.spencermounta.in/2019/understanding-the-planet/index.html"
     			},
     			$$inline: true
     		});
@@ -1792,7 +1836,8 @@ var app = (function () {
     			props: {
     				src: "./assets/2018/geneology.png",
     				width: "450px",
-    				caption: "did my genealogy. it was hard."
+    				caption: "did my genealogy. it was hard.",
+    				href: "http://blog.spencermounta.in/2019/my-family-tree/index.html"
     			},
     			$$inline: true
     		});
@@ -1816,7 +1861,8 @@ var app = (function () {
     	const img19 = new Img({
     			props: {
     				src: "./assets/2018/begin-cli.gif",
-    				width: "350px"
+    				width: "350px",
+    				href: "https://observablehq.com/@spencermountain/compromise-dates"
     			},
     			$$inline: true
     		});
@@ -1825,7 +1871,7 @@ var app = (function () {
     			props: {
     				src: "./assets/2018/spacetime.png",
     				width: "250px",
-    				caption: ""
+    				href: "https://github.com/spencermountain/spacetime"
     			},
     			$$inline: true
     		});
@@ -1834,7 +1880,7 @@ var app = (function () {
     			props: {
     				src: "./assets/2018/spacetime.gif",
     				width: "250px",
-    				caption: ""
+    				href: "https://github.com/spencermountain/spacetime"
     			},
     			$$inline: true
     		});
@@ -1853,7 +1899,8 @@ var app = (function () {
     			props: {
     				src: "./assets/2017/tests-failing.png",
     				width: "500px",
-    				caption: "compromise v12"
+    				caption: "compromise v12",
+    				href: "https://github.com/spencermountain/compromise/wiki/v12-Release-Notes"
     			},
     			$$inline: true
     		});
@@ -1880,6 +1927,7 @@ var app = (function () {
     			props: {
     				src: "./assets/2017/dumpster.gif",
     				width: "400px",
+    				href: "https://github.com/spencermountain/dumpster-dive/",
     				caption: "system for parsing wikipedia<br/>in-use at Wolfram Alpha"
     			},
     			$$inline: true
@@ -1889,7 +1937,8 @@ var app = (function () {
     			props: {
     				src: "./assets/2017/wtf-wikipedia.png",
     				width: "225px",
-    				caption: ""
+    				caption: "some of wikipedia's 600-thousand templates",
+    				href: "https://github.com/spencermountain/wtf_wikipedia/"
     			},
     			$$inline: true
     		});
@@ -2050,7 +2099,7 @@ var app = (function () {
     			props: {
     				src: "./assets/2013/london.jpg",
     				width: "350px",
-    				caption: ""
+    				href: "https://state.com/"
     			},
     			$$inline: true
     		});
@@ -2077,7 +2126,7 @@ var app = (function () {
     			props: {
     				src: "./assets/2013/alex-techcrunch.png",
     				width: "350px",
-    				caption: ""
+    				href: "https://www.youtube.com/watch?v=PAymdN2T5oI"
     			},
     			$$inline: true
     		});
@@ -2139,7 +2188,7 @@ var app = (function () {
     			props: {
     				src: "./assets/2010/simple.jpg",
     				width: "450px",
-    				caption: ""
+    				href: "https://docs.google.com/spreadsheets/d/1clPt1ivBcf5Kdi02NzoE_KqEMXNylj6q-88qXuvw1lY/edit?usp=sharing"
     			},
     			$$inline: true
     		});
@@ -2154,7 +2203,7 @@ var app = (function () {
     			div0 = element("div");
     			t1 = text("spencer kelly ");
     			i0 = element("i");
-    			i0.textContent = "is just trying his best";
+    			i0.textContent = "is trying his best";
     			t3 = text(".");
     			div16 = element("div");
     			div15 = element("div");
@@ -2212,7 +2261,7 @@ var app = (function () {
     			div25 = element("div");
     			div24 = element("div");
     			div23 = element("div");
-    			t13 = text("built a realtime layout solver");
+    			t13 = text("a realtime layout solver");
     			div22 = element("div");
     			t14 = text("for ");
     			a2 = element("a");
@@ -2230,7 +2279,7 @@ var app = (function () {
     			create_component(img18.$$.fragment);
     			create_component(img19.$$.fragment);
     			ul1 = element("ul");
-    			t17 = text("wrote a date-parser for natural language");
+    			t17 = text("a date-parser for natural language");
     			div29 = element("div");
     			t18 = text("for ");
     			a3 = element("a");
@@ -2241,7 +2290,7 @@ var app = (function () {
     			create_component(img21.$$.fragment);
     			div35 = element("div");
     			div33 = element("div");
-    			div33.textContent = "made a timezone library";
+    			div33.textContent = "a timezone library";
     			div34 = element("div");
     			div34.textContent = "also hard.";
     			div37 = element("div");
@@ -2364,7 +2413,7 @@ var app = (function () {
     			create_component(img50.$$.fragment);
     			div92 = element("div");
     			div90 = element("div");
-    			div90.textContent = "moved to London";
+    			div90.textContent = "moved to Britain";
     			div91 = element("div");
     			t43 = text("for ");
     			a7 = element("a");
@@ -2489,23 +2538,23 @@ var app = (function () {
     			attr_dev(a0, "class", "cursor");
     			attr_dev(a0, "href", "../");
     			set_style(a0, "border-bottom", "1px solid transparent");
-    			add_location(a0, file$5, 6, 68, 375);
-    			add_location(i0, file$5, 6, 172, 479);
-    			add_location(div0, file$5, 6, 153, 460);
+    			add_location(a0, file$5, 7, 68, 424);
+    			add_location(i0, file$5, 7, 172, 528);
+    			add_location(div0, file$5, 7, 153, 509);
     			attr_dev(div1, "class", "mono f08 row i svelte-17l854g");
     			set_style(div1, "justify-content", "left");
-    			add_location(div1, file$5, 6, 9, 316);
-    			add_location(h20, file$5, 6, 265, 572);
+    			add_location(div1, file$5, 7, 9, 365);
+    			add_location(h20, file$5, 7, 260, 616);
     			attr_dev(div2, "class", "f06 tab2 mono grey right orange svelte-17l854g");
-    			add_location(div2, file$5, 6, 379, 686);
+    			add_location(div2, file$5, 7, 475, 831);
     			attr_dev(div3, "class", "half");
-    			add_location(div3, file$5, 6, 295, 602);
+    			add_location(div3, file$5, 7, 290, 646);
     			attr_dev(div4, "class", "half");
-    			add_location(div4, file$5, 6, 458, 765);
+    			add_location(div4, file$5, 7, 554, 910);
     			attr_dev(div5, "class", "row");
-    			add_location(div5, file$5, 6, 278, 585);
+    			add_location(div5, file$5, 7, 273, 629);
     			attr_dev(div6, "class", "m4");
-    			add_location(div6, file$5, 6, 695, 1002);
+    			add_location(div6, file$5, 7, 893, 1249);
     			attr_dev(iframe, "title", "Computer Programming with Spencer Kelly");
     			set_style(iframe, "border", "solid 1px #dedede");
     			set_style(iframe, "margin-top", "60px");
@@ -2514,325 +2563,325 @@ var app = (function () {
     			attr_dev(iframe, "height", "100");
     			attr_dev(iframe, "frameborder", "0");
     			attr_dev(iframe, "scrolling", "no");
-    			add_location(iframe, file$5, 6, 876, 1183);
+    			add_location(iframe, file$5, 7, 1129, 1485);
     			attr_dev(div7, "class", "tab i f09");
-    			add_location(div7, file$5, 6, 1106, 1413);
+    			add_location(div7, file$5, 7, 1359, 1715);
     			attr_dev(div8, "class", "mt4");
-    			add_location(div8, file$5, 6, 1174, 1481);
+    			add_location(div8, file$5, 7, 1427, 1783);
     			attr_dev(div9, "class", "tab i f09");
-    			add_location(div9, file$5, 6, 1408, 1715);
+    			add_location(div9, file$5, 7, 1739, 2095);
     			attr_dev(div10, "class", "mt5");
-    			add_location(div10, file$5, 6, 1391, 1698);
+    			add_location(div10, file$5, 7, 1722, 2078);
     			attr_dev(div11, "class", "half");
-    			add_location(div11, file$5, 6, 1486, 1793);
+    			add_location(div11, file$5, 7, 1817, 2173);
     			attr_dev(div12, "class", "half");
-    			add_location(div12, file$5, 6, 1622, 1929);
+    			add_location(div12, file$5, 7, 1953, 2309);
     			attr_dev(div13, "class", "row");
-    			add_location(div13, file$5, 6, 1469, 1776);
+    			add_location(div13, file$5, 7, 1800, 2156);
     			attr_dev(div14, "class", "mt5");
-    			add_location(div14, file$5, 6, 1772, 2079);
+    			add_location(div14, file$5, 7, 2222, 2578);
     			attr_dev(div15, "class", "year");
     			attr_dev(div15, "id", "2020");
-    			add_location(div15, file$5, 6, 237, 544);
+    			add_location(div15, file$5, 7, 232, 588);
     			attr_dev(div16, "class", "main mt3");
-    			add_location(div16, file$5, 6, 215, 522);
-    			add_location(h21, file$5, 6, 1919, 2226);
+    			add_location(div16, file$5, 7, 210, 566);
+    			add_location(h21, file$5, 7, 2424, 2780);
     			attr_dev(div17, "class", "half");
-    			add_location(div17, file$5, 6, 1949, 2256);
+    			add_location(div17, file$5, 7, 2454, 2810);
     			attr_dev(div18, "class", "half");
-    			add_location(div18, file$5, 6, 2026, 2333);
+    			add_location(div18, file$5, 7, 2598, 2954);
     			attr_dev(div19, "class", "row");
-    			add_location(div19, file$5, 6, 1932, 2239);
+    			add_location(div19, file$5, 7, 2437, 2793);
     			attr_dev(a1, "href", "http://mbihealthgroup.com/");
-    			add_location(a1, file$5, 6, 2313, 2620);
+    			add_location(a1, file$5, 7, 2991, 3347);
     			attr_dev(div20, "class", "tab f09");
-    			add_location(div20, file$5, 6, 2288, 2595);
+    			add_location(div20, file$5, 7, 2966, 3322);
     			attr_dev(ul0, "class", "i m4");
-    			add_location(ul0, file$5, 6, 2242, 2549);
+    			add_location(ul0, file$5, 7, 2920, 3276);
     			attr_dev(div21, "class", "row mt4");
-    			add_location(div21, file$5, 6, 2376, 2683);
+    			add_location(div21, file$5, 7, 3054, 3410);
     			attr_dev(a2, "href", "https://venngage.com/");
-    			add_location(a2, file$5, 6, 2649, 2956);
+    			add_location(a2, file$5, 7, 3321, 3677);
     			attr_dev(div22, "class", "tab f09");
-    			add_location(div22, file$5, 6, 2624, 2931);
+    			add_location(div22, file$5, 7, 3296, 3652);
     			attr_dev(div23, "class", "i");
-    			add_location(div23, file$5, 6, 2579, 2886);
-    			add_location(div24, file$5, 6, 2574, 2881);
+    			add_location(div23, file$5, 7, 3257, 3613);
+    			add_location(div24, file$5, 7, 3252, 3608);
     			attr_dev(div25, "class", "tab row mt3");
     			set_style(div25, "justify-content", "normal");
-    			add_location(div25, file$5, 6, 2516, 2823);
+    			add_location(div25, file$5, 7, 3194, 3550);
     			attr_dev(div26, "class", "year");
     			attr_dev(div26, "id", "2019");
-    			add_location(div26, file$5, 6, 1891, 2198);
+    			add_location(div26, file$5, 7, 2396, 2752);
     			attr_dev(div27, "class", "main mt4");
-    			add_location(div27, file$5, 6, 1869, 2176);
-    			add_location(h22, file$5, 6, 2840, 3147);
+    			add_location(div27, file$5, 7, 2374, 2730);
+    			add_location(h22, file$5, 7, 3512, 3868);
     			attr_dev(div28, "class", "half");
-    			add_location(div28, file$5, 6, 2870, 3177);
+    			add_location(div28, file$5, 7, 3542, 3898);
     			attr_dev(a3, "href", "https://begin.com");
-    			add_location(a3, file$5, 6, 3258, 3565);
+    			add_location(a3, file$5, 7, 4057, 4413);
     			attr_dev(div29, "class", "i tab f09");
-    			add_location(div29, file$5, 6, 3231, 3538);
-    			add_location(ul1, file$5, 6, 3187, 3494);
+    			add_location(div29, file$5, 7, 4030, 4386);
+    			add_location(ul1, file$5, 7, 3992, 4348);
     			attr_dev(div30, "class", "half");
-    			add_location(div30, file$5, 6, 3056, 3363);
+    			add_location(div30, file$5, 7, 3795, 4151);
     			attr_dev(div31, "class", "row");
-    			add_location(div31, file$5, 6, 2853, 3160);
+    			add_location(div31, file$5, 7, 3525, 3881);
     			attr_dev(div32, "class", "half");
-    			add_location(div32, file$5, 6, 3343, 3650);
-    			add_location(div33, file$5, 6, 3525, 3832);
+    			add_location(div32, file$5, 7, 4142, 4498);
+    			add_location(div33, file$5, 7, 4406, 4762);
     			attr_dev(div34, "class", "i");
-    			add_location(div34, file$5, 6, 3559, 3866);
+    			add_location(div34, file$5, 7, 4435, 4791);
     			attr_dev(div35, "class", "half");
-    			add_location(div35, file$5, 6, 3507, 3814);
+    			add_location(div35, file$5, 7, 4388, 4744);
     			attr_dev(div36, "class", "row mt4");
-    			add_location(div36, file$5, 6, 3322, 3629);
+    			add_location(div36, file$5, 7, 4121, 4477);
     			attr_dev(div37, "class", "tab2");
-    			add_location(div37, file$5, 6, 3602, 3909);
+    			add_location(div37, file$5, 7, 4478, 4834);
     			attr_dev(div38, "class", "year");
     			attr_dev(div38, "id", "2018");
-    			add_location(div38, file$5, 6, 2812, 3119);
+    			add_location(div38, file$5, 7, 3484, 3840);
     			attr_dev(div39, "class", "main mt4");
-    			add_location(div39, file$5, 6, 2790, 3097);
-    			add_location(h23, file$5, 6, 3753, 4060);
+    			add_location(div39, file$5, 7, 3462, 3818);
+    			add_location(h23, file$5, 7, 4629, 4985);
     			attr_dev(div40, "class", "mt2");
-    			add_location(div40, file$5, 6, 3965, 4272);
+    			add_location(div40, file$5, 7, 4917, 5273);
     			attr_dev(div41, "class", "mt3");
-    			add_location(div41, file$5, 6, 4053, 4360);
+    			add_location(div41, file$5, 7, 5005, 5361);
     			attr_dev(div42, "class", "half");
-    			add_location(div42, file$5, 6, 3875, 4182);
+    			add_location(div42, file$5, 7, 4827, 5183);
     			attr_dev(div43, "class", "half");
-    			add_location(div43, file$5, 6, 4214, 4521);
+    			add_location(div43, file$5, 7, 5223, 5579);
     			attr_dev(div44, "class", "row mt3");
-    			add_location(div44, file$5, 6, 3854, 4161);
+    			add_location(div44, file$5, 7, 4806, 5162);
     			attr_dev(a4, "href", "https://devblogs.microsoft.com/cse/2017/06/06/geocoding-social-conversations-nlp-javascript/");
-    			add_location(a4, file$5, 6, 4427, 4734);
+    			add_location(a4, file$5, 7, 5535, 5891);
     			attr_dev(div45, "class", "mt5 ml3");
-    			add_location(div45, file$5, 6, 4384, 4691);
+    			add_location(div45, file$5, 7, 5492, 5848);
     			attr_dev(div46, "class", "year");
     			attr_dev(div46, "id", "2017");
-    			add_location(div46, file$5, 6, 3725, 4032);
+    			add_location(div46, file$5, 7, 4601, 4957);
     			attr_dev(div47, "class", "main mt5");
-    			add_location(div47, file$5, 6, 3703, 4010);
-    			add_location(h24, file$5, 6, 4632, 4939);
+    			add_location(div47, file$5, 7, 4579, 4935);
+    			add_location(h24, file$5, 7, 5740, 6096);
     			attr_dev(div48, "class", "mt2");
-    			add_location(div48, file$5, 6, 4744, 5051);
+    			add_location(div48, file$5, 7, 5852, 6208);
     			attr_dev(div49, "class", "half");
-    			add_location(div49, file$5, 6, 4662, 4969);
+    			add_location(div49, file$5, 7, 5770, 6126);
     			attr_dev(div50, "class", "half");
-    			add_location(div50, file$5, 6, 4846, 5153);
+    			add_location(div50, file$5, 7, 5954, 6310);
     			attr_dev(div51, "class", "row");
-    			add_location(div51, file$5, 6, 4645, 4952);
+    			add_location(div51, file$5, 7, 5753, 6109);
     			attr_dev(div52, "class", "mt3");
-    			add_location(div52, file$5, 6, 4940, 5247);
+    			add_location(div52, file$5, 7, 6048, 6404);
     			attr_dev(div53, "class", "mt3");
-    			add_location(div53, file$5, 6, 5021, 5328);
+    			add_location(div53, file$5, 7, 6129, 6485);
     			attr_dev(div54, "class", "half");
-    			add_location(div54, file$5, 6, 5107, 5414);
+    			add_location(div54, file$5, 7, 6215, 6571);
     			attr_dev(div55, "class", "mt3");
-    			add_location(div55, file$5, 6, 5149, 5456);
+    			add_location(div55, file$5, 7, 6257, 6613);
     			attr_dev(div56, "class", "half");
-    			add_location(div56, file$5, 6, 5131, 5438);
+    			add_location(div56, file$5, 7, 6239, 6595);
     			attr_dev(div57, "class", "row nowrap");
-    			add_location(div57, file$5, 6, 5083, 5390);
+    			add_location(div57, file$5, 7, 6191, 6547);
     			attr_dev(div58, "class", "year");
     			attr_dev(div58, "id", "2016");
-    			add_location(div58, file$5, 6, 4604, 4911);
+    			add_location(div58, file$5, 7, 5712, 6068);
     			attr_dev(div59, "class", "main mt5");
-    			add_location(div59, file$5, 6, 4582, 4889);
-    			add_location(h25, file$5, 6, 5325, 5632);
+    			add_location(div59, file$5, 7, 5690, 6046);
+    			add_location(h25, file$5, 7, 6433, 6789);
     			attr_dev(div60, "class", "right mt2");
-    			add_location(div60, file$5, 6, 5487, 5794);
+    			add_location(div60, file$5, 7, 6595, 6951);
     			attr_dev(a5, "href", "https://govinvest.com/");
-    			add_location(a5, file$5, 6, 5729, 6036);
+    			add_location(a5, file$5, 7, 6837, 7193);
     			attr_dev(div61, "class", "tab f09");
-    			add_location(div61, file$5, 6, 5704, 6011);
+    			add_location(div61, file$5, 7, 6812, 7168);
     			attr_dev(div62, "class", "tab");
-    			add_location(div62, file$5, 6, 5615, 5922);
+    			add_location(div62, file$5, 7, 6723, 7079);
     			attr_dev(div63, "class", "mt3");
-    			add_location(div63, file$5, 6, 5787, 6094);
+    			add_location(div63, file$5, 7, 6895, 7251);
     			attr_dev(div64, "class", "year");
     			attr_dev(div64, "id", "2015");
-    			add_location(div64, file$5, 6, 5297, 5604);
+    			add_location(div64, file$5, 7, 6405, 6761);
     			attr_dev(div65, "class", "main mt5");
-    			add_location(div65, file$5, 6, 5274, 5581);
-    			add_location(h26, file$5, 6, 5990, 6297);
-    			add_location(div66, file$5, 6, 6003, 6310);
+    			add_location(div65, file$5, 7, 6382, 6738);
+    			add_location(h26, file$5, 7, 7098, 7454);
+    			add_location(div66, file$5, 7, 7111, 7467);
     			attr_dev(div67, "class", "half");
-    			add_location(div67, file$5, 6, 6068, 6375);
+    			add_location(div67, file$5, 7, 7176, 7532);
     			attr_dev(div68, "class", "mt2");
-    			add_location(div68, file$5, 6, 6181, 6488);
+    			add_location(div68, file$5, 7, 7289, 7645);
     			attr_dev(div69, "class", "half");
-    			add_location(div69, file$5, 6, 6163, 6470);
+    			add_location(div69, file$5, 7, 7271, 7627);
     			attr_dev(div70, "class", "row");
-    			add_location(div70, file$5, 6, 6051, 6358);
+    			add_location(div70, file$5, 7, 7159, 7515);
     			attr_dev(a6, "href", "https://patents.google.com/patent/US20150089409A1/en");
-    			add_location(a6, file$5, 6, 6346, 6653);
+    			add_location(a6, file$5, 7, 7454, 7810);
     			attr_dev(ul2, "class", "mt4 i");
-    			add_location(ul2, file$5, 6, 6294, 6601);
+    			add_location(ul2, file$5, 7, 7402, 7758);
     			attr_dev(div71, "class", "half");
-    			add_location(div71, file$5, 6, 6512, 6819);
+    			add_location(div71, file$5, 7, 7620, 7976);
     			attr_dev(div72, "class", "f09 i grey");
-    			add_location(div72, file$5, 6, 6700, 7007);
+    			add_location(div72, file$5, 7, 7808, 8164);
     			attr_dev(div73, "class", "half");
-    			add_location(div73, file$5, 6, 6609, 6916);
+    			add_location(div73, file$5, 7, 7717, 8073);
     			attr_dev(div74, "class", "row mt3");
-    			add_location(div74, file$5, 6, 6491, 6798);
+    			add_location(div74, file$5, 7, 7599, 7955);
     			attr_dev(div75, "class", "year");
     			attr_dev(div75, "id", "2014");
-    			add_location(div75, file$5, 6, 5962, 6269);
+    			add_location(div75, file$5, 7, 7070, 7426);
     			attr_dev(div76, "class", "main mt5");
-    			add_location(div76, file$5, 6, 5939, 6246);
-    			add_location(h27, file$5, 6, 6830, 7137);
+    			add_location(div76, file$5, 7, 7047, 7403);
+    			add_location(h27, file$5, 7, 7938, 8294);
     			attr_dev(div77, "class", "half");
-    			add_location(div77, file$5, 6, 6860, 7167);
+    			add_location(div77, file$5, 7, 7968, 8324);
     			attr_dev(div78, "class", "half");
-    			add_location(div78, file$5, 6, 6951, 7258);
+    			add_location(div78, file$5, 7, 8074, 8430);
     			attr_dev(div79, "class", "row");
-    			add_location(div79, file$5, 6, 6843, 7150);
+    			add_location(div79, file$5, 7, 7951, 8307);
     			attr_dev(div80, "class", "i f09 tab");
-    			add_location(div80, file$5, 6, 7157, 7464);
+    			add_location(div80, file$5, 7, 8280, 8636);
     			attr_dev(div81, "class", "tab mt5");
-    			add_location(div81, file$5, 6, 7111, 7418);
-    			add_location(i1, file$5, 6, 7349, 7656);
+    			add_location(div81, file$5, 7, 8234, 8590);
+    			add_location(i1, file$5, 7, 8512, 8868);
     			attr_dev(div82, "class", "hangright mt5");
-    			add_location(div82, file$5, 6, 7303, 7610);
+    			add_location(div82, file$5, 7, 8466, 8822);
     			attr_dev(div83, "class", "m3");
-    			add_location(div83, file$5, 6, 7382, 7689);
-    			add_location(div84, file$5, 6, 7578, 7885);
-    			add_location(div85, file$5, 6, 7609, 7916);
+    			add_location(div83, file$5, 7, 8545, 8901);
+    			add_location(div84, file$5, 7, 8741, 9097);
+    			add_location(div85, file$5, 7, 8772, 9128);
     			attr_dev(div86, "class", "tab i f09 ml4 mt3");
-    			add_location(div86, file$5, 6, 7547, 7854);
+    			add_location(div86, file$5, 7, 8710, 9066);
     			attr_dev(div87, "class", "year");
     			attr_dev(div87, "id", "2013");
-    			add_location(div87, file$5, 6, 6802, 7109);
+    			add_location(div87, file$5, 7, 7910, 8266);
     			attr_dev(div88, "class", "main mt5");
-    			add_location(div88, file$5, 6, 6780, 7087);
-    			add_location(h28, file$5, 6, 7719, 8026);
+    			add_location(div88, file$5, 7, 7888, 8244);
+    			add_location(h28, file$5, 7, 8882, 9238);
     			attr_dev(div89, "class", "half");
-    			add_location(div89, file$5, 6, 7749, 8056);
-    			add_location(div90, file$5, 6, 7858, 8165);
+    			add_location(div89, file$5, 7, 8912, 9268);
+    			add_location(div90, file$5, 7, 9021, 9377);
     			attr_dev(a7, "href", "https://state.com/");
-    			add_location(a7, file$5, 6, 7911, 8218);
+    			add_location(a7, file$5, 7, 9075, 9431);
     			attr_dev(div91, "class", "tab i f09");
-    			add_location(div91, file$5, 6, 7884, 8191);
+    			add_location(div91, file$5, 7, 9048, 9404);
     			attr_dev(div92, "class", "half");
-    			add_location(div92, file$5, 6, 7840, 8147);
+    			add_location(div92, file$5, 7, 9003, 9359);
     			attr_dev(div93, "class", "row");
-    			add_location(div93, file$5, 6, 7732, 8039);
+    			add_location(div93, file$5, 7, 8895, 9251);
     			attr_dev(div94, "class", "mt3");
-    			add_location(div94, file$5, 6, 7971, 8278);
+    			add_location(div94, file$5, 7, 9135, 9491);
     			attr_dev(div95, "class", "mt3");
-    			add_location(div95, file$5, 6, 8113, 8420);
+    			add_location(div95, file$5, 7, 9277, 9633);
     			attr_dev(div96, "class", "year");
     			attr_dev(div96, "id", "2012");
-    			add_location(div96, file$5, 6, 7691, 7998);
+    			add_location(div96, file$5, 7, 8854, 9210);
     			attr_dev(div97, "class", "main mt5");
-    			add_location(div97, file$5, 6, 7668, 7975);
-    			add_location(h29, file$5, 6, 8302, 8609);
+    			add_location(div97, file$5, 7, 8831, 9187);
+    			add_location(h29, file$5, 7, 9466, 9822);
     			attr_dev(div98, "class", "year");
     			attr_dev(div98, "id", "2011");
     			set_style(div98, "width", "100%");
     			set_style(div98, "max-width", "600px");
-    			add_location(div98, file$5, 6, 8236, 8543);
+    			add_location(div98, file$5, 7, 9400, 9756);
     			attr_dev(div99, "class", "main mt5");
-    			add_location(div99, file$5, 6, 8213, 8520);
-    			add_location(h210, file$5, 6, 8438, 8745);
-    			add_location(div100, file$5, 6, 8451, 8758);
-    			add_location(i2, file$5, 6, 8575, 8882);
+    			add_location(div99, file$5, 7, 9377, 9733);
+    			add_location(h210, file$5, 7, 9602, 9958);
+    			add_location(div100, file$5, 7, 9615, 9971);
+    			add_location(i2, file$5, 7, 9836, 10192);
     			attr_dev(div101, "class", "tab");
-    			add_location(div101, file$5, 6, 8624, 8931);
-    			add_location(ul3, file$5, 6, 8556, 8863);
+    			add_location(div101, file$5, 7, 9885, 10241);
+    			add_location(ul3, file$5, 7, 9817, 10173);
     			attr_dev(div102, "class", "mt4 ml2 b navy");
-    			add_location(div102, file$5, 6, 8676, 8983);
+    			add_location(div102, file$5, 7, 9937, 10293);
     			attr_dev(div103, "class", "ml4");
-    			add_location(div103, file$5, 6, 8723, 9030);
+    			add_location(div103, file$5, 7, 9984, 10340);
     			attr_dev(div104, "class", "ml4 i");
-    			add_location(div104, file$5, 6, 8770, 9077);
+    			add_location(div104, file$5, 7, 10031, 10387);
     			attr_dev(div105, "class", "year");
     			attr_dev(div105, "id", "2010");
-    			add_location(div105, file$5, 6, 8410, 8717);
+    			add_location(div105, file$5, 7, 9574, 9930);
     			attr_dev(div106, "class", "main mt5");
-    			add_location(div106, file$5, 6, 8387, 8694);
+    			add_location(div106, file$5, 7, 9551, 9907);
     			attr_dev(div107, "class", "f2");
-    			add_location(div107, file$5, 6, 8931, 9238);
+    			add_location(div107, file$5, 7, 10192, 10548);
     			attr_dev(img54, "class", "ml3");
     			if (img54.src !== (img54_src_value = "./assets/2010/piano.gif")) attr_dev(img54, "src", img54_src_value);
-    			add_location(img54, file$5, 6, 8963, 9270);
+    			add_location(img54, file$5, 7, 10224, 10580);
     			attr_dev(div108, "class", "row");
     			set_style(div108, "justify-content", "normal");
-    			add_location(div108, file$5, 6, 8881, 9188);
+    			add_location(div108, file$5, 7, 10142, 10498);
     			attr_dev(a8, "href", "https://arxiv.org/abs/1901.05350");
-    			add_location(a8, file$5, 6, 9025, 9332);
-    			add_location(ul4, file$5, 6, 9126, 9433);
-    			add_location(li0, file$5, 6, 9021, 9328);
+    			add_location(a8, file$5, 7, 10286, 10642);
+    			add_location(ul4, file$5, 7, 10387, 10743);
+    			add_location(li0, file$5, 7, 10282, 10638);
     			attr_dev(a9, "href", "https://repository.ihu.edu.gr//xmlui/handle/11544/29186");
-    			add_location(a9, file$5, 6, 9157, 9464);
-    			add_location(ul5, file$5, 6, 9291, 9598);
-    			add_location(li1, file$5, 6, 9153, 9460);
+    			add_location(a9, file$5, 7, 10418, 10774);
+    			add_location(ul5, file$5, 7, 10552, 10908);
+    			add_location(li1, file$5, 7, 10414, 10770);
     			attr_dev(a10, "href", "https://www.isca-speech.org/archive/ISAPh_2018/pdfs/18.pdf");
-    			add_location(a10, file$5, 6, 9352, 9659);
-    			add_location(ul6, file$5, 6, 9470, 9777);
-    			add_location(li2, file$5, 6, 9348, 9655);
+    			add_location(a10, file$5, 7, 10613, 10969);
+    			add_location(ul6, file$5, 7, 10731, 11087);
+    			add_location(li2, file$5, 7, 10609, 10965);
     			attr_dev(a11, "href", "https://link.springer.com/chapter/10.1007/978-981-10-8797-4_31");
-    			add_location(a11, file$5, 6, 9520, 9827);
-    			add_location(ul7, file$5, 6, 9645, 9952);
-    			add_location(li3, file$5, 6, 9516, 9823);
+    			add_location(a11, file$5, 7, 10781, 11137);
+    			add_location(ul7, file$5, 7, 10906, 11262);
+    			add_location(li3, file$5, 7, 10777, 11133);
     			attr_dev(a12, "href", "https://osf.io/w9nhb");
-    			add_location(a12, file$5, 6, 9708, 10015);
-    			add_location(ul8, file$5, 6, 9807, 10114);
-    			add_location(li4, file$5, 6, 9704, 10011);
+    			add_location(a12, file$5, 7, 10969, 11325);
+    			add_location(ul8, file$5, 7, 11068, 11424);
+    			add_location(li4, file$5, 7, 10965, 11321);
     			attr_dev(a13, "href", "https://www.cg.tuwien.ac.at/research/publications/2017/mazurek-2017-vows/mazurek-2017-vows-report.pdf");
-    			add_location(a13, file$5, 6, 9855, 10162);
-    			add_location(ul9, file$5, 6, 10014, 10321);
-    			add_location(li5, file$5, 6, 9851, 10158);
+    			add_location(a13, file$5, 7, 11116, 11472);
+    			add_location(ul9, file$5, 7, 11275, 11631);
+    			add_location(li5, file$5, 7, 11112, 11468);
     			attr_dev(a14, "href", "https://www.mdpi.com/2227-9709/4/3/28/htm");
-    			add_location(a14, file$5, 6, 10070, 10377);
-    			add_location(ul10, file$5, 6, 10169, 10476);
-    			add_location(li6, file$5, 6, 10066, 10373);
+    			add_location(a14, file$5, 7, 11331, 11687);
+    			add_location(ul10, file$5, 7, 11430, 11786);
+    			add_location(li6, file$5, 7, 11327, 11683);
     			attr_dev(a15, "href", "https://core.ac.uk/download/pdf/132597718.pdf");
-    			add_location(a15, file$5, 6, 10231, 10538);
-    			add_location(ul11, file$5, 6, 10313, 10620);
-    			add_location(li7, file$5, 6, 10227, 10534);
+    			add_location(a15, file$5, 7, 11492, 11848);
+    			add_location(ul11, file$5, 7, 11574, 11930);
+    			add_location(li7, file$5, 7, 11488, 11844);
     			attr_dev(a16, "href", "https://otik.uk.zcu.cz/handle/11025/23829");
-    			add_location(a16, file$5, 6, 10365, 10672);
-    			add_location(ul12, file$5, 6, 10451, 10758);
-    			add_location(li8, file$5, 6, 10361, 10668);
+    			add_location(a16, file$5, 7, 11626, 11982);
+    			add_location(ul12, file$5, 7, 11712, 12068);
+    			add_location(li8, file$5, 7, 11622, 11978);
     			attr_dev(a17, "href", "https://wlv.openrepository.com/bitstream/handle/2436/601113/Stajner_PhD+thesis.pdf?sequence=1");
-    			add_location(a17, file$5, 6, 10501, 10808);
-    			add_location(ul13, file$5, 6, 10658, 10965);
-    			add_location(li9, file$5, 6, 10497, 10804);
+    			add_location(a17, file$5, 7, 11762, 12118);
+    			add_location(ul13, file$5, 7, 11919, 12275);
+    			add_location(li9, file$5, 7, 11758, 12114);
     			attr_dev(a18, "href", "http://l3s.de/~gtran/publications/vu_et_al_2014.pdf");
-    			add_location(a18, file$5, 6, 10710, 11017);
-    			add_location(ul14, file$5, 6, 10831, 11138);
-    			add_location(li10, file$5, 6, 10706, 11013);
+    			add_location(a18, file$5, 7, 11971, 12327);
+    			add_location(ul14, file$5, 7, 12092, 12448);
+    			add_location(li10, file$5, 7, 11967, 12323);
     			attr_dev(a19, "href", "https://wiki.eecs.yorku.ca/course_archive/2013-14/W/6339/_media/simple_book.pdf");
-    			add_location(a19, file$5, 6, 10883, 11190);
-    			add_location(ul15, file$5, 6, 11039, 11346);
-    			add_location(li11, file$5, 6, 10879, 11186);
+    			add_location(a19, file$5, 7, 12144, 12500);
+    			add_location(ul15, file$5, 7, 12300, 12656);
+    			add_location(li11, file$5, 7, 12140, 12496);
     			attr_dev(a20, "href", "https://www.semanticscholar.org/paper/WikiSimple%3A-Automatic-Simplification-of-Wikipedia-Woodsend-Lapata/e4c71fd504fd6657fc444e82e481b22f952bcaab");
-    			add_location(a20, file$5, 6, 11088, 11395);
-    			add_location(ul16, file$5, 6, 11307, 11614);
-    			add_location(li12, file$5, 6, 11084, 11391);
+    			add_location(a20, file$5, 7, 12349, 12705);
+    			add_location(ul16, file$5, 7, 12568, 12924);
+    			add_location(li12, file$5, 7, 12345, 12701);
     			attr_dev(a21, "href", "https://dl.acm.org/citation.cfm?id=2145480");
-    			add_location(a21, file$5, 6, 11355, 11662);
-    			add_location(ul17, file$5, 6, 11497, 11804);
-    			add_location(li13, file$5, 6, 11351, 11658);
+    			add_location(a21, file$5, 7, 12616, 12972);
+    			add_location(ul17, file$5, 7, 12758, 13114);
+    			add_location(li13, file$5, 7, 12612, 12968);
     			attr_dev(a22, "href", "https://www.slideshare.net/marti_hearst/the-future-of-search-keynote-at-iknow-2010");
-    			add_location(a22, file$5, 6, 11544, 11851);
-    			add_location(ul18, file$5, 6, 11661, 11968);
-    			add_location(li14, file$5, 6, 11540, 11847);
+    			add_location(a22, file$5, 7, 12805, 13161);
+    			add_location(ul18, file$5, 7, 12922, 13278);
+    			add_location(li14, file$5, 7, 12801, 13157);
     			attr_dev(a23, "href", "https://dl.acm.org/citation.cfm?id=1858055");
-    			add_location(a23, file$5, 6, 11697, 12004);
-    			add_location(ul19, file$5, 6, 11814, 12121);
-    			add_location(li15, file$5, 6, 11693, 12000);
-    			add_location(ul20, file$5, 6, 9017, 9324);
+    			add_location(a23, file$5, 7, 12958, 13314);
+    			add_location(ul19, file$5, 7, 13075, 13431);
+    			add_location(li15, file$5, 7, 12954, 13310);
+    			add_location(ul20, file$5, 7, 10278, 10634);
     			attr_dev(div109, "class", "main mt4");
-    			add_location(div109, file$5, 6, 8859, 9166);
+    			add_location(div109, file$5, 7, 10120, 10476);
     			attr_dev(div110, "class", "space");
-    			add_location(div110, file$5, 6, 11853, 12160);
+    			add_location(div110, file$5, 7, 13114, 13470);
     			attr_dev(div111, "class", "space");
-    			add_location(div111, file$5, 6, 11878, 12185);
+    			add_location(div111, file$5, 7, 13139, 13495);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
