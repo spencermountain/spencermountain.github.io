@@ -4,6 +4,7 @@ script.
   import Youtube from '../components/Youtube.svelte'
   import Hr from '../components/Hr.svelte'
   import Vimeo from '../components/Vimeo.svelte'
+  import Dot from '../components/Dot.svelte'
   //- import Left from '../components/Left.svelte'
 style.
   .mono {
@@ -11,7 +12,7 @@ style.
   }
 .mono.f08.row.i(style='justify-content: left;')
   a.cursor(href='../', style='border-bottom:1px solid transparent;') 〱&nbsp;
-  div spencer kelly <i>is trying his best</i>.
+  div spencer kelly
 
 .main.mt3
   #2020.year
@@ -23,15 +24,10 @@ style.
           width='150px',
           href='https://www.reddit.com/r/dataisbeautiful/comments/fkwova/oc_rna_sequence_of_covid19_this_8kb_of_data_is/'
         )
-        .f06.tab2.mono.grey.right.orange Covid-19 is the bummer
+        .f06.tab2.mono.grey.right.orange Covid-19
       .half
-        Mov(
-          src='./assets/2020/hand-computer.mp4',
-          width='250px',
-          href='http://blog.spencermounta.in/2020/computer-is-furniture/index.html'
-        )
+        Img(src='./assets/2020/skydome.png', width='200px', href='http://thensome.how/2020/covid-as-skydome/')
         Img(src='./assets/2020/2020.jpg', width='250px', caption='')
-    Img(src='./assets/2020/skydome.png', width='200px', href='http://thensome.how/2020/covid-as-skydome/')
     .m4 
       Img(
         src='./assets/2020/fr-compromise.png',
@@ -39,16 +35,19 @@ style.
         caption='compromise-community begins<br/><i>french-language conjugation</i>',
         link='https://github.com/nlp-compromise/fr-compromise'
       )
-    iframe(
-      title='Computer Programming with Spencer Kelly',
-      style='border: solid 1px #dedede; margin-top:60px;',
-      src='https://app.stitcher.com/splayer/f/502426/68480006',
-      width='350',
-      height='100',
-      frameborder='0',
-      scrolling='no'
-    )
-    .tab.i.f09 Computer programming with Spencer Kelly
+    .row
+      div
+        iframe(
+          title='Computer Programming with Spencer Kelly',
+          style='border: solid 1px #dedede; margin-top:60px;',
+          src='https://app.stitcher.com/splayer/f/502426/68480006',
+          width='350',
+          height='100',
+          frameborder='0',
+          scrolling='no'
+        )
+        .tab.i.f09 Computer programming with Spencer Kelly
+
     .mt4
       Mov(
         src='./assets/2020/fast-mode.mp4',
@@ -56,6 +55,12 @@ style.
         href='https://github.com/spencermountain/compromise/tree/master/plugins/scan',
         caption='compromise became fast<br/><i>contract w/ <a href="https://moov.co/">Moov.co</a></i>'
       )
+    .mt4
+       Mov(
+        src='./assets/2020/hand-computer.mp4',
+        width='250px',
+        href='http://blog.spencermounta.in/2020/computer-is-furniture/index.html'
+        )
     .mt5
       .tab.i.f09 learning svelte + blender:
     .row
@@ -165,7 +170,7 @@ style.
           href='https://github.com/spencermountain/wtf_wikipedia/'
         )
         Img(src='./assets/2017/japan.jpg', width='150px', caption='')
-    .mt5.ml3 compromise being used <a href="https://devblogs.microsoft.com/cse/2017/06/06/geocoding-social-conversations-nlp-javascript/">at the United Nations</a>
+    .mt5.ml3 compromise in use <a href="https://devblogs.microsoft.com/cse/2017/06/06/geocoding-social-conversations-nlp-javascript/">at the United Nations</a>
     Hr
 
 .main.mt5
@@ -180,7 +185,7 @@ style.
         Img(src='./assets/2016/old.png', width='200px', caption='')
 
     .mt3
-      Img(src='./assets/2016/trending.jpg', width='500px')
+      Img(src='./assets/2016/trending.jpg', width='450px')
     .mt3
       Youtube(video='WuPVS2tCg8s')
     .row.nowrap
@@ -195,11 +200,10 @@ style.
     h2 2015
     Img(src='./assets/2015/2015.jpg', width='150px', caption='')
     Img(src='./assets/2015/toronto.jpg', width='250px', caption='moved to Toronto')
-    .right.mt2 pension vizualization dashboard
+    .right.mt2.f09 pension vizualizations for <a href="https://govinvest.com/">govInvest</a>
     Img(src='./assets/2017/govdna.png', width='450px', caption='') 
     .tab
       Img(src='./assets/2015/govinvest2.jpg', width='300px', caption='') 
-      .tab.f09 for <a href="https://govinvest.com/">govInvest</a>
     .mt3
       Img(src='./assets/2015/playoffs.jpg', width='400px', caption='blue jays win ALDS<br/>but lose semi-final')
 
@@ -219,7 +223,7 @@ style.
     .row.mt3
       .half
         Img(src='./assets/2014/earthbarely1.jpg', width='250px', caption='')
-      .half
+      .half.ml1
         Img(src='./assets/2014/earthbarely2.jpg', width='250px', caption='')
         .f09.i.grey CUSEC14 hackathon finalist
 
@@ -254,14 +258,15 @@ style.
         .tab.i.f09 for <a href="https://state.com/">State.com</a>
         //- Img(src='./assets/2012/beach.jpg', width='250px', caption='')
     .mt3
-      Img(src='./assets/2012/opinion.png', width='300px', caption='<i >london in the rain in beautiful</i>')
+      .i.f09(style="text-align:right; margin-right:3rem;") 'london in the rain is beautiful'
+      Img(src='./assets/2012/opinion.png', width='300px')
     .mt3
       Img(src='./assets/2012/mars.jpg', width='550px', caption='')
 
 .main.mt5 
   #2011.year(style='width: 100%; max-width:600px;')
     h2 2011
-    Vimeo(title='Freebase + Ubiquity', video='13992710')
+    Vimeo(video='13992710')
 .main.mt5 
   #2010.year
     h2 2010
@@ -271,11 +276,9 @@ style.
       width='450px',
       href='https://docs.google.com/spreadsheets/d/1clPt1ivBcf5Kdi02NzoE_KqEMXNylj6q-88qXuvw1lY/edit?usp=sharing'
     )
-    ul often cited as <i>'the most naive' simplification of english</i>
-      .tab in many papers, somehow.
-    .mt4.ml2.b.navy wikipedia bot
-    .ml4 accepted on en.wikipedia
-    .ml4.i filled-in missing citation data until 2012.
+    ul frequently cited as <i>'the most naive' simplification of english</i>
+    .mt4.ml2.navy <b>wikipedia bot</b> accepted on en.wikipedia
+    .ml4.i filled-in citation data until 2012.
   Hr
 
 .main.mt4
@@ -283,70 +286,86 @@ style.
     .f2 citations:
     img.ml3(src='./assets/2010/piano.gif')
   ul
-    li
+    div
+      Dot(project="compromise")
       a(href='https://arxiv.org/abs/1901.05350') TensorFlow.js: Machine Learning for the Web and Beyond
       ul
         | Google. 2019.
-    li
+    div
+      Dot(project="compromise")
       a(href='https://repository.ihu.edu.gr//xmlui/handle/11544/29186') Development of a web application for an automated user assistant
       ul
         | the International Helenic University. 2018.
-    li
+    div
+      Dot(project="compromise")
       a(href='https://www.isca-speech.org/archive/ISAPh_2018/pdfs/18.pdf') Pronunciation Scaffolder: Annotation accuracy
       ul
         | University of Aizu, Japan. 2018.
-    li
+    div
+      Dot(project="compromise")
       a(href='https://link.springer.com/chapter/10.1007/978-981-10-8797-4_31') Authentication Using Dynamic Question Generation
       ul
         | Somaiya College OF Engineering, Mumbai. 2018.
-    li
+    div
+      Dot(project="compromise")
       a(href='https://osf.io/w9nhb') NETANOS - Named entity-based Text Anonymization for Open Science
       ul
         | University of Amsterdam. 2017.
-    li
+    div
+      Dot(project="compromise")
       a(href='https://www.cg.tuwien.ac.at/research/publications/2017/mazurek-2017-vows/mazurek-2017-vows-report.pdf') Visualization of Thesaurus-Based Web Search
       ul
         | Vienna University of Technology. 2017.
-    li
+    div
+      Dot(project="compromise")
       a(href='https://www.mdpi.com/2227-9709/4/3/28/htm') Web Apps Come of Age for Molecular Sciences
       ul
         | Swiss Federal Institute of Technology. 2017.
-    li
+    div
+      Dot(project="compromise")
       a(href='https://core.ac.uk/download/pdf/132597718.pdf') Martello.io whitepaper
       ul
         | National College of Ireland. 2017.
-    li
+    div
+      Dot(project="wikipedia")
       a(href='https://otik.uk.zcu.cz/handle/11025/23829') Wikipedia graph data retrieval
       ul
         | University of West Bohemia. 2016
-    li
+    div
+      Dot(project="simple")
       a(href='https://wlv.openrepository.com/bitstream/handle/2436/601113/Stajner_PhD+thesis.pdf?sequence=1') New Data-Driven Approaches to Text Simplification
       ul
         | University of Wolverhampton. 2015.
-    li
+    div
+      Dot(project="simple")
       a(href='http://l3s.de/~gtran/publications/vu_et_al_2014.pdf') Learning to Simplify Children Stories with Limited Data
       ul
         | Vietnam National University. 2014.
-    li
+    div
+      Dot(project="simple")
       a(href='https://wiki.eecs.yorku.ca/course_archive/2013-14/W/6339/_media/simple_book.pdf') SimpLe: Lexical Simplification using Word Sense Disambiguation
       ul
         | York University, Toronto. 2013.
-    li
+    div
+      Dot(project="simple")
       a(
         href='https://www.semanticscholar.org/paper/WikiSimple%3A-Automatic-Simplification-of-Wikipedia-Woodsend-Lapata/e4c71fd504fd6657fc444e82e481b22f952bcaab'
       ) WikiSimple: Automatic Simplification of Wikipedia Articles
       ul
         | University of Edinburgh. 2011.
-    li
+    div
+      Dot(project="simple")
       a(href='https://dl.acm.org/citation.cfm?id=2145480')
         | Learning to Simplify Sentences with Quasi-Synchronous Grammar and Integer Programming
       ul
         | University of Edinburgh. 2011
-    li
+    div
+      Dot(project="freebase")
       a(href='https://www.slideshare.net/marti_hearst/the-future-of-search-keynote-at-iknow-2010') The future of Search
       ul
         | UC Berkeley. 2010.
-    li
+    div
+      Dot(project="simple")
       a(href='https://dl.acm.org/citation.cfm?id=1858055') Unsupervised extraction of lexical simplifications Wikipedia
       ul
         | Cornell. 2010.

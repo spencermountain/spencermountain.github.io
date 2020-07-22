@@ -7,8 +7,8 @@
   "author": "Spencer Kelly (spencermountain)",
   "homepage": "https://github.com/spencermountain/spencermountain.github.io#readme",
   "scripts": {
-    "pug": "node ./scripts/pug.js",
-    "watch": "node ./scripts/watch.js",
+    "pug": "node ./scripts/pug.js  portfolio",
+    "watch": "node ./scripts/watch.js portfolio",
     "start": "budo src/index.js:assets/bundle.js --live",
     "build": "browserify src/index.js -t [ babelify --presets [ @babel/preset-env ] ] | derequire > ./assets/bundle.js"
   },
