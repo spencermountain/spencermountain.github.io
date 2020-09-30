@@ -7,9 +7,17 @@
   "author": "Spencer Kelly (spencermountain)",
   "homepage": "https://github.com/spencermountain/spencermountain.github.io#readme",
   "scripts": {
+    "pug": "node ./scripts/pug.js  portfolio",
+    "watch": "node ./scripts/watch.js portfolio",
     "start": "budo src/index.js:assets/bundle.js --live",
-    "watch": "npm run start",
     "build": "browserify src/index.js -t [ babelify --presets [ @babel/preset-env ] ] | derequire > ./assets/bundle.js"
+  },
+  "prettier": {
+    "trailingComma": "none",
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 120
   },
   "dependencies": {
     "htm": "^2.1.1",
@@ -17,9 +25,15 @@
     "scrollama": "^2.0.0",
     "somehow": "0.1.4",
     "somehow-input": "0.0.8",
-    "spacetime": "5.9.0",
     "spencer-color": "0.1.0",
-    "vhtml": "^2.1.0"
+    "vhtml": "^2.1.0",
+    "chokidar": "^3.4.0",
+    "connect": "^3.7.0",
+    "livereload": "^0.9.1",
+    "serve-static": "^1.14.1",
+    "shelljs": "^0.8.4",
+    "spacetime": "^6.4.3",
+    "sveltify": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.4.5",
@@ -27,6 +41,16 @@
     "babelify": "10.0.0",
     "budo": "11.6.2",
     "derequire": "2.0.6",
-    "terser": "4.0.1"
+    "terser": "4.0.1",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@rollup/plugin-commonjs": "11.1.0",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "connect-livereload": "^0.6.1",
+    "pug": "^2.0.4",
+    "rollup": "2.8.2",
+    "rollup-plugin-svelte": "^5.0.3",
+    "rollup-plugin-terser": "^5.1.2",
+    "serve": "^11.3.0",
+    "svelte": "3.22.2"
   }
 }

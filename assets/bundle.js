@@ -1,4 +1,5 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(_dereq_,module,exports){
+<<<<<<< HEAD
 module.exports=[
   [
     { "classes": [""] },
@@ -93,6 +94,8 @@ module.exports=[
 !function(){var n=function(t,e,r,u){for(var o=1;o<e.length;o++){var f=e[o++],s="number"==typeof f?r[f]:f;1===e[o]?u[0]=s:2===e[o]?(u[1]=u[1]||{})[e[++o]]=s:3===e[o]?u[1]=Object.assign(u[1]||{},s):u.push(e[o]?t.apply(null,n(t,s,r,["",null])):s)}return u},t=function(n){for(var t,e,r=1,u="",o="",f=[0],s=function(n){1===r&&(n||(u=u.replace(/^\s*\n\s*|\s*\n\s*$/g,"")))?f.push(n||u,0):3===r&&(n||u)?(f.push(n||u,1),r=2):2===r&&"..."===u&&n?f.push(n,3):2===r&&u&&!n?f.push(!0,2,u):4===r&&e&&(f.push(n||u,2,e),e=""),u=""},p=0;p<n.length;p++){p&&(1===r&&s(),s(p));for(var h=0;h<n[p].length;h++)t=n[p][h],1===r?"<"===t?(s(),f=[f],r=3):u+=t:o?t===o?o="":u+=t:'"'===t||"'"===t?o=t:">"===t?(s(),r=1):r&&("="===t?(r=4,e=u,u=""):"/"===t?(s(),3===r&&(f=f[0]),r=f,(f=f[0]).push(r,4),r=0):" "===t||"\t"===t||"\n"===t||"\r"===t?(s(),r=2):u+=t)}return s(),f},e="function"==typeof Map,r=e?new Map:{},u=e?function(n){var e=r.get(n);return e||r.set(n,e=t(n)),e}:function(n){for(var e="",u=0;u<n.length;u++)e+=n[u].length+"-"+n[u];return r[e]||(r[e]=t(n))},o=function(t){var e=n(this,u(t),arguments,[]);return e.length>1?e:e[0]};"undefined"!=typeof module?module.exports=o:self.htm=o}();
 
 },{}],3:[function(_dereq_,module,exports){
+=======
+>>>>>>> master
 /**
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
@@ -835,7 +838,11 @@ window.IntersectionObserverEntry = IntersectionObserverEntry;
 
 }());
 
+<<<<<<< HEAD
 },{}],4:[function(_dereq_,module,exports){
+=======
+},{}],2:[function(_dereq_,module,exports){
+>>>>>>> master
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -1497,6 +1504,7 @@ return scrollama;
 
 })));
 
+<<<<<<< HEAD
 },{}],5:[function(_dereq_,module,exports){
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -1660,3 +1668,74 @@ var shrinkGrid = function shrinkGrid() {
 module.exports = shrinkGrid;
 
 },{"htm":2,"vhtml":5}]},{},[6]);
+=======
+},{}],3:[function(_dereq_,module,exports){
+"use strict";
+
+// const generate = require('./generate')
+_dereq_('./scroll'); // let cells = generate()
+// console.log(JSON.stringify(cells))
+
+},{"./scroll":4}],4:[function(_dereq_,module,exports){
+"use strict";
+
+_dereq_('intersection-observer');
+
+var scrollama = _dereq_('scrollama');
+
+var scroller = scrollama();
+var sideblue = document.querySelector('#slideblue');
+var hidesky = document.querySelector('#hidesky');
+var saddam = document.querySelector('#saddam');
+scroller.setup({
+  step: '.trigger'
+}).onStepEnter(function (resp) {
+  if (resp.direction === 'down') {
+    if (resp.element.id === 'trigger1') {
+      sideblue.style.left = '0%';
+      hidesky.style.left = '50%';
+    }
+
+    if (resp.element.id === 'hide_earth') {
+      resp.element.style['background-image'] = 'url(./assets/misc/hay.jpg)';
+      setTimeout(function () {
+        saddam.style['background-image'] = 'url(./assets/misc/vancouver.jpg)';
+      }, 500);
+    }
+
+    if (resp.element.id === 'shrinkblue') {
+      resp.element.style.width = '50%';
+    }
+
+    if (resp.element.id === 'growpink') {
+      resp.element.style.width = '50%';
+    }
+  }
+}).onStepExit(function (resp) {
+  if (resp.direction === 'up') {
+    if (resp.element.id === 'trigger1') {
+      sideblue.style.left = '100%';
+      hidesky.style.left = '0%';
+    }
+
+    if (resp.element.id === 'hide_earth') {
+      resp.element.style['background-image'] = 'url(./assets/misc/satellite.jpg)';
+      setTimeout(function () {
+        saddam.style['background-image'] = 'url(./assets/misc/saddam.jpg)';
+      }, 500);
+    }
+
+    if (resp.element.id === 'shrinkblue') {
+      resp.element.style.width = '100%';
+    }
+
+    if (resp.element.id === 'growpink') {
+      resp.element.style.width = '100%';
+    }
+  }
+}); // setup resize event
+
+window.addEventListener('resize', scroller.resize);
+
+},{"intersection-observer":1,"scrollama":2}]},{},[3]);
+>>>>>>> master
