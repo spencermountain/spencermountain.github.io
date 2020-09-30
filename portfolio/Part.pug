@@ -20,11 +20,25 @@ style.
     .row
       .half
         Img(
-          src='./assets/2020/covid.png',
+          src='./assets/2020/sankey.jpg',
           width='150px',
-          href='https://www.reddit.com/r/dataisbeautiful/comments/fkwova/oc_rna_sequence_of_covid19_this_8kb_of_data_is/'
+          href='https://github.com/spencermountain/somehow-sankey'
         )
-        .f06.tab2.mono.grey.right.orange Covid-19
+        Img(
+          src='./assets/2020/rockets.png',
+          width='150px',
+          href='https://github.com/spencermountain/somehow-timeline'
+        )
+        .mt4
+          Img(
+            src='./assets/2020/covid.png',
+            width='150px',
+            href='https://www.reddit.com/r/dataisbeautiful/comments/fkwova/oc_rna_sequence_of_covid19_this_8kb_of_data_is/'
+          )
+          .f06.tab2.mono.grey.right.orange(style="text-align:right")
+            div nhs-covid using compromise &nbsp; &nbsp;  
+            div covid-atlas using spacetime <a href="https://github.com/covidatlas/coronadatascraper">[1]</a>
+            div trackers parsing wikipedia <a href="https://observablehq.com/@spencermountain/parsing-wikipedias-coronavirus-outbreak-data">[2]</a>
       .half
         Img(src='./assets/2020/skydome.png', width='200px', href='http://thensome.how/2020/covid-as-skydome/')
         Img(src='./assets/2020/2020.jpg', width='250px', caption='')
@@ -61,8 +75,8 @@ style.
         width='250px',
         href='http://blog.spencermounta.in/2020/computer-is-furniture/index.html'
         )
-    .mt5
-      .tab.i.f09 learning svelte + blender:
+    //- .mt5
+      //- .tab.i.f09 learning svelte + blender:
     .row
       .half
         Img(src='./assets/2020/wayne.png', width='150px')
@@ -221,11 +235,12 @@ style.
       a(href='https://patents.google.com/patent/US20150089409A1/en')
         Img(src='./assets/2014/state-patent.jpg', width='450px', caption='')
     .row.mt3
-      .half
+      .half(style="width: 230px;")
         Img(src='./assets/2014/earthbarely1.jpg', width='250px', caption='')
       .half.ml1
         Img(src='./assets/2014/earthbarely2.jpg', width='250px', caption='')
         .f09.i.grey CUSEC14 hackathon finalist
+        Img(src='./assets/2014/floor-walk.jpg', width='250px', href='https://vimeo.com/103858377')
 
 .main.mt5
   #2013.year
@@ -255,8 +270,12 @@ style.
         Img(src='./assets/2012/london.jpg', width='250px', caption='')
       .half
         div moved to Britain
-        .tab.i.f09 for <a href="https://state.com/">State.com</a>
+        .tab.i.f09 for <a href="https://state.com/">State.com</a> startup
         //- Img(src='./assets/2012/beach.jpg', width='250px', caption='')
+    .mt3
+      .right
+        //- Img(src='./assets/2012/blink.gif', width='120px')
+        Img(src='./assets/2012/sky.jpg', width='200px')
     .mt3
       .i.f09(style="text-align:right; margin-right:3rem;") 'london in the rain is beautiful'
       Img(src='./assets/2012/opinion.png', width='300px')
