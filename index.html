@@ -1,260 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🚀✨</title>
-    <meta name="author" content="Spencer Kelly" />
-    <meta name="description" content="Spencer Kelly" />
-    <meta name="keywords" content="spencer kelly, toronto, javascript" />
-    <link href="./assets/spencer.min.css" rel="stylesheet" />
-    <style>
-      @font-face {
-        font-family: 'Tajawal';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: local('Tajawal'), local('Tajawal-Regular'), url(./assets/tajawal-font.woff2) format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
-          U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
 
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🚀✨</title>
+  <meta name="author" content="Spencer Kelly" />
+  <meta name="description" content="Spencer Kelly" />
+  <meta name="keywords" content="spencer kelly, toronto, javascript" />
+  <link href="./assets/spencer.min.css" rel="stylesheet" />
+  <style>
+    @font-face {
+      font-family: 'Tajawal';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local('Tajawal'), local('Tajawal-Regular'), url(./assets/tajawal-font.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+        U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    .mainStage {
+      display: grid;
+      grid-template-columns: 0.5fr 1.618fr 0.5fr;
+    }
+
+    .goldGrid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(50px, 150px));
+      height: 16.5rem;
+    }
+
+    .notiny {
+      display: initial;
+    }
+
+    /* huge- set max-width */
+    @media (min-width: 1550px) {
       .mainStage {
-        display: grid;
-        grid-template-columns: 0.5fr 1.618fr 0.5fr;
+        grid-template-columns: 1fr 1000px 1fr;
       }
+    }
+
+    /* tablet - change grid6 to grid3 */
+    @media (max-width: 900px) {
       .goldGrid {
-        display: grid;
-        grid-template-columns: repeat(6, minmax(50px, 150px));
-        height: 16.5rem;
+        grid-template-columns: 1fr 1.618fr 1fr 1.618fr;
+        justify-self: stretch;
+        min-height: 10rem;
       }
+    }
+
+    /* phone - remove margins */
+    @media (max-width: 550px) {
+      .mainStage {
+        grid-template-columns: 0.5rem 1fr 0.5rem;
+      }
+
       .notiny {
-        display: initial;
+        display: none;
       }
-      /* huge- set max-width */
-      @media (min-width: 1550px) {
-        .mainStage {
-          grid-template-columns: 1fr 1000px 1fr;
-        }
-      }
-      /* tablet - change grid6 to grid3 */
-      @media (max-width: 900px) {
-        .goldGrid {
-          grid-template-columns: 1fr 1.618fr 1fr 1.618fr;
-          justify-self: stretch;
-          min-height: 10rem;
-        }
-      }
-      /* phone - remove margins */
-      @media (max-width: 550px) {
-        .mainStage {
-          grid-template-columns: 0.5rem 1fr 0.5rem;
-        }
-        .notiny {
-          display: none;
-        }
-      }
-      .font {
-        font-family: 'Tajawal', sans-serif;
-      }
-      .fourGrid {
-        display: grid;
-        grid-template-columns: 0.618fr 1fr 0.618fr 1fr;
-        grid-template-rows: 1fr 0.618fr 1fr;
-      }
-      .clean:hover {
-        border-width: 3px;
-      }
-      .slip-left {
-        left: 0%;
-      }
-      .slider {
-        transition: left 0.3s;
-        animation-timing-function: ease-in;
-      }
-      .shrink {
-        transition: width 0.3s;
-        animation-timing-function: ease-in;
-      }
-      .slow {
-        transition: width 0.6s !important;
-      }
-      .purple {
-        color: #6d5685;
-      }
-    </style>
-  </head>
+    }
 
-  <body class="font">
-    <!-- top-part  -->
-    <div id="topGrid">
-      <div id="grid" class="row">
-        <div class="h8 grow maxw10 rounded clip fourGrid">
-          <div></div>
-          <div class="row2 hasImg" id="boats" style="background-image: url('./assets/misc/boats.jpg')"></div>
-          <div class="bgpink" id="pink"></div>
-          <div></div>
-          <div class="col2 hasImg" style="background-image: url('./assets/misc/sea.jpg')"></div>
-          <div class="bgsky"></div>
-          <div></div>
-          <div class="bgpink"></div>
-          <div class="bgpink hasImg" style="background-image: url('./assets/misc/orange.jpg')"></div>
-          <div class="bgrose"></div>
-        </div>
-      </div>
-    </div>
+    .font {
+      font-family: 'Tajawal', sans-serif;
+    }
 
-    <!-- hello -->
-    <div class="f4 grey row-middle mt3 relative font">
-      <div class="f2 absolute top0 sky" style="left: 25%; top: -20px">Hello</div>
-      I'm Spencer Kelly
-    </div>
-    <!-- picture -->
-    <div class="mainStage mv5">
-      <div></div>
-      <div class="right">
-        <img class="right w8 rounded shadow" src="./assets/full/shelf.jpg" />
-      </div>
-      <div></div>
-    </div>
+    .fourGrid {
+      display: grid;
+      grid-template-columns: 0.618fr 1fr 0.618fr 1fr;
+      grid-template-rows: 1fr 0.618fr 1fr;
+    }
 
-    <!-- 2 -->
-    <div id="grid m5" class="row">
-      <div class="h8 grow maxw10 fourGrid">
+    .clean:hover {
+      border-width: 3px;
+    }
+
+    .slip-left {
+      left: 0%;
+    }
+
+    .slider {
+      transition: left 0.3s;
+      animation-timing-function: ease-in;
+    }
+
+    .shrink {
+      transition: width 0.3s;
+      animation-timing-function: ease-in;
+    }
+
+    .slow {
+      transition: width 0.6s !important;
+    }
+
+    .purple {
+      color: #6d5685;
+    }
+  </style>
+</head>
+
+<body class="font">
+  <!-- top-part  -->
+  <div id="topGrid">
+    <div id="grid" class="row">
+      <div class="h8 grow maxw10 rounded clip fourGrid">
         <div></div>
+        <div class="row2 hasImg" id="boats" style="background-image: url('./assets/misc/boats.jpg')"></div>
+        <div class="bgpink" id="pink"></div>
         <div></div>
-        <div
-          class="trigger col2 rounded shadow"
-          id="trigger1"
-          style="background-image: url('./assets/misc/sawdust.jpg')"
-        ></div>
+        <div class="col2 hasImg" style="background-image: url('./assets/misc/sea.jpg')"></div>
+        <div class="bgsky"></div>
         <div></div>
-        <div class="bgbrown"></div>
-        <div></div>
-        <div class="bgblue clip" id="hideblue">
-          <div id="slideblue" class="slider bgred w100p h100p relative" style="left: 100%"></div>
-        </div>
-        <div class="bgsky rounded"></div>
-        <div class="row2"></div>
+        <div class="bgpink"></div>
+        <div class="bgpink hasImg" style="background-image: url('./assets/misc/orange.jpg')"></div>
         <div class="bgrose"></div>
       </div>
     </div>
+  </div>
 
-    <!-- grids  -->
-    <div class="mainStage">
+  <!-- hello -->
+  <div class="f4 grey row-middle mt3 relative font">
+    <div class="f2 absolute top0 sky" style="left: 25%; top: -20px">Hello</div>
+    I'm Spencer Kelly
+  </div>
+  <!-- picture -->
+  <div class="mainStage mv5">
+    <div></div>
+    <div class="right">
+      <img class="right w8 rounded shadow" src="./assets/full/shelf.jpg" />
+    </div>
+    <div></div>
+  </div>
+
+  <!-- 2 -->
+  <div id="grid m5" class="row">
+    <div class="h8 grow maxw10 fourGrid">
       <div></div>
-      <div class="block">
-        <div id="showAll" class="block">
-          <!-- horse grid -->
-          <div class="goldGrid mv6">
-            <div></div>
-            <div></div>
-            <div class="col2" style="background-image: url(./assets/misc/church.jpg)"></div>
-            <div class="bgpink"></div>
-            <div></div>
-            <div class="bgrose"></div>
-            <div class="relative">
-              <div class="relative bgsky h100p w50p slider" style="left: 0%" id="hidesky"></div>
-            </div>
-            <div style="background-image: url(./assets/misc/victoria-cow.jpg)"></div>
-          </div>
-
-          <!-- worried grid -->
-          <div class="goldGrid mv6">
-            <div class="col2 bgpink"></div>
-            <div></div>
-            <div></div>
-            <div style="background-image: url(./assets/misc/venus.jpg)"></div>
-            <div></div>
-            <div class="row2 bgsky"></div>
-            <div></div>
-            <div class="f2 right brown">
-              i'm<br />
-              worried
-            </div>
-          </div>
-
-          <!-- small clouds -->
-          <div class="goldGrid mv6" style="max-height: 10rem">
-            <div class=""></div>
-            <div class=""></div>
-            <div class="col2"></div>
-            <div class="bgpink"></div>
-            <div></div>
-            <div
-              class="trigger bggrey"
-              id="hide_earth"
-              style="background-image: url(./assets/misc/satellite.jpg)"
-            ></div>
-            <div></div>
-            <div class="row2"></div>
-          </div>
-
-          <!-- mushroom grid -->
-          <div class="goldGrid mv6">
-            <div></div>
-            <div id="saddam" class="col2 bgrose" style="background-image: url(./assets/misc/saddam.jpg)"></div>
-            <div class="bgpink"></div>
-            <div class="row2 bgblue"></div>
-            <div class="bgbrown" style="background-image: url(./assets/misc/mushrooms.jpg)"></div>
-            <div></div>
-            <div class="bgred"></div>
-            <div class="bgsky" style="background-image: url(./assets/misc/house.jpg)"></div>
-          </div>
-
-          <!-- computers dont work -->
-          <div class="goldGrid mv6">
-            <div></div>
-            <div class="bgpink"></div>
-            <div class="col2"></div>
-            <div class="row2 f3 m1 purple maxw6 mt1">
-              <!-- <div class="f1 grey">because</div> -->
-              <span class="sea">computers</span> <span class="navy">do not work </span
-              ><span class="nobreak f2">very well</span>
-            </div>
-            <div class="h6" style="background-image: url(./assets/misc/flood.jpg)"></div>
-            <div></div>
-            <div class="bgred"></div>
-            <div></div>
-          </div>
-
-          <!-- cement house grid -->
-          <div class="goldGrid mv6">
-            <div></div>
-            <div style="background-image: url(./assets/misc/europa.jpg)"></div>
-            <div class="row2 col2 bggrey" style="background-image: url(./assets/misc/cement-house.jpg)"></div>
-            <div></div>
-            <div style="background-image: url(./assets/misc/hay.jpg)"></div>
-            <div class="bgrose"></div>
-            <div class="bggrey"></div>
-            <div class="bgbrown"></div>
-            <div class="col-bottom sea f2">and,</div>
-          </div>
-
-          <!-- geneology grid -->
-          <div id="mess" class="goldGrid mv6">
-            <div class="bgred"></div>
-            <div class="bgbrown"></div>
-            <div class="f3 dimgrey m1">
-              <div class="nobreak">things are</div>
-              <div class="nobreak">a mess.</div>
-            </div>
-            <div class="col2 bgrose"></div>
-            <div></div>
-            <div class="row2 bgsky"></div>
-            <div
-              class="bgsky"
-              style="min-height: 1.2rem; min-width: 10rem; background-image: url(./assets/misc/grandfather.jpg)"
-            ></div>
-            <div class="bgbrown"></div>
-          </div>
-        </div>
+      <div></div>
+      <div class="trigger col2 rounded shadow" id="trigger1" style="background-image: url('./assets/misc/sawdust.jpg')">
       </div>
       <div></div>
+      <div class="bgbrown"></div>
+      <div></div>
+      <div class="bgblue clip" id="hideblue">
+        <div id="slideblue" class="slider bgred w100p h100p relative" style="left: 100%"></div>
+      </div>
+      <div class="bgsky rounded"></div>
+      <div class="row2"></div>
+      <div class="bgrose"></div>
     </div>
+  </div>
 
-    <!-- can't fix -->
-    <!-- <div class="mainStage mv5">
+  <!-- grids  -->
+  <div class="mainStage">
+    <div></div>
+    <div class="block">
+      <div id="showAll" class="block">
+        <!-- horse grid -->
+        <div class="goldGrid mv6">
+          <div></div>
+          <div></div>
+          <div class="col2" style="background-image: url(./assets/misc/church.jpg)"></div>
+          <div class="bgpink"></div>
+          <div></div>
+          <div class="bgrose"></div>
+          <div class="relative">
+            <div class="relative bgsky h100p w50p slider" style="left: 0%" id="hidesky"></div>
+          </div>
+          <div style="background-image: url(./assets/misc/victoria-cow.jpg)"></div>
+        </div>
+
+        <!-- worried grid -->
+        <div class="goldGrid mv6">
+          <div class="col2 bgpink"></div>
+          <div></div>
+          <div></div>
+          <div style="background-image: url(./assets/misc/venus.jpg)"></div>
+          <div></div>
+          <div class="row2 bgsky"></div>
+          <div></div>
+          <div class="f2 right brown">
+            i'm<br />
+            worried
+          </div>
+        </div>
+
+        <!-- small clouds -->
+        <div class="goldGrid mv6" style="max-height: 10rem">
+          <div class=""></div>
+          <div class=""></div>
+          <div class="col2"></div>
+          <div class="bgpink"></div>
+          <div></div>
+          <div class="trigger bggrey" id="hide_earth" style="background-image: url(./assets/misc/satellite.jpg)"></div>
+          <div></div>
+          <div class="row2"></div>
+        </div>
+
+        <!-- mushroom grid -->
+        <div class="goldGrid mv6">
+          <div></div>
+          <div id="saddam" class="col2 bgrose" style="background-image: url(./assets/misc/saddam.jpg)"></div>
+          <div class="bgpink"></div>
+          <div class="row2 bgblue"></div>
+          <div class="bgbrown" style="background-image: url(./assets/misc/mushrooms.jpg)"></div>
+          <div></div>
+          <div class="bgred"></div>
+          <div class="bgsky" style="background-image: url(./assets/misc/house.jpg)"></div>
+        </div>
+
+        <!-- computers dont work -->
+        <div class="goldGrid mv6">
+          <div></div>
+          <div class="bgpink"></div>
+          <div class="col2"></div>
+          <div class="row2 f3 m1 purple maxw6 mt1">
+            <!-- <div class="f1 grey">because</div> -->
+            <span class="sea">computers</span> <span class="navy">do not work </span><span class="nobreak f2">very
+              well</span>
+          </div>
+          <div class="h6" style="background-image: url(./assets/misc/flood.jpg)"></div>
+          <div></div>
+          <div class="bgred"></div>
+          <div></div>
+        </div>
+
+        <!-- cement house grid -->
+        <div class="goldGrid mv6">
+          <div></div>
+          <div style="background-image: url(./assets/misc/europa.jpg)"></div>
+          <div class="row2 col2 bggrey" style="background-image: url(./assets/misc/cement-house.jpg)"></div>
+          <div></div>
+          <div style="background-image: url(./assets/misc/hay.jpg)"></div>
+          <div class="bgrose"></div>
+          <div class="bggrey"></div>
+          <div class="bgbrown"></div>
+          <div class="col-bottom sea f2">and,</div>
+        </div>
+
+        <!-- geneology grid -->
+        <div id="mess" class="goldGrid mv6">
+          <div class="bgred"></div>
+          <div class="bgbrown"></div>
+          <div class="f3 dimgrey m1">
+            <div class="nobreak">things are</div>
+            <div class="nobreak">a mess.</div>
+          </div>
+          <div class="col2 bgrose"></div>
+          <div></div>
+          <div class="row2 bgsky"></div>
+          <div class="bgsky"
+            style="min-height: 1.2rem; min-width: 10rem; background-image: url(./assets/misc/grandfather.jpg)"></div>
+          <div class="bgbrown"></div>
+        </div>
+      </div>
+    </div>
+    <div></div>
+  </div>
+
+  <!-- can't fix -->
+  <!-- <div class="mainStage mv5">
       <div></div>
       <div class=" f3 sea mv2">
         wikipedia
@@ -263,185 +269,188 @@
       <div></div>
     </div> -->
 
-    <!-- garbage -->
-    <div class="mainStage mv6">
-      <div></div>
-      <div class="row m2 nowrap">
-        <div class="f3 right sea">
-          <div class="f1 mr2 grey">and</div>
-          software<br />
-          <a class="blue" href="http://blog.spencermounta.in/2020/should-we-stop/index.html">is in decline</a>.
-        </div>
-        <div class="">
-          <img class="rounded shadow ml1" src="./assets/full/yeast.jpg" />
-        </div>
+  <!-- garbage -->
+  <div class="mainStage mv6">
+    <div></div>
+    <div class="row m2 nowrap">
+      <div class="f3 right sea">
+        <div class="f1 mr2 grey">and</div>
+        software<br />
+        <a class="blue" href="http://blog.spencermounta.in/2020/should-we-stop/index.html">is in decline</a>.
       </div>
-      <div></div>
+      <div class="">
+        <img class="rounded shadow ml1" src="./assets/full/yeast.jpg" />
+      </div>
     </div>
+    <div></div>
+  </div>
 
-    <!-- ontario farms -->
-    <div id="farms" class="mainStage mv5">
-      <div></div>
-      <div class="row nowrap">
-        <div class="w75 relative" style="flex-grow: 1; max-width: 800px">
-          <img class="rounded shadow" src="./assets/full/fields.jpg" />
-          <div class="h1 bgpink w100p absolute center" style="bottom: 25%; opacity: 0.8"></div>
-        </div>
-        <div class="w25p grid2 h100p ml2">
-          <div class=""></div>
-          <div class=""></div>
-          <div class=""></div>
-          <div id="shrinkblue" class="trigger shrink bgsky rounded" style="width: 100%"></div>
-          <div class=""></div>
-          <div class=""></div>
-          <div class="bgred rounded"></div>
-        </div>
+  <!-- ontario farms -->
+  <div id="farms" class="mainStage mv5">
+    <div></div>
+    <div class="row nowrap">
+      <div class="w75 relative" style="flex-grow: 1; max-width: 800px">
+        <img class="rounded shadow" src="./assets/full/fields.jpg" />
+        <div class="h1 bgpink w100p absolute center" style="bottom: 25%; opacity: 0.8"></div>
       </div>
-      <div></div>
+      <div class="w25p grid2 h100p ml2">
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div id="shrinkblue" class="trigger shrink bgsky rounded" style="width: 100%"></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class="bgred rounded"></div>
+      </div>
     </div>
+    <div></div>
+  </div>
 
-    <!-- aliens -->
-    <div id="aliens" class="row-middle mv7">
-      <div class="w9 right f2 brown mr4">
-        if aliens ever land,<br />
-        we'll board their ship<br />
-        and discover that they have<br />
-        <span class="f3 navy">a better internet</span><br />
-        than we do.
-      </div>
+  <!-- aliens -->
+  <div id="aliens" class="row-middle mv7">
+    <div class="w9 right f2 brown mr4">
+      if aliens ever land,<br />
+      we'll board their ship<br />
+      and discover that they have<br />
+      <span class="f3 navy">a better internet</span><br />
+      than we do.
     </div>
+  </div>
 
-    <!-- portfolio -->
-    <div id="portfolio" class="mainStage mv6">
-      <div></div>
-      <div class="row-middle">
-        <div>
-          <a class="bold f4 purple ulblue clean" href="./portfolio">Portfolio</a> <span class="navy f2 ml1"> ➡</span>
-        </div>
-      </div>
-      <div></div>
-    </div>
-    <!-- toronto -->
-    <div id="toronto" class="mainStage mv5">
-      <div></div>
-      <div class="row">
-        <div class="f2 grow row">
-          <div class="left brown">
-            I'm from Toronto
-            <div class="f1 red">canada.</div>
-          </div>
-        </div>
-        <div class="grow left relative">
-          <img src="./assets/full/cn-tower.jpg" class="rounded w8" />
-          <img src="./assets/more/n-america-winter.jpg" class="rounded absolute w6" style="left: 200px; bottom: 0px" />
-        </div>
-      </div>
-      <div></div>
-    </div>
-    <!-- apartment -->
-    <div id="apartment" class="mainStage mv5">
-      <div></div>
-      <div class="row nowrap">
-        <div class="f2 brown grow row">
-          <div class="left"></div>
-        </div>
-        <div class="grow left row-middle nowrap">
-          <div class="">
-            <img src="./assets/full/desk.jpg" class="rounded w9" />
-          </div>
-          <div class="col-bottom h100p ml3" style="align-items: start">
-            <div>i live in a modest apartment.</div>
-            <img src="./assets/full/github.jpg" class="rounded shadow w8" />
-          </div>
-        </div>
-      </div>
-      <div></div>
-    </div>
-
-    <!-- my age-->
-    <div id="age" class="mainStage mt7">
-      <div></div>
+  <!-- portfolio -->
+  <div id="portfolio" class="mainStage mv6">
+    <div></div>
+    <div class="row-middle">
       <div>
+        <a class="bold f4 purple ulblue clean" href="./portfolio">Portfolio</a> <span class="navy f2 ml1"> ➡</span>
+      </div>
+    </div>
+    <div></div>
+  </div>
+  <!-- toronto -->
+  <div id="toronto" class="mainStage mv5">
+    <div></div>
+    <div class="row">
+      <div class="f2 grow row">
+        <div class="left brown">
+          I'm from Toronto
+          <div class="f1 red">canada.</div>
+        </div>
+      </div>
+      <div class="grow left relative">
+        <img src="./assets/full/cn-tower.jpg" class="rounded w8" />
+        <img src="./assets/more/n-america-winter.jpg" class="rounded absolute w6" style="left: 200px; bottom: 0px" />
+      </div>
+    </div>
+    <div></div>
+  </div>
+  <!-- apartment -->
+  <div id="apartment" class="mainStage mv5">
+    <div></div>
+    <div class="row nowrap">
+      <div class="f2 brown grow row">
+        <div class="left"></div>
+      </div>
+      <div class="grow left row-middle nowrap">
+        <div class="">
+          <img src="./assets/full/desk.jpg" class="rounded w9" />
+        </div>
+        <div class="col-bottom h100p ml3" style="align-items: start">
+          <div>i live in a modest apartment.</div>
+          <img src="./assets/full/github.jpg" class="rounded shadow w8" />
+        </div>
+      </div>
+    </div>
+    <div></div>
+  </div>
+
+  <!-- my age-->
+  <div id="age" class="mainStage mt7">
+    <div></div>
+    <div>
+      <div></div>
+      <div class="goldGrid ml2">
+        <div class="row2">
+          <img src="./assets/more/exhibition.jpg" class="rounded shadow" />
+        </div>
+        <div class="f2 brown col-bottom right"></div>
+        <img src="./assets/more/dufferin.jpg" class="rounded shadow w6" />
+        <div class="row2 col-bottom brown">
+          i write software
+          <div class="bgblue h08 w100p"></div>
+        </div>
         <div></div>
-        <div class="goldGrid ml2">
-          <div class="row2">
-            <img src="./assets/more/exhibition.jpg" class="rounded shadow" />
-          </div>
-          <div class="f2 brown col-bottom right"></div>
-          <img src="./assets/more/dufferin.jpg" class="rounded shadow w6" />
-          <div class="row2 col-bottom brown">
-            i write software
-            <div class="bgblue h08 w100p"></div>
-          </div>
-          <div></div>
 
-          <div></div>
-          <img src="./assets/more/statue.jpg" class="rounded shadow w6" />
-          <div class="f2 col-bottom brown left">
-            <div class="goleft ml1">I'm 33.</div>
-          </div>
-          <div id="growpink" class="trigger bgpink rounded shrink slow" style="width: 100%"></div>
-          <div class="col-middle rounded clip"></div>
+        <div></div>
+        <img src="./assets/more/statue.jpg" class="rounded shadow w6" />
+        <div class="f2 col-bottom brown left">
+          <div class="goleft ml1">I'm 37.</div>
         </div>
-        <div class="brown right maxw11 mt1" style="margin-right: 24px">
-          i don't know<br />
-          how to<br />
-          <span style="margin-right: -24px">do anything</span><br />
-          else.
+        <div id="growpink" class="trigger bgpink rounded shrink slow" style="width: 100%"></div>
+        <div class="col-middle rounded clip"></div>
+      </div>
+      <div class="brown right maxw11 mt1" style="margin-right: 24px">
+        i don't know<br />
+        how to<br />
+        <span style="margin-right: -24px">do anything</span><br />
+        else.
+      </div>
+      <div class="left maxw11 mt1 ml3">
+        <img class="rounded shadow" src="./assets/more/stadium.jpg" />
+      </div>
+    </div>
+    <div></div>
+  </div>
+
+  <!-- can't fix -->
+  <div class="mainStage">
+    <div></div>
+    <div class="left ml4"></div>
+    <div></div>
+  </div>
+  <!-- hr -->
+  <div class="mainStage mv6">
+    <div></div>
+    <div>
+      <hr />
+    </div>
+    <div></div>
+  </div>
+  <!-- contact -->
+  <div class="mainStage mv7">
+    <div></div>
+    <div class="center f3 nearblack">
+      <a href="mailto:spencermountain@gmail.com">email</a> me <br />
+      <div class="mt3 slate f2">if you want</div>
+      <div class="mt3 slate f1">i don't work hard.</div>
+    </div>
+    <div></div>
+  </div>
+
+  <div class="mb4 row">
+    <div class="grow maxw8"></div>
+    <div class="grow maxw8 p1 f2">
+      <div class="row mb2">
+        <div>
+          <a class="clean ulgreen" href="http://blog.spencermounta.in/">blog</a>
         </div>
-        <div class="left maxw11 mt1 ml3">
-          <img class="rounded shadow" src="./assets/more/stadium.jpg" />
+        <div>
+          <a class="clean ulpurple" href="http://thensome.how/">graphs</a>
         </div>
       </div>
-      <div></div>
-    </div>
-
-    <!-- can't fix -->
-    <div class="mainStage">
-      <div></div>
-      <div class="left ml4"></div>
-      <div></div>
-    </div>
-    <!-- hr -->
-    <div class="mainStage mv6">
-      <div></div>
-      <div><hr /></div>
-      <div></div>
-    </div>
-    <!-- contact -->
-    <div class="mainStage mv7">
-      <div></div>
-      <div class="center f3 nearblack">
-        <a href="mailto:spencermountain@gmail.com">email</a> me <br />
-        <div class="mt3 slate f2">if you want</div>
-        <div class="mt3 slate f1">i don't work hard.</div>
-      </div>
-      <div></div>
-    </div>
-
-    <div class="mb4 row">
-      <div class="grow maxw8"></div>
-      <div class="grow maxw8 p1 f2">
-        <div class="row mb2">
-          <div>
-            <a class="clean ulgreen" href="http://blog.spencermounta.in/">blog</a>
-          </div>
-          <div>
-            <a class="clean ulpurple" href="http://thensome.how/">graphs</a>
-          </div>
+      <div class="row">
+        <div>
+          <a class="clean ulpurple" href="http://github.com/spencermountain/">github</a>
         </div>
-        <div class="row">
-          <div>
-            <a class="clean ulpurple" href="http://github.com/spencermountain/">github</a>
-          </div>
-          <div>
-            <a class="clean ulpink" href="http://twitter.com/spencermountain">twitter</a>
-          </div>
+        <div>
+          <a class="clean ulpink" href="http://twitter.com/spencermountain">twitter</a>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- script -->
-    <script src="./assets/bundle.js"></script>
-  </body>
+  <!-- script -->
+  <script src="./assets/bundle.js"></script>
+</body>
+
 </html>
