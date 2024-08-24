@@ -1,5 +1,24 @@
 require('intersection-observer')
 const scrollama = require('scrollama')
+<<<<<<< HEAD
+const tweens = require('./tweens')
+
+// instantiate the scrollama
+const scroller = scrollama()
+
+// setup the instance, pass callback functions
+scroller
+  .setup({
+    step: '.step'
+  })
+  .onStepEnter(response => {
+    tweens.top()
+    // console.log(response)
+    // { element, index, direction }
+  })
+  .onStepExit(response => {
+    // { element, index, direction }
+=======
 
 const scroller = scrollama()
 const sideblue = document.querySelector('#slideblue')
@@ -49,6 +68,7 @@ scroller
         resp.element.style.width = '100%'
       }
     }
+>>>>>>> master
   })
 
 // setup resize event
