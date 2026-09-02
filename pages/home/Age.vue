@@ -4,6 +4,7 @@ import GoldGrid from './GoldGrid.vue'
 import Cell from './Cell.vue'
 import { useScrollTrigger } from './useScrollTrigger.js'
 
+const age = new Date().getFullYear() - 1986
 // the pink bar halves its width (slowly) once scrolled to
 const bar = ref()
 const grown = useScrollTrigger(bar)
@@ -23,7 +24,7 @@ const grown = useScrollTrigger(bar)
       <Cell />
       <img src="/img/more/statue.jpg" class="w-30 rounded-sm shadow-card" />
       <Cell class="col-bottom text-2xl text-brown">
-        <div class="ml-4 self-start">I'm 37.</div>
+        <div class="ml-4 self-start">I'm {{ age }}.</div>
       </Cell>
       <div
         ref="bar"

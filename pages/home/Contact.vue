@@ -20,12 +20,12 @@ import Stage from './Stage.vue'
       <div class="max-w-68 grow" />
       <div class="max-w-68 grow p-4 text-2xl">
         <div class="row mb-6">
-          <div><a class="clean border-green" href="http://blog.spencermounta.in/">blog</a></div>
-          <div><a class="clean border-purple" href="http://thensome.how/">graphs</a></div>
+          <div><a class="clean border-green" href="https://blog.spencermounta.in/">blog</a></div>
+          <div><a class="clean border-purple" href="https://graphs.spencermountain.dev/">graphs</a></div>
         </div>
         <div class="row">
-          <div><a class="clean border-purple" href="http://github.com/spencermountain/">github</a></div>
-          <div><a class="clean border-pink" href="http://twitter.com/spencermountain">twitter</a></div>
+          <div><a class="clean border-purple" href="https://github.com/spencermountain/">github</a></div>
+          <div><a class="clean border-pink" href="https://bsky.app/profile/spencermountain.dev">bluesky</a></div>
         </div>
       </div>
     </div>
