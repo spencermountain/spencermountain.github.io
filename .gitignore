@@ -14,3 +14,9 @@ coverage
 npm-debug.log
 
 .mp4
+
+# nuxt
+.nuxt
+.output
+.data
+dist

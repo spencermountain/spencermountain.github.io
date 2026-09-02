@@ -1,0 +1,83 @@
+@import 'tailwindcss';
+
+/* site palette (spencer-color) - mirrored in colors.js for use in scripts */
+@theme {
+  --color-*: initial;
+  --color-blue: #6699cc;
+  --color-green: #6accb2;
+  --color-yellow: #e1e6b3;
+  --color-red: #cc7066;
+  --color-pink: #f2c0bb;
+  --color-brown: #705e5c;
+  --color-orange: #cc8a66;
+  --color-purple: #d8b3e6;
+  --color-plum: #6d5685;
+  --color-navy: #335799;
+  --color-olive: #7f9c6c;
+  --color-sea: #50617a;
+  --color-sky: #2d85a8;
+  --color-night: #303b50;
+  --color-grey: #838b91;
+  --color-dimgrey: #606c74;
+  --color-lightgrey: #949a9e;
+  --color-mud: #c4abab;
+  --color-slategrey: #bfb0b3;
+  --color-light: #a3a5a5;
+  --color-lighter: #d7d5d2;
+  --color-lightest: #e5e2de;
+  --color-white: #fbfbfb;
+  --color-softblack: #463d4f;
+  --color-dark: #443d3d;
+  --color-black: #333333;
+
+  --shadow-card: 2px 2px 8px 0 rgba(0, 0, 0, 0.2);
+  --font-sans: 'Tajawal', sans-serif;
+}
+
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Tajawal'), local('Tajawal-Regular'), url(/fonts/tajawal.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC,
+    U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@layer base {
+  html {
+    font-size: 16px;
+  }
+  /* links are blue and underlined; the underline turns red on hover */
+  a {
+    @apply text-blue underline hover:decoration-red;
+  }
+  /* the portfolio page uses a bottom-border on hover instead */
+  .portfolio a {
+    @apply no-underline hover:border-b-2 hover:border-blue;
+  }
+}
+
+/* flexbox helpers, with the same semantics as spencer-color's row/col classes */
+@utility row {
+  @apply flex flex-row flex-wrap items-center justify-around self-stretch text-center;
+}
+@utility row-left {
+  @apply flex flex-row flex-wrap items-center justify-start self-stretch text-center;
+}
+@utility row-middle {
+  @apply flex flex-row flex-wrap items-center justify-center self-stretch text-center;
+}
+@utility row-right {
+  @apply flex flex-row flex-wrap items-center justify-end self-stretch text-center;
+}
+@utility col {
+  @apply flex w-full flex-col flex-wrap items-center justify-around text-left;
+}
+@utility col-bottom {
+  @apply flex w-full flex-col flex-wrap items-center justify-end text-left;
+}
+/* link with a 2px coloured rule under it that thickens on hover. pair with a border-* colour */
+@utility clean {
+  @apply border-b-2 no-underline hover:border-b-[3px];
+}
