@@ -72,7 +72,6 @@ import Img from '../lib/Img.vue'
         </div>
       </div>
       <div class="row items-start justify-end text-right">
-        <Img src="/img/2022/baby.jpg" width="100px" />
         <Img src="/img/2022/swirl.jpg" width="300px" />
       </div>
     </Year>
