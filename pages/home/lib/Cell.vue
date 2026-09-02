@@ -1,6 +1,6 @@
 <script setup>
 import colors from '~/assets/colors.js'
-import { misc } from './config.js'
+const misc = (name) => `/img/misc/${name}.jpg` // small collage images
 
 // one tile of a grid. wide = 2 columns, tall = 2 rows. img is a name from /img/misc
 const props = defineProps({ bg: String, img: String, wide: Boolean, tall: Boolean })

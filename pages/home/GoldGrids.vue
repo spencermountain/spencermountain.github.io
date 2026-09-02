@@ -1,9 +1,10 @@
 <script setup>
-import Stage from './Stage.vue'
-import GoldGrid from './GoldGrid.vue'
-import Cell from './Cell.vue'
-import { useScrollTrigger } from './useScrollTrigger.js'
-import { swapDelay } from './config.js'
+import Stage from './lib/Stage.vue'
+import GoldGrid from './lib/GoldGrid.vue'
+import Cell from './lib/Cell.vue'
+import { useScrollTrigger } from './lib/useScrollTrigger.js'
+
+const swapDelay = 500 // ms before the tall tile follows the satellite tile's image swap
 
 defineProps({ sawdust: Boolean }) // set by the sawdust grid above
 // the satellite tile swaps to hay, and the tall tile in the next grid follows a beat later

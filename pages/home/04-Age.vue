@@ -1,8 +1,8 @@
 <script setup>
-import Stage from './Stage.vue'
-import GoldGrid from './GoldGrid.vue'
-import Cell from './Cell.vue'
-import { useScrollTrigger } from './useScrollTrigger.js'
+import Stage from './lib/Stage.vue'
+import GoldGrid from './lib/GoldGrid.vue'
+import Cell from './lib/Cell.vue'
+import { useScrollTrigger } from './lib/useScrollTrigger.js'
 
 const age = new Date().getFullYear() - 1986
 // the pink bar halves its width (slowly) once scrolled to

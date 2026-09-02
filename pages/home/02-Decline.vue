@@ -1,6 +1,6 @@
 <script setup>
-import Stage from './Stage.vue'
-import { useScrollTrigger } from './useScrollTrigger.js'
+import Stage from './lib/Stage.vue'
+import { useScrollTrigger } from './lib/useScrollTrigger.js'
 
 // the sky bar beside the fields halves its width once scrolled to
 const bar = ref()

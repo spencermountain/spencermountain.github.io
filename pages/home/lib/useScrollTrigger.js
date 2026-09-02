@@ -1,5 +1,5 @@
 import { ref, onMounted, onUnmounted } from 'vue'
-import { triggerOffset } from './config.js'
+export const triggerOffset = 0.5 // where scroll-triggers fire, as a fraction of the viewport height
 
 // true once `el` scrolls up past a line at `offset` of the viewport, false again when it scrolls back below.
 // pass your own ref (eg. a v-model) as `state` to write into it

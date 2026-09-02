@@ -1,7 +1,7 @@
 <script setup>
-import FourGrid from './FourGrid.vue'
-import Cell from './Cell.vue'
-import Stage from './Stage.vue'
+import FourGrid from './lib/FourGrid.vue'
+import Cell from './lib/Cell.vue'
+import Stage from './lib/Stage.vue'
 </script>
 
 <template>

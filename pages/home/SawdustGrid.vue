@@ -1,7 +1,7 @@
 <script setup>
-import FourGrid from './FourGrid.vue'
-import Cell from './Cell.vue'
-import { useScrollTrigger } from './useScrollTrigger.js'
+import FourGrid from './lib/FourGrid.vue'
+import Cell from './lib/Cell.vue'
+import { useScrollTrigger } from './lib/useScrollTrigger.js'
 
 // v-model: true while the sawdust tile is scrolled past the trigger line
 const active = defineModel({ default: false })

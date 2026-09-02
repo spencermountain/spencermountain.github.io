@@ -1,5 +1,5 @@
 <script setup>
-import Stage from './Stage.vue'
+import Stage from './lib/Stage.vue'
 </script>
 
 <template>
