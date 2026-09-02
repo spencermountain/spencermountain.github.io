@@ -1,7 +1,7 @@
 <script setup>
-import Main from '../Main.vue'
-import Year from '../Year.vue'
-import Img from '../Img.vue'
+import Main from '../lib/Main.vue'
+import Year from '../lib/Year.vue'
+import Img from '../lib/Img.vue'
 </script>
 
 <template>

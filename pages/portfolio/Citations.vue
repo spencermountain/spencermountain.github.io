@@ -1,6 +1,6 @@
 <script setup>
-import Main from './Main.vue'
-import Dot from './Dot.vue'
+import Main from './lib/Main.vue'
+import Dot from './lib/Dot.vue'
 import citations from './citations.js'
 </script>
 
