@@ -61,13 +61,13 @@ const background = makeTexture('grid', '#f1f1f1', 12)
       <div>timeline</div>
     </div>
 
-    <div class="mx-auto mt-20 w-[94%] max-w-6xl" :style="background">
+    <div class="mx-auto mt-20 w-[94%] max-w-6xl !border-2-slate-200 px-5 py-1 rounded-sm shadow-sm" :style="background">
       <!-- plot area - everything is bottom-anchored and positioned in % of the date-range -->
       <div class="relative" :style="{ height: plotH + 'px' }">
         <div
           v-for="m in markers"
           :key="m.title"
-          class="absolute top-0"
+          class="absolute top-20"
           :style="{ left: m.left + '%', bottom: rowH + rowGap + 'px' }"
         >
           <div
@@ -103,17 +103,17 @@ const background = makeTexture('grid', '#f1f1f1', 12)
       </div>
 
       <!-- x-axis: baseline, subtle yearly ticks, labels every few years -->
-      <div class="relative h-10 border-t border-light text-[0.65rem] text-dimgrey sm:text-base">
+      <div class="relative h-10 mt-2 border-t border-[#cbd5e1] text-[0.65rem] text-dimgrey sm:text-base">
         <div
           v-for="y in yearTicks"
           :key="y.epoch"
-          class="absolute top-0 h-[6px] w-px bg-light"
+          class="absolute top-0 h-[4px] w-px bg-light"
           :style="{ left: pct(y.epoch) + '%' }"
         ></div>
         <div
           v-for="t in labels"
           :key="t.epoch"
-          class="absolute top-3 -translate-x-1/2"
+          class="absolute top-2 -translate-x-1/2"
           :style="{ left: pct(t.epoch) + '%' }"
         >
           {{ t.label }}

@@ -20,6 +20,7 @@ const jobs = [
     height: '50%',
     labelPosition: 'above',
     color: 'yellow',
+    nudgeX: 10,
     row: 1
   },
   {
@@ -50,7 +51,7 @@ const jobs = [
     detail: 'Identifying patterns and anomalies in legal documents',
     labelPosition: 'above',
     color: '#CA7165',
-    nudgeX: -10,
+    nudgeX: -22,
     row: 2
   },
   {
