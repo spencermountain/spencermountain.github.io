@@ -56,18 +56,18 @@ const background = makeTexture('grid', '#f1f1f1', 12)
 <template>
   <div class="min-h-screen overflow-x-hidden bg-white pt-5 font-serif text-[#4d4d4d]">
     <!-- tiny header: back to the portfolio -->
-    <div class="row justify-start font-mono text-[0.65rem] italic">
+    <!-- <div class="row justify-start font-mono text-[0.65rem] italic">
       <NuxtLink to="/portfolio" class="border-b border-transparent">〱&nbsp;</NuxtLink>
       <div>timeline</div>
-    </div>
+    </div> -->
 
-    <div class="mx-auto mt-20 w-[94%] max-w-6xl !border-2-slate-200 px-5 py-1 rounded-sm shadow-sm" :style="background">
+    <div class="mx-auto mt-10 w-[94%] max-w-6xl !border-2-slate-200 px-5 py-1 rounded-sm shadow-sm" :style="background">
       <!-- plot area - everything is bottom-anchored and positioned in % of the date-range -->
       <div class="relative" :style="{ height: plotH + 'px' }">
         <div
           v-for="m in markers"
           :key="m.title"
-          class="absolute top-20"
+          class="absolute top-32"
           :style="{ left: m.left + '%', bottom: rowH + rowGap + 'px' }"
         >
           <div
@@ -95,7 +95,7 @@ const background = makeTexture('grid', '#f1f1f1', 12)
           </div>
           <div
             v-else
-            class="row-middle h-full overflow-hidden whitespace-nowrap text-[0.65rem] text-white sm:text-[0.75rem]"
+            class="row-middle h-full overflow-hidden whitespace-nowrap text-[0.65rem] text-white sm:text-[0.80rem]"
           >
             {{ b.label }}
           </div>

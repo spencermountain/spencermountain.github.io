@@ -3,7 +3,7 @@
 const jobs = [
   {
     label: '',
-    start: 'Nov 2004',
+    start: 'Sep 2006', //truncated
     end: 'June 2008',
     description: 'University',
     detail: '',
@@ -51,7 +51,7 @@ const jobs = [
     detail: 'Identifying patterns and anomalies in legal documents',
     labelPosition: 'above',
     color: '#CA7165',
-    nudgeX: -22,
+    nudgeX: -28,
     row: 2
   },
   {
@@ -81,7 +81,7 @@ const jobs = [
     description: 'Infographics studio',
     detail: 'Custom web infographics for corporate clients',
     labelPosition: 'above',
-    nudgeX: -15,
+    nudgeX: -17,
     color: 'yellow',
     row: 3
   },
@@ -126,9 +126,19 @@ const jobs = [
     row: 3
   },
   {
+    label: 'MBI',
+    start: 'April 2023',
+    end: 'March 2024',
+    description: 'NHS medical text analysis',
+    detail: 'TDD test-suite, for critical production QA',
+    labelPosition: 'inline',
+    color: 'plum',
+    row: 2
+  },
+  {
     label: 'City of Toronto',
     start: 'March 2024',
-    end: 'Aug 2026',
+    end: 'Oct 2026',
     description: 'Transportation analytics',
     detail: 'Visualization of traffic volumes and collisions',
     labelPosition: 'inline',

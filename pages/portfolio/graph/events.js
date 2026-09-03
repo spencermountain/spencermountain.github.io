@@ -6,7 +6,7 @@ const events = [
   {
     title: 'Grad School',
     date: 'Sep 2010',
-    nudgeY: -10
+    nudgeY: -15
   }
 ]
 
