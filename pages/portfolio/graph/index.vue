@@ -10,7 +10,7 @@ useHead({ title: 'timeline' })
 // -- tunable layout --
 const rowH = 46 // bar height, px
 const rowGap = 10 // vertical space between rows, px
-const topRoom = 110 // space above the bars, for event labels
+const topRoom = 45 // space above the bars, for event labels
 const tickCount = 6 // rough number of x-axis labels
 
 // date-scale: spacetime epochs, mapped 0-100% across the chart
@@ -28,8 +28,7 @@ const bars = jobs.map((j) => ({
   width: pct(epoch(j.end)) - pct(epoch(j.start)),
   bottom: ((j.row || 1) - 1) * (rowH + rowGap),
   barH: rowH * (parseInt(j.height) / 100 || 1), // height: '50%' makes a half-size bar
-  bg: colors[j.color] || j.color || colors.grey,
-  tip: [j.description, j.detail].filter(Boolean).join(' — ')
+  bg: colors[j.color] || j.color || colors.grey
 }))
 
 // point-in-time markers: a label with a thin line down to the bottom row
@@ -51,6 +50,9 @@ while (cur.epoch < max) {
 const labels = yearTicks.filter((t, i) => i % step === 0)
 
 const background = makeTexture('grid', '#f1f1f1', 12)
+
+// bar under the mouse - its label/description/detail show below the chart
+const hovered = ref(null)
 </script>
 
 <template>
@@ -60,18 +62,30 @@ const background = makeTexture('grid', '#f1f1f1', 12)
       <NuxtLink to="/portfolio" class="border-b border-transparent">〱&nbsp;</NuxtLink>
       <div>timeline</div>
     </div> -->
+    <!-- hover details: label, description, detail of the hovered bar -->
+    <div class="row-right mr-8 h-10 gap-x-3 overflow-hidden whitespace-nowrap text-[0.8rem] text-dimgrey">
+      <template v-if="hovered">
+        <div class="h-3 w-3 rounded-full" :style="{ background: hovered.bg }"></div>
+        <!-- <div class="font-bold text-[#4d4d4d]">{{ hovered.label }}</div> -->
+        <div class="font-bold text-[#4d4d4d]" v-if="hovered.description">{{ hovered.description }}</div>
+        <div v-if="hovered.detail" class="italic text-lightgrey">{{ hovered.detail }}</div>
+      </template>
+    </div>
 
-    <div class="mx-auto mt-10 w-[94%] max-w-6xl !border-2-slate-200 px-5 py-1 rounded-sm shadow-sm" :style="background">
+    <div
+      class="@container mx-auto w-[94%] max-w-6xl !border-2-slate-200 px-5 py-1 rounded-sm shadow-sm"
+      :style="background"
+    >
       <!-- plot area - everything is bottom-anchored and positioned in % of the date-range -->
       <div class="relative" :style="{ height: plotH + 'px' }">
         <div
           v-for="m in markers"
           :key="m.title"
-          class="absolute top-32"
+          class="absolute top-20"
           :style="{ left: m.left + '%', bottom: rowH + rowGap + 'px' }"
         >
           <div
-            class="absolute whitespace-nowrap text-[0.75rem] text-dimgrey sm:text-[0.75rem]"
+            class="absolute whitespace-nowrap text-[0.75rem] text-dimgrey @max-[400px]:hidden sm:text-[0.75rem]"
             :style="{ transform: nudge(m, true) }"
           >
             {{ m.title }}
@@ -82,20 +96,21 @@ const background = makeTexture('grid', '#f1f1f1', 12)
         <div
           v-for="b in bars"
           :key="b.label + b.start"
-          class="absolute rounded-md shadow-card"
-          :title="b.tip"
+          class="absolute rounded-md shadow-card cursor-pointer border-2 border-transparent hover:shadow-lg hover:border-slate-500! transition-shadow"
           :style="{ left: b.left + '%', width: b.width + '%', bottom: b.bottom + 'px', height: b.barH + 'px', background: b.bg }"
+          @mouseenter="hovered = b"
+          @mouseleave="hovered = null"
         >
           <div
             v-if="b.labelPosition === 'above'"
-            class="absolute bottom-full left-0 z-10 mb-1 whitespace-nowrap text-[0.65rem] italic text-dimgrey sm:text-[0.75rem]"
+            class="absolute bottom-full left-0 z-10 mb-1 whitespace-nowrap text-[0.65rem] italic text-dimgrey @max-[400px]:hidden sm:text-[0.75rem]"
             :style="{ transform: nudge(b) }"
           >
             {{ b.label }}
           </div>
           <div
             v-else
-            class="row-middle h-full overflow-hidden whitespace-nowrap text-[0.65rem] text-white sm:text-[0.80rem]"
+            class="row-middle h-full overflow-hidden whitespace-nowrap text-[0.65rem] text-white @max-[400px]:hidden sm:text-[0.80rem]"
           >
             {{ b.label }}
           </div>
@@ -120,5 +135,6 @@ const background = makeTexture('grid', '#f1f1f1', 12)
         </div>
       </div>
     </div>
+
   </div>
 </template>

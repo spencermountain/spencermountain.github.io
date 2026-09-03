@@ -13,6 +13,7 @@ import Y2012 from './years/2012.vue'
 import Y2011 from './years/2011.vue'
 import Y2010 from './years/2010.vue'
 import Citations from './Citations.vue'
+import Graph from './graph/index.vue'
 
 useHead({ title: '•' })
 </script>
@@ -40,5 +41,6 @@ useHead({ title: '•' })
     <Y2010 />
     <Citations />
     <div class="h-16" />
+    <Graph />
   </div>
 </template>
