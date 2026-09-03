@@ -3,6 +3,7 @@ import spacetime from 'spacetime'
 import colors from '../../../assets/colors.js'
 import jobs from './jobs.js'
 import events from './events.js'
+import makeTexture from './textures.js'
 
 useHead({ title: 'timeline' })
 
@@ -34,27 +35,33 @@ const bars = jobs.map((j) => ({
 // point-in-time markers: a label with a thin line down to the bottom row
 const markers = events.map((e) => ({ ...e, left: pct(epoch(e.date)) }))
 
-// year labels along the bottom: evenly-stepped january 1sts, spacetime-ticks style
+// 'nudgeX'/'nudgeY' shift a label by a few px, for hand-tuning collisions
+const nudge = (o, center) => `translate(calc(${center ? '-50%' : '0px'} + ${o.nudgeX || 0}px), ${o.nudgeY || 0}px)`
+
+// x-axis: a tick at every january 1st, with labels every few years
 const years = spacetime(max).year() - spacetime(min).year()
 const step = Math.max(1, Math.ceil(years / tickCount))
+const yearTicks = []
 let cur = spacetime(min).startOf('year')
 if (cur.epoch < min) cur = cur.add(1, 'year')
-const ticks = []
 while (cur.epoch < max) {
-  ticks.push({ label: String(cur.year()), epoch: cur.epoch })
-  cur = cur.add(step, 'year')
+  yearTicks.push({ label: String(cur.year()), epoch: cur.epoch })
+  cur = cur.add(1, 'year')
 }
+const labels = yearTicks.filter((t, i) => i % step === 0)
+
+const background = makeTexture('grid', '#f1f1f1', 12)
 </script>
 
 <template>
   <div class="min-h-screen overflow-x-hidden bg-white pt-5 font-serif text-[#4d4d4d]">
     <!-- tiny header: back to the portfolio -->
-    <div class="row justify-start font-mono text-[0.8rem] italic">
+    <div class="row justify-start font-mono text-[0.65rem] italic">
       <NuxtLink to="/portfolio" class="border-b border-transparent">〱&nbsp;</NuxtLink>
       <div>timeline</div>
     </div>
 
-    <div class="mx-auto mt-20 w-[94%] max-w-6xl">
+    <div class="mx-auto mt-20 w-[94%] max-w-6xl" :style="background">
       <!-- plot area - everything is bottom-anchored and positioned in % of the date-range -->
       <div class="relative" :style="{ height: plotH + 'px' }">
         <div
@@ -63,7 +70,12 @@ while (cur.epoch < max) {
           class="absolute top-0"
           :style="{ left: m.left + '%', bottom: rowH + rowGap + 'px' }"
         >
-          <div class="absolute -translate-x-1/2 whitespace-nowrap text-[1.05rem] text-dimgrey">{{ m.title }}</div>
+          <div
+            class="absolute whitespace-nowrap text-[0.75rem] text-dimgrey sm:text-[0.75rem]"
+            :style="{ transform: nudge(m, true) }"
+          >
+            {{ m.title }}
+          </div>
           <div class="absolute top-9 bottom-0 w-px bg-lightgrey"></div>
         </div>
 
@@ -74,16 +86,36 @@ while (cur.epoch < max) {
           :title="b.tip"
           :style="{ left: b.left + '%', width: b.width + '%', bottom: b.bottom + 'px', height: b.barH + 'px', background: b.bg }"
         >
-          <div v-if="b.labelPosition === 'above'" class="absolute bottom-full left-0 mb-1 whitespace-nowrap italic text-dimgrey">
+          <div
+            v-if="b.labelPosition === 'above'"
+            class="absolute bottom-full left-0 z-10 mb-1 whitespace-nowrap text-[0.65rem] italic text-dimgrey sm:text-[0.75rem]"
+            :style="{ transform: nudge(b) }"
+          >
             {{ b.label }}
           </div>
-          <div v-else class="row-middle h-full overflow-hidden whitespace-nowrap text-[1.05rem] text-white">{{ b.label }}</div>
+          <div
+            v-else
+            class="row-middle h-full overflow-hidden whitespace-nowrap text-[0.65rem] text-white sm:text-[0.75rem]"
+          >
+            {{ b.label }}
+          </div>
         </div>
       </div>
 
-      <!-- x-axis year labels -->
-      <div class="relative mt-3 h-8 text-dimgrey">
-        <div v-for="t in ticks" :key="t.epoch" class="absolute -translate-x-1/2" :style="{ left: pct(t.epoch) + '%' }">
+      <!-- x-axis: baseline, subtle yearly ticks, labels every few years -->
+      <div class="relative h-10 border-t border-light text-[0.65rem] text-dimgrey sm:text-base">
+        <div
+          v-for="y in yearTicks"
+          :key="y.epoch"
+          class="absolute top-0 h-[6px] w-px bg-light"
+          :style="{ left: pct(y.epoch) + '%' }"
+        ></div>
+        <div
+          v-for="t in labels"
+          :key="t.epoch"
+          class="absolute top-3 -translate-x-1/2"
+          :style="{ left: pct(t.epoch) + '%' }"
+        >
           {{ t.label }}
         </div>
       </div>
